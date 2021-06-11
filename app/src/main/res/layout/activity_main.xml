@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        style="@style/widget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/current_info" />
+
+    <TextView
+        android:id="@+id/stickerDirStatus"
+        style="@style/widget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/chooseStickerDir"
+        style="@style/widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="chooseDir"
+        android:text="@string/choose_dir" />
+
+    <View
+        style="@style/widget"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/backButtonToggle"
+        style="@style/widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/show_back_button" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/disableAnimations"
+        style="@style/widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/disable_animations" />
+
+    <LinearLayout
+        style="@style/widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/icons_per_row_status" />
+
+        <TextView
+            android:id="@+id/iconsPerRowValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/iconsPerRowSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:min="1"
+            android:progress="4" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/icon_size_status" />
+
+        <TextView
+            android:id="@+id/iconSizeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <SeekBar
+            android:id="@+id/iconSizeSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="32"
+            android:min="8"
+            android:progress="16" />
+
+    </LinearLayout>
+
+    <View
+        style="@style/widget"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        style="@style/widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="@string/github" />
+
+
+</LinearLayout>
+

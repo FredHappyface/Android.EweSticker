@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WhooSticker</string>
+    <string name="github">This is an early version of WhooSticker available at https://github.com/FredHappyface/Android.WhooSticker
+
+        Checkout woosticker (upstream) on GitHub: https://github.com/rzhou1999/woosticker</string>
+    <string name="choose_dir">Choose a new sticker source directory</string>
+    <string name="current_info">Current loaded sticker information: </string>
+    <string name="show_back_button">Show back button in navbar?</string>
+    <string name="disable_animations">Disable Animations?</string>
+    <string name="icons_per_row_status">Icons per row: </string>
+    <string name="icon_size_status">Icon size: </string>
+    <string name="pack_icon">Pack icon</string>
+    <string name="sticker_icon">Sticker icon</string>
+</resources>
