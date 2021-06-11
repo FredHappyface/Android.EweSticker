@@ -1,4 +1,4 @@
-package com.fredhappyface.whoosticker
+package com.fredhappyface.ewesticker
 
 import android.content.ClipDescription
 import android.content.SharedPreferences
@@ -324,6 +324,6 @@ class ImageKeyboard : InputMethodService() {
 
 	companion object {
 		// Constants
-		private const val AUTHORITY = "com.fredhappyface.whoosticker.inputcontent"
+		private const val AUTHORITY = "com.fredhappyface.ewesticker.inputcontent"
 	}
 }

@@ -1,4 +1,4 @@
-package com.fredhappyface.whoosticker
+package com.fredhappyface.ewesticker
 
 import android.content.Intent
 import android.content.SharedPreferences
@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity() {
 	lateinit var sharedPreferences: SharedPreferences
 
 	/**
-	 * For each sticker, check if it is in a compatible file format with WhooSticker
+	 * For each sticker, check if it is in a compatible file format with EweSticker
 	 *
-	 * @param sticker sticker to check compatibility with WhooSticker for
+	 * @param sticker sticker to check compatibility with EweSticker for
 	 * @return true if supported image type
 	 */
 	private fun canImportSticker(sticker: DocumentFile): Boolean {

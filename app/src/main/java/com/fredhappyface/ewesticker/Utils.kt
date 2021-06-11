@@ -1,7 +1,7 @@
-package com.fredhappyface.whoosticker
+package com.fredhappyface.ewesticker
 
 /**
- * Class to provide utils that are shared across whoosticker.
+ * Class to provide utils that are shared across ewesticker.
  */
 object Utils {
 	/**
@@ -21,7 +21,7 @@ object Utils {
 	 * Needs to create a new HashMap on every call because shallow copies will cause issues between
 	 * different input areas that support different media types.
 	 *
-	 * @return HashMap of whoosticker-supported mimes. Keys are "." inclusive.
+	 * @return HashMap of ewesticker-supported mimes. Keys are "." inclusive.
 	 */
 	fun getSupportedMimes(): MutableMap<String, String> {
 		return mutableMapOf(

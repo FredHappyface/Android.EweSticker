@@ -1,12 +1,12 @@
-[![GitHub top language](https://img.shields.io/github/languages/top/FredHappyface/Android.WhooSticker.svg?style=for-the-badge)](../../)
-[![Repository size](https://img.shields.io/github/repo-size/FredHappyface/Android.WhooSticker.svg?style=for-the-badge)](../../)
-[![Issues](https://img.shields.io/github/issues/FredHappyface/Android.WhooSticker.svg?style=for-the-badge)](../../issues)
-[![License](https://img.shields.io/github/license/FredHappyface/Android.WhooSticker.svg?style=for-the-badge)](/LICENSE.md)
-[![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Android.WhooSticker.svg?style=for-the-badge)](../../commits/master)
-[![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Android.WhooSticker.svg?style=for-the-badge)](../../commits/master)
+[![GitHub top language](https://img.shields.io/github/languages/top/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../)
+[![Repository size](https://img.shields.io/github/repo-size/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../)
+[![Issues](https://img.shields.io/github/issues/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../issues)
+[![License](https://img.shields.io/github/license/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](/LICENSE.md)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../commits/master)
+[![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../commits/master)
 
 <!-- omit in toc -->
-# Android.WhooSticker
+# Android.EweSticker
 
 <img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
 
@@ -103,7 +103,7 @@ select the preferred version.
 clone to
 4. Type 'git clone' followed by URL in step 2
 ```bash
-$ git clone https://github.com/FHPythonUtils/Android.WhooSticker
+$ git clone https://github.com/FHPythonUtils/Android.EweSticker
 ```
 
 More information can be found at

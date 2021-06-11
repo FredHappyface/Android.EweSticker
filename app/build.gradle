@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.fredhappyface.whoosticker"
+        applicationId "com.fredhappyface.ewesticker"
         minSdkVersion 28
         targetSdkVersion 30
         versionCode 1

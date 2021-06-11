@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">WhooSticker</string>
-    <string name="github">This is an early version of WhooSticker available at https://github.com/FredHappyface/Android.WhooSticker
+    <string name="app_name">EweSticker</string>
+    <string name="github">This is an early version of EweSticker available at https://github.com/FredHappyface/Android.EweSticker
 
         Checkout woosticker (upstream) on GitHub: https://github.com/rzhou1999/woosticker</string>
     <string name="choose_dir">Choose a new sticker source directory</string>

@@ -1,4 +1,4 @@
-package com.fredhappyface.whoosticker
+package com.fredhappyface.ewesticker
 
 import org.junit.Test
 
