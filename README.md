@@ -14,6 +14,8 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 
 
 - [Features](#features)
+- [Screenshots](#screenshots)
+- [How to use](#how-to-use)
 - [Language Information](#language-information)
 	- [Kotlin and Android Version](#kotlin-and-android-version)
 		- [Download Android Studio](#download-android-studio)
@@ -33,8 +35,6 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 	- [Security](#security)
 	- [Support](#support)
 	- [Rationale](#rationale)
-- [Screenshots](#screenshots)
-	- [Mobile](#mobile)
 
 ## Features
 
@@ -43,6 +43,19 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 - Select the keyboard
 - Send stickers in supported apps (.png is used as a fallback)
 - Ties in with the system theme
+
+
+## Screenshots
+
+|Screenshots                                                                                 |                                                                                            |
+|:-:                                                                                         |:-:                                                                                         |
+|<img src="metadata/en-US/images/phoneScreenshots/screenshot-1.png" alt="Screenshot 1" width="300">|<img src="metadata/en-US/images/phoneScreenshots/screenshot-2.png" alt="Screenshot 2" width="300">|
+|<img src="metadata/en-US/images/phoneScreenshots/screenshot-3.png" alt="Screenshot 3" width="300">|<img src="metadata/en-US/images/phoneScreenshots/screenshot-4.png" alt="Screenshot 4" width="300">|
+|<img src="metadata/en-US/images/phoneScreenshots/screenshot-5.png" alt="Screenshot 5" width="300">|<img src="metadata/en-US/images/phoneScreenshots/screenshot-6.png" alt="Screenshot 6" width="300">|
+
+## How to use
+See the [Tutorial](/TUTORIAL.md) for more information.
+
 
 ## Language Information
 
@@ -162,11 +175,3 @@ The rationale acts as a guide to various processes regarding projects such as
 the versioning scheme and the programming styles used. Please see the
 [Rationale](https://github.com/FHPythonUtils/.github/blob/master/RATIONALE.md)
 for more information.
-## Screenshots
-
-### Mobile
-|Screenshots                                                                                 |                                                                                            |
-|:-:                                                                                         |:-:                                                                                         |
-|<img src="metadata/en-US/images/phoneScreenshots/screenshot-1.png" alt="Screenshot 1" width="300">|<img src="metadata/en-US/images/phoneScreenshots/screenshot-2.png" alt="Screenshot 2" width="300">|
-|<img src="metadata/en-US/images/phoneScreenshots/screenshot-3.png" alt="Screenshot 3" width="300">|<img src="metadata/en-US/images/phoneScreenshots/screenshot-4.png" alt="Screenshot 4" width="300">|
-|<img src="metadata/en-US/images/phoneScreenshots/screenshot-5.png" alt="Screenshot 5" width="300">|<img src="metadata/en-US/images/phoneScreenshots/screenshot-6.png" alt="Screenshot 6" width="300">|
