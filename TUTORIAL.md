@@ -17,10 +17,10 @@ The sticker directory has the following structure:
 /root
      /sticker-pack-name-1
                          /sticker-1
-						 /sticker-2
+                         /sticker-2
      /sticker-pack-name-2
                          /sticker-1
-						 /sticker-2
+                         /sticker-2
 ```
 
 Then transfer this to your phone/ device. Plugging this into a PC is a pretty
