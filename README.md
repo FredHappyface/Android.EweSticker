@@ -80,10 +80,26 @@ Android SDK. Additional information can be found at
 (Android studio defaults to the directory of the last opened file)
 
 <!--
+### Get it on F-Droid
+1. Open the F-Droid app
+2. Search for EweSticker
+
+**Or**
+
+[<img src="readme-assets/badges/f-droid-download.png"
+alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.fredhappyface.EweSticker/)
+
+Follow the link to the listing on F-Droid by clicking on the badge above,
+then download/ install
+-->
+
+<!--
 ### Get it on Google Play
 1. Open the Google Play app
-2. Search for Brainf
+2. Search for EweSticker
+
 **Or**
+
 [<img src="readme-assets/badges/google-play-download.png"
 alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/)
 
@@ -116,7 +132,7 @@ select the preferred version.
 clone to
 4. Type 'git clone' followed by URL in step 2
 ```bash
-$ git clone https://github.com/FHPythonUtils/Android.EweSticker
+$ git clone https://github.com/FredHappyface/Android.EweSticker
 ```
 
 More information can be found at
@@ -150,28 +166,28 @@ See the [Changelog](/CHANGELOG.md) for more information.
 Online communities include people from many backgrounds. The *Project*
 contributors are committed to providing a friendly, safe and welcoming
 environment for all. Please see the
-[Code of Conduct](https://github.com/FHPythonUtils/.github/blob/master/CODE_OF_CONDUCT.md)
+[Code of Conduct](https://github.com/FredHappyface/.github/blob/master/CODE_OF_CONDUCT.md)
  for more information.
 
 ### Contributing
 Contributions are welcome, please see the
-[Contributing Guidelines](https://github.com/FHPythonUtils/.github/blob/master/CONTRIBUTING.md)
+[Contributing Guidelines](https://github.com/FredHappyface/.github/blob/master/CONTRIBUTING.md)
 for more information.
 
 ### Security
 Thank you for improving the security of the project, please see the
-[Security Policy](https://github.com/FHPythonUtils/.github/blob/master/SECURITY.md)
+[Security Policy](https://github.com/FredHappyface/.github/blob/master/SECURITY.md)
 for more information.
 
 ### Support
 Thank you for using this project, I hope it is of use to you. Please be aware that
 those involved with the project often do so for fun along with other commitments
 (such as work, family, etc). Please see the
-[Support Policy](https://github.com/FHPythonUtils/.github/blob/master/SUPPORT.md)
+[Support Policy](https://github.com/FredHappyface/.github/blob/master/SUPPORT.md)
 for more information.
 
 ### Rationale
 The rationale acts as a guide to various processes regarding projects such as
 the versioning scheme and the programming styles used. Please see the
-[Rationale](https://github.com/FHPythonUtils/.github/blob/master/RATIONALE.md)
+[Rationale](https://github.com/FredHappyface/.github/blob/master/RATIONALE.md)
 for more information.
