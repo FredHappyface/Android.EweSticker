@@ -1,0 +1,10 @@
+## 20210612 - 2021/06/12
+- Changes from upstream:
+  - Merged `ui-update`, `feature_distributed_apks`, `fallback`. Providing a fresher
+  	ui and the ability to send a fallback sticker for unsupported formats.
+  - Converted to Kotlin
+  - Provided fastlane metadata for fdroid
+  - Provided tutorial (TUTORIAL.md)
+  - Cleaned up assets and codebase
+  - Changed package name to `com.fredhappyface.ewesticker`
+  - Changed app icon
