@@ -1,9 +1,6 @@
 <resources>
 
     <!-- Base application theme. -->
-
-
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimaryVariant">@color/accent</item>
@@ -20,6 +17,7 @@
         <item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
         <item name="actionBarStyle">@style/AppBarBackground</item>
         <item name="actionBarTheme">@style/AppBarText</item>
+        <item name="android:fontFamily">@font/firasans_nf</item>
     </style>
 
     <style name="OverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
@@ -35,10 +33,40 @@
     </style>
 
 
-
-
     <style name="widget">
-        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginHorizontal">@dimen/content_margin</item>
+        <item name="android:layout_marginVertical">@dimen/content_margin_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="body_text" parent="widget">
+        <item name="android:textSize">@dimen/text_size_body</item>
+    </style>
+
+    <style name="div" parent="widget">
+        <item name="android:layout_marginTop">@dimen/zero</item>
+    </style>
+
+    <style name="sub_heading" parent="widget">
+        <item name="android:textColor">@color/accent</item>
+        <item name="android:textSize">@dimen/text_size_h2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginTop">@dimen/content_margin</item>
+        <item name="android:layout_marginBottom">@dimen/zero</item>
+    </style>
+
+    <style name="button" parent="body_text">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginVertical">@dimen/zero</item>
+    </style>
+
+    <style name="rbutton">
+        <item name="android:layout_width">@dimen/r_btn</item>
+        <item name="android:layout_height">@dimen/r_btn</item>
+        <item name="android:layout_marginStart">@dimen/content_margin</item>
+        <item name="android:layout_marginEnd">@dimen/zero</item>
+        <item name="android:layout_marginVertical">@dimen/zero</item>
     </style>
 
 </resources>

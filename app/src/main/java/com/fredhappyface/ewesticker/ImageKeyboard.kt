@@ -45,7 +45,7 @@ class ImageKeyboard : InputMethodService() {
 		val packCard = layoutInflater.inflate(R.layout.pack_card, packContainer, false)
 		val backButton = packCard.findViewById<ImageButton>(R.id.ib3)
 		val icon =
-			ResourcesCompat.getDrawable(resources, R.drawable.tabler_icon_arrow_back_white, null)
+			ResourcesCompat.getDrawable(resources, R.drawable.ic_chevron_left, null)
 		backButton.setImageDrawable(icon)
 		backButton.setOnClickListener {
 			val inputMethodManager = applicationContext
@@ -299,7 +299,8 @@ class ImageKeyboard : InputMethodService() {
 	private fun reloadPacks() {
 		loadedPacks = HashMap()
 		internalDir = File(filesDir, "stickers")
-		val packs = internalDir.listFiles { obj: File -> obj.isDirectory }
+		val packs =
+			internalDir.listFiles { obj: File -> obj.isDirectory && !obj.absolutePath.contains("stickers/__compatSticker__") }
 		if (packs != null) {
 			for (file in packs) {
 				val pack = StickerPack(file)

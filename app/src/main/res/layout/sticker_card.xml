@@ -4,8 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
-    app:cardUseCompatPadding="true"
-    >
+    app:cardUseCompatPadding="true">
 
     <ImageButton
         android:id="@+id/ib3"
@@ -14,8 +13,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:background="@color/sticker"
+        android:contentDescription="@string/sticker_icon"
         android:cropToPadding="true"
-        android:scaleType="fitCenter"
-        android:contentDescription="@string/sticker_icon" />
+        android:scaleType="fitCenter" />
 
 </androidx.cardview.widget.CardView>
