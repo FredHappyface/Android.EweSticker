@@ -3,7 +3,7 @@ All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
 
-## 20210714 - 2021/07/14
+## 20210723 - 2021/07/23
 - Added link to online tutorial (on GitHub)
 - Ignore the compat sticker when creating groups
 - SVG back arrow

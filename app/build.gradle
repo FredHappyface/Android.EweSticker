@@ -11,8 +11,8 @@ android {
         applicationId "com.fredhappyface.ewesticker"
         minSdkVersion 28
         targetSdkVersion 30
-        versionCode 20210714
-        versionName "2021.07.17"
+        versionCode 20210723
+        versionName "2021.07.23"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
