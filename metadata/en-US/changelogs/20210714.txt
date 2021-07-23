@@ -1,0 +1,7 @@
+<ul>
+<li>Added link to online tutorial (on GitHub)</li>
+<li>Ignore the compat sticker when creating groups</li>
+<li>SVG back arrow</li>
+<li>Add headings to UI</li>
+<li>Removed unnecessary permissions</li>
+</ul>
