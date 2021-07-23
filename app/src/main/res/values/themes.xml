@@ -1,6 +1,6 @@
 <resources>
-    <!-- Base application theme. -->
-    <color name="bg">#fafafa</color>
-    <color name="fg">#424242</color>
-    <color name="sticker">#e0e0e0</color>
+	<!-- Base application theme. -->
+	<color name="bg">#fafafa</color>
+	<color name="fg">#424242</color>
+	<color name="sticker">#e0e0e0</color>
 </resources>
