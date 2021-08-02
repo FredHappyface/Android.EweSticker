@@ -21,6 +21,7 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 		- [Download Android Studio](#download-android-studio)
 - [How to Run](#how-to-run)
 	- [Build From Source](#build-from-source)
+	- [Get it on F-Droid](#get-it-on-f-droid)
 	- [Get it on Google Play](#get-it-on-google-play)
 	- [Download the APK](#download-the-apk)
 - [Download Project](#download-project)
@@ -80,7 +81,6 @@ Android SDK. Additional information can be found at
 3. In Android Studio click File > Open and then navigate to the project file
 (Android studio defaults to the directory of the last opened file)
 
-<!--
 ### Get it on F-Droid
 1. Open the F-Droid app
 2. Search for EweSticker
@@ -92,7 +92,6 @@ alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.fredha
 
 Follow the link to the listing on F-Droid by clicking on the badge above,
 then download/ install
--->
 
 ### Get it on Google Play
 1. Open the Google Play app
