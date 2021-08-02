@@ -88,7 +88,7 @@ Android SDK. Additional information can be found at
 **Or**
 
 [<img src="readme-assets/badges/f-droid-download.png"
-alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.fredhappyface.EweSticker/)
+alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.fredhappyface.ewesticker/)
 
 Follow the link to the listing on F-Droid by clicking on the badge above,
 then download/ install
