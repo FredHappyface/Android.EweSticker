@@ -10,7 +10,8 @@ patch-level version changes can be found in [commit messages](../../commits/mast
   - to improve performance of fallback stickers
   - to enable addition of recent list
 - Updated gradle
-- (In progress ...)
+- Add recent icon
+- (In progress ...) testing, cleanup
 
 
 ## 20210723 - 2021/07/23
