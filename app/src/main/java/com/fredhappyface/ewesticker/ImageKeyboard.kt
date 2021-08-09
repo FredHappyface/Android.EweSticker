@@ -68,7 +68,7 @@ class ImageKeyboard : InputMethodService() {
 	private fun addRecentButtonToContainer() {
 		val packCard = layoutInflater.inflate(R.layout.pack_card, packContainer, false)
 		val recentButton = packCard.findViewById<ImageButton>(R.id.ib3)
-		val icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_chevron_left, null)
+		val icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_clock, null)
 		recentButton.setImageDrawable(icon)
 		recentButton.setOnClickListener { view: View ->
 			imageContainer!!.removeAllViewsInLayout()
