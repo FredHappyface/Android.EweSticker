@@ -153,6 +153,8 @@ class MainActivity : AppCompatActivity() {
 				val editor = sharedPreferences.edit()
 				editor.putString("stickerDirPath", data.data.toString())
 				editor.putString("lastUpdateDate", Calendar.getInstance().time.toString())
+				editor.putString("recentCache", "")
+				editor.putString("compatCache", "")
 				editor.apply()
 				refreshStickerDirPath()
 				importStickers()
@@ -180,11 +182,11 @@ class MainActivity : AppCompatActivity() {
 			editor.apply()
 		}
 		val disableAnimations = findViewById<CompoundButton>(R.id.disableAnimations)
-		disableAnimations.isChecked = sharedPreferences.getBoolean("disable_animations", false)
+		disableAnimations.isChecked = sharedPreferences.getBoolean("disableAnimations", false)
 		disableAnimations.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
 			showChangedPrefText()
 			val editor = sharedPreferences.edit()
-			editor.putBoolean("disable_animations", isChecked)
+			editor.putBoolean("disableAnimations", isChecked)
 			editor.apply()
 		}
 		val iconsPerRowSeekBar = findViewById<SeekBar>(R.id.iconsPerRowSeekBar)
