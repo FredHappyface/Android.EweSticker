@@ -3,6 +3,9 @@ All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
 
+## NextVer - 2021/08/10
+- replace old apng lib with 'com.linecorp:apng:1.11.0'
+
 ## 20210810 - 2021/08/10
 - Code optimisations
   - Code clean-up
