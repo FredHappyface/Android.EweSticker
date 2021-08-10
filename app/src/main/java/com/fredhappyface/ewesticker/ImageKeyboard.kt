@@ -7,6 +7,7 @@ import android.graphics.ImageDecoder
 import android.graphics.drawable.AnimatedImageDrawable
 import android.graphics.drawable.Drawable
 import android.inputmethodservice.InputMethodService
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -20,7 +21,7 @@ import androidx.core.view.inputmethod.EditorInfoCompat
 import androidx.core.view.inputmethod.InputConnectionCompat
 import androidx.core.view.inputmethod.InputContentInfoCompat
 import androidx.preference.PreferenceManager
-//import com.github.penfeizhou.animation.apng.APNGDrawable
+import com.linecorp.apng.ApngDrawable
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -164,26 +165,22 @@ class ImageKeyboard : InputMethodService() {
 	 * @param btn:     ImageButton - the button
 	 */
 	private fun setStickerButtonImage(sticker: File, btn: ImageButton) {
-		val sName = sticker.name
 		// Create drawable from file
 		var drawable: Drawable? = null
 		try {
 			drawable = ImageDecoder.decodeDrawable(ImageDecoder.createSource(sticker))
 		} catch (ignore: IOException) {
 		}
-		//if (sName.contains(".png") || sName.contains(".apng")) {
-		//	drawable = APNGDrawable.fromFile(sticker.absolutePath)
-		//	drawable!!.setAutoPlay(false)
-		//	drawable.start()
-		//}
+		try {
+			drawable = ApngDrawable.decode(sticker)
+		} catch (ignore: Exception) {
+		}
 		// Disable animations?
-		if (drawable is AnimatedImageDrawable && !disableAnimations
-		) {
+		if (!disableAnimations && drawable is AnimatedImageDrawable) {
+			drawable.start()
+		} else if (!disableAnimations && drawable is ApngDrawable) {
 			drawable.start()
 		}
-		//if (drawable is APNGDrawable && disableAnimations) {
-		//	drawable.stop()
-		//}
 		// Apply
 		btn.setImageDrawable(drawable)
 	}
