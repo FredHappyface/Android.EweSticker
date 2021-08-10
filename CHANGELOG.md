@@ -3,15 +3,17 @@ All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
 
-
-## (no version) - 2021/08/09
+## 20210810 - 2021/08/10
 - Code optimisations
+  - Code clean-up
+  - Removed APNG animation due to memory leak
+  - Linting fixes
 - Added caching functionality
   - to improve performance of fallback stickers
   - to enable addition of recent list
-- Updated gradle
+  - to improve switching packs performance
+- Updated gradle and deps
 - Add recent icon
-- (In progress ...) testing, cleanup
 
 
 ## 20210723 - 2021/07/23

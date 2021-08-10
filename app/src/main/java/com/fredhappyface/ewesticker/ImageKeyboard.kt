@@ -7,13 +7,11 @@ import android.graphics.ImageDecoder
 import android.graphics.drawable.AnimatedImageDrawable
 import android.graphics.drawable.Drawable
 import android.inputmethodservice.InputMethodService
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.content.FileProvider
@@ -22,29 +20,33 @@ import androidx.core.view.inputmethod.EditorInfoCompat
 import androidx.core.view.inputmethod.InputConnectionCompat
 import androidx.core.view.inputmethod.InputContentInfoCompat
 import androidx.preference.PreferenceManager
-import com.github.penfeizhou.animation.apng.APNGDrawable
+//import com.github.penfeizhou.animation.apng.APNGDrawable
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
+import kotlin.collections.HashMap
 
 class ImageKeyboard : InputMethodService() {
 	// Attributes
 	private lateinit var supportedMimes: MutableMap<String, String>
 	private var loadedPacks = HashMap<String, StickerPack>()
-	private var imageContainer: LinearLayout? = null
-	private var packContainer: LinearLayout? = null
+	private lateinit var imageContainer: LinearLayout
+	private lateinit var packContainer: LinearLayout
 	private lateinit var internalDir: File
 
 	// SharedPref
 	private lateinit var sharedPreferences: SharedPreferences
-	private var iconsPerRow = 0
+	private var iconsPerColumn = 0
 	private var iconSize = 0
 	private var disableAnimations = false
 
 	// Cache for recent + compat stickers
 	private var compatCache = Cache()
 	private var recentCache = Cache()
+
+	// Cache for image container
+	private var imageContainerCache = HashMap<Int, LinearLayout>()
 
 	/**
 	 * Adds a back button as a PackCard to keyboard that shows the InputMethodPicker
@@ -59,7 +61,7 @@ class ImageKeyboard : InputMethodService() {
 				.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
 			inputMethodManager.showInputMethodPicker()
 		}
-		packContainer!!.addView(packCard)
+		packContainer.addView(packCard)
 	}
 
 	/**
@@ -70,11 +72,11 @@ class ImageKeyboard : InputMethodService() {
 		val recentButton = packCard.findViewById<ImageButton>(R.id.ib3)
 		val icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_clock, null)
 		recentButton.setImageDrawable(icon)
-		recentButton.setOnClickListener { view: View ->
-			imageContainer!!.removeAllViewsInLayout()
-			recreateImageContainer(recentCache.toFiles())
+		recentButton.setOnClickListener {
+			imageContainer.removeAllViewsInLayout()
+			imageContainer.addView(createImageContainer(recentCache.toFiles()))
 		}
-		packContainer!!.addView(packCard)
+		packContainer.addView(packCard)
 
 	}
 
@@ -89,10 +91,9 @@ class ImageKeyboard : InputMethodService() {
 		setStickerButtonImage(pack.thumbSticker, packButton)
 		packButton.tag = pack
 		packButton.setOnClickListener { view: View ->
-			imageContainer!!.removeAllViewsInLayout()
-			recreateImageContainer((view.tag as StickerPack).stickerList)
+			switchImageContainer((view.tag as StickerPack).stickerList)
 		}
-		packContainer!!.addView(packCard)
+		packContainer.addView(packCard)
 	}
 
 	/**
@@ -170,19 +171,19 @@ class ImageKeyboard : InputMethodService() {
 			drawable = ImageDecoder.decodeDrawable(ImageDecoder.createSource(sticker))
 		} catch (ignore: IOException) {
 		}
-		if (sName.contains(".png") || sName.contains(".apng")) {
-			drawable = APNGDrawable.fromFile(sticker.absolutePath)
-			drawable!!.setAutoPlay(false)
-			drawable.start()
-		}
+		//if (sName.contains(".png") || sName.contains(".apng")) {
+		//	drawable = APNGDrawable.fromFile(sticker.absolutePath)
+		//	drawable!!.setAutoPlay(false)
+		//	drawable.start()
+		//}
 		// Disable animations?
 		if (drawable is AnimatedImageDrawable && !disableAnimations
 		) {
 			drawable.start()
 		}
-		if (drawable is APNGDrawable && disableAnimations) {
-			drawable.stop()
-		}
+		//if (drawable is APNGDrawable && disableAnimations) {
+		//	drawable.stop()
+		//}
 		// Apply
 		btn.setImageDrawable(drawable)
 	}
@@ -215,14 +216,14 @@ class ImageKeyboard : InputMethodService() {
 	}
 
 	/**
-	 * When the activity is crated, grab the number of icons per row and the configured icon size
+	 * When the activity is crated, grab the number of icons per column and the configured icon size
 	 * before reloading the packs
 	 *
 	 */
 	override fun onCreate() {
 		super.onCreate()
 		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
-		iconsPerRow = sharedPreferences.getInt("iconsPerRow", 3)
+		iconsPerColumn = sharedPreferences.getInt("iconsPerColumn", 3)
 		iconSize = sharedPreferences.getInt("iconSize", 160)
 		disableAnimations = sharedPreferences.getBoolean(
 			"disableAnimations",
@@ -234,19 +235,28 @@ class ImageKeyboard : InputMethodService() {
 		reloadPacks()
 	}
 
+	/**
+	 * Called when the keyboard is first drawn
+	 *
+	 * @return
+	 */
 	override fun onCreateInputView(): View {
 		val keyboardLayout =
-			layoutInflater.inflate(R.layout.keyboard_layout, null) as RelativeLayout
+			View.inflate(applicationContext, R.layout.keyboard_layout, null)
 		packContainer = keyboardLayout.findViewById(R.id.packContainer)
 		imageContainer = keyboardLayout.findViewById(R.id.imageContainer)
-		imageContainer?.layoutParams?.height = (iconSize * iconsPerRow * 1.4).toInt()
+		imageContainer.layoutParams?.height = (iconSize * iconsPerColumn * 1.4).toInt()
 		recreatePackContainer()
 		return keyboardLayout
 	}
 
+	/**
+	 * In full-screen mode the inserted content is likely to be hidden by the IME. Hence in this
+	 * sample we simply disable full-screen mode.
+	 *
+	 * @return
+	 */
 	override fun onEvaluateFullscreenMode(): Boolean {
-		// In full-screen mode the inserted content is likely to be hidden by the IME. Hence in this
-		// sample we simply disable full-screen mode.
 		return false
 	}
 
@@ -268,26 +278,44 @@ class ImageKeyboard : InputMethodService() {
 	}
 
 	/**
+	 * Swap the image container every time a new pack is selected. If already cached use that otherwise create
+	 *
+	 * @param stickers
+	 */
+	private fun switchImageContainer(stickers: Array<File>) {
+		// Check the cache
+		val imageContainerHash = stickers.hashCode()
+		lateinit var imageContainerLayout: LinearLayout
+		if (imageContainerHash !in imageContainerCache.keys) {
+			imageContainerLayout = createImageContainer(stickers)
+			imageContainerCache[imageContainerHash] = createImageContainer(stickers)
+		} else {
+			imageContainerLayout = imageContainerCache[imageContainerHash]!!
+		}
+		// Swap the image container
+		imageContainer.removeAllViews()
+		imageContainer.addView(imageContainerLayout)
+	}
+
+
+	/**
 	 * Recreate the image container every time a new pack is selected
 	 *
-	 * @param pack
+	 * @param stickers
 	 */
-	private fun recreateImageContainer(stickers: Array<File>) {
-		// Clear the image view
-		imageContainer!!.removeAllViewsInLayout()
-		// And rebuild...
-		var imageContainerColumn = layoutInflater.inflate(
-			R.layout.image_container_column,
-			imageContainer,
-			false
-		) as LinearLayout
+	private fun createImageContainer(stickers: Array<File>): LinearLayout {
+		val tempImageContainer =
+			View.inflate(applicationContext, R.layout.image_container, null) as LinearLayout
+		lateinit var imageContainerColumn: LinearLayout
 		for (i in stickers.indices) {
-			if (i % iconsPerRow == 0) {
+			// Add a new column
+			if (i % iconsPerColumn == 0) {
 				imageContainerColumn = layoutInflater.inflate(
 					R.layout.image_container_column,
-					imageContainer,
+					tempImageContainer,
 					false
 				) as LinearLayout
+				tempImageContainer.addView(imageContainerColumn)
 			}
 			val imageCard = layoutInflater.inflate(
 				R.layout.sticker_card,
@@ -302,7 +330,6 @@ class ImageKeyboard : InputMethodService() {
 			imgButton.setOnClickListener { view: View ->
 				val file = view.tag as File
 				recentCache.add(file.absolutePath)
-				Log.e("qwerty", recentCache.toSharedPref() )
 				val stickerType = supportedMimes[Utils.getFileExtension(file.name)]
 				if (stickerType == null) {
 					// Sticker is unsupported by input
@@ -312,10 +339,8 @@ class ImageKeyboard : InputMethodService() {
 				doCommitContent(file.name, stickerType, file)
 			}
 			imageContainerColumn.addView(imageCard)
-			if (i % iconsPerRow == 0) {
-				imageContainer!!.addView(imageContainerColumn)
-			}
 		}
+		return tempImageContainer
 	}
 
 	/**
@@ -323,7 +348,7 @@ class ImageKeyboard : InputMethodService() {
 	 *
 	 */
 	private fun recreatePackContainer() {
-		packContainer!!.removeAllViewsInLayout()
+		packContainer.removeAllViewsInLayout()
 		// Back button
 		if (sharedPreferences.getBoolean("showBackButton", false)) {
 			addBackButtonToContainer()
@@ -338,7 +363,7 @@ class ImageKeyboard : InputMethodService() {
 			addPackToContainer(loadedPacks[sortedPackName]!!)
 		}
 		if (sortedPackNames.isNotEmpty()) {
-			recreateImageContainer(loadedPacks[sortedPackNames[0]]!!.stickerList)
+			switchImageContainer(loadedPacks[sortedPackNames[0]]!!.stickerList)
 		}
 	}
 

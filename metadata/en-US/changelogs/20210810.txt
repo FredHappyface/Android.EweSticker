@@ -1,0 +1,16 @@
+<ul>
+<li>Code optimisations
+<ul>
+<li>Code clean-up</li>
+<li>Removed APNG animation due to memory leak</li>
+<li>Linting fixes</li>
+</ul></li>
+<li>Added caching functionality
+<ul>
+<li>to improve performance of fallback stickers</li>
+<li>to enable addition of recent list</li>
+<li>to improve switching packs performance</li>
+</ul></li>
+<li>Updated gradle and deps</li>
+<li>Add recent icon</li>
+</ul>

@@ -8,10 +8,9 @@ import java.util.*
  * an element is removed from the start
  *
  */
-class Cache(size: Int = 30) {
+class Cache(private val size: Int = 30) {
 
 	private var data: LinkedList<String> = LinkedList()
-	private val size = size
 
 	/**
 	 * Logic to add an element
@@ -31,14 +30,6 @@ class Cache(size: Int = 30) {
 
 	}
 
-	/**
-	 * Remove an element
-	 *
-	 * @param elem
-	 */
-	fun remove(elem: String) {
-		data.remove(elem)
-	}
 
 	/**
 	 * Get an element
