@@ -189,18 +189,18 @@ class MainActivity : AppCompatActivity() {
 			editor.putBoolean("disableAnimations", isChecked)
 			editor.apply()
 		}
-		val iconsPerRowSeekBar = findViewById<SeekBar>(R.id.iconsPerRowSeekBar)
-		iconsPerRowSeekBar.progress = sharedPreferences.getInt("iconsPerRow", 3)
-		iconsPerRowSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
-			var iconsPerRow = 3
+		val iconsPerColumnSeekBar = findViewById<SeekBar>(R.id.iconsPerColumnSeekBar)
+		iconsPerColumnSeekBar.progress = sharedPreferences.getInt("iconsPerColumn", 3)
+		iconsPerColumnSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+			var iconsPerColumn = 3
 			override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-				iconsPerRow = progress
+				iconsPerColumn = progress
 			}
 
 			override fun onStartTrackingTouch(seekBar: SeekBar) {}
 			override fun onStopTrackingTouch(seekBar: SeekBar) {
 				val editor = sharedPreferences.edit()
-				editor.putInt("iconsPerRow", iconsPerRow)
+				editor.putInt("iconsPerColumn", iconsPerColumn)
 				editor.apply()
 				refreshKeyboardConfig()
 				showChangedPrefText()
@@ -229,9 +229,9 @@ class MainActivity : AppCompatActivity() {
 	 * Refreshes config from preferences
 	 */
 	fun refreshKeyboardConfig() {
-		val iconsPerRow = sharedPreferences.getInt("iconsPerRow", 3)
-		val iconsPerRowValue = findViewById<TextView>(R.id.iconsPerRowValue)
-		iconsPerRowValue.text = iconsPerRow.toString()
+		val iconsPerColumn = sharedPreferences.getInt("iconsPerColumn", 3)
+		val iconsPerColumnValue = findViewById<TextView>(R.id.iconsPerColumnValue)
+		iconsPerColumnValue.text = iconsPerColumn.toString()
 		val iconSize = sharedPreferences.getInt("iconSize", 160)
 		val iconSizeValue = findViewById<TextView>(R.id.iconSizeValue)
 		iconSizeValue.text = String.format("%dpx", iconSize)

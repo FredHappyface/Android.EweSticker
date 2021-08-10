@@ -102,14 +102,14 @@
 				android:text="@string/icons_per_row_status" />
 
 			<TextView
-				android:id="@+id/iconsPerRowValue"
+				android:id="@+id/iconsPerColumnValue"
 				style="@style/body_text"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:textIsSelectable="false" />
 
 			<SeekBar
-				android:id="@+id/iconsPerRowSeekBar"
+				android:id="@+id/iconsPerColumnSeekBar"
 				style="@style/body_text"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -187,6 +187,3 @@
 	</LinearLayout>
 
 </ScrollView>
-
-
-
