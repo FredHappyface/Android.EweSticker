@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.documentfile.provider.DocumentFile
 import androidx.preference.PreferenceManager
 import java.io.File
-import java.io.IOException
 import java.nio.file.Files
 import java.util.*
 import java.util.concurrent.Executors
@@ -64,14 +63,25 @@ class MainActivity : AppCompatActivity() {
 	/**
 	 * Copies images from pack directory by calling importSticker() on all of them
 	 *
+	 * @throws java.io.IOException – if an I/O error occurs when reading or writing
+	 * @throws SecurityException – In the case of the default provider, and a security manager is
+	 * installed, the checkWrite method is invoked to check write access to the file. Where the
+	 * REPLACE_EXISTING option is specified, the security manager's checkDelete method is invoked to
+	 * check that an existing file can be deleted.
+	 *
 	 * @param pack source pack
 	 */
 	private fun importPack(pack: DocumentFile): Int {
 		var stickersInPack = 0
 		val stickers = pack.listFiles()
-		for (sticker in stickers) {
-			stickersInPack += importSticker(sticker, pack.name + "/")
+		try {
+			for (sticker in stickers) {
+				stickersInPack += importSticker(sticker, pack.name + "/")
+			}
+		} catch (e: Exception) {
+			throw e
 		}
+
 		return stickersInPack
 	}
 
@@ -80,6 +90,14 @@ class MainActivity : AppCompatActivity() {
 	 *
 	 * @param sticker sticker to copy over
 	 * @param pack    the pack which the sticker belongs to
+	 *
+	 * @throws java.io.IOException – if an I/O error occurs when reading or writing
+	 * @throws SecurityException – In the case of the default provider, and a security manager is
+	 * installed, the checkWrite method is invoked to check write access to the file. Where the
+	 * REPLACE_EXISTING option is specified, the security manager's checkDelete method is invoked to
+	 * check that an existing file can be deleted.
+	 *
+	 * @return 1 if sticker imported successfully else 0
 	 */
 	private fun importSticker(sticker: DocumentFile, pack: String): Int {
 		if (!canImportSticker(sticker)) {
@@ -91,8 +109,15 @@ class MainActivity : AppCompatActivity() {
 			val inputStream = contentResolver.openInputStream(sticker.uri)
 			Files.copy(inputStream, destSticker.toPath())
 			inputStream!!.close()
-		} catch (e: IOException) {
-			e.printStackTrace()
+		} catch (e: java.lang.Exception) {
+			when (e) {
+				is java.nio.file.FileAlreadyExistsException, is java.nio.file.DirectoryNotEmptyException -> {
+					throw java.io.IOException(e)
+				}
+				else -> {
+					throw e
+				}
+			}
 		}
 		return 1
 	}
@@ -104,32 +129,43 @@ class MainActivity : AppCompatActivity() {
 		//Use worker thread because this takes several seconds
 		val executor = Executors.newSingleThreadExecutor()
 		val handler = Handler(Looper.getMainLooper())
-		Toast.makeText(
-			applicationContext,
+		reportEvent(
 			"Starting import. You will not be able to reselect directory until finished. This might take a bit!",
-			Toast.LENGTH_LONG
-		).show()
+		)
 		val button = findViewById<Button>(R.id.chooseStickerDir)
 		button.isEnabled = false
 		executor.execute {
 
 			val oldStickers = File(filesDir, "stickers")
 			deleteRecursive(oldStickers)
+			var errorText = ""
+			var error: java.lang.Exception? = null
 			var stickersInDir = 0
 			val stickerDirPath = sharedPreferences.getString("stickerDirPath", "none set")
 			val tree = DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath))
 			val files = tree!!.listFiles()
-			for (file in files) {
-				if (file.isFile) stickersInDir += importSticker(file, "")
-				if (file.isDirectory) stickersInDir += importPack(file)
+			try {
+				for (file in files) {
+					if (file.isFile) stickersInDir += importSticker(file, "")
+					if (file.isDirectory) stickersInDir += importPack(file)
+				}
+			} catch (e: java.io.IOException) {
+				errorText = "An IO Exception occurred (please contact the dev)"
+				error = e
+			} catch (e: SecurityException) {
+				errorText = "A Security Exception occurred (please contact the dev)"
+				error = e
 			}
 
+
 			handler.post {
-				Toast.makeText(
-					applicationContext,
-					"Imported $stickersInDir stickers. You may need to reload the keyboard for new stickers to show up.",
-					Toast.LENGTH_LONG
-				).show()
+				if (error != null) {
+					reportEvent(errorText, error)
+				} else {
+					reportEvent(
+						"Imported $stickersInDir stickers. You may need to reload the keyboard for new stickers to show up.",
+					)
+				}
 				val editor = sharedPreferences.edit()
 				editor.putInt("numStickersImported", stickersInDir)
 				editor.apply()
@@ -256,13 +292,20 @@ class MainActivity : AppCompatActivity() {
 	/**
 	 * Reusable function to warn about changing preferences
 	 */
-	fun showChangedPrefText() {
+	private fun showChangedPrefText() {
+		reportEvent("Preferences changed. You may need to reload the keyboard for settings to apply.")
+	}
+
+	/**
+	 * Function to log some event and report to the end user
+	 */
+	private fun reportEvent(eventInfo: String, exception: Exception? = null) {
+		exception?.printStackTrace() // if an exception then print stack trace
 		Toast.makeText(
 			applicationContext,
-			"Preferences changed. You may need to reload the keyboard for settings to apply.",
+			eventInfo,
 			Toast.LENGTH_LONG
 		).show()
 	}
-
 
 }
