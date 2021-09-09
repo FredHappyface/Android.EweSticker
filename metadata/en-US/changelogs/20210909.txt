@@ -1,0 +1,10 @@
+<ul>
+<li>update ui
+<ul>
+<li>use MaterialCardView and Snackbar in settings (MainActivity)</li>
+<li>improvements to the keyboard layout</li>
+<li>theme improvements</li>
+</ul></li>
+<li>general code improvements</li>
+<li>stability improvements</li>
+</ul>
