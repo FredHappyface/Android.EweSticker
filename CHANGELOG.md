@@ -3,10 +3,11 @@ All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
 
-## NextVer - 2021/09/xx
+## 20210909 - 2021/09/09
 - update ui
   - use MaterialCardView and Snackbar in settings (MainActivity)
   - improvements to the keyboard layout
+  - theme improvements
 - general code improvements
 - stability improvements
 
