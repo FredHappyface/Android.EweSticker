@@ -2,10 +2,13 @@
 <resources>
 	<dimen name="r_btn">32sp</dimen>
 	<dimen name="text_size_h2">20sp</dimen>
-	<dimen name="text_size_body">16sp</dimen>
+	<dimen name="text_size_body">15sp</dimen>
 	<dimen name="content_margin">10sp</dimen>
 	<dimen name="content_margin_top">8sp</dimen>
 	<dimen name="content_margin_bottom">4sp</dimen>
 	<dimen name="zero">0sp</dimen>
 	<dimen name="corner">10sp</dimen>
+	<dimen name="pack_dimens">40dp</dimen>
+	<dimen name="pack_padding_horizontal">8dp</dimen>
+	<dimen name="sticker_padding">3dp</dimen>
 </resources>

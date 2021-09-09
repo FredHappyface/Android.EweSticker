@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
 				!mimesToCheck.contains(sticker.name?.let { Utils.getFileExtension(it) }))
 	}
 
-
 	/**
 	 * Handles ACTION_OPEN_DOCUMENT_TREE result and adds the returned Uri to shared prefs
 	 */
@@ -110,7 +109,6 @@ class MainActivity : AppCompatActivity() {
 		} catch (e: Exception) {
 			throw e
 		}
-
 		return stickersInPack
 	}
 
@@ -164,7 +162,6 @@ class MainActivity : AppCompatActivity() {
 		val button = findViewById<Button>(R.id.chooseStickerDir)
 		button.isEnabled = false
 		executor.execute {
-
 			val oldStickers = File(filesDir, "stickers")
 			deleteRecursive(oldStickers)
 			var errorText = ""
@@ -186,7 +183,6 @@ class MainActivity : AppCompatActivity() {
 				error = e
 			}
 
-
 			handler.post {
 				if (error != null) {
 					reportEvent(errorText, error)
@@ -204,7 +200,6 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
-
 	/**
 	 * Sets up content view, shared prefs, etc.
 	 *
@@ -214,18 +209,15 @@ class MainActivity : AppCompatActivity() {
 		// Inflate view
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
-
 		// Set late-init attrs
 		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 		contextView = findViewById(R.id.activityMainRoot)
 		iconsPerColumnValue = findViewById(R.id.iconsPerColumnValue)
 		iconSizeValue = findViewById(R.id.iconSizeValue)
 		refreshStickerDirPath()
-
 		// Update UI with config
 		iconsPerColumnValue.text = sharedPreferences.getInt("iconsPerColumn", 3).toString()
 		iconSizeValue.text = String.format("%ddp", sharedPreferences.getInt("iconSize", 80))
-
 
 		val backButtonToggle = findViewById<CompoundButton>(R.id.backButtonToggle)
 		backButtonToggle.isChecked = sharedPreferences.getBoolean("showBackButton", false)
@@ -275,11 +267,9 @@ class MainActivity : AppCompatActivity() {
 				editor.putInt("iconSize", iconSize)
 				editor.apply()
 				showChangedPrefText()
-
 			}
 		})
 	}
-
 
 	/**
 	 * Rereads saved sticker dir path from preferences
@@ -311,5 +301,4 @@ class MainActivity : AppCompatActivity() {
 		exception?.printStackTrace() // if an exception then print stack trace
 		Snackbar.make(contextView, eventInfo, Snackbar.LENGTH_SHORT).show()
 	}
-
 }

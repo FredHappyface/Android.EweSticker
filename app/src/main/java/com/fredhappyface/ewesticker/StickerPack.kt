@@ -28,5 +28,4 @@ class StickerPack(packDir: File) {
 	 */
 	val thumbSticker: File
 		get() = stickers!![0]
-
 }

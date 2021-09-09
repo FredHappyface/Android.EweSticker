@@ -4,7 +4,7 @@ Features
 
 <ul>
 <li>Add a directory containing stickers</li>
-<ul><li>Supported formats include .png, .gif, .jpg, .apng ,.webp</li></ul>
+<ul><li>Supported formats include .png, .gif, .jpg ,.webp</li></ul>
 <li>Select the keyboard</li>
 <li>Send stickers in supported apps (.png is used as a fallback)</li>
 <li>Ties in with the system theme</li>

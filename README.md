@@ -41,7 +41,7 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 ## Features
 
 - Add a directory containing stickers
-  - Supported formats include .png, .gif, .jpg, .apng ,.webp
+  - Supported formats include .png, .gif, .jpg , .webp
 - Select the keyboard
 - Send stickers in supported apps (.png is used as a fallback)
 - Ties in with the system theme

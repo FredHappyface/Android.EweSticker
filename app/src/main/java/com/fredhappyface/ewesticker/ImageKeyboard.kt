@@ -12,7 +12,6 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
@@ -20,7 +19,7 @@ import androidx.core.view.inputmethod.EditorInfoCompat
 import androidx.core.view.inputmethod.InputConnectionCompat
 import androidx.core.view.inputmethod.InputContentInfoCompat
 import androidx.preference.PreferenceManager
-import com.linecorp.apng.ApngDrawable
+import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -31,11 +30,11 @@ class ImageKeyboard : InputMethodService() {
 	// Attributes
 	private lateinit var supportedMimes: MutableMap<String, String>
 	private var loadedPacks = HashMap<String, StickerPack>()
+	private lateinit var contextView: View
 	private lateinit var imageContainer: LinearLayout
 	private lateinit var packContainer: LinearLayout
 	private lateinit var internalDir: File
 	private var scale = 0f
-
 
 	// SharedPref
 	private lateinit var sharedPreferences: SharedPreferences
@@ -79,7 +78,6 @@ class ImageKeyboard : InputMethodService() {
 			imageContainer.addView(createImageContainer(recentCache.toFiles()))
 		}
 		packContainer.addView(packCard)
-
 	}
 
 	/**
@@ -100,16 +98,16 @@ class ImageKeyboard : InputMethodService() {
 
 	/**
 	 * In the event that a mimetype is unsupported by a InputConnectionCompat (looking at you, Signal)
-	 * Create a temporary png and send that. In the event that png is not supported, create a toast as before
+	 * Create a temporary png and send that. In the event that png is not supported, create a snackbar as before
 	 *
 	 * @param file: File
 	 */
 	private fun doFallbackCommitContent(file: File) {
-		// PNG might not be supported so fallback to toast
+		// PNG might not be supported
 		if (supportedMimes[".png"] == null) {
-			Toast.makeText(
-				applicationContext, Utils.getFileExtension(file.name) +
-						" not supported here.", Toast.LENGTH_LONG
+			Snackbar.make(
+				contextView, Utils.getFileExtension(file.name) +
+						" not supported here.", Snackbar.LENGTH_SHORT
 			).show()
 			return
 		}
@@ -127,7 +125,6 @@ class ImageKeyboard : InputMethodService() {
 		}
 		// Send the compatSticker!
 		doCommitContent("description", "image/png", compatSticker)
-
 		// Remove old stickers
 		val remSticker = compatCache.add(compatStickerName)
 		if (remSticker != null) {
@@ -172,20 +169,13 @@ class ImageKeyboard : InputMethodService() {
 			drawable = ImageDecoder.decodeDrawable(ImageDecoder.createSource(sticker))
 		} catch (ignore: IOException) {
 		}
-		try {
-			drawable = ApngDrawable.decode(sticker)
-		} catch (ignore: Exception) {
-		}
 		// Disable animations?
 		if (!disableAnimations && drawable is AnimatedImageDrawable) {
-			drawable.start()
-		} else if (!disableAnimations && drawable is ApngDrawable) {
 			drawable.start()
 		}
 		// Apply
 		btn.setImageDrawable(drawable)
 	}
-
 
 	/**
 	 * Check if the sticker is supported by the receiver
@@ -242,10 +232,11 @@ class ImageKeyboard : InputMethodService() {
 	override fun onCreateInputView(): View {
 		val keyboardLayout =
 			View.inflate(applicationContext, R.layout.keyboard_layout, null)
+		contextView = keyboardLayout.findViewById(R.id.keyboardRoot)
 		packContainer = keyboardLayout.findViewById(R.id.packContainer)
 		imageContainer = keyboardLayout.findViewById(R.id.imageContainer)
 		imageContainer.layoutParams?.height =
-			(scale * (iconSize * iconsPerColumn + 4 * (iconsPerColumn + 1))).toInt()
+			(scale * (iconSize * iconsPerColumn) + resources.getDimension(R.dimen.sticker_padding) * 2 * (iconsPerColumn + 1)).toInt()
 		recreatePackContainer()
 		return keyboardLayout
 	}
@@ -296,7 +287,6 @@ class ImageKeyboard : InputMethodService() {
 		imageContainer.removeAllViews()
 		imageContainer.addView(imageContainerLayout)
 	}
-
 
 	/**
 	 * Recreate the image container every time a new pack is selected
@@ -355,7 +345,6 @@ class ImageKeyboard : InputMethodService() {
 		}
 		// Recent
 		addRecentButtonToContainer()
-
 		// Packs
 		val sortedPackNames = loadedPacks.keys.toTypedArray()
 		Arrays.sort(sortedPackNames)

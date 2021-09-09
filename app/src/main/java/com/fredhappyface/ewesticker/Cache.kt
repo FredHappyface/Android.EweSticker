@@ -9,7 +9,6 @@ import java.util.*
  *
  */
 class Cache(private val size: Int = 30) {
-
 	private var data: LinkedList<String> = LinkedList()
 
 	/**
@@ -27,9 +26,7 @@ class Cache(private val size: Int = 30) {
 			return data.removeAt(0)
 		}
 		return null
-
 	}
-
 
 	/**
 	 * Get an element
@@ -39,7 +36,6 @@ class Cache(private val size: Int = 30) {
 	fun get(idx: Int) {
 		data[idx]
 	}
-
 
 	/**
 	 * convert this to a string to write to sharedpref
@@ -59,7 +55,6 @@ class Cache(private val size: Int = 30) {
 		return data.map { File(it) }.toTypedArray()
 	}
 
-
 	/**
 	 * convert from a string (sharedpref) to this
 	 */
@@ -67,5 +62,4 @@ class Cache(private val size: Int = 30) {
 		data = LinkedList()
 		data.addAll(raw.split("\n").filter { it.isNotEmpty() })
 	}
-
 }
