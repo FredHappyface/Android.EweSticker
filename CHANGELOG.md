@@ -3,8 +3,12 @@ All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
 
-## NextVer - 2021/08/10
+## NextVer - 2021/09/xx
 - replace old apng lib with 'com.linecorp:apng:1.11.0'
+- update ui
+  - use MaterialCardView and Snackbar in settings (MainActivity)
+  - improvements to the keyboard layout
+- general code improvements
 
 ## 20210810 - 2021/08/10
 - Code optimisations
