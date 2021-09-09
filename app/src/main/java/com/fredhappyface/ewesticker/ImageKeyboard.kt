@@ -245,7 +245,7 @@ class ImageKeyboard : InputMethodService() {
 		packContainer = keyboardLayout.findViewById(R.id.packContainer)
 		imageContainer = keyboardLayout.findViewById(R.id.imageContainer)
 		imageContainer.layoutParams?.height =
-			(scale * (iconSize * iconsPerColumn + 3 * (iconsPerColumn + 1))).toInt()
+			(scale * (iconSize * iconsPerColumn + 4 * (iconsPerColumn + 1))).toInt()
 		recreatePackContainer()
 		return keyboardLayout
 	}
