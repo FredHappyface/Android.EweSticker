@@ -1,5 +1,6 @@
 package com.fredhappyface.ewesticker
 
+import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
@@ -7,20 +8,29 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import android.widget.*
+import android.widget.Button
+import android.widget.CompoundButton
+import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
+import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.documentfile.provider.DocumentFile
 import androidx.preference.PreferenceManager
+import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.nio.file.Files
 import java.util.*
 import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
-	private val chooseStickerDir = 62519
 	private val supportedMimes = Utils.getSupportedMimes()
+
+	// late-init
 	lateinit var sharedPreferences: SharedPreferences
+	private lateinit var contextView: View
+	private lateinit var iconsPerColumnValue: TextView
+	private lateinit var iconSizeValue: TextView
 
 	/**
 	 * For each sticker, check if it is in a compatible file format with EweSticker
@@ -34,6 +44,25 @@ class MainActivity : AppCompatActivity() {
 				!mimesToCheck.contains(sticker.name?.let { Utils.getFileExtension(it) }))
 	}
 
+
+	/**
+	 * Handles ACTION_OPEN_DOCUMENT_TREE result and adds the returned Uri to shared prefs
+	 */
+	private val chooseDirResultLauncher =
+		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+			if (result.resultCode == Activity.RESULT_OK) {
+				val data: Intent? = result.data
+				val editor = sharedPreferences.edit()
+				editor.putString("stickerDirPath", data?.data.toString())
+				editor.putString("lastUpdateDate", Calendar.getInstance().time.toString())
+				editor.putString("recentCache", "")
+				editor.putString("compatCache", "")
+				editor.apply()
+				refreshStickerDirPath()
+				importStickers()
+			}
+		}
+
 	/**
 	 * Called on button press to choose a new directory
 	 *
@@ -43,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 		val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
 		intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 		intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
-		startActivityForResult(intent, chooseStickerDir)
+		chooseDirResultLauncher.launch(intent)
 	}
 
 	/**
@@ -175,28 +204,6 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
-	/**
-	 * Handles ACTION_OPEN_DOCUMENT_TREE result and adds the returned Uri to shared prefs
-	 *
-	 * @param requestCode Int - RequestCode as defined under the Activity private vars
-	 * @param resultCode  Int - The result code, we only want to do stuff if successful
-	 * @param data        Intent? - Extra data in the form of an intent. tend to access .data
-	 */
-	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-		super.onActivityResult(requestCode, resultCode, data)
-		if (requestCode == chooseStickerDir && resultCode == RESULT_OK) {
-			if (data != null) {
-				val editor = sharedPreferences.edit()
-				editor.putString("stickerDirPath", data.data.toString())
-				editor.putString("lastUpdateDate", Calendar.getInstance().time.toString())
-				editor.putString("recentCache", "")
-				editor.putString("compatCache", "")
-				editor.apply()
-				refreshStickerDirPath()
-				importStickers()
-			}
-		}
-	}
 
 	/**
 	 * Sets up content view, shared prefs, etc.
@@ -204,11 +211,22 @@ class MainActivity : AppCompatActivity() {
 	 * @param savedInstanceState saved state
 	 */
 	override fun onCreate(savedInstanceState: Bundle?) {
+		// Inflate view
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
+
+		// Set late-init attrs
 		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+		contextView = findViewById(R.id.activityMainRoot)
+		iconsPerColumnValue = findViewById(R.id.iconsPerColumnValue)
+		iconSizeValue = findViewById(R.id.iconSizeValue)
 		refreshStickerDirPath()
-		refreshKeyboardConfig()
+
+		// Update UI with config
+		iconsPerColumnValue.text = sharedPreferences.getInt("iconsPerColumn", 3).toString()
+		iconSizeValue.text = String.format("%ddp", sharedPreferences.getInt("iconSize", 80))
+
+
 		val backButtonToggle = findViewById<CompoundButton>(R.id.backButtonToggle)
 		backButtonToggle.isChecked = sharedPreferences.getBoolean("showBackButton", false)
 		backButtonToggle.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
@@ -231,6 +249,7 @@ class MainActivity : AppCompatActivity() {
 			var iconsPerColumn = 3
 			override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
 				iconsPerColumn = progress
+				iconsPerColumnValue.text = iconsPerColumn.toString()
 			}
 
 			override fun onStartTrackingTouch(seekBar: SeekBar) {}
@@ -238,16 +257,16 @@ class MainActivity : AppCompatActivity() {
 				val editor = sharedPreferences.edit()
 				editor.putInt("iconsPerColumn", iconsPerColumn)
 				editor.apply()
-				refreshKeyboardConfig()
 				showChangedPrefText()
 			}
 		})
 		val iconSizeSeekBar = findViewById<SeekBar>(R.id.iconSizeSeekBar)
-		iconSizeSeekBar.progress = sharedPreferences.getInt("iconSize", 160) / 10
+		iconSizeSeekBar.progress = sharedPreferences.getInt("iconSize", 80) / 20
 		iconSizeSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
-			var iconSize = 160
+			var iconSize = 80
 			override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-				iconSize = progress * 10
+				iconSize = progress * 20
+				iconSizeValue.text = String.format("%ddp", iconSize)
 			}
 
 			override fun onStartTrackingTouch(seekBar: SeekBar) {}
@@ -255,23 +274,12 @@ class MainActivity : AppCompatActivity() {
 				val editor = sharedPreferences.edit()
 				editor.putInt("iconSize", iconSize)
 				editor.apply()
-				refreshKeyboardConfig()
 				showChangedPrefText()
+
 			}
 		})
 	}
 
-	/**
-	 * Refreshes config from preferences
-	 */
-	fun refreshKeyboardConfig() {
-		val iconsPerColumn = sharedPreferences.getInt("iconsPerColumn", 3)
-		val iconsPerColumnValue = findViewById<TextView>(R.id.iconsPerColumnValue)
-		iconsPerColumnValue.text = iconsPerColumn.toString()
-		val iconSize = sharedPreferences.getInt("iconSize", 160)
-		val iconSizeValue = findViewById<TextView>(R.id.iconSizeValue)
-		iconSizeValue.text = String.format("%dpx", iconSize)
-	}
 
 	/**
 	 * Rereads saved sticker dir path from preferences
@@ -292,7 +300,7 @@ class MainActivity : AppCompatActivity() {
 	/**
 	 * Reusable function to warn about changing preferences
 	 */
-	private fun showChangedPrefText() {
+	internal fun showChangedPrefText() {
 		reportEvent("Preferences changed. You may need to reload the keyboard for settings to apply.")
 	}
 
@@ -301,11 +309,7 @@ class MainActivity : AppCompatActivity() {
 	 */
 	private fun reportEvent(eventInfo: String, exception: Exception? = null) {
 		exception?.printStackTrace() // if an exception then print stack trace
-		Toast.makeText(
-			applicationContext,
-			eventInfo,
-			Toast.LENGTH_LONG
-		).show()
+		Snackbar.make(contextView, eventInfo, Snackbar.LENGTH_SHORT).show()
 	}
 
 }

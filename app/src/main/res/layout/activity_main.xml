@@ -1,189 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/activityMainRoot"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical">
+	android:layout_height="match_parent">
 
-
-	<LinearLayout
+	<ScrollView
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="match_parent"
 		android:orientation="vertical">
 
-		<TextView
-			style="@style/sub_heading"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:paddingTop="@dimen/content_margin_vertical"
-			android:text="@string/sub_actions" />
-
-		<View
-			style="@style/div"
-			android:layout_width="match_parent"
-			android:layout_height="1dp"
-			android:background="?android:attr/listDivider" />
-
-		<TextView
-			style="@style/body_text"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/current_info" />
-
-		<TextView
-			android:id="@+id/stickerDirStatus"
-			style="@style/body_text"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="" />
-
-		<Button
-			android:id="@+id/chooseStickerDir"
-			style="@style/button"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:onClick="chooseDir"
-			android:text="@string/choose_dir" />
-
-		<TextView
-			style="@style/sub_heading"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/sub_options" />
-
-		<View
-			style="@style/div"
-			android:layout_width="match_parent"
-			android:layout_height="1dp"
-			android:background="?android:attr/listDivider" />
-
 		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
-
-			<androidx.appcompat.widget.AppCompatCheckBox
-				android:id="@+id/backButtonToggle"
-				style="@style/rbutton" />
+			style="@style/widthMatchHeightWrap"
+			android:orientation="vertical"
+			android:paddingTop="@dimen/content_margin_top">
 
 			<TextView
-				style="@style/body_text"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:paddingBottom="@dimen/content_margin"
-				android:text="@string/show_back_button" />
+				style="@style/sub_heading"
+				android:text="@string/sub_actions" />
+
+			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+
+				<LinearLayout
+					style="@style/widthMatchHeightWrap"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/body_text"
+						android:text="@string/current_info" />
+
+					<TextView
+						android:id="@+id/stickerDirStatus"
+						style="@style/body_text"
+						android:text="" />
+
+					<Button
+						android:id="@+id/chooseStickerDir"
+						style="@style/button"
+						android:onClick="chooseDir"
+						android:text="@string/choose_dir" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<TextView
+				style="@style/sub_heading"
+				android:text="@string/sub_options" />
+
+			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+
+				<LinearLayout
+					style="@style/widthMatchHeightWrap"
+					android:orientation="vertical">
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<CheckBox
+							android:id="@+id/backButtonToggle"
+							style="@style/rbutton" />
+
+						<TextView
+							style="@style/body_text"
+							android:paddingBottom="@dimen/content_margin"
+							android:text="@string/show_back_button" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<CheckBox
+							android:id="@+id/disableAnimations"
+							style="@style/rbutton" />
+
+						<TextView
+							style="@style/body_text"
+							android:paddingBottom="@dimen/content_margin"
+							android:text="@string/disable_animations" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<TextView
+							style="@style/body_text"
+							android:text="@string/icons_per_row_status" />
+
+						<TextView
+							android:id="@+id/iconsPerColumnValue"
+							style="@style/body_text"
+							android:textIsSelectable="false" />
+
+						<SeekBar
+							android:id="@+id/iconsPerColumnSeekBar"
+							style="@style/seek_bar"
+							android:max="6"
+							android:min="2"
+							android:progress="4" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<TextView
+							style="@style/body_text"
+							android:text="@string/icon_size_status" />
+
+						<TextView
+							android:id="@+id/iconSizeValue"
+							style="@style/body_text"
+							android:textIsSelectable="false" />
+
+						<SeekBar
+							android:id="@+id/iconSizeSeekBar"
+							style="@style/seek_bar"
+							android:max="8"
+							android:min="2"
+							android:progress="4" />
+					</LinearLayout>
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<TextView
+				style="@style/sub_heading"
+				android:text="@string/sub_about" />
+
+			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+
+				<LinearLayout
+					style="@style/widthMatchHeightWrap"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/body_text"
+						android:autoLink="web"
+						android:linksClickable="true"
+						android:text="@string/about" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<TextView
+				style="@style/sep"
+				android:text="" />
+
+			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+
+				<LinearLayout
+					style="@style/widthMatchHeightWrap"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/body_text"
+						android:autoLink="web"
+						android:linksClickable="true"
+						android:text="@string/repo" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<TextView
+				style="@style/sep"
+				android:text="" />
+
+			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+
+				<LinearLayout
+					style="@style/widthMatchHeightWrap"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/body_text"
+						android:autoLink="web"
+						android:linksClickable="true"
+						android:text="@string/tutorial" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
+			<TextView
+				style="@style/sep"
+				android:text="" />
+
+			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+
+				<LinearLayout
+					style="@style/widthMatchHeightWrap"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/body_text"
+						android:autoLink="web"
+						android:linksClickable="true"
+						android:text="@string/license" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
 		</LinearLayout>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
-
-			<androidx.appcompat.widget.AppCompatCheckBox
-				android:id="@+id/disableAnimations"
-				style="@style/rbutton" />
-
-			<TextView
-				style="@style/body_text"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:paddingBottom="@dimen/content_margin"
-				android:text="@string/disable_animations" />
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
-
-			<TextView
-				style="@style/body_text"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/icons_per_row_status" />
-
-			<TextView
-				android:id="@+id/iconsPerColumnValue"
-				style="@style/body_text"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textIsSelectable="false" />
-
-			<SeekBar
-				android:id="@+id/iconsPerColumnSeekBar"
-				style="@style/body_text"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:max="10"
-				android:min="1"
-				android:progress="4" />
-
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
-
-			<TextView
-				style="@style/body_text"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/icon_size_status" />
-
-			<TextView
-				android:id="@+id/iconSizeValue"
-				style="@style/body_text"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textIsSelectable="false" />
-
-			<SeekBar
-				android:id="@+id/iconSizeSeekBar"
-				style="@style/body_text"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:max="32"
-				android:min="8"
-				android:progress="16" />
-
-		</LinearLayout>
-
-		<TextView
-			style="@style/sub_heading"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/sub_about" />
-
-		<View
-			style="@style/div"
-			android:layout_width="match_parent"
-			android:layout_height="1dp"
-			android:background="?android:attr/listDivider" />
-
-		<TextView
-			style="@style/body_text"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:autoLink="web"
-			android:linksClickable="true"
-			android:text="@string/about" />
-
-		<TextView
-			style="@style/body_text"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:autoLink="web"
-			android:linksClickable="true"
-			android:text="@string/tutorial" />
-
-		<TextView
-			style="@style/body_text"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:autoLink="web"
-			android:linksClickable="true"
-			android:text="@string/license" />
-
-	</LinearLayout>
-
-</ScrollView>
+	</ScrollView>
+</com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>

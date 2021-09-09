@@ -34,6 +34,8 @@ class ImageKeyboard : InputMethodService() {
 	private lateinit var imageContainer: LinearLayout
 	private lateinit var packContainer: LinearLayout
 	private lateinit var internalDir: File
+	private var scale = 0f
+
 
 	// SharedPref
 	private lateinit var sharedPreferences: SharedPreferences
@@ -53,7 +55,7 @@ class ImageKeyboard : InputMethodService() {
 	 */
 	private fun addBackButtonToContainer() {
 		val packCard = layoutInflater.inflate(R.layout.pack_card, packContainer, false)
-		val backButton = packCard.findViewById<ImageButton>(R.id.ib3)
+		val backButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 		val icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_chevron_left, null)
 		backButton.setImageDrawable(icon)
 		backButton.setOnClickListener {
@@ -69,7 +71,7 @@ class ImageKeyboard : InputMethodService() {
 	 */
 	private fun addRecentButtonToContainer() {
 		val packCard = layoutInflater.inflate(R.layout.pack_card, packContainer, false)
-		val recentButton = packCard.findViewById<ImageButton>(R.id.ib3)
+		val recentButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 		val icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_clock, null)
 		recentButton.setImageDrawable(icon)
 		recentButton.setOnClickListener {
@@ -87,7 +89,7 @@ class ImageKeyboard : InputMethodService() {
 	 */
 	private fun addPackToContainer(pack: StickerPack) {
 		val packCard = layoutInflater.inflate(R.layout.pack_card, packContainer, false)
-		val packButton = packCard.findViewById<ImageButton>(R.id.ib3)
+		val packButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 		setStickerButtonImage(pack.thumbSticker, packButton)
 		packButton.tag = pack
 		packButton.setOnClickListener { view: View ->
@@ -218,9 +220,10 @@ class ImageKeyboard : InputMethodService() {
 	 */
 	override fun onCreate() {
 		super.onCreate()
+		scale = applicationContext.resources.displayMetrics.density
 		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
 		iconsPerColumn = sharedPreferences.getInt("iconsPerColumn", 3)
-		iconSize = sharedPreferences.getInt("iconSize", 160)
+		iconSize = sharedPreferences.getInt("iconSize", 80)
 		disableAnimations = sharedPreferences.getBoolean(
 			"disableAnimations",
 			false
@@ -241,7 +244,8 @@ class ImageKeyboard : InputMethodService() {
 			View.inflate(applicationContext, R.layout.keyboard_layout, null)
 		packContainer = keyboardLayout.findViewById(R.id.packContainer)
 		imageContainer = keyboardLayout.findViewById(R.id.imageContainer)
-		imageContainer.layoutParams?.height = (iconSize * iconsPerColumn * 1.4).toInt()
+		imageContainer.layoutParams?.height =
+			(scale * (iconSize * iconsPerColumn + 3 * (iconsPerColumn + 1))).toInt()
 		recreatePackContainer()
 		return keyboardLayout
 	}
@@ -318,9 +322,9 @@ class ImageKeyboard : InputMethodService() {
 				imageContainerColumn,
 				false
 			) as CardView
-			val imgButton = imageCard.findViewById<ImageButton>(R.id.ib3)
-			imgButton.layoutParams.height = iconSize
-			imgButton.layoutParams.width = iconSize
+			val imgButton = imageCard.findViewById<ImageButton>(R.id.stickerButton)
+			imgButton.layoutParams.height = (iconSize * scale).toInt()
+			imgButton.layoutParams.width = (iconSize * scale).toInt()
 			setStickerButtonImage(stickers[i], imgButton)
 			imgButton.tag = stickers[i]
 			imgButton.setOnClickListener { view: View ->
