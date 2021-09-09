@@ -24,12 +24,26 @@ object Utils {
 	 * @return HashMap of ewesticker-supported mimes. Keys are "." inclusive.
 	 */
 	fun getSupportedMimes(): MutableMap<String, String> {
-		return mutableMapOf(
+		val mimes = mutableMapOf(
 			".gif" to "image/gif",
 			".png" to "image/png",
-			".apng" to "image/png",
-			".jpg" to "image/jpg",
-			".webp" to "image/webp"
+			".webp" to "image/webp",
 		)
+		for (el in listOf(".jpg", ".jpeg", ".jpe", ".jif", ".jfif", ".jfi")) {
+			mimes[el] = "image/jpg"
+		}
+		for (el in listOf(
+			".heif",
+			".heifs",
+			".heic",
+			".heics",
+			".avci",
+			".avcs",
+			".avif",
+			".avifs"
+		)) {
+			mimes[el] = "image/heif"
+		}
+		return mimes
 	}
 }

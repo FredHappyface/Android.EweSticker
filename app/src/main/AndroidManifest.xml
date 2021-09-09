@@ -31,7 +31,6 @@
 				<action android:name="android.view.InputMethod" />
 			</intent-filter>
 		</service>
-
 		<provider
 			android:name="androidx.core.content.FileProvider"
 			android:authorities="com.fredhappyface.ewesticker.inputcontent"
@@ -41,7 +40,5 @@
 				android:name="android.support.FILE_PROVIDER_PATHS"
 				android:resource="@xml/file_paths" />
 		</provider>
-
 	</application>
-
 </manifest>

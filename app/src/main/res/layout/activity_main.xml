@@ -2,7 +2,8 @@
 <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/activityMainRoot"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="match_parent"
+	android:background="@color/bg">
 
 	<ScrollView
 		android:layout_width="match_parent"
@@ -12,7 +13,7 @@
 		<LinearLayout
 			style="@style/widthMatchHeightWrap"
 			android:orientation="vertical"
-			android:paddingTop="@dimen/content_margin_top">
+			android:padding="@dimen/content_margin">
 
 			<TextView
 				style="@style/sub_heading"
