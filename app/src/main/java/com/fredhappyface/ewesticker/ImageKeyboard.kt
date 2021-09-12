@@ -10,9 +10,9 @@ import android.inputmethodservice.InputMethodService
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.LinearLayout
-import androidx.cardview.widget.CardView
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.inputmethod.EditorInfoCompat
@@ -311,7 +311,7 @@ class ImageKeyboard : InputMethodService() {
 				R.layout.sticker_card,
 				imageContainerColumn,
 				false
-			) as CardView
+			) as FrameLayout
 			val imgButton = imageCard.findViewById<ImageButton>(R.id.stickerButton)
 			imgButton.layoutParams.height = (iconSize * scale).toInt()
 			imgButton.layoutParams.width = (iconSize * scale).toInt()
