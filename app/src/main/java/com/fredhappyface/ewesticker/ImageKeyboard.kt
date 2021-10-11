@@ -7,6 +7,7 @@ import android.graphics.ImageDecoder
 import android.graphics.drawable.AnimatedImageDrawable
 import android.graphics.drawable.Drawable
 import android.inputmethodservice.InputMethodService
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -277,14 +278,17 @@ class ImageKeyboard : InputMethodService() {
 		// Check the cache
 		val imageContainerHash = stickers.hashCode()
 		lateinit var imageContainerLayout: LinearLayout
-		if (imageContainerHash !in imageContainerCache.keys) {
-			imageContainerLayout = createImageContainer(stickers)
-			imageContainerCache[imageContainerHash] = createImageContainer(stickers)
-		} else {
+		if (imageContainerHash in imageContainerCache.keys) {
 			imageContainerLayout = imageContainerCache[imageContainerHash]!!
+		} else {
+			imageContainerLayout = createImageContainer(stickers)
+			imageContainerCache[imageContainerHash] = imageContainerLayout
 		}
 		// Swap the image container
-		imageContainer.removeAllViews()
+		imageContainer.removeAllViewsInLayout()
+		if (imageContainerLayout.parent != null){
+			Log.e("Going to throw java.lang.IllegalStateException", imageContainerLayout.parent.toString())
+		}
 		imageContainer.addView(imageContainerLayout)
 	}
 
@@ -294,18 +298,18 @@ class ImageKeyboard : InputMethodService() {
 	 * @param stickers
 	 */
 	private fun createImageContainer(stickers: Array<File>): LinearLayout {
-		val tempImageContainer =
-			View.inflate(applicationContext, R.layout.image_container, null) as LinearLayout
+		val imageContainer =
+			layoutInflater.inflate(R.layout.image_container, imageContainer, false) as LinearLayout
 		lateinit var imageContainerColumn: LinearLayout
 		for (i in stickers.indices) {
 			// Add a new column
 			if (i % iconsPerColumn == 0) {
 				imageContainerColumn = layoutInflater.inflate(
 					R.layout.image_container_column,
-					tempImageContainer,
+					imageContainer,
 					false
 				) as LinearLayout
-				tempImageContainer.addView(imageContainerColumn)
+				imageContainer.addView(imageContainerColumn)
 			}
 			val imageCard = layoutInflater.inflate(
 				R.layout.sticker_card,
@@ -330,7 +334,7 @@ class ImageKeyboard : InputMethodService() {
 			}
 			imageContainerColumn.addView(imageCard)
 		}
-		return tempImageContainer
+		return imageContainer
 	}
 
 	/**
