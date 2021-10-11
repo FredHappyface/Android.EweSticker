@@ -1,0 +1,8 @@
+<ul>
+<li>Performance improvements to cache miss in <code>switchImageContainer</code> (call <code>createImageContainer(stickers)</code> once)</li>
+<li>update screenshots with new phone frame</li>
+<li>fix sticker shadows on light mode</li>
+<li>tidy up files committed to git</li>
+<li>attempt to fix https://github.com/FredHappyface/Android.EweSticker/issues/7 by using <code>layoutInflater.inflate(R.layout.image_container, imageContainer, false)</code> in place of <code>View.inflate(applicationContext, R.layout.image_container, null)</code></li>
+<li>additional logging to predict <code>java.lang.IllegalStateException</code> (no prevention) in the hope that this provides additional context to make fixing easier if <code>imageContainer.addView(imageContainerLayout)</code> raises in the future</li>
+</ul>
