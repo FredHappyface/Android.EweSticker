@@ -2,6 +2,14 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
+## 202110xx - 2021/10/xx
+
+- Use glide for supported image types to improve performance
+	- fallback to `ImageDecoder.decodeDrawable` for `image/webp` and `image/heif`
+- Add support for vertical scroll https://github.com/FredHappyface/Android.EweSticker/issues/8
+- Refactor and code clean up
+- TODO update screenshots with new phone frame
+
 ## 20211011 - 2021/10/11
 
 - Performance improvements to cache miss in `switchImageContainer`
@@ -19,7 +27,7 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## 20210909 - 2021/09/09
 
 - update ui
-  - use MaterialCardView and Snackbar in settings (MainActivity)
+  - use MaterialCardView and Snack-bar in settings (MainActivity)
   - improvements to the keyboard layout
   - theme improvements
 - general code improvements
@@ -35,7 +43,7 @@ patch-level version changes can be found in [commit messages](../../commits/mast
   - to improve performance of fallback stickers
   - to enable addition of recent list
   - to improve switching packs performance
-- Updated gradle and deps
+- Updated gradle and dependencies
 - Add recent icon
 
 ## 20210723 - 2021/07/23

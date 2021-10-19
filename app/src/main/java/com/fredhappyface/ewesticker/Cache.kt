@@ -9,7 +9,7 @@ import java.util.*
  *
  */
 class Cache(private val size: Int = 30) {
-	private var data: LinkedList<String> = LinkedList()
+	private var mData: LinkedList<String> = LinkedList()
 
 	/**
 	 * Logic to add an element
@@ -19,11 +19,11 @@ class Cache(private val size: Int = 30) {
 	 * @return
 	 */
 	fun add(elem: String): String? {
-		if (!data.contains(elem)) {
-			data.add(elem)
+		if (!mData.contains(elem)) {
+			mData.add(elem)
 		}
-		if (data.size > size) {
-			return data.removeAt(0)
+		if (mData.size > size) {
+			return mData.removeAt(0)
 		}
 		return null
 	}
@@ -34,16 +34,16 @@ class Cache(private val size: Int = 30) {
 	 * @param idx
 	 */
 	fun get(idx: Int) {
-		data[idx]
+		mData[idx]
 	}
 
 	/**
-	 * convert this to a string to write to sharedpref
+	 * convert this to a string to write to shared-pref
 	 *
 	 * @return
 	 */
 	fun toSharedPref(): String {
-		return data.joinToString("\n") { it }
+		return mData.joinToString("\n") { it }
 	}
 
 	/**
@@ -52,14 +52,14 @@ class Cache(private val size: Int = 30) {
 	 * @return
 	 */
 	fun toFiles(): Array<File> {
-		return data.map { File(it) }.toTypedArray()
+		return mData.map { File(it) }.toTypedArray()
 	}
 
 	/**
-	 * convert from a string (sharedpref) to this
+	 * convert from a string (shared-pref) to this
 	 */
 	fun fromSharedPref(raw: String) {
-		data = LinkedList()
-		data.addAll(raw.split("\n").filter { it.isNotEmpty() })
+		mData = LinkedList()
+		mData.addAll(raw.split("\n").filter { it.isNotEmpty() })
 	}
 }

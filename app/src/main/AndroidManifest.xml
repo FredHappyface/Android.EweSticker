@@ -22,9 +22,9 @@
 		</activity>
 		<service
 			android:name="com.fredhappyface.ewesticker.ImageKeyboard"
+			android:exported="false"
 			android:label="EweSticker"
-			android:permission="android.permission.BIND_INPUT_METHOD"
-			android:exported="false">
+			android:permission="android.permission.BIND_INPUT_METHOD">
 			<meta-data
 				android:name="android.view.im"
 				android:resource="@xml/method" />

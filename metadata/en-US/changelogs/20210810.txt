@@ -11,6 +11,6 @@
 <li>to enable addition of recent list</li>
 <li>to improve switching packs performance</li>
 </ul></li>
-<li>Updated gradle and deps</li>
+<li>Updated gradle and dependencies</li>
 <li>Add recent icon</li>
 </ul>
