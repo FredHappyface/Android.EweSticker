@@ -24,13 +24,57 @@ import java.util.*
 import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
-	private val supportedMimes = Utils.getSupportedMimes()
+	// init
+	private val mSupportedMimes = Utils.getSupportedMimes()
 
-	// late-init
-	lateinit var sharedPreferences: SharedPreferences
-	private lateinit var contextView: View
-	private lateinit var iconsPerColumnValue: TextView
-	private lateinit var iconSizeValue: TextView
+	// onCreate
+	lateinit var mSharedPreferences: SharedPreferences
+	private lateinit var mContextView: View
+
+	/**
+	 * Sets up content view, shared prefs, etc.
+	 *
+	 * @param savedInstanceState saved state
+	 */
+	override fun onCreate(savedInstanceState: Bundle?) {
+		// Inflate view
+		super.onCreate(savedInstanceState)
+		setContentView(R.layout.activity_main)
+		// Set late-init attrs
+		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+		mContextView = findViewById(R.id.activityMainRoot)
+		refreshStickerDirPath()
+
+		// Update UI with config
+		seekBar(
+			findViewById(R.id.iconsPerColumnSb),
+			findViewById(R.id.iconsPerColumnLbl),
+			"iconsPerColumn",
+			3
+		)
+		seekBar(findViewById(R.id.iconSizeSb), findViewById(R.id.iconSizeLbl), "iconSize", 80, 20)
+
+		toggle(findViewById(R.id.showBackButton), "showBackButton")
+
+		val compoundButton = findViewById<CompoundButton>(R.id.vertical)
+		val sharedPrefKey = "vertical"
+
+		val isChecked = mSharedPreferences.getBoolean(sharedPrefKey, false)
+		compoundButton.isChecked = isChecked
+		findViewById<SeekBar>(R.id.iconsPerColumnSb).isEnabled = !isChecked
+		findViewById<SeekBar>(R.id.iconSizeSb).isEnabled = !isChecked
+		compoundButton.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
+			showChangedPrefText()
+			findViewById<SeekBar>(R.id.iconsPerColumnSb).isEnabled = !isChecked
+			findViewById<SeekBar>(R.id.iconSizeSb).isEnabled = !isChecked
+			val editor = mSharedPreferences.edit()
+			editor.putBoolean(sharedPrefKey, isChecked)
+			editor.apply()
+		}
+
+
+	}
+
 
 	/**
 	 * For each sticker, check if it is in a compatible file format with EweSticker
@@ -39,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 	 * @return true if supported image type
 	 */
 	private fun canImportSticker(sticker: DocumentFile): Boolean {
-		val mimesToCheck = ArrayList(supportedMimes.keys)
+		val mimesToCheck = ArrayList(mSupportedMimes.keys)
 		return !(sticker.isDirectory ||
 				!mimesToCheck.contains(sticker.name?.let { Utils.getFileExtension(it) }))
 	}
@@ -51,7 +95,7 @@ class MainActivity : AppCompatActivity() {
 		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
 			if (result.resultCode == Activity.RESULT_OK) {
 				val data: Intent? = result.data
-				val editor = sharedPreferences.edit()
+				val editor = mSharedPreferences.edit()
 				editor.putString("stickerDirPath", data?.data.toString())
 				editor.putString("lastUpdateDate", Calendar.getInstance().time.toString())
 				editor.putString("recentCache", "")
@@ -167,7 +211,7 @@ class MainActivity : AppCompatActivity() {
 			var errorText = ""
 			var error: java.lang.Exception? = null
 			var stickersInDir = 0
-			val stickerDirPath = sharedPreferences.getString("stickerDirPath", "none set")
+			val stickerDirPath = mSharedPreferences.getString("stickerDirPath", "none set")
 			val tree = DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath))
 			val files = tree!!.listFiles()
 			try {
@@ -191,7 +235,7 @@ class MainActivity : AppCompatActivity() {
 						"Imported $stickersInDir stickers. You may need to reload the keyboard for new stickers to show up.",
 					)
 				}
-				val editor = sharedPreferences.edit()
+				val editor = mSharedPreferences.edit()
 				editor.putInt("numStickersImported", stickersInDir)
 				editor.apply()
 				refreshStickerDirPath()
@@ -200,71 +244,37 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
-	/**
-	 * Sets up content view, shared prefs, etc.
-	 *
-	 * @param savedInstanceState saved state
-	 */
-	override fun onCreate(savedInstanceState: Bundle?) {
-		// Inflate view
-		super.onCreate(savedInstanceState)
-		setContentView(R.layout.activity_main)
-		// Set late-init attrs
-		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-		contextView = findViewById(R.id.activityMainRoot)
-		iconsPerColumnValue = findViewById(R.id.iconsPerColumnValue)
-		iconSizeValue = findViewById(R.id.iconSizeValue)
-		refreshStickerDirPath()
-		// Update UI with config
-		iconsPerColumnValue.text = sharedPreferences.getInt("iconsPerColumn", 3).toString()
-		iconSizeValue.text = String.format("%ddp", sharedPreferences.getInt("iconSize", 80))
 
-		val backButtonToggle = findViewById<CompoundButton>(R.id.backButtonToggle)
-		backButtonToggle.isChecked = sharedPreferences.getBoolean("showBackButton", false)
-		backButtonToggle.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
+	private fun toggle(compoundButton: CompoundButton, sharedPrefKey: String) {
+		compoundButton.isChecked = mSharedPreferences.getBoolean(sharedPrefKey, false)
+		compoundButton.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
 			showChangedPrefText()
-			val editor = sharedPreferences.edit()
-			editor.putBoolean("showBackButton", isChecked)
+			val editor = mSharedPreferences.edit()
+			editor.putBoolean(sharedPrefKey, isChecked)
 			editor.apply()
 		}
-		val disableAnimations = findViewById<CompoundButton>(R.id.disableAnimations)
-		disableAnimations.isChecked = sharedPreferences.getBoolean("disableAnimations", false)
-		disableAnimations.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
-			showChangedPrefText()
-			val editor = sharedPreferences.edit()
-			editor.putBoolean("disableAnimations", isChecked)
-			editor.apply()
-		}
-		val iconsPerColumnSeekBar = findViewById<SeekBar>(R.id.iconsPerColumnSeekBar)
-		iconsPerColumnSeekBar.progress = sharedPreferences.getInt("iconsPerColumn", 3)
-		iconsPerColumnSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
-			var iconsPerColumn = 3
+	}
+
+	private fun seekBar(
+		seekBar: SeekBar,
+		seekBarLabel: TextView,
+		sharedPrefKey: String,
+		sharedPrefDefault: Int,
+		multiplier: Int = 1
+	) {
+		seekBarLabel.text = mSharedPreferences.getInt(sharedPrefKey, sharedPrefDefault).toString()
+		seekBar.progress = mSharedPreferences.getInt(sharedPrefKey, sharedPrefDefault) / multiplier
+		seekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
+			var progressMultiplier = sharedPrefDefault
 			override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-				iconsPerColumn = progress
-				iconsPerColumnValue.text = iconsPerColumn.toString()
+				progressMultiplier = progress * multiplier
+				seekBarLabel.text = progressMultiplier.toString()
 			}
 
 			override fun onStartTrackingTouch(seekBar: SeekBar) {}
 			override fun onStopTrackingTouch(seekBar: SeekBar) {
-				val editor = sharedPreferences.edit()
-				editor.putInt("iconsPerColumn", iconsPerColumn)
-				editor.apply()
-				showChangedPrefText()
-			}
-		})
-		val iconSizeSeekBar = findViewById<SeekBar>(R.id.iconSizeSeekBar)
-		iconSizeSeekBar.progress = sharedPreferences.getInt("iconSize", 80) / 20
-		iconSizeSeekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
-			var iconSize = 80
-			override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-				iconSize = progress * 20
-				iconSizeValue.text = String.format("%ddp", iconSize)
-			}
-
-			override fun onStartTrackingTouch(seekBar: SeekBar) {}
-			override fun onStopTrackingTouch(seekBar: SeekBar) {
-				val editor = sharedPreferences.edit()
-				editor.putInt("iconSize", iconSize)
+				val editor = mSharedPreferences.edit()
+				editor.putInt(sharedPrefKey, progressMultiplier)
 				editor.apply()
 				showChangedPrefText()
 			}
@@ -275,9 +285,9 @@ class MainActivity : AppCompatActivity() {
 	 * Rereads saved sticker dir path from preferences
 	 */
 	private fun refreshStickerDirPath() {
-		val stickerDirPath = sharedPreferences.getString("stickerDirPath", "none set")
-		val lastUpdateDate = sharedPreferences.getString("lastUpdateDate", "never")
-		val numStickersImported = sharedPreferences.getInt("numStickersImported", 0)
+		val stickerDirPath = mSharedPreferences.getString("stickerDirPath", "none set")
+		val lastUpdateDate = mSharedPreferences.getString("lastUpdateDate", "never")
+		val numStickersImported = mSharedPreferences.getInt("numStickersImported", 0)
 		val dirStatus = findViewById<TextView>(R.id.stickerDirStatus)
 		dirStatus.text = String.format(
 			"%s on %s with %d stickers loaded.",
@@ -299,6 +309,6 @@ class MainActivity : AppCompatActivity() {
 	 */
 	private fun reportEvent(eventInfo: String, exception: Exception? = null) {
 		exception?.printStackTrace() // if an exception then print stack trace
-		Snackbar.make(contextView, eventInfo, Snackbar.LENGTH_SHORT).show()
+		Snackbar.make(mContextView, eventInfo, Snackbar.LENGTH_SHORT).show()
 	}
 }

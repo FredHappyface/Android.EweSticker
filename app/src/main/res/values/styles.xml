@@ -95,7 +95,7 @@
 		<item name="android:layout_marginVertical">@dimen/zero</item>
 	</style>
 
-	<style name="rbutton">
+	<style name="checkbox">
 		<item name="android:layout_width">@dimen/r_btn</item>
 		<item name="android:layout_height">@dimen/r_btn</item>
 		<item name="android:layout_marginTop">@dimen/content_margin_top</item>

@@ -4,8 +4,8 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:layout_margin="@dimen/sticker_padding"
-	app:cardElevation="@dimen/zero"
-	app:cardCornerRadius="@dimen/corner">
+	app:cardCornerRadius="@dimen/corner"
+	app:cardElevation="@dimen/zero">
 
 	<ImageButton
 		android:id="@+id/stickerButton"

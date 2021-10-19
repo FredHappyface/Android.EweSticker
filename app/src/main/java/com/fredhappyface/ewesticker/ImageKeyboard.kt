@@ -5,21 +5,20 @@ import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.graphics.drawable.AnimatedImageDrawable
-import android.graphics.drawable.Drawable
 import android.inputmethodservice.InputMethodService
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.FrameLayout
-import android.widget.ImageButton
-import android.widget.LinearLayout
+import android.widget.*
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.inputmethod.EditorInfoCompat
 import androidx.core.view.inputmethod.InputConnectionCompat
 import androidx.core.view.inputmethod.InputContentInfoCompat
 import androidx.preference.PreferenceManager
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.io.FileOutputStream
@@ -27,34 +26,117 @@ import java.io.IOException
 import java.util.*
 import kotlin.collections.HashMap
 
+
 class ImageKeyboard : InputMethodService() {
+	// onCreate
+	//   constants
+	private lateinit var mInternalDir: File
+	private var mIconPadding = 0f
+
+	//   shared pref
+	private lateinit var mSharedPreferences: SharedPreferences
+	private var mVertical = false
+	private var mIconsPerColumn = 0
+	private var mIconSize = 0
+	private var mCompatCache = Cache()
+	private var mRecentCache = Cache()
+
 	// Attributes
-	private lateinit var supportedMimes: MutableMap<String, String>
-	private var loadedPacks = HashMap<String, StickerPack>()
-	private lateinit var contextView: View
-	private lateinit var imageContainer: LinearLayout
-	private lateinit var packContainer: LinearLayout
-	private lateinit var internalDir: File
-	private var scale = 0f
+	private var mLoadedPacks = HashMap<String, StickerPack>()
+	private lateinit var mSupportedMimes: MutableMap<String, String>
 
-	// SharedPref
-	private lateinit var sharedPreferences: SharedPreferences
-	private var iconsPerColumn = 0
-	private var iconSize = 0
-	private var disableAnimations = false
+	//   keyboard root view, pack content view, pack list view
+	private lateinit var mKeyboardRoot: View
+	private lateinit var mPackContent: ViewGroup
+	private lateinit var mPacksList: ViewGroup
 
-	// Cache for recent + compat stickers
-	private var compatCache = Cache()
-	private var recentCache = Cache()
+	//   cache for image container
+	private var imageContainerCache = HashMap<Int, FrameLayout>()
 
-	// Cache for image container
-	private var imageContainerCache = HashMap<Int, LinearLayout>()
+	/**
+	 * When the activity is crated, grab the number of icons per column and the configured icon size
+	 * before reloading the packs
+	 *
+	 */
+	override fun onCreate() {
+		super.onCreate()
+		// Constants
+		val scale = applicationContext.resources.displayMetrics.density
+		mInternalDir = File(filesDir, "stickers")
+		mIconPadding = (resources.getDimension(R.dimen.sticker_padding) * 2)
+		// Shared pref
+		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
+		mVertical = mSharedPreferences.getBoolean("vertical", false)
+		mRecentCache.fromSharedPref(mSharedPreferences.getString("recentCache", "")!!)
+		mCompatCache.fromSharedPref(mSharedPreferences.getString("compatCache", "")!!)
+		mIconsPerColumn = if (mVertical) {
+			4
+		} else {
+			mSharedPreferences.getInt("iconsPerColumn", 3)
+		}
+		mIconSize = (if (mVertical) {
+			(resources.displayMetrics.widthPixels - mIconPadding * scale) / 4
+		} else {
+			(mSharedPreferences.getInt("iconSize", 80) * scale)
+		}).toInt()
+
+		// Clear the loadedPacks attribute and repopulate based on the directory tree of stickers
+		loadPacks()
+	}
+
+	/**
+	 * Called when the keyboard is first drawn
+	 *
+	 * @return
+	 */
+	override fun onCreateInputView(): View {
+		val keyboardLayout =
+			View.inflate(applicationContext, R.layout.keyboard_layout, null)
+		mKeyboardRoot = keyboardLayout.findViewById(R.id.keyboardRoot)
+		mPacksList = keyboardLayout.findViewById(R.id.packsList)
+		mPackContent = keyboardLayout.findViewById(R.id.packContent)
+		mPackContent.layoutParams?.height = if (mVertical) {
+			800
+		} else {
+			((mIconSize + mIconPadding) * mIconsPerColumn).toInt()
+		}
+		recreatePackContainer()
+		return keyboardLayout
+	}
+
+	/**
+	 * In full-screen mode the inserted content is likely to be hidden by the IME. Hence in this
+	 * sample we simply disable full-screen mode.
+	 *
+	 * @return
+	 */
+	override fun onEvaluateFullscreenMode(): Boolean {
+		return false
+	}
+
+	/**
+	 * When entering some input field (or InputView)
+	 *
+	 * @param info
+	 * @param restarting
+	 */
+	override fun onStartInput(info: EditorInfo?, restarting: Boolean) {
+		mSupportedMimes = Utils.getSupportedMimes()
+		val mimesToCheck = mSupportedMimes.keys.toTypedArray()
+		for (s in mimesToCheck) {
+			val mimeSupported = isCommitContentSupported(info, mSupportedMimes[s]!!)
+			if (!mimeSupported) {
+				mSupportedMimes.remove(s)
+			}
+		}
+	}
+
 
 	/**
 	 * Adds a back button as a PackCard to keyboard that shows the InputMethodPicker
 	 */
 	private fun addBackButtonToContainer() {
-		val packCard = layoutInflater.inflate(R.layout.pack_card, packContainer, false)
+		val packCard = layoutInflater.inflate(R.layout.pack_card, mPacksList, false)
 		val backButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 		val icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_chevron_left, null)
 		backButton.setImageDrawable(icon)
@@ -63,22 +145,22 @@ class ImageKeyboard : InputMethodService() {
 				.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
 			inputMethodManager.showInputMethodPicker()
 		}
-		packContainer.addView(packCard)
+		mPacksList.addView(packCard)
 	}
 
 	/**
 	 * Adds a recent button as a PackCard to keyboard that shows the InputMethodPicker
 	 */
 	private fun addRecentButtonToContainer() {
-		val packCard = layoutInflater.inflate(R.layout.pack_card, packContainer, false)
+		val packCard = layoutInflater.inflate(R.layout.pack_card, mPacksList, false)
 		val recentButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 		val icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_clock, null)
 		recentButton.setImageDrawable(icon)
 		recentButton.setOnClickListener {
-			imageContainer.removeAllViewsInLayout()
-			imageContainer.addView(createImageContainer(recentCache.toFiles()))
+			mPackContent.removeAllViewsInLayout()
+			mPackContent.addView(createImageContainer(mRecentCache.toFiles()))
 		}
-		packContainer.addView(packCard)
+		mPacksList.addView(packCard)
 	}
 
 	/**
@@ -87,14 +169,14 @@ class ImageKeyboard : InputMethodService() {
 	 * @param pack: StickerPack - the sticker pack to add
 	 */
 	private fun addPackToContainer(pack: StickerPack) {
-		val packCard = layoutInflater.inflate(R.layout.pack_card, packContainer, false)
+		val packCard = layoutInflater.inflate(R.layout.pack_card, mPacksList, false)
 		val packButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 		setStickerButtonImage(pack.thumbSticker, packButton)
 		packButton.tag = pack
 		packButton.setOnClickListener { view: View ->
 			switchImageContainer((view.tag as StickerPack).stickerList)
 		}
-		packContainer.addView(packCard)
+		mPacksList.addView(packCard)
 	}
 
 	/**
@@ -105,16 +187,16 @@ class ImageKeyboard : InputMethodService() {
 	 */
 	private fun doFallbackCommitContent(file: File) {
 		// PNG might not be supported
-		if (supportedMimes[".png"] == null) {
+		if (mSupportedMimes[".png"] == null) {
 			Snackbar.make(
-				contextView, Utils.getFileExtension(file.name) +
+				mKeyboardRoot, Utils.getFileExtension(file.name) +
 						" not supported here.", Snackbar.LENGTH_SHORT
 			).show()
 			return
 		}
 		// Create a new compatSticker and convert the sticker to png
 		val compatStickerName = file.hashCode().toString()
-		val compatSticker = File(internalDir, "__compatSticker__/$compatStickerName.png")
+		val compatSticker = File(mInternalDir, "__compatSticker__/$compatStickerName.png")
 		if (!compatSticker.exists()) {
 			// If the sticker doesn't exist then create
 			compatSticker.parentFile?.mkdirs()
@@ -127,9 +209,9 @@ class ImageKeyboard : InputMethodService() {
 		// Send the compatSticker!
 		doCommitContent("description", "image/png", compatSticker)
 		// Remove old stickers
-		val remSticker = compatCache.add(compatStickerName)
+		val remSticker = mCompatCache.add(compatStickerName)
 		if (remSticker != null) {
-			File(internalDir, "__compatSticker__/$remSticker.png")
+			File(mInternalDir, "__compatSticker__/$remSticker.png")
 		}
 	}
 
@@ -164,19 +246,30 @@ class ImageKeyboard : InputMethodService() {
 	 * @param btn:     ImageButton - the button
 	 */
 	private fun setStickerButtonImage(sticker: File, btn: ImageButton) {
-		// Create drawable from file
-		var drawable: Drawable? = null
 		try {
-			drawable = ImageDecoder.decodeDrawable(ImageDecoder.createSource(sticker))
+			when (Utils.getFileMime(sticker.name)) {
+				"image/webp" -> {
+					val drawable = ImageDecoder.decodeDrawable(ImageDecoder.createSource(sticker))
+					if (drawable is AnimatedImageDrawable) {
+						drawable.start()
+						btn.setImageDrawable(drawable)
+						return
+					}
+				}
+				"image/heif" -> {
+					val drawable = ImageDecoder.decodeDrawable(ImageDecoder.createSource(sticker))
+					if (drawable is AnimatedImageDrawable) {
+						drawable.start()
+					}
+					btn.setImageDrawable(drawable)
+					return
+				}
+			}
+			Glide.with(this).load(sticker).into(btn)
 		} catch (ignore: IOException) {
 		}
-		// Disable animations?
-		if (!disableAnimations && drawable is AnimatedImageDrawable) {
-			drawable.start()
-		}
-		// Apply
-		btn.setImageDrawable(drawable)
 	}
+
 
 	/**
 	 * Check if the sticker is supported by the receiver
@@ -204,70 +297,6 @@ class ImageKeyboard : InputMethodService() {
 		return false
 	}
 
-	/**
-	 * When the activity is crated, grab the number of icons per column and the configured icon size
-	 * before reloading the packs
-	 *
-	 */
-	override fun onCreate() {
-		super.onCreate()
-		scale = applicationContext.resources.displayMetrics.density
-		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
-		iconsPerColumn = sharedPreferences.getInt("iconsPerColumn", 3)
-		iconSize = sharedPreferences.getInt("iconSize", 80)
-		disableAnimations = sharedPreferences.getBoolean(
-			"disableAnimations",
-			false
-		)
-		recentCache.fromSharedPref(sharedPreferences.getString("recentCache", "")!!)
-		compatCache.fromSharedPref(sharedPreferences.getString("compatCache", "")!!)
-		internalDir = File(filesDir, "stickers")
-		reloadPacks()
-	}
-
-	/**
-	 * Called when the keyboard is first drawn
-	 *
-	 * @return
-	 */
-	override fun onCreateInputView(): View {
-		val keyboardLayout =
-			View.inflate(applicationContext, R.layout.keyboard_layout, null)
-		contextView = keyboardLayout.findViewById(R.id.keyboardRoot)
-		packContainer = keyboardLayout.findViewById(R.id.packContainer)
-		imageContainer = keyboardLayout.findViewById(R.id.imageContainer)
-		imageContainer.layoutParams?.height =
-			(scale * (iconSize * iconsPerColumn) + resources.getDimension(R.dimen.sticker_padding) * 2 * (iconsPerColumn + 1)).toInt()
-		recreatePackContainer()
-		return keyboardLayout
-	}
-
-	/**
-	 * In full-screen mode the inserted content is likely to be hidden by the IME. Hence in this
-	 * sample we simply disable full-screen mode.
-	 *
-	 * @return
-	 */
-	override fun onEvaluateFullscreenMode(): Boolean {
-		return false
-	}
-
-	/**
-	 * When entering some input field (or InputView)
-	 *
-	 * @param info
-	 * @param restarting
-	 */
-	override fun onStartInput(info: EditorInfo?, restarting: Boolean) {
-		supportedMimes = Utils.getSupportedMimes()
-		val mimesToCheck = supportedMimes.keys.toTypedArray()
-		for (s in mimesToCheck) {
-			val mimeSupported = isCommitContentSupported(info, supportedMimes[s]!!)
-			if (!mimeSupported) {
-				supportedMimes.remove(s)
-			}
-		}
-	}
 
 	/**
 	 * Swap the image container every time a new pack is selected. If already cached use that otherwise create
@@ -277,7 +306,7 @@ class ImageKeyboard : InputMethodService() {
 	private fun switchImageContainer(stickers: Array<File>) {
 		// Check the cache
 		val imageContainerHash = stickers.hashCode()
-		lateinit var imageContainerLayout: LinearLayout
+		lateinit var imageContainerLayout: FrameLayout
 		if (imageContainerHash in imageContainerCache.keys) {
 			imageContainerLayout = imageContainerCache[imageContainerHash]!!
 		} else {
@@ -285,11 +314,14 @@ class ImageKeyboard : InputMethodService() {
 			imageContainerCache[imageContainerHash] = imageContainerLayout
 		}
 		// Swap the image container
-		imageContainer.removeAllViewsInLayout()
-		if (imageContainerLayout.parent != null){
-			Log.e("Going to throw java.lang.IllegalStateException", imageContainerLayout.parent.toString())
+		mPackContent.removeAllViewsInLayout()
+		if (imageContainerLayout.parent != null) {
+			Log.e(
+				"Going to throw java.lang.IllegalStateException",
+				imageContainerLayout.parent.toString()
+			)
 		}
-		imageContainer.addView(imageContainerLayout)
+		mPackContent.addView(imageContainerLayout)
 	}
 
 	/**
@@ -297,34 +329,47 @@ class ImageKeyboard : InputMethodService() {
 	 *
 	 * @param stickers
 	 */
-	private fun createImageContainer(stickers: Array<File>): LinearLayout {
-		val imageContainer =
-			layoutInflater.inflate(R.layout.image_container, imageContainer, false) as LinearLayout
-		lateinit var imageContainerColumn: LinearLayout
+	private fun createImageContainer(stickers: Array<File>): FrameLayout {
+		val packColumnId = if (mVertical) {
+			R.layout.pack_vertical_row
+		} else {
+			R.layout.pack_horizontal_col
+		}
+		val packContainer = layoutInflater.inflate(
+			if (mVertical) {
+				R.layout.pack_vertical
+			} else {
+				R.layout.pack_horizontal
+			}, mPackContent, false
+		) as FrameLayout
+
+		val pack = packContainer.getChildAt(0) as ViewGroup
+
+		lateinit var packColumn: ViewGroup
 		for (i in stickers.indices) {
 			// Add a new column
-			if (i % iconsPerColumn == 0) {
-				imageContainerColumn = layoutInflater.inflate(
-					R.layout.image_container_column,
-					imageContainer,
+			if (i % mIconsPerColumn == 0) {
+				packColumn = layoutInflater.inflate(
+					packColumnId,
+					pack,
 					false
-				) as LinearLayout
-				imageContainer.addView(imageContainerColumn)
+				) as ViewGroup
+				pack.addView(packColumn)
 			}
 			val imageCard = layoutInflater.inflate(
 				R.layout.sticker_card,
-				imageContainerColumn,
+				packColumn,
 				false
 			) as FrameLayout
 			val imgButton = imageCard.findViewById<ImageButton>(R.id.stickerButton)
-			imgButton.layoutParams.height = (iconSize * scale).toInt()
-			imgButton.layoutParams.width = (iconSize * scale).toInt()
+			imgButton.layoutParams.height = mIconSize
+			imgButton.layoutParams.width = mIconSize
 			setStickerButtonImage(stickers[i], imgButton)
 			imgButton.tag = stickers[i]
 			imgButton.setOnClickListener { view: View ->
 				val file = view.tag as File
-				recentCache.add(file.absolutePath)
-				val stickerType = supportedMimes[Utils.getFileExtension(file.name)]
+				mRecentCache.add(file.absolutePath)
+				val stickerType = mSupportedMimes[Utils.getFileExtension(file.name)]
 				if (stickerType == null) {
 					// Sticker is unsupported by input
 					doFallbackCommitContent(file)
@@ -332,9 +377,9 @@ class ImageKeyboard : InputMethodService() {
 				}
 				doCommitContent(file.name, stickerType, file)
 			}
-			imageContainerColumn.addView(imageCard)
+			packColumn.addView(imageCard)
 		}
-		return imageContainer
+		return packContainer
 	}
 
 	/**
@@ -342,21 +387,21 @@ class ImageKeyboard : InputMethodService() {
 	 *
 	 */
 	private fun recreatePackContainer() {
-		packContainer.removeAllViewsInLayout()
+		mPacksList.removeAllViewsInLayout()
 		// Back button
-		if (sharedPreferences.getBoolean("showBackButton", false)) {
+		if (mSharedPreferences.getBoolean("showBackButton", false)) {
 			addBackButtonToContainer()
 		}
 		// Recent
 		addRecentButtonToContainer()
 		// Packs
-		val sortedPackNames = loadedPacks.keys.toTypedArray()
+		val sortedPackNames = mLoadedPacks.keys.toTypedArray()
 		Arrays.sort(sortedPackNames)
 		for (sortedPackName in sortedPackNames) {
-			addPackToContainer(loadedPacks[sortedPackName]!!)
+			addPackToContainer(mLoadedPacks[sortedPackName]!!)
 		}
 		if (sortedPackNames.isNotEmpty()) {
-			switchImageContainer(loadedPacks[sortedPackNames[0]]!!.stickerList)
+			switchImageContainer(mLoadedPacks[sortedPackNames[0]]!!.stickerList)
 		}
 	}
 
@@ -364,21 +409,21 @@ class ImageKeyboard : InputMethodService() {
 	 * Clear the loadedPacks attribute and repopulate based on the directory tree of stickers
 	 *
 	 */
-	private fun reloadPacks() {
-		loadedPacks = HashMap()
+	private fun loadPacks() {
+		mLoadedPacks = HashMap()
 		val packs =
-			internalDir.listFiles { obj: File -> obj.isDirectory && !obj.absolutePath.contains("__compatSticker__") }
+			mInternalDir.listFiles { obj: File -> obj.isDirectory && !obj.absolutePath.contains("__compatSticker__") }
 		if (packs != null) {
 			for (file in packs) {
 				val pack = StickerPack(file)
 				if (pack.stickerList.isNotEmpty()) {
-					loadedPacks[file.name] = pack
+					mLoadedPacks[file.name] = pack
 				}
 			}
 		}
-		val baseStickers = internalDir.listFiles { obj: File -> obj.isFile }
+		val baseStickers = mInternalDir.listFiles { obj: File -> obj.isFile }
 		if (baseStickers != null && baseStickers.isNotEmpty()) {
-			loadedPacks[""] = StickerPack(internalDir)
+			mLoadedPacks[""] = StickerPack(mInternalDir)
 		}
 	}
 
@@ -392,9 +437,9 @@ class ImageKeyboard : InputMethodService() {
 
 	override fun onFinishInput() {
 		// Lets save stuff here
-		val editor = sharedPreferences.edit()
-		editor.putString("recentCache", recentCache.toSharedPref())
-		editor.putString("compatCache", compatCache.toSharedPref())
+		val editor = mSharedPreferences.edit()
+		editor.putString("recentCache", mRecentCache.toSharedPref())
+		editor.putString("compatCache", mCompatCache.toSharedPref())
 		editor.apply()
 		// Call super
 		super.onFinishInput()

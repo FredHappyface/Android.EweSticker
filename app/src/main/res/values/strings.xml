@@ -12,7 +12,7 @@
 	<!-- Options -->
 	<string name="sub_options">&#xf423; Options</string>
 	<string name="show_back_button">Show back button in navbar?</string>
-	<string name="disable_animations">Disable Animations?</string>
+	<string name="vertical">Use vertical layout?</string>
 	<string name="icons_per_row_status">"Icons per column: "</string>
 	<string name="icon_size_status">"Icon size: "</string>
 

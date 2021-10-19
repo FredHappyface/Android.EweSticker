@@ -57,8 +57,8 @@
 						android:orientation="horizontal">
 
 						<CheckBox
-							android:id="@+id/backButtonToggle"
-							style="@style/rbutton" />
+							android:id="@+id/showBackButton"
+							style="@style/checkbox" />
 
 						<TextView
 							style="@style/body_text"
@@ -71,13 +71,13 @@
 						android:orientation="horizontal">
 
 						<CheckBox
-							android:id="@+id/disableAnimations"
-							style="@style/rbutton" />
+							android:id="@+id/vertical"
+							style="@style/checkbox" />
 
 						<TextView
 							style="@style/body_text"
 							android:paddingBottom="@dimen/content_margin"
-							android:text="@string/disable_animations" />
+							android:text="@string/vertical" />
 					</LinearLayout>
 
 					<LinearLayout
@@ -89,12 +89,12 @@
 							android:text="@string/icons_per_row_status" />
 
 						<TextView
-							android:id="@+id/iconsPerColumnValue"
+							android:id="@+id/iconsPerColumnLbl"
 							style="@style/body_text"
 							android:textIsSelectable="false" />
 
 						<SeekBar
-							android:id="@+id/iconsPerColumnSeekBar"
+							android:id="@+id/iconsPerColumnSb"
 							style="@style/seek_bar"
 							android:max="6"
 							android:min="2"
@@ -110,12 +110,12 @@
 							android:text="@string/icon_size_status" />
 
 						<TextView
-							android:id="@+id/iconSizeValue"
+							android:id="@+id/iconSizeLbl"
 							style="@style/body_text"
 							android:textIsSelectable="false" />
 
 						<SeekBar
-							android:id="@+id/iconSizeSeekBar"
+							android:id="@+id/iconSizeSb"
 							style="@style/seek_bar"
 							android:max="8"
 							android:min="2"
