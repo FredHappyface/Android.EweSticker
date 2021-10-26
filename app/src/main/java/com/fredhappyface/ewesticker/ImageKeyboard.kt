@@ -28,6 +28,9 @@ import java.io.IOException
 import java.util.*
 import kotlin.collections.HashMap
 
+/**
+ * ImageKeyboard class inherits from the InputMethodService class - provides the keyboard functionality
+ */
 class ImageKeyboard : InputMethodService() {
 	// onCreate
 	//   constants
@@ -74,8 +77,8 @@ class ImageKeyboard : InputMethodService() {
 		// Shared pref
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
 		mVertical = mSharedPreferences.getBoolean("vertical", false)
-		mRecentCache.fromSharedPref(mSharedPreferences.getString("recentCache", "")!!)
-		mCompatCache.fromSharedPref(mSharedPreferences.getString("compatCache", "")!!)
+		mSharedPreferences.getString("recentCache", "")?.let { mRecentCache.fromSharedPref(it) }
+		mSharedPreferences.getString("compatCache", "")?.let { mCompatCache.fromSharedPref(it) }
 		mIconsPerColumn = if (mVertical) {
 			4
 		} else {
@@ -146,7 +149,7 @@ class ImageKeyboard : InputMethodService() {
 		mSupportedMimes = Utils.getSupportedMimes()
 		val mimesToCheck = mSupportedMimes.keys.toTypedArray()
 		for (mimeToCheck in mimesToCheck) {
-			val mimeSupported = isCommitContentSupported(info, mSupportedMimes[mimeToCheck]!!)
+			val mimeSupported = isCommitContentSupported(info, mSupportedMimes[mimeToCheck])
 			if (!mimeSupported) {
 				mSupportedMimes.remove(mimeToCheck)
 			}
@@ -233,9 +236,10 @@ class ImageKeyboard : InputMethodService() {
 	 * @return boolean - is the mimetype supported?
 	 */
 	private fun isCommitContentSupported(
-		editorInfo: EditorInfo?, mimeType: String
+		editorInfo: EditorInfo?, mimeType: String?
 	): Boolean {
 		editorInfo?.packageName ?: return false
+		mimeType ?: return false
 		currentInputConnection ?: return false
 		for (supportedMimeType in EditorInfoCompat.getContentMimeTypes(editorInfo)) {
 			if (ClipDescription.compareMimeTypes(mimeType, supportedMimeType)) {
@@ -256,7 +260,7 @@ class ImageKeyboard : InputMethodService() {
 		val imageContainerHash = stickers.hashCode()
 		lateinit var packLayout: FrameLayout
 		if (imageContainerHash in imageContainerCache.keys) {
-			packLayout = imageContainerCache[imageContainerHash]!!
+			packLayout = (imageContainerCache[imageContainerHash] ?: return)
 		} else {
 			packLayout = createPackLayout(stickers)
 			imageContainerCache[imageContainerHash] = packLayout
@@ -361,7 +365,7 @@ class ImageKeyboard : InputMethodService() {
 		val sortedPackNames = mLoadedPacks.keys.toTypedArray()
 		Arrays.sort(sortedPackNames)
 		for (sortedPackName in sortedPackNames) {
-			val pack = mLoadedPacks[sortedPackName]!!
+			val pack = mLoadedPacks[sortedPackName] ?: return
 			val packButton = addPackButton()
 			packButton.load(pack.thumbSticker)
 			packButton.tag = pack
@@ -370,7 +374,7 @@ class ImageKeyboard : InputMethodService() {
 			}
 		}
 		if (sortedPackNames.isNotEmpty()) {
-			switchPackLayout(mLoadedPacks[sortedPackNames[0]]!!.stickerList)
+			switchPackLayout((mLoadedPacks[sortedPackNames[0]] ?: return).stickerList)
 		}
 	}
 }
