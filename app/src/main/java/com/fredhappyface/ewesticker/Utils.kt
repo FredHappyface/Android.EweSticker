@@ -18,16 +18,6 @@ object Utils {
 	}
 
 	/**
-	 * @param name the File's name. Takes in a string here instead of a File because in certain
-	 * places we have to use DocumentFile instead-- String name can be found by calling
-	 * .getName() on both, but they are different classes.
-	 * @return returns "." inclusive file extension.
-	 */
-	fun getFileMime(name: String): String {
-		return getSupportedMimes()[getFileExtension(name)].toString()
-	}
-
-	/**
 	 * Needs to create a new HashMap on every call because shallow copies will cause issues between
 	 * different input areas that support different media types.
 	 *

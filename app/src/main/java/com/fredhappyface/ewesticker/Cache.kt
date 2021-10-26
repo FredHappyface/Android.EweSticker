@@ -4,8 +4,8 @@ import java.io.File
 import java.util.*
 
 /**
- * Basically this behaved like an ordered set with some maximum capacity. When this capacity is exceeded
- * an element is removed from the start
+ * Basically this behaved like an ordered set with some maximum capacity. When this capacity is
+ * exceeded an element is removed from the start
  *
  */
 class Cache(private val size: Int = 30) {
