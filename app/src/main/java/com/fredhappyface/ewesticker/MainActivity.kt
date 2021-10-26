@@ -20,7 +20,7 @@ import androidx.preference.PreferenceManager
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.nio.file.Files
-import java.util.*
+import java.util.Calendar
 import java.util.concurrent.Executors
 
 /**
@@ -79,7 +79,6 @@ class MainActivity : AppCompatActivity() {
 			editor.putBoolean(sharedPrefKey, isChecked)
 			editor.apply()
 		}
-
 	}
 
 	/**
@@ -131,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 	 */
 	private fun deleteRecursive(fileOrDirectory: File) {
 		if (fileOrDirectory.isDirectory) {
-			for (child in Objects.requireNonNull(fileOrDirectory.listFiles())) {
+			for (child in fileOrDirectory.listFiles() ?: arrayOf()) {
 				deleteRecursive(child)
 			}
 		}
@@ -203,7 +202,7 @@ class MainActivity : AppCompatActivity() {
 	 * Import files from storage to internal directory
 	 */
 	private fun importStickers() {
-		//Use worker thread because this takes several seconds
+		// Use worker thread because this takes several seconds
 		val executor = Executors.newSingleThreadExecutor()
 		val handler = Handler(Looper.getMainLooper())
 		reportEvent(
