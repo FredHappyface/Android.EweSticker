@@ -6,7 +6,6 @@ import android.graphics.Bitmap
 import android.graphics.ImageDecoder
 import android.graphics.drawable.Drawable
 import android.inputmethodservice.InputMethodService
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
@@ -28,7 +27,6 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
 import kotlin.collections.HashMap
-
 
 class ImageKeyboard : InputMethodService() {
 	// onCreate
@@ -57,9 +55,9 @@ class ImageKeyboard : InputMethodService() {
 	private var imageContainerCache = HashMap<Int, FrameLayout>()
 
 	/**
-	 * When the activity is crated, grab the number of icons per column and the configured icon size
-	 * before reloading the packs
-	 *
+	 * When the activity is created...
+	 * - ensure coil can decode (and display) animated images
+	 * - set the internal sticker dir, icon-padding, icon-size, icons-per-col, caches and loaded-packs
 	 */
 	override fun onCreate() {
 		super.onCreate()
@@ -107,9 +105,12 @@ class ImageKeyboard : InputMethodService() {
 	}
 
 	/**
-	 * Called when the keyboard is first drawn
+	 * When the keyboard is first drawn...
+	 * - inflate keyboardLayout
+	 * - set the keyboard height
+	 * - create pack icons
 	 *
-	 * @return
+	 * @return View keyboardLayout
 	 */
 	override fun onCreateInputView(): View {
 		val keyboardLayout =
@@ -122,13 +123,12 @@ class ImageKeyboard : InputMethodService() {
 		} else {
 			((mIconSize + mIconPadding) * mIconsPerColumn).toInt()
 		}
-		recreatePackLayout()
+		createPackIcons()
 		return keyboardLayout
 	}
 
 	/**
-	 * In full-screen mode the inserted content is likely to be hidden by the IME. Hence in this
-	 * sample we simply disable full-screen mode.
+	 * Disable full-screen mode as content will likely be hidden by the IME.
 	 *
 	 * @return
 	 */
@@ -137,7 +137,7 @@ class ImageKeyboard : InputMethodService() {
 	}
 
 	/**
-	 * When entering some input field (or InputView)
+	 * When entering some input field update the list of supported-mimes
 	 *
 	 * @param info
 	 * @param restarting
@@ -145,29 +145,30 @@ class ImageKeyboard : InputMethodService() {
 	override fun onStartInput(info: EditorInfo?, restarting: Boolean) {
 		mSupportedMimes = Utils.getSupportedMimes()
 		val mimesToCheck = mSupportedMimes.keys.toTypedArray()
-		for (s in mimesToCheck) {
-			val mimeSupported = isCommitContentSupported(info, mSupportedMimes[s]!!)
+		for (mimeToCheck in mimesToCheck) {
+			val mimeSupported = isCommitContentSupported(info, mSupportedMimes[mimeToCheck]!!)
 			if (!mimeSupported) {
-				mSupportedMimes.remove(s)
+				mSupportedMimes.remove(mimeToCheck)
 			}
 		}
 	}
 
+	/**
+	 * When leaving some input field update the caches
+	 *
+	 */
 	override fun onFinishInput() {
-		// Lets save stuff here
 		val editor = mSharedPreferences.edit()
 		editor.putString("recentCache", mRecentCache.toSharedPref())
 		editor.putString("compatCache", mCompatCache.toSharedPref())
 		editor.apply()
-		// Call super
 		super.onFinishInput()
 	}
-
 
 	/**
 	 * In the event that a mimetype is unsupported by a InputConnectionCompat (looking at you,
 	 * Signal) create a temporary png and send that. In the event that png is not supported,
-	 * create a snack-bar as before.
+	 * alert the user.
 	 *
 	 * @param file: File
 	 */
@@ -224,7 +225,6 @@ class ImageKeyboard : InputMethodService() {
 		)
 	}
 
-
 	/**
 	 * Check if the sticker is supported by the receiver
 	 *
@@ -245,33 +245,32 @@ class ImageKeyboard : InputMethodService() {
 		return false
 	}
 
-
 	/**
-	 * Swap the image container every time a new pack is selected. If already cached use that
-	 * otherwise create
+	 * Swap the pack layout every time a pack is selected. If already cached use that
+	 * otherwise create the pack layout
 	 *
 	 * @param stickers
 	 */
-	private fun switchImageContainer(stickers: Array<File>) {
+	private fun switchPackLayout(stickers: Array<File>) {
 		// Check the cache
 		val imageContainerHash = stickers.hashCode()
-		lateinit var imageContainerLayout: FrameLayout
+		lateinit var packLayout: FrameLayout
 		if (imageContainerHash in imageContainerCache.keys) {
-			imageContainerLayout = imageContainerCache[imageContainerHash]!!
+			packLayout = imageContainerCache[imageContainerHash]!!
 		} else {
-			imageContainerLayout = createPackLayout(stickers)
-			imageContainerCache[imageContainerHash] = imageContainerLayout
+			packLayout = createPackLayout(stickers)
+			imageContainerCache[imageContainerHash] = packLayout
 		}
 		// Swap the image container
 		mPackContent.removeAllViewsInLayout()
-		if (imageContainerLayout.parent != null) {
-			Log.e(
-				"Going to throw IllegalStateException", imageContainerLayout.parent.toString()
-			)
-		}
-		mPackContent.addView(imageContainerLayout)
+		packLayout.parent ?: mPackContent.addView(packLayout)
 	}
 
+	/**
+	 * Create the initial pack layout (the pack container and the grid)
+	 *
+	 * @return Pair<FrameLayout, GridLayout> packContainer to pack
+	 */
 	private fun createPartialPackLayout(): Pair<FrameLayout, GridLayout> {
 		if (mVertical) {
 			val packContainer = layoutInflater.inflate(
@@ -292,7 +291,7 @@ class ImageKeyboard : InputMethodService() {
 	}
 
 	/**
-	 * Recreate the pack layout
+	 * Create the pack layout (called by switchPackLayout if the FrameLayout is not cached)
 	 *
 	 * @param stickers
 	 */
@@ -334,10 +333,10 @@ class ImageKeyboard : InputMethodService() {
 	}
 
 	/**
-	 * Process of creating the pack icons
+	 * Create the pack icons (image buttons) that when tapped switch the pack (switchPackLayout)
 	 *
 	 */
-	private fun recreatePackLayout() {
+	private fun createPackIcons() {
 		mPacksList.removeAllViewsInLayout()
 		// Back button
 		if (mSharedPreferences.getBoolean("showBackButton", false)) {
@@ -367,11 +366,11 @@ class ImageKeyboard : InputMethodService() {
 			packButton.load(pack.thumbSticker)
 			packButton.tag = pack
 			packButton.setOnClickListener { view: View? ->
-				switchImageContainer((view?.tag as StickerPack).stickerList)
+				switchPackLayout((view?.tag as StickerPack).stickerList)
 			}
 		}
 		if (sortedPackNames.isNotEmpty()) {
-			switchImageContainer(mLoadedPacks[sortedPackNames[0]]!!.stickerList)
+			switchPackLayout(mLoadedPacks[sortedPackNames[0]]!!.stickerList)
 		}
 	}
 }
