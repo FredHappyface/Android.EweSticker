@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="wrap_content"
 	android:layout_height="match_parent">
 
-	<LinearLayout
+	<androidx.gridlayout.widget.GridLayout
+		android:id="@+id/pack"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal" />
+		android:layout_height="match_parent"
+		app:orientation="vertical">
+
+	</androidx.gridlayout.widget.GridLayout>
 </HorizontalScrollView>
 
