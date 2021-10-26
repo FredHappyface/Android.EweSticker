@@ -1,7 +1,7 @@
 package com.fredhappyface.ewesticker
 
 import java.io.File
-import java.util.*
+import java.util.LinkedList
 
 /**
  * Basically this behaved like an ordered set with some maximum capacity. When this capacity is

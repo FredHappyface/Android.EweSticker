@@ -13,7 +13,7 @@
 	<string name="sub_options">&#xf423; Options</string>
 	<string name="show_back_button">Show back button in navbar?</string>
 	<string name="vertical">Use vertical layout?</string>
-	<string name="icons_per_row_status">"Icons per column: "</string>
+	<string name="icons_per_row_status">"Icons per row: "</string>
 	<string name="icon_size_status">"Icon size: "</string>
 
 	<!-- About -->
@@ -22,11 +22,12 @@
 
 > Features
 
-- Add a directory containing stickers
-  - Supported formats include .png, .gif, .jpg, .webp
-- Select the keyboard
+- Wide range of custom stickers supported
+    - Formats include image/gif (.gif), image/png (.png), image/webp (.webp), image/jpg (.jpg, .jpeg, .jpe, …), image/heif (.heif, .heifs, .heic, …)
 - Send stickers in supported apps (.png is used as a fallback)
-  - Ties in with the system theme</string>
+- Vertical and Horizontal scrolling
+- Change number of rows and sticker preview size
+- Ties in with the system theme</string>
 
 	<string name="repo">See https://github.com/FredHappyface/Android.EweSticker for more information."</string>
 	<string name="tutorial">Select a directory containing stickers and send them in your favourite apps! See https://github.com/FredHappyface/Android.EweSticker/blob/main/TUTORIAL.md for more information on how to use this app.</string>

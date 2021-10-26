@@ -12,7 +12,7 @@
 	<string name="sub_options">&#xf423; Opciones</string>
 	<string name="show_back_button">¿Mostrar botón atrás en navbar?</string>
 	<string name="vertical">¿Usar layout vertical?</string>
-	<string name="icons_per_row_status">"Iconos por columna: "</string>
+	<string name="icons_per_row_status">"Iconos por fila: "</string>
 	<string name="icon_size_status">"Tamaño del icono: "</string>
 
 	<!-- About -->

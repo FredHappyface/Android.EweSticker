@@ -10,7 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.*
+import android.widget.FrameLayout
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.inputmethod.EditorInfoCompat
@@ -25,7 +27,7 @@ import coil.load
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.util.*
+import java.util.Arrays
 import kotlin.collections.HashMap
 
 /**
@@ -202,7 +204,6 @@ class ImageKeyboard : InputMethodService() {
 		// Remove old stickers
 		val remSticker = mCompatCache.add(compatStickerName)
 		remSticker?.let { File(mInternalDir, "__compatSticker__/$remSticker.png").delete() }
-
 	}
 
 	/**
@@ -325,7 +326,6 @@ class ImageKeyboard : InputMethodService() {
 			pack.addView(imageCard)
 		}
 		return packContainer
-
 	}
 
 	private fun addPackButton(icon: Drawable? = null): ImageButton {
