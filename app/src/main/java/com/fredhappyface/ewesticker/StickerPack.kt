@@ -18,7 +18,7 @@ class StickerPack(packDir: File) {
 	 * @return Array of Files corresponding to all stickers found in this pack
 	 */
 	val stickerList: Array<File>
-		get() = stickers!!
+		get() = stickers ?: arrayOf()
 
 	/**
 	 * Provides a sticker to use as the pack-nav container thumbnail.

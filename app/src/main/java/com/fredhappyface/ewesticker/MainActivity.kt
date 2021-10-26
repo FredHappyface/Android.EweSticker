@@ -52,13 +52,18 @@ class MainActivity : AppCompatActivity() {
 			"iconsPerColumn",
 			3
 		)
-		seekBar(findViewById(R.id.iconSizeSb), findViewById(R.id.iconSizeLbl), "iconSize", 80, 20)
+		seekBar(
+			findViewById(R.id.iconSizeSb),
+			findViewById(R.id.iconSizeLbl),
+			"iconSize",
+			80,
+			20
+		)
 
 		toggle(findViewById(R.id.showBackButton), "showBackButton")
 
 		val compoundButton = findViewById<CompoundButton>(R.id.vertical)
 		val sharedPrefKey = "vertical"
-
 		val isChecked = mSharedPreferences.getBoolean(sharedPrefKey, false)
 		compoundButton.isChecked = isChecked
 		findViewById<SeekBar>(R.id.iconsPerColumnSb).isEnabled = !isChecked
@@ -72,9 +77,7 @@ class MainActivity : AppCompatActivity() {
 			editor.apply()
 		}
 
-
 	}
-
 
 	/**
 	 * For each sticker, check if it is in a compatible file format with EweSticker
@@ -179,7 +182,7 @@ class MainActivity : AppCompatActivity() {
 		try {
 			val inputStream = contentResolver.openInputStream(sticker.uri)
 			Files.copy(inputStream, destSticker.toPath())
-			inputStream!!.close()
+			inputStream?.close()
 		} catch (e: java.lang.Exception) {
 			when (e) {
 				is java.nio.file.FileAlreadyExistsException, is java.nio.file.DirectoryNotEmptyException -> {
@@ -206,16 +209,14 @@ class MainActivity : AppCompatActivity() {
 		val button = findViewById<Button>(R.id.chooseStickerDir)
 		button.isEnabled = false
 		executor.execute {
-			val oldStickers = File(filesDir, "stickers")
-			deleteRecursive(oldStickers)
+			deleteRecursive(File(filesDir, "stickers"))
 			var errorText = ""
 			var error: java.lang.Exception? = null
 			var stickersInDir = 0
 			val stickerDirPath = mSharedPreferences.getString("stickerDirPath", "none set")
-			val tree = DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath))
-			val files = tree!!.listFiles()
 			try {
-				for (file in files) {
+				for (file in DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath))
+					?.listFiles() ?: arrayOf()) {
 					if (file.isFile) stickersInDir += importSticker(file, "")
 					if (file.isDirectory) stickersInDir += importPack(file)
 				}
@@ -243,7 +244,6 @@ class MainActivity : AppCompatActivity() {
 			}
 		}
 	}
-
 
 	private fun toggle(compoundButton: CompoundButton, sharedPrefKey: String) {
 		compoundButton.isChecked = mSharedPreferences.getBoolean(sharedPrefKey, false)
