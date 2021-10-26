@@ -23,6 +23,9 @@ import java.nio.file.Files
 import java.util.*
 import java.util.concurrent.Executors
 
+/**
+ * MainActivity class inherits from the AppCompatActivity class - provides the settings view
+ */
 class MainActivity : AppCompatActivity() {
 	// init
 	private val mSupportedMimes = Utils.getSupportedMimes()
