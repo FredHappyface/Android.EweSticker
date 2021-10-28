@@ -5,8 +5,8 @@
 		<item name="colorPrimaryVariant">@color/accent</item>
 		<item name="colorOnPrimary">@color/onAccent</item>
 		<!-- Customize your theme here. -->
-		<item name="android:navigationBarColor">@color/accentDark</item>
-		<item name="colorPrimaryDark">@color/accentDark</item>
+		<item name="android:navigationBarColor">@color/accent</item>
+		<item name="colorPrimaryDark">@color/accent</item>
 		<item name="colorPrimary">@color/accent</item>
 		<item name="colorAccent">@color/accent</item>
 		<item name="android:textColorPrimary">@color/fg</item>
@@ -16,7 +16,7 @@
 		<item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
 		<item name="actionBarStyle">@style/AppBarBackground</item>
 		<item name="actionBarTheme">@style/AppBarText</item>
-		<item name="android:fontFamily">@font/firasans_nf</item>
+		<item name="android:fontFamily">@font/firasans_nf_bold</item>
 		<item name="colorSurface">@color/sticker</item>
 		<item name="colorOnSurface">@color/fg</item>
 		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent
@@ -33,6 +33,7 @@
 	<style name="Widget.App.Snackbar.TextView" parent="Widget.MaterialComponents.Snackbar.TextView">
 		<item name="android:textColor">@color/onAccent</item>
 		<item name="android:textSize">@dimen/text_size_body</item>
+		<item name="android:fontFamily">@font/firasans_nf</item>
 	</style>
 
 	<style name="ThemeOverlay.App.Snackbar" parent="">
@@ -60,8 +61,8 @@
 		<item name="android:layout_height">wrap_content</item>
 	</style>
 
-	<style name="sep" parent="widthMatchHeightWrap">
-		<item name="android:layout_marginTop">@dimen/content_margin_top</item>
+	<style name="card" parent="widthMatchHeightWrap">
+		<item name="android:layout_marginVertical">@dimen/content_margin_top</item>
 		<item name="android:textSize">@dimen/zero</item>
 	</style>
 
@@ -77,15 +78,14 @@
 	</style>
 
 	<style name="body_text" parent="widget">
+		<item name="android:fontFamily">@font/firasans_nf</item>
 		<item name="android:textSize">@dimen/text_size_body</item>
 		<item name="android:layout_width">wrap_content</item>
 	</style>
 
 	<style name="sub_heading" parent="widget">
 		<item name="android:textColor">@color/accent</item>
-		<item name="android:textSize">@dimen/text_size_h2</item>
-		<item name="android:textStyle">bold</item>
-		<item name="android:layout_marginTop">@dimen/content_margin_top</item>
+		<item name="android:textSize">@dimen/text_size_heading</item>
 		<item name="android:layout_marginBottom">@dimen/zero</item>
 	</style>
 

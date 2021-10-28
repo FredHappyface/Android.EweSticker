@@ -4,7 +4,7 @@
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	android:layout_margin="@dimen/sticker_padding"
-	app:cardCornerRadius="@dimen/corner"
+	app:cardCornerRadius="@dimen/sticker_radius"
 	app:cardElevation="@dimen/zero">
 
 	<ImageButton

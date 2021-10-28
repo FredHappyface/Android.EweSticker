@@ -3,40 +3,40 @@
 	<string name="app_name" translatable="false">EweSticker</string>
 	<string name="pack_icon">Pack icon</string>
 	<string name="sticker_icon">Sticker icon</string>
-
-	<!-- Actions -->
-	<string name="sub_actions">&#xf489; Actions</string>
-	<string name="choose_dir">Choose a new sticker source directory</string>
-	<string name="current_info">Current loaded sticker information: </string>
-
+	<!-- Update Sticker Pack -->
+	<string name="update_sticker_pack_heading">Update Sticker Pack</string>
+	<string name="update_sticker_pack_button">Choose sticker source directory</string>
+	<string name="update_sticker_pack_info">Current loaded sticker packs information: </string>
+	<string name="update_sticker_pack_info_path_lbl">- Path: </string>
+	<string name="update_sticker_pack_info_date_lbl">- Date: </string>
+	<string name="update_sticker_pack_info_total_lbl">- Total: </string>
 	<!-- Options -->
-	<string name="sub_options">&#xf423; Options</string>
-	<string name="show_back_button">Show back button in navbar?</string>
-	<string name="vertical">Use vertical layout?</string>
-	<string name="icons_per_row_status">"Icons per row: "</string>
-	<string name="icon_size_status">"Icon size: "</string>
-
-	<!-- About -->
-	<string name="sub_about">&#xf449; About</string>
-	<string name="about">"Sticker-board for android inspired by uSticker (forked from woosticker).
-
-> Features
-
-- Wide range of custom stickers supported
+	<string name="options_heading">Options</string>
+	<string name="options_show_back_button">Show back button in navbar</string>
+	<string name="options_vertical">Use vertical layout</string>
+	<string name="options_icons_per_row_lbl">"Number of Rows: "</string>
+	<string name="options_icon_size_status_lbl">"Icon size: "</string>
+	<!-- Info -->
+	<string name="info_heading">Info</string>
+	<string name="info_text">Sticker-board for android inspired by uSticker (forked from woosticker).</string>
+	<!-- Features -->
+	<string name="features_heading">Features</string>
+	<string name="features_text">"- Wide range of custom stickers supported
     - Formats include image/gif (.gif), image/png (.png), image/webp (.webp), image/jpg (.jpg, .jpeg, .jpe, …), image/heif (.heif, .heifs, .heic, …)
 - Send stickers in supported apps (.png is used as a fallback)
 - Vertical and Horizontal scrolling
 - Change number of rows and sticker preview size
 - Ties in with the system theme</string>
-
-	<string name="repo">See https://github.com/FredHappyface/Android.EweSticker for more information."</string>
-	<string name="tutorial">Select a directory containing stickers and send them in your favourite apps! See https://github.com/FredHappyface/Android.EweSticker/blob/main/TUTORIAL.md for more information on how to use this app.</string>
-	<string name="license">"MIT License
-
-Copyright © FredHappyface
-Copyright © Randy Zhou
-
-(See https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md for more information.)</string>
-
-
+	<!-- How to use -->
+	<string name="how_to_use_heading">How to Use</string>
+	<string name="how_to_use_text">Select a directory containing stickers and send them in your favourite apps!</string>
+	<!-- License -->
+	<string name="license_heading">MIT License</string>
+	<string name="license_text">"Copyright © FredHappyface
+Copyright © Randy Zhou</string>
+	<!-- Links -->
+	<string name="links_heading">Links</string>
+	<string name="links_text">"- Project: https://github.com/FredHappyface/Android.EweSticker
+- Tutorial: https://github.com/FredHappyface/Android.EweSticker/blob/main/TUTORIAL.md
+- License: https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md</string>
 </resources>

@@ -14,43 +14,86 @@
 			style="@style/widthMatchHeightWrap"
 			android:orientation="vertical"
 			android:padding="@dimen/content_margin">
-
-			<TextView
-				style="@style/sub_heading"
-				android:text="@string/sub_actions" />
-
-			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+			<!-- Update Sticker Pack -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
 					style="@style/widthMatchHeightWrap"
 					android:orientation="vertical">
 
 					<TextView
-						style="@style/body_text"
-						android:text="@string/current_info" />
+						style="@style/sub_heading"
+						android:text="@string/update_sticker_pack_heading" />
 
 					<TextView
-						android:id="@+id/stickerDirStatus"
 						style="@style/body_text"
-						android:text="" />
+						android:text="@string/update_sticker_pack_info" />
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<TextView
+							style="@style/body_text"
+							android:layout_marginVertical="@dimen/zero"
+							android:text="@string/update_sticker_pack_info_path_lbl" />
+
+						<TextView
+							android:id="@+id/stickerPackInfoPath"
+							style="@style/body_text"
+							android:layout_marginVertical="@dimen/zero"
+							android:text="" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<TextView
+							style="@style/body_text"
+							android:layout_marginVertical="@dimen/zero"
+							android:text="@string/update_sticker_pack_info_date_lbl" />
+
+						<TextView
+							android:id="@+id/stickerPackInfoDate"
+							style="@style/body_text"
+							android:layout_marginVertical="@dimen/zero"
+							android:text="" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<TextView
+							style="@style/body_text"
+							android:layout_marginVertical="@dimen/zero"
+							android:text="@string/update_sticker_pack_info_total_lbl" />
+
+						<TextView
+							android:id="@+id/stickerPackInfoTotal"
+							style="@style/body_text"
+							android:layout_marginVertical="@dimen/zero"
+							android:text="" />
+					</LinearLayout>
 
 					<Button
-						android:id="@+id/chooseStickerDir"
+						android:id="@+id/updateStickerPackInfoBtn"
 						style="@style/button"
 						android:onClick="chooseDir"
-						android:text="@string/choose_dir" />
+						android:text="@string/update_sticker_pack_button" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
-
-			<TextView
-				style="@style/sub_heading"
-				android:text="@string/sub_options" />
-
-			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+			<!-- Options -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
 					style="@style/widthMatchHeightWrap"
 					android:orientation="vertical">
+
+					<TextView
+						style="@style/sub_heading"
+						android:text="@string/options_heading" />
 
 					<LinearLayout
 						style="@style/widthMatchHeightWrap"
@@ -63,7 +106,7 @@
 						<TextView
 							style="@style/body_text"
 							android:paddingBottom="@dimen/content_margin"
-							android:text="@string/show_back_button" />
+							android:text="@string/options_show_back_button" />
 					</LinearLayout>
 
 					<LinearLayout
@@ -77,7 +120,7 @@
 						<TextView
 							style="@style/body_text"
 							android:paddingBottom="@dimen/content_margin"
-							android:text="@string/vertical" />
+							android:text="@string/options_vertical" />
 					</LinearLayout>
 
 					<LinearLayout
@@ -86,7 +129,7 @@
 
 						<TextView
 							style="@style/body_text"
-							android:text="@string/icons_per_row_status" />
+							android:text="@string/options_icons_per_row_lbl" />
 
 						<TextView
 							android:id="@+id/iconsPerColumnLbl"
@@ -107,7 +150,7 @@
 
 						<TextView
 							style="@style/body_text"
-							android:text="@string/icon_size_status" />
+							android:text="@string/options_icon_size_status_lbl" />
 
 						<TextView
 							android:id="@+id/iconSizeLbl"
@@ -123,76 +166,86 @@
 					</LinearLayout>
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
-
-			<TextView
-				style="@style/sub_heading"
-				android:text="@string/sub_about" />
-
-			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+			<!-- Info -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
 					style="@style/widthMatchHeightWrap"
 					android:orientation="vertical">
 
 					<TextView
+						style="@style/sub_heading"
+						android:text="@string/info_heading" />
+
+					<TextView
 						style="@style/body_text"
-						android:autoLink="web"
-						android:linksClickable="true"
-						android:text="@string/about" />
+						android:text="@string/info_text" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
-
-			<TextView
-				style="@style/sep"
-				android:text="" />
-
-			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+			<!-- Features -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
 					style="@style/widthMatchHeightWrap"
 					android:orientation="vertical">
 
 					<TextView
+						style="@style/sub_heading"
+						android:text="@string/features_heading" />
+
+					<TextView
 						style="@style/body_text"
-						android:autoLink="web"
-						android:linksClickable="true"
-						android:text="@string/repo" />
+						android:text="@string/features_text" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
-
-			<TextView
-				style="@style/sep"
-				android:text="" />
-
-			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+			<!-- How to use -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
 					style="@style/widthMatchHeightWrap"
 					android:orientation="vertical">
 
 					<TextView
+						style="@style/sub_heading"
+						android:text="@string/how_to_use_heading" />
+
+					<TextView
 						style="@style/body_text"
-						android:autoLink="web"
-						android:linksClickable="true"
-						android:text="@string/tutorial" />
+						android:text="@string/how_to_use_text" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
-
-			<TextView
-				style="@style/sep"
-				android:text="" />
-
-			<com.google.android.material.card.MaterialCardView style="@style/widthMatchHeightWrap">
+			<!-- License -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
 					style="@style/widthMatchHeightWrap"
 					android:orientation="vertical">
 
 					<TextView
+						style="@style/sub_heading"
+						android:text="@string/license_heading" />
+
+					<TextView
+						style="@style/body_text"
+						android:text="@string/license_text" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+			<!-- Links -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
+
+				<LinearLayout
+					style="@style/widthMatchHeightWrap"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/sub_heading"
+						android:text="@string/links_heading" />
+
+					<TextView
 						style="@style/body_text"
 						android:autoLink="web"
 						android:linksClickable="true"
-						android:text="@string/license" />
+						android:text="@string/links_text" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 		</LinearLayout>

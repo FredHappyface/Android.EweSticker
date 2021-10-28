@@ -10,7 +10,10 @@ object Utils {
 	 * .getName() on both, but they are different classes.
 	 * @return returns "." inclusive file extension.
 	 */
-	fun getFileExtension(name: String): String {
+	fun getFileExtension(name: String?): String {
+		if (name == null) {
+			return ""
+		}
 		val lastIndexOf = name.lastIndexOf(".")
 		return if (lastIndexOf == -1) {
 			""

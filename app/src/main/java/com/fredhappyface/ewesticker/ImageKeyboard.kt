@@ -27,7 +27,7 @@ import coil.load
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
-import java.util.Arrays
+import java.util.*
 import kotlin.collections.HashMap
 
 /**
@@ -37,7 +37,7 @@ class ImageKeyboard : InputMethodService() {
 	// onCreate
 	//   constants
 	private lateinit var mInternalDir: File
-	private var mIconPadding = 0f
+	private var mTotalIconPadding = 0
 
 	//   shared pref
 	private lateinit var mSharedPreferences: SharedPreferences
@@ -75,8 +75,6 @@ class ImageKeyboard : InputMethodService() {
 		// Constants
 		val scale = applicationContext.resources.displayMetrics.density
 		mInternalDir = File(filesDir, "stickers")
-		mIconPadding = (resources.getDimension(R.dimen.sticker_padding) * 2)
-		// Shared pref
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
 		mVertical = mSharedPreferences.getBoolean("vertical", false)
 		mSharedPreferences.getString("recentCache", "")?.let { mRecentCache.fromSharedPref(it) }
@@ -86,12 +84,13 @@ class ImageKeyboard : InputMethodService() {
 		} else {
 			mSharedPreferences.getInt("iconsPerColumn", 3)
 		}
+		mTotalIconPadding =
+			(resources.getDimension(R.dimen.sticker_padding) * 2 * (mIconsPerColumn + 1)).toInt()
 		mIconSize = (if (mVertical) {
-			(resources.displayMetrics.widthPixels - mIconPadding * scale) / 4
+			(resources.displayMetrics.widthPixels - mTotalIconPadding) / mIconsPerColumn
 		} else {
 			(mSharedPreferences.getInt("iconSize", 80) * scale)
 		}).toInt()
-
 		// Clear the loadedPacks attribute and repopulate based on the directory tree of stickers
 		mLoadedPacks = HashMap()
 		val packs =
@@ -126,7 +125,7 @@ class ImageKeyboard : InputMethodService() {
 		mPackContent.layoutParams?.height = if (mVertical) {
 			800
 		} else {
-			((mIconSize + mIconPadding) * mIconsPerColumn).toInt()
+			mIconSize * mIconsPerColumn + mTotalIconPadding
 		}
 		createPackIcons()
 		return keyboardLayout
@@ -212,10 +211,7 @@ class ImageKeyboard : InputMethodService() {
 	 * @param mimeType:    String
 	 * @param file:        File
 	 */
-	private fun doCommitContent(
-		mimeType: String,
-		file: File
-	) {
+	private fun doCommitContent(mimeType: String, file: File) {
 		// ContentUri, ClipDescription, linkUri
 		val inputContentInfoCompat = InputContentInfoCompat(
 			FileProvider.getUriForFile(this, "com.fredhappyface.ewesticker.inputcontent", file),
@@ -236,9 +232,7 @@ class ImageKeyboard : InputMethodService() {
 	 * @param mimeType:   String - the image mimetype
 	 * @return boolean - is the mimetype supported?
 	 */
-	private fun isCommitContentSupported(
-		editorInfo: EditorInfo?, mimeType: String?
-	): Boolean {
+	private fun isCommitContentSupported(editorInfo: EditorInfo?, mimeType: String?): Boolean {
 		editorInfo?.packageName ?: return false
 		mimeType ?: return false
 		currentInputConnection ?: return false
@@ -360,7 +354,6 @@ class ImageKeyboard : InputMethodService() {
 			mPackContent.removeAllViewsInLayout()
 			mPackContent.addView(createPackLayout(mRecentCache.toFiles()))
 		}
-
 		// Packs
 		val sortedPackNames = mLoadedPacks.keys.toTypedArray()
 		Arrays.sort(sortedPackNames)
