@@ -3,8 +3,8 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:layout_margin="@dimen/sticker_padding"
 	android:layout_marginHorizontal="@dimen/pack_padding_horizontal"
+	android:layout_marginVertical="@dimen/pack_padding_vertical"
 	app:cardCornerRadius="@dimen/zero">
 
 	<ImageButton

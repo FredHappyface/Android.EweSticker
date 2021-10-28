@@ -2,39 +2,40 @@
 	<!-- App info -->
 	<string name="pack_icon">Icono del paquete</string>
 	<string name="sticker_icon">Icono del sticker</string>
-
-	<!-- Actions -->
-	<string name="sub_actions">&#xf489; Acciones</string>
-	<string name="choose_dir">Escoge un nuevo directorio fuente del sticker</string>
-	<string name="current_info">Información actual del sticker cargado: </string>
-
+	<!-- Update Sticker Pack -->
+	<string name="update_sticker_pack_heading">Paquete de etiqueta actualización</string>
+	<string name="update_sticker_pack_button">Elija el directorio de fuente de la etiqueta</string>
+	<string name="update_sticker_pack_info">Paquetes de etiqueta cargada actual Información:</string>
+	<string name="update_sticker_pack_info_path_lbl">- Sendero: </string>
+	<string name="update_sticker_pack_info_date_lbl">- Fecha: </string>
+	<string name="update_sticker_pack_info_total_lbl">- Total: </string>
 	<!-- Options -->
-	<string name="sub_options">&#xf423; Opciones</string>
-	<string name="show_back_button">¿Mostrar botón atrás en navbar?</string>
-	<string name="vertical">¿Usar layout vertical?</string>
-	<string name="icons_per_row_status">"Iconos por fila: "</string>
-	<string name="icon_size_status">"Tamaño del icono: "</string>
-
-	<!-- About -->
-	<string name="sub_about">&#xf449; Acerca de</string>
-	<string name="about">"Tablero de stickers para android inspirado en uSticker (bifurcado de woosticker).
-
-> Características
-
-- Añade un directorio que contenga pegatinas
-  - Los formatos admitidos son .png, .gif, .jpg, .webp
-- Seleccione el teclado
+	<string name="options_heading">Opciones</string>
+	<string name="options_show_back_button">Mostrar botón atrás en navbar</string>
+	<string name="options_vertical">Usar layout vertical</string>
+	<string name="options_icons_per_row_lbl">"Número de filas: "</string>
+	<string name="options_icon_size_status_lbl">"Tamaño del icono: "</string>
+	<!-- Info -->
+	<string name="info_heading">Información</string>
+	<string name="info_text">Tablero de stickers para android inspirado en uSticker (bifurcado de woosticker).</string>
+	<!-- Features -->
+	<string name="features_heading">Características</string>
+	<string name="features_text">"- Amplia gama de pegatinas personalizadas admitidas
+    - Los formatos admitidos son image/gif (.gif), image/png (.png), image/webp (.webp), image/jpg (.jpg, .jpeg, .jpe, ...), image/heif (.heif,.heifs, .heic, ...)
 - Envíe stickers en las aplicaciones compatibles (.png se utiliza como alternativa)
-  - Se ajusta al tema del sistema</string>
-
-	<string name="repo">Vea https://github.com/FredHappyface/Android.EweSticker for more information."</string>
-	<string name="tutorial">Selecciona un directorio que contenga pegatinas y envíalas en tus aplicaciones favoritas. Vea https://github.com/FredHappyface/Android.EweSticker/blob/main/TUTORIAL.md para más información sobre el uso de esta app.</string>
-	<string name="license">"Licencia MIT
-
-Copyright © FredHappyface
-Copyright © Randy Zhou
-
-(Vea https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md para más información.)</string>
-
-
+- Desplazamiento vertical y horizontal.
+- Cambio Número de filas y tamaño de vista previa de la etiqueta
+- Se ajusta al tema del sistema.</string>
+	<!-- How to use -->
+	<string name="how_to_use_heading">Cómo utilizar</string>
+	<string name="how_to_use_text">Selecciona un directorio que contenga pegatinas y envíalas en tus aplicaciones favoritas.</string>
+	<!-- License -->
+	<string name="license_heading">Licencia MIT</string>
+	<string name="license_text">"Copyright © FredHappyface
+Copyright © Randy Zhou</string>
+	<!-- Links -->
+	<string name="links_heading">Enlaces</string>
+	<string name="links_text">"- Proyecto: https://github.com/FredHappyface/Android.EweSticker
+- Tutorial: https://github.com/FredHappyface/Android.EweSticker/blob/main/TUTORIAL.md
+- Licencia: https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md</string>
 </resources>
