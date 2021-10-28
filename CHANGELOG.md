@@ -11,7 +11,8 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 - Use GridLayout in place of linear views
 - Refactor and code clean up (reduced ImageKeyboard.kt by about 17% sloc, reduced MainActivity.kt by about 18% sloc)
 - Update UI (now more material you inspired)
-- TODO update screenshots with new phone frame
+- Update screenshots
+- Update tutorial
 
 ## 20211011 - 2021/10/11
 
