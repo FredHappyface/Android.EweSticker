@@ -2,6 +2,7 @@
 	<!-- App info -->
 	<string name="pack_icon">Icono del paquete</string>
 	<string name="sticker_icon">Icono del sticker</string>
+	<string name="close_sticker_preview">[Toque para cerrar la vista previa de la etiqueta]</string>
 	<!-- Update Sticker Pack -->
 	<string name="update_sticker_pack_heading">Paquete de etiqueta actualización</string>
 	<string name="update_sticker_pack_button">Elija el directorio de fuente de la etiqueta</string>
@@ -21,11 +22,12 @@
 	<!-- Features -->
 	<string name="features_heading">Características</string>
 	<string name="features_text">"- Amplia gama de pegatinas personalizadas admitidas
-    - Los formatos admitidos son image/gif (.gif), image/png (.png), image/webp (.webp), image/jpg (.jpg, .jpeg, .jpe, ...), image/heif (.heif,.heifs, .heic, ...)
+    - Los formatos admitidos son image/gif (.gif), image/png (.png), image/webp (.webp), image/jpg (.jpg, .jpeg, .jpe, …), image/heif (.heif,.heifs, .heic, …)
 - Envíe stickers en las aplicaciones compatibles (.png se utiliza como alternativa)
 - Desplazamiento vertical y horizontal.
 - Cambio Número de filas y tamaño de vista previa de la etiqueta
-- Se ajusta al tema del sistema.</string>
+- Se ajusta al tema del sistema.
+- Pulse larga en una etiqueta para mostrar una vista previa.</string>
 	<!-- How to use -->
 	<string name="how_to_use_heading">Cómo utilizar</string>
 	<string name="how_to_use_text">Selecciona un directorio que contenga pegatinas y envíalas en tus aplicaciones favoritas.</string>

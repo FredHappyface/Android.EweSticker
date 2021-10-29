@@ -16,7 +16,7 @@
 		<item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
 		<item name="actionBarStyle">@style/AppBarBackground</item>
 		<item name="actionBarTheme">@style/AppBarText</item>
-		<item name="android:fontFamily">@font/firasans_nf_bold</item>
+		<item name="android:fontFamily">@font/firasans_bold</item>
 		<item name="colorSurface">@color/sticker</item>
 		<item name="colorOnSurface">@color/fg</item>
 		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent
@@ -33,7 +33,7 @@
 	<style name="Widget.App.Snackbar.TextView" parent="Widget.MaterialComponents.Snackbar.TextView">
 		<item name="android:textColor">@color/onAccent</item>
 		<item name="android:textSize">@dimen/text_size_body</item>
-		<item name="android:fontFamily">@font/firasans_nf</item>
+		<item name="android:fontFamily">@font/firasans</item>
 	</style>
 
 	<style name="ThemeOverlay.App.Snackbar" parent="">
@@ -78,7 +78,8 @@
 	</style>
 
 	<style name="body_text" parent="widget">
-		<item name="android:fontFamily">@font/firasans_nf</item>
+		<item name="android:textColor">@color/fg</item>
+		<item name="android:fontFamily">@font/firasans</item>
 		<item name="android:textSize">@dimen/text_size_body</item>
 		<item name="android:layout_width">wrap_content</item>
 	</style>

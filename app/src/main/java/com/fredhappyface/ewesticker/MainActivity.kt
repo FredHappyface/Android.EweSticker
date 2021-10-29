@@ -120,9 +120,7 @@ class MainActivity : AppCompatActivity() {
 	 * @return 1 if sticker imported successfully else 0
 	 */
 	private fun importSticker(sticker: DocumentFile, pack: String): Int {
-		if (sticker.isDirectory ||
-			!mSupportedMimes.keys.contains(Utils.getFileExtension(sticker.name))
-		) {
+		if (sticker.isDirectory || sticker.type !in mSupportedMimes) {
 			return 0
 		}
 		val destSticker = File(filesDir, "stickers/" + pack + sticker.name)
@@ -255,6 +253,4 @@ class MainActivity : AppCompatActivity() {
 			Snackbar.LENGTH_SHORT
 		).show()
 	}
-
-
 }

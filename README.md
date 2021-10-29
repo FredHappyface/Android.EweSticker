@@ -47,6 +47,7 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 - Vertical and Horizontal scrolling
 - Change number of rows and sticker preview size
 - Ties in with the system theme
+- Long press on a sticker to show a preview
 
 ## Screenshots
 

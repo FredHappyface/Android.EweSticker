@@ -3,6 +3,7 @@
 	<string name="app_name" translatable="false">EweSticker</string>
 	<string name="pack_icon">Pack icon</string>
 	<string name="sticker_icon">Sticker icon</string>
+	<string name="close_sticker_preview">[tap to close sticker preview]</string>
 	<!-- Update Sticker Pack -->
 	<string name="update_sticker_pack_heading">Update Sticker Pack</string>
 	<string name="update_sticker_pack_button">Choose sticker source directory</string>
@@ -26,7 +27,8 @@
 - Send stickers in supported apps (.png is used as a fallback)
 - Vertical and Horizontal scrolling
 - Change number of rows and sticker preview size
-- Ties in with the system theme</string>
+- Ties in with the system theme
+- Long press on a sticker to show a preview</string>
 	<!-- How to use -->
 	<string name="how_to_use_heading">How to Use</string>
 	<string name="how_to_use_text">Select a directory containing stickers and send them in your favourite apps!</string>
