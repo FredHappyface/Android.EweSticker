@@ -1,52 +1,28 @@
 package com.fredhappyface.ewesticker
 
+import android.webkit.MimeTypeMap
+import java.io.File
+
 /**
  * Class to provide utils that are shared across ewesticker.
  */
 object Utils {
 	/**
-	 * @param name the File's name. Takes in a string here instead of a File because in certain
-	 * places we have to use DocumentFile instead-- String name can be found by calling
-	 * .getName() on both, but they are different classes.
-	 * @return returns "." inclusive file extension.
+	 * Get the mimetype of a File
+	 *
+	 * @param file File file to get the mimetype of
+	 * @return String? Return the mimetype or none if it cannot be determined
 	 */
-	fun getFileExtension(name: String?): String {
-		if (name == null) {
-			return ""
-		}
-		val lastIndexOf = name.lastIndexOf(".")
-		return if (lastIndexOf == -1) {
-			""
-		} else name.substring(lastIndexOf)
+	fun getMimeType(file: File): String? {
+		return MimeTypeMap.getSingleton().getMimeTypeFromExtension(file.extension)
 	}
 
 	/**
-	 * Needs to create a new HashMap on every call because shallow copies will cause issues between
-	 * different input areas that support different media types.
+	 * Return a MutableList of EweSticker Supported mimetypes
 	 *
-	 * @return HashMap of ewesticker-supported mimes. Keys are "." inclusive.
+	 * @return MutableList of EweSticker Supported mimetypes
 	 */
-	fun getSupportedMimes(): MutableMap<String, String> {
-		val mimes = mutableMapOf(
-			".gif" to "image/gif",
-			".png" to "image/png",
-			".webp" to "image/webp",
-		)
-		for (el in listOf(".jpg", ".jpeg", ".jpe", ".jif", ".jfif", ".jfi")) {
-			mimes[el] = "image/jpg"
-		}
-		for (el in listOf(
-			".heif",
-			".heifs",
-			".heic",
-			".heics",
-			".avci",
-			".avcs",
-			".avif",
-			".avifs"
-		)) {
-			mimes[el] = "image/heif"
-		}
-		return mimes
+	fun getSupportedMimes(): MutableList<String> {
+		return mutableListOf("image/gif", "image/png", "image/webp", "image/jpeg", "image/heif")
 	}
 }

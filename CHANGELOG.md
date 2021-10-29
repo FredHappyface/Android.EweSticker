@@ -7,12 +7,14 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 - Use coil https://coil-kt.github.io/coil/ for supported image types to improve performance
 - Add support for vertical scroll https://github.com/FredHappyface/Android.EweSticker/issues/8
 - Add Spanish translation https://github.com/FredHappyface/Android.EweSticker/pull/13
+- Long press on a sticker to show a preview https://github.com/FredHappyface/Android.EweSticker/issues/10
 - Use JavaVersion.VERSION_11 in place of JavaVersion.VERSION_1_8
 - Use GridLayout in place of linear views
 - Refactor and code clean up (reduced ImageKeyboard.kt by about 17% sloc, reduced MainActivity.kt by about 18% sloc)
 - Update UI (now more material you inspired)
 - Update screenshots
 - Update tutorial
+- Update fonts (using fira sans ttf)
 
 ## 20211011 - 2021/10/11
 

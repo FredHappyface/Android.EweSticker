@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/packContent"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@color/bg">
+
+	<ImageButton
+		android:layout_centerInParent="true"
+		android:id="@+id/stickerButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center|center_horizontal|center_vertical"
+		android:background="@color/sticker"
+		android:contentDescription="@string/sticker_icon"
+		android:cropToPadding="true"
+		android:scaleType="fitCenter" />
+
+	<TextView
+		style="@style/body_text"
+		android:layout_centerHorizontal="true"
+		android:text="@string/close_sticker_preview" />
+</RelativeLayout>

@@ -12,6 +12,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.ImageButton
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
@@ -29,6 +30,7 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.util.*
 import kotlin.collections.HashMap
+import kotlin.math.min
 
 /**
  * ImageKeyboard class inherits from the InputMethodService class - provides the keyboard functionality
@@ -42,17 +44,19 @@ class ImageKeyboard : InputMethodService() {
 	//   shared pref
 	private lateinit var mSharedPreferences: SharedPreferences
 	private var mVertical = false
+	private var mKeyboardHeight = 0
 	private var mIconsPerColumn = 0
 	private var mIconSize = 0
+	private var mFullIconSize = 0
 	private var mCompatCache = Cache()
 	private var mRecentCache = Cache()
 
 	// Attributes
 	private lateinit var mLoadedPacks: HashMap<String, StickerPack>
-	private lateinit var mSupportedMimes: MutableMap<String, String>
+	private lateinit var mSupportedMimes: List<String>
 
 	//   keyboard root view, pack content view, pack list view
-	private lateinit var mKeyboardRoot: View
+	private lateinit var mKeyboardRoot: ViewGroup
 	private lateinit var mPackContent: ViewGroup
 	private lateinit var mPacksList: ViewGroup
 
@@ -122,11 +126,13 @@ class ImageKeyboard : InputMethodService() {
 		mKeyboardRoot = keyboardLayout.findViewById(R.id.keyboardRoot)
 		mPacksList = keyboardLayout.findViewById(R.id.packsList)
 		mPackContent = keyboardLayout.findViewById(R.id.packContent)
-		mPackContent.layoutParams?.height = if (mVertical) {
+		mKeyboardHeight = if (mVertical) {
 			800
 		} else {
 			mIconSize * mIconsPerColumn + mTotalIconPadding
 		}
+		mPackContent.layoutParams?.height = mKeyboardHeight
+		mFullIconSize = (min(resources.displayMetrics.widthPixels, mKeyboardHeight) * 0.8).toInt()
 		createPackIcons()
 		return keyboardLayout
 	}
@@ -147,14 +153,7 @@ class ImageKeyboard : InputMethodService() {
 	 * @param restarting
 	 */
 	override fun onStartInput(info: EditorInfo?, restarting: Boolean) {
-		mSupportedMimes = Utils.getSupportedMimes()
-		val mimesToCheck = mSupportedMimes.keys.toTypedArray()
-		for (mimeToCheck in mimesToCheck) {
-			val mimeSupported = isCommitContentSupported(info, mSupportedMimes[mimeToCheck])
-			if (!mimeSupported) {
-				mSupportedMimes.remove(mimeToCheck)
-			}
-		}
+		mSupportedMimes = Utils.getSupportedMimes().filter { isCommitContentSupported(info, it) }
 	}
 
 	/**
@@ -178,11 +177,10 @@ class ImageKeyboard : InputMethodService() {
 	 */
 	private fun doFallbackCommitContent(file: File) {
 		// PNG might not be supported
-		if (mSupportedMimes[".png"] == null) {
+		if ("image/png" !in mSupportedMimes) {
 			Toast.makeText(
 				applicationContext,
-				Utils.getFileExtension(file.name) +
-						" not supported here.", Toast.LENGTH_SHORT
+				file.extension + " not supported here.", Toast.LENGTH_SHORT
 			).show()
 			return
 		}
@@ -307,15 +305,37 @@ class ImageKeyboard : InputMethodService() {
 			imgButton.layoutParams.width = mIconSize
 			imgButton.load(sticker)
 			imgButton.tag = sticker
-			imgButton.setOnClickListener { view: View ->
-				val file = view.tag as File
+			imgButton.setOnClickListener {
+				val file = it.tag as File
 				mRecentCache.add(file.absolutePath)
-				val stickerType = mSupportedMimes[Utils.getFileExtension(file.name)]
-				if (stickerType == null) {
+				val stickerType = Utils.getMimeType(file)
+				if (stickerType == null || stickerType !in mSupportedMimes) {
 					doFallbackCommitContent(file)
 					return@setOnClickListener
 				}
 				doCommitContent(stickerType, file)
+			}
+			imgButton.setOnLongClickListener { view: View ->
+				val file = view.tag as File
+				val fullSticker = layoutInflater.inflate(
+					R.layout.sticker_preview,
+					mKeyboardRoot,
+					false
+				) as RelativeLayout
+				val fSticker = fullSticker.findViewById<ImageButton>(R.id.stickerButton)
+				// Set dimens + load image
+				fullSticker.layoutParams.height =
+					mKeyboardHeight + (resources.getDimension(R.dimen.pack_dimens) + resources.getDimension(
+						R.dimen.pack_padding_vertical
+					) * 2).toInt()
+				fSticker.layoutParams.height = mFullIconSize
+				fSticker.layoutParams.width = mFullIconSize
+				fSticker.load(file)
+				// Tap to exit popup
+				fullSticker.setOnClickListener { mKeyboardRoot.removeView(it) }
+				fSticker.setOnClickListener { mKeyboardRoot.removeView(fullSticker) }
+				mKeyboardRoot.addView(fullSticker)
+				return@setOnLongClickListener true
 			}
 			pack.addView(imageCard)
 		}
