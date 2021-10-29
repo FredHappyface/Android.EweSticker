@@ -6,10 +6,10 @@
 	android:background="@color/bg">
 
 	<ImageButton
-		android:layout_centerInParent="true"
 		android:id="@+id/stickerButton"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"
 		android:layout_gravity="center|center_horizontal|center_vertical"
 		android:background="@color/sticker"
 		android:contentDescription="@string/sticker_icon"
