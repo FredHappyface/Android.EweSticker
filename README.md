@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/github/license/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](/LICENSE.md)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../commits/master)
 [![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../commits/master)
+[![GitHub all releases](https://img.shields.io/github/downloads/FredHappyface/Android.EweSticker/total?style=for-the-badge)](../../releases)
 
 <!-- omit in toc -->
 # Android.EweSticker
