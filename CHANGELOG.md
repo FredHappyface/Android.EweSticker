@@ -2,7 +2,7 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
-## 202110xx - 2021/10/xx
+## 20211029 - 2021/10/29
 
 - Use coil https://coil-kt.github.io/coil/ for supported image types to improve performance
 - Add support for vertical scroll https://github.com/FredHappyface/Android.EweSticker/issues/8

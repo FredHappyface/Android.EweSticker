@@ -1,0 +1,13 @@
+<ul>
+<li>Use coil https://coil-kt.github.io/coil/ for supported image types to improve performance</li>
+<li>Add support for vertical scroll https://github.com/FredHappyface/Android.EweSticker/issues/8</li>
+<li>Add Spanish translation https://github.com/FredHappyface/Android.EweSticker/pull/13</li>
+<li>Long press on a sticker to show a preview https://github.com/FredHappyface/Android.EweSticker/issues/10</li>
+<li>Use JavaVersion.VERSION_11 in place of JavaVersion.VERSION_1_8</li>
+<li>Use GridLayout in place of linear views</li>
+<li>Refactor and code clean up (reduced ImageKeyboard.kt by about 17% sloc, reduced MainActivity.kt by about 18% sloc)</li>
+<li>Update UI (now more material you inspired)</li>
+<li>Update screenshots</li>
+<li>Update tutorial</li>
+<li>Update fonts (using fira sans ttf)</li>
+</ul>

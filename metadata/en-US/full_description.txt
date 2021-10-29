@@ -3,9 +3,13 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 Features
 
 <ul>
-<li>Add a directory containing stickers</li>
-<ul><li>Supported formats include .png, .gif, .jpg ,.webp</li></ul>
-<li>Select the keyboard</li>
+<li>Wide range of custom stickers supported
+<ul>
+<li>Formats include image/gif (.gif), image/png (.png), image/webp (.webp), image/jpg (.jpg, .jpeg, .jpe, …), image/heif (.heif, .heifs, .heic, …)</li>
+</ul></li>
 <li>Send stickers in supported apps (.png is used as a fallback)</li>
+<li>Vertical and Horizontal scrolling</li>
+<li>Change number of rows and sticker preview size</li>
 <li>Ties in with the system theme</li>
+<li>Long press on a sticker to show a preview</li>
 </ul>
