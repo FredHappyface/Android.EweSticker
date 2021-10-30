@@ -69,14 +69,14 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	/**
-	 * Handles ACTION_OPEN_DOCUMENT_TREE result and adds the returned Uri to shared prefs
+	 * Handles ACTION_OPEN_DOCUMENT_TREE result and adds stickerDirPath, lastUpdateDate to
+	 * mSharedPreferences and resets recentCache, compatCache
 	 */
 	private val chooseDirResultLauncher =
 		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
 			if (result.resultCode == Activity.RESULT_OK) {
-				val data: Intent? = result.data
 				val editor = mSharedPreferences.edit()
-				editor.putString("stickerDirPath", data?.data.toString())
+				editor.putString("stickerDirPath", result.data?.data.toString())
 				editor.putString("lastUpdateDate", Calendar.getInstance().time.toString())
 				editor.putString("recentCache", "")
 				editor.putString("compatCache", "")
