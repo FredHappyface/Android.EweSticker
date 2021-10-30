@@ -140,7 +140,7 @@ class ImageKeyboard : InputMethodService() {
 	/**
 	 * Disable full-screen mode as content will likely be hidden by the IME.
 	 *
-	 * @return
+	 * @return Boolean false
 	 */
 	override fun onEvaluateFullscreenMode(): Boolean {
 		return false
