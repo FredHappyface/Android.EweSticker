@@ -146,7 +146,7 @@ clone to
 4. Type 'git clone' followed by URL in step 2
 
 	```bash
-	git clone https://github.com/FredHappyface/BlendModes
+	git clone https://github.com/FredHappyface/Android.EweSticker
 	```
 
 More information can be found at
