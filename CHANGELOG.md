@@ -4,7 +4,7 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 
 ## Next_Ver - 2021/11/xx
 
-- Variable number of columns in vertical scroll #16
+- Variable number of columns in vertical scroll https://github.com/FredHappyface/Android.EweSticker/issues/16
 - Nested directory structures now supported https://github.com/FredHappyface/Android.EweSticker/issues/17
 	For example:
 	```none
