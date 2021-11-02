@@ -11,6 +11,11 @@ class StickerPack(packDir: File) {
 		packDir.listFiles { obj: File -> obj.isFile }?.sortedArray()
 
 	/**
+	 * Get the pack name (name of the pack directory)
+	 */
+	internal val name: String = packDir.name
+
+	/**
 	 * Note: When MainActivity copies files over, it filters out all non-supported files (i.e. any
 	 * file that is not supported as well as directories). Because of this there is no extra filter
 	 * in this function. The exception is the base directory, which is handled in the constructor.

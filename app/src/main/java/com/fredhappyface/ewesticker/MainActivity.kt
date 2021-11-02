@@ -97,7 +97,6 @@ class MainActivity : AppCompatActivity() {
 		chooseDirResultLauncher.launch(intent)
 	}
 
-
 	/**
 	 * Copies stickers from source to internal storage
 	 *
