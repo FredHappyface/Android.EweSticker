@@ -36,31 +36,37 @@ import kotlin.math.min
  * ImageKeyboard class inherits from the InputMethodService class - provides the keyboard functionality
  */
 class ImageKeyboard : InputMethodService() {
+
 	// onCreate
-	//   constants
+	//    Constants
 	private lateinit var mInternalDir: File
 	private var mTotalIconPadding = 0
 
-	//   shared pref
+	//    Shared Preferences
 	private lateinit var mSharedPreferences: SharedPreferences
 	private var mVertical = false
-	private var mKeyboardHeight = 0
 	private var mIconsPerX = 0
 	private var mIconSize = 0
-	private var mFullIconSize = 0
+
+	//    Load Packs
+	private lateinit var mLoadedPacks: HashMap<String, StickerPack>
+	private var mActivePack = ""
+
+	//    Caches
 	private var mCompatCache = Cache()
 	private var mRecentCache = Cache()
 
-	// Attributes
-	private lateinit var mLoadedPacks: HashMap<String, StickerPack>
+	// onStartInput
 	private lateinit var mSupportedMimes: List<String>
 
-	//   keyboard root view, pack content view, pack list view
+	// onCreateInputView
 	private lateinit var mKeyboardRoot: ViewGroup
-	private lateinit var mPackContent: ViewGroup
 	private lateinit var mPacksList: ViewGroup
+	private lateinit var mPackContent: ViewGroup
+	private var mKeyboardHeight = 0
+	private var mFullIconSize = 0
 
-	//   cache for image container
+	// switchPackLayout: cache for image container
 	private var imageContainerCache = HashMap<Int, FrameLayout>()
 
 	/**
@@ -76,23 +82,21 @@ class ImageKeyboard : InputMethodService() {
 			}
 			.build()
 		Coil.setImageLoader(imageLoader)
-		// Constants
+		//    Constants
 		val scale = applicationContext.resources.displayMetrics.density
 		mInternalDir = File(filesDir, "stickers")
-		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
-		mVertical = mSharedPreferences.getBoolean("vertical", false)
-		mSharedPreferences.getString("recentCache", "")?.let { mRecentCache.fromSharedPref(it) }
-		mSharedPreferences.getString("compatCache", "")?.let { mCompatCache.fromSharedPref(it) }
-		mIconsPerX =  mSharedPreferences.getInt("iconsPerX", 3)
-
 		mTotalIconPadding =
 			(resources.getDimension(R.dimen.sticker_padding) * 2 * (mIconsPerX + 1)).toInt()
+		//    Shared Preferences
+		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
+		mVertical = mSharedPreferences.getBoolean("vertical", false)
+		mIconsPerX = mSharedPreferences.getInt("iconsPerX", 3)
 		mIconSize = (if (mVertical) {
 			(resources.displayMetrics.widthPixels - mTotalIconPadding) / mIconsPerX
 		} else {
 			(mSharedPreferences.getInt("iconSize", 80) * scale)
 		}).toInt()
-		// Clear the loadedPacks attribute and repopulate based on the directory tree of stickers
+		//    Load Packs
 		mLoadedPacks = HashMap()
 		val packs =
 			mInternalDir.listFiles { obj: File -> obj.isDirectory && !obj.absolutePath.contains("__compatSticker__") }
@@ -103,6 +107,10 @@ class ImageKeyboard : InputMethodService() {
 				mLoadedPacks[file.name] = pack
 			}
 		}
+		mActivePack = mSharedPreferences.getString("activePack", "").toString()
+		//    Caches
+		mSharedPreferences.getString("recentCache", "")?.let { mRecentCache.fromSharedPref(it) }
+		mSharedPreferences.getString("compatCache", "")?.let { mCompatCache.fromSharedPref(it) }
 	}
 
 	/**
@@ -157,6 +165,7 @@ class ImageKeyboard : InputMethodService() {
 		val editor = mSharedPreferences.edit()
 		editor.putString("recentCache", mRecentCache.toSharedPref())
 		editor.putString("compatCache", mCompatCache.toSharedPref())
+		editor.putString("activePack", mActivePack)
 		editor.apply()
 		super.onFinishInput()
 	}
@@ -241,8 +250,10 @@ class ImageKeyboard : InputMethodService() {
 	 *
 	 * @param stickers
 	 */
-	private fun switchPackLayout(stickers: Array<File>) {
+	private fun switchPackLayout(pack: StickerPack) {
 		// Check the cache
+		mActivePack = pack.name
+		val stickers = pack.stickerList
 		val imageContainerHash = stickers.hashCode()
 		lateinit var packLayout: FrameLayout
 		if (imageContainerHash in imageContainerCache.keys) {
@@ -376,11 +387,15 @@ class ImageKeyboard : InputMethodService() {
 			packButton.load(pack.thumbSticker)
 			packButton.tag = pack
 			packButton.setOnClickListener { view: View? ->
-				switchPackLayout((view?.tag as StickerPack).stickerList)
+				switchPackLayout(view?.tag as StickerPack)
 			}
 		}
 		if (sortedPackNames.isNotEmpty()) {
-			switchPackLayout((mLoadedPacks[sortedPackNames[0]] ?: return).stickerList)
+			if (mActivePack in sortedPackNames) {
+				switchPackLayout((mLoadedPacks[mActivePack] ?: return))
+			} else {
+				switchPackLayout((mLoadedPacks[sortedPackNames[0]] ?: return))
+			}
 		}
 	}
 }

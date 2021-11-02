@@ -4,6 +4,7 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 
 ## Next_Ver - 2021/11/xx
 
+- Reopen last used pack https://github.com/FredHappyface/Android.EweSticker/issues/14
 - Variable number of columns in vertical scroll https://github.com/FredHappyface/Android.EweSticker/issues/16
 - Nested directory structures now supported https://github.com/FredHappyface/Android.EweSticker/issues/17
 	For example:
@@ -23,6 +24,7 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 	```
 - Recent stickers are in the expected order https://github.com/FredHappyface/Android.EweSticker/issues/18
 - Localisations for Sticker Path: Not Set, Sticker Date: Never
+- Code clean up + documentation improvements
 
 ## 20211029 - 2021/10/29
 

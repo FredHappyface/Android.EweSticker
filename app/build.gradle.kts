@@ -22,7 +22,7 @@ android {
 			versionNameSuffix = "-debug"
 		}
 		getByName("release") {
-			versionNameSuffix ="-release"
+			versionNameSuffix = "-release"
 			proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
 			isMinifyEnabled = false
 		}
