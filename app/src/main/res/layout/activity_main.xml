@@ -22,7 +22,7 @@
 					android:orientation="vertical">
 
 					<TextView
-						style="@style/sub_heading"
+						style="@style/heading"
 						android:text="@string/update_sticker_pack_heading" />
 
 					<TextView
@@ -92,7 +92,7 @@
 					android:orientation="vertical">
 
 					<TextView
-						style="@style/sub_heading"
+						style="@style/heading"
 						android:text="@string/options_heading" />
 
 					<LinearLayout
@@ -174,7 +174,7 @@
 					android:orientation="vertical">
 
 					<TextView
-						style="@style/sub_heading"
+						style="@style/heading"
 						android:text="@string/info_heading" />
 
 					<TextView
@@ -190,7 +190,7 @@
 					android:orientation="vertical">
 
 					<TextView
-						style="@style/sub_heading"
+						style="@style/heading"
 						android:text="@string/features_heading" />
 
 					<TextView
@@ -206,7 +206,7 @@
 					android:orientation="vertical">
 
 					<TextView
-						style="@style/sub_heading"
+						style="@style/heading"
 						android:text="@string/how_to_use_heading" />
 
 					<TextView
@@ -222,7 +222,7 @@
 					android:orientation="vertical">
 
 					<TextView
-						style="@style/sub_heading"
+						style="@style/heading"
 						android:text="@string/license_heading" />
 
 					<TextView
@@ -238,7 +238,7 @@
 					android:orientation="vertical">
 
 					<TextView
-						style="@style/sub_heading"
+						style="@style/heading"
 						android:text="@string/links_heading" />
 
 					<TextView
