@@ -9,13 +9,15 @@
 	<string name="update_sticker_pack_button">Choose sticker source directory</string>
 	<string name="update_sticker_pack_info">Current loaded sticker packs information: </string>
 	<string name="update_sticker_pack_info_path_lbl">- Path: </string>
+	<string name="update_sticker_pack_info_path">Not Set</string>
 	<string name="update_sticker_pack_info_date_lbl">- Date: </string>
+	<string name="update_sticker_pack_info_date">Never</string>
 	<string name="update_sticker_pack_info_total_lbl">- Total: </string>
 	<!-- Options -->
 	<string name="options_heading">Options</string>
 	<string name="options_show_back_button">Show back button in navbar</string>
 	<string name="options_vertical">Use vertical layout</string>
-	<string name="options_icons_per_row_lbl">"Number of Rows: "</string>
+	<string name="options_icons_per_x_lbl">"Number of Rows: "</string>
 	<string name="options_icon_size_status_lbl">"Icon size: "</string>
 	<!-- Info -->
 	<string name="info_heading">Info</string>

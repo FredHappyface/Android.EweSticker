@@ -42,7 +42,7 @@
 							android:id="@+id/stickerPackInfoPath"
 							style="@style/body_text"
 							android:layout_marginVertical="@dimen/zero"
-							android:text="" />
+							android:text="@string/update_sticker_pack_info_path" />
 					</LinearLayout>
 
 					<LinearLayout
@@ -58,7 +58,7 @@
 							android:id="@+id/stickerPackInfoDate"
 							style="@style/body_text"
 							android:layout_marginVertical="@dimen/zero"
-							android:text="" />
+							android:text="@string/update_sticker_pack_info_date" />
 					</LinearLayout>
 
 					<LinearLayout
@@ -129,15 +129,15 @@
 
 						<TextView
 							style="@style/body_text"
-							android:text="@string/options_icons_per_row_lbl" />
+							android:text="@string/options_icons_per_x_lbl" />
 
 						<TextView
-							android:id="@+id/iconsPerColumnLbl"
+							android:id="@+id/iconsPerXLbl"
 							style="@style/body_text"
 							android:textIsSelectable="false" />
 
 						<SeekBar
-							android:id="@+id/iconsPerColumnSb"
+							android:id="@+id/iconsPerXSb"
 							style="@style/seek_bar"
 							android:max="6"
 							android:min="2"
