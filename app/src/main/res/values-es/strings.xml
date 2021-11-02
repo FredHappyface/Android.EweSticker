@@ -8,13 +8,15 @@
 	<string name="update_sticker_pack_button">Elija el directorio de fuente de la etiqueta</string>
 	<string name="update_sticker_pack_info">Paquetes de etiqueta cargada actual Información:</string>
 	<string name="update_sticker_pack_info_path_lbl">- Sendero: </string>
+	<string name="update_sticker_pack_info_path">No se establece</string>
 	<string name="update_sticker_pack_info_date_lbl">- Fecha: </string>
+	<string name="update_sticker_pack_info_date">Nunca</string>
 	<string name="update_sticker_pack_info_total_lbl">- Total: </string>
 	<!-- Options -->
 	<string name="options_heading">Opciones</string>
 	<string name="options_show_back_button">Mostrar botón atrás en navbar</string>
 	<string name="options_vertical">Usar layout vertical</string>
-	<string name="options_icons_per_row_lbl">"Número de filas: "</string>
+	<string name="options_icons_per_x_lbl">"Número de filas: "</string>
 	<string name="options_icon_size_status_lbl">"Tamaño del icono: "</string>
 	<!-- Info -->
 	<string name="info_heading">Información</string>

@@ -45,7 +45,7 @@ class ImageKeyboard : InputMethodService() {
 	private lateinit var mSharedPreferences: SharedPreferences
 	private var mVertical = false
 	private var mKeyboardHeight = 0
-	private var mIconsPerColumn = 0
+	private var mIconsPerX = 0
 	private var mIconSize = 0
 	private var mFullIconSize = 0
 	private var mCompatCache = Cache()
@@ -83,15 +83,12 @@ class ImageKeyboard : InputMethodService() {
 		mVertical = mSharedPreferences.getBoolean("vertical", false)
 		mSharedPreferences.getString("recentCache", "")?.let { mRecentCache.fromSharedPref(it) }
 		mSharedPreferences.getString("compatCache", "")?.let { mCompatCache.fromSharedPref(it) }
-		mIconsPerColumn = if (mVertical) {
-			4
-		} else {
-			mSharedPreferences.getInt("iconsPerColumn", 3)
-		}
+		mIconsPerX =  mSharedPreferences.getInt("iconsPerX", 3)
+
 		mTotalIconPadding =
-			(resources.getDimension(R.dimen.sticker_padding) * 2 * (mIconsPerColumn + 1)).toInt()
+			(resources.getDimension(R.dimen.sticker_padding) * 2 * (mIconsPerX + 1)).toInt()
 		mIconSize = (if (mVertical) {
-			(resources.displayMetrics.widthPixels - mTotalIconPadding) / mIconsPerColumn
+			(resources.displayMetrics.widthPixels - mTotalIconPadding) / mIconsPerX
 		} else {
 			(mSharedPreferences.getInt("iconSize", 80) * scale)
 		}).toInt()
@@ -105,10 +102,6 @@ class ImageKeyboard : InputMethodService() {
 			if (pack.stickerList.isNotEmpty()) {
 				mLoadedPacks[file.name] = pack
 			}
-		}
-		val baseStickers = mInternalDir.listFiles { obj: File -> obj.isFile }
-		if (baseStickers != null && baseStickers.isNotEmpty()) {
-			mLoadedPacks[""] = StickerPack(mInternalDir)
 		}
 	}
 
@@ -129,7 +122,7 @@ class ImageKeyboard : InputMethodService() {
 		mKeyboardHeight = if (mVertical) {
 			800
 		} else {
-			mIconSize * mIconsPerColumn + mTotalIconPadding
+			mIconSize * mIconsPerX + mTotalIconPadding
 		}
 		mPackContent.layoutParams?.height = mKeyboardHeight
 		mFullIconSize = (min(resources.displayMetrics.widthPixels, mKeyboardHeight) * 0.8).toInt()
@@ -274,7 +267,7 @@ class ImageKeyboard : InputMethodService() {
 				R.layout.pack_vertical, mPackContent, false
 			) as FrameLayout
 			val pack = packContainer.findViewById<GridLayout>(R.id.pack)
-			pack.columnCount = mIconsPerColumn
+			pack.columnCount = mIconsPerX
 			return packContainer to pack
 		}
 		val packContainer = layoutInflater.inflate(
@@ -283,7 +276,7 @@ class ImageKeyboard : InputMethodService() {
 			false
 		) as FrameLayout
 		val pack = packContainer.findViewById<GridLayout>(R.id.pack)
-		pack.rowCount = mIconsPerColumn
+		pack.rowCount = mIconsPerX
 		return packContainer to pack
 	}
 
@@ -372,7 +365,7 @@ class ImageKeyboard : InputMethodService() {
 			addPackButton(ResourcesCompat.getDrawable(resources, R.drawable.ic_clock, null))
 		recentButton.setOnClickListener {
 			mPackContent.removeAllViewsInLayout()
-			mPackContent.addView(createPackLayout(mRecentCache.toFiles()))
+			mPackContent.addView(createPackLayout(mRecentCache.toFiles().reversedArray()))
 		}
 		// Packs
 		val sortedPackNames = mLoadedPacks.keys.toTypedArray()

@@ -49,9 +49,9 @@ class MainActivity : AppCompatActivity() {
 		refreshStickerDirPath()
 		// Update UI with config
 		seekBar(
-			findViewById(R.id.iconsPerColumnSb),
-			findViewById(R.id.iconsPerColumnLbl),
-			"iconsPerColumn",
+			findViewById(R.id.iconsPerXSb),
+			findViewById(R.id.iconsPerXLbl),
+			"iconsPerX",
 			3
 		)
 		seekBar(
@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
 		)
 		toggle(findViewById(R.id.showBackButton), "showBackButton") { }
 		toggle(findViewById(R.id.vertical), "vertical") { isChecked: Boolean ->
-			findViewById<SeekBar>(R.id.iconsPerColumnSb).isEnabled = !isChecked
 			findViewById<SeekBar>(R.id.iconSizeSb).isEnabled = !isChecked
 		}
 	}
@@ -98,38 +97,26 @@ class MainActivity : AppCompatActivity() {
 		chooseDirResultLauncher.launch(intent)
 	}
 
-	/**
-	 * Copies images from pack directory by calling importSticker() on all of them
-	 *
-	 * @param pack source pack
-	 */
-	private fun importPack(pack: DocumentFile): Int {
-		var stickersInPack = 0
-		for (sticker in pack.listFiles()) {
-			stickersInPack += importSticker(sticker, pack.name + "/")
-		}
-		return stickersInPack
-	}
 
 	/**
 	 * Copies stickers from source to internal storage
 	 *
 	 * @param sticker sticker to copy over
-	 * @param pack    the pack which the sticker belongs to
 	 *
 	 * @return 1 if sticker imported successfully else 0
 	 */
-	private fun importSticker(sticker: DocumentFile, pack: String): Int {
+	private fun importSticker(sticker: DocumentFile): Int {
 		if (sticker.isDirectory || sticker.type !in mSupportedMimes) {
 			return 0
 		}
-		val destSticker = File(filesDir, "stickers/" + pack + sticker.name)
+		val destSticker = File(filesDir, "stickers/${sticker.parentFile?.name}/${sticker.name}")
 		destSticker.parentFile?.mkdirs()
 		try {
 			val inputStream = contentResolver.openInputStream(sticker.uri)
 			Files.copy(inputStream, destSticker.toPath())
 			inputStream?.close()
 		} catch (e: java.lang.Exception) {
+			return 0
 		}
 		return 1
 	}
@@ -150,26 +137,47 @@ class MainActivity : AppCompatActivity() {
 		button.isEnabled = false
 		executor.execute {
 			File(filesDir, "stickers").deleteRecursively()
-			val stickerDirPath = mSharedPreferences.getString("stickerDirPath", "none set")
-			var stickersInDir = 0
-			for (file in DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath))
-				?.listFiles() ?: arrayOf()) {
-				if (file.isFile) stickersInDir += importSticker(file, "")
-				if (file.isDirectory) stickersInDir += importPack(file)
+			val stickerDirPath = mSharedPreferences.getString(
+				"stickerDirPath",
+				resources.getString(R.string.update_sticker_pack_info_path)
+			)
+			var totalStickers = 0
+			val leafNodes =
+				fileWalk(DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath)))
+			for (file in leafNodes) {
+				totalStickers += importSticker(file)
 			}
 			handler.post {
 				Snackbar.make(
 					mContextView,
-					"Imported $stickersInDir stickers. You may need to reload the keyboard for new stickers to show up.",
+					"Imported $totalStickers stickers. You may need to reload the keyboard for new stickers to show up.",
 					Snackbar.LENGTH_LONG
 				).show()
 				val editor = mSharedPreferences.edit()
-				editor.putInt("numStickersImported", stickersInDir)
+				editor.putInt("numStickersImported", totalStickers)
 				editor.apply()
 				refreshStickerDirPath()
 				button.isEnabled = true
 			}
 		}
+	}
+
+	/**
+	 * Get a MutableSet of DocumentFiles from a root node
+	 *
+	 * @param rootNode parent dir to get all files from
+	 * @return MutableSet<DocumentFile> set of files
+	 */
+	private fun fileWalk(rootNode: DocumentFile?): MutableSet<DocumentFile> {
+		val leafNodes = mutableSetOf<DocumentFile>()
+		if (rootNode == null) {
+			return leafNodes
+		}
+		for (file in rootNode.listFiles()) {
+			if (file.isFile) leafNodes.add(file)
+			if (file.isDirectory) leafNodes.addAll(fileWalk(file))
+		}
+		return leafNodes
 	}
 
 	/**
@@ -235,12 +243,16 @@ class MainActivity : AppCompatActivity() {
 	 * Reads saved sticker dir path from preferences
 	 */
 	private fun refreshStickerDirPath() {
-		val stickerDirPath = mSharedPreferences.getString("stickerDirPath", "none set")
-		val lastUpdateDate = mSharedPreferences.getString("lastUpdateDate", "never")
-		val numStickersImported = mSharedPreferences.getInt("numStickersImported", 0)
-		findViewById<TextView>(R.id.stickerPackInfoPath).text = stickerDirPath
-		findViewById<TextView>(R.id.stickerPackInfoDate).text = lastUpdateDate
-		findViewById<TextView>(R.id.stickerPackInfoTotal).text = numStickersImported.toString()
+		findViewById<TextView>(R.id.stickerPackInfoPath).text = mSharedPreferences.getString(
+			"stickerDirPath",
+			resources.getString(R.string.update_sticker_pack_info_path)
+		)
+		findViewById<TextView>(R.id.stickerPackInfoDate).text = mSharedPreferences.getString(
+			"lastUpdateDate",
+			resources.getString(R.string.update_sticker_pack_info_date)
+		)
+		findViewById<TextView>(R.id.stickerPackInfoTotal).text =
+			mSharedPreferences.getInt("numStickersImported", 0).toString()
 	}
 
 	/**
