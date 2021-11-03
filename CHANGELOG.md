@@ -25,6 +25,8 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 - Recent stickers are in the expected order https://github.com/FredHappyface/Android.EweSticker/issues/18
 - Localisations for Sticker Path: Not Set, Sticker Date: Never
 - Code clean up + documentation improvements
+- The new target SDK version is 31 (Android 12) - previously 30 (Android 11)
+- The new minimum SDK version is 26 (Android 8 Oreo) - previously 28 (Android 9 Pie)
 
 ## 20211029 - 2021/10/29
 
