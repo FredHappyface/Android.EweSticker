@@ -3,9 +3,9 @@ package com.fredhappyface.ewesticker
 import android.content.ClipDescription
 import android.content.SharedPreferences
 import android.graphics.Bitmap
-import android.graphics.ImageDecoder
 import android.graphics.drawable.Drawable
 import android.inputmethodservice.InputMethodService
+import android.os.Build.VERSION.SDK_INT
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
@@ -16,6 +16,7 @@ import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.inputmethod.EditorInfoCompat
 import androidx.core.view.inputmethod.InputConnectionCompat
 import androidx.core.view.inputmethod.InputContentInfoCompat
@@ -23,8 +24,12 @@ import androidx.gridlayout.widget.GridLayout
 import androidx.preference.PreferenceManager
 import coil.Coil
 import coil.ImageLoader
+import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
+import coil.imageLoader
 import coil.load
+import coil.request.ImageRequest
+import kotlinx.coroutines.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -78,7 +83,11 @@ class ImageKeyboard : InputMethodService() {
 		super.onCreate()
 		val imageLoader = ImageLoader.Builder(baseContext)
 			.componentRegistry {
-				add(ImageDecoderDecoder(baseContext))
+				if (SDK_INT >= 28) {
+					add(ImageDecoderDecoder(baseContext))
+				} else {
+					add(GifDecoder())
+				}
 			}
 			.build()
 		Coil.setImageLoader(imageLoader)
@@ -177,7 +186,7 @@ class ImageKeyboard : InputMethodService() {
 	 *
 	 * @param file: File
 	 */
-	private fun doFallbackCommitContent(file: File) {
+	private suspend fun doFallbackCommitContent(file: File) {
 		// PNG might not be supported
 		if ("image/png" !in mSupportedMimes) {
 			Toast.makeText(
@@ -193,8 +202,11 @@ class ImageKeyboard : InputMethodService() {
 			// If the sticker doesn't exist then create
 			compatSticker.parentFile?.mkdirs()
 			try {
-				ImageDecoder.decodeBitmap(ImageDecoder.createSource(file))
-					.compress(Bitmap.CompressFormat.PNG, 90, FileOutputStream(compatSticker))
+				val request = ImageRequest.Builder(baseContext).data(file).target { result ->
+					val bitmap = result.toBitmap()
+					bitmap.compress(Bitmap.CompressFormat.PNG, 90, FileOutputStream(compatSticker))
+				}.build()
+				imageLoader.execute(request)
 			} catch (ignore: IOException) {
 			}
 		}
@@ -248,7 +260,7 @@ class ImageKeyboard : InputMethodService() {
 	 * Swap the pack layout every time a pack is selected. If already cached use that
 	 * otherwise create the pack layout
 	 *
-	 * @param stickers
+	 * @param pack StickerPack
 	 */
 	private fun switchPackLayout(pack: StickerPack) {
 		// Check the cache
@@ -314,7 +326,9 @@ class ImageKeyboard : InputMethodService() {
 				mRecentCache.add(file.absolutePath)
 				val stickerType = Utils.getMimeType(file)
 				if (stickerType == null || stickerType !in mSupportedMimes) {
-					doFallbackCommitContent(file)
+					CoroutineScope(Dispatchers.Main).launch {
+						doFallbackCommitContent(file)
+					}
 					return@setOnClickListener
 				}
 				doCommitContent(stickerType, file)
