@@ -23,6 +23,7 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 		/sticker-2
 	```
 - Recent stickers are in the expected order https://github.com/FredHappyface/Android.EweSticker/issues/18
+- Back button now switches to the previously used keyboard (api>=28) https://github.com/FredHappyface/Android.EweSticker/issues/23
 - Localisations for Sticker Path: Not Set, Sticker Date: Never
 - Code clean up + documentation improvements
 - The new target SDK version is 31 (Android 12) - previously 30 (Android 11)
