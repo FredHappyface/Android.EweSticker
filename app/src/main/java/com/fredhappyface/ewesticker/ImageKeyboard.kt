@@ -380,9 +380,11 @@ class ImageKeyboard : InputMethodService() {
 				ResourcesCompat.getDrawable(resources, R.drawable.ic_chevron_left, null)
 			)
 			backButton.setOnClickListener {
-				val inputMethodManager = applicationContext
-					.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
-				inputMethodManager.showInputMethodPicker()
+				if (SDK_INT >= 28) {
+					this.switchToPreviousInputMethod()
+				} else {
+					(applicationContext.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager).showInputMethodPicker()
+				}
 			}
 		}
 		// Recent
