@@ -11,8 +11,8 @@ android {
 		applicationId = "com.fredhappyface.ewesticker"
 		minSdk = 26
 		targetSdk = 31
-		versionCode = 20211029
-		versionName = "2021.10.29"
+		versionCode = 20211114
+		versionName = "2021.11.14"
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		setProperty("archivesBaseName", "$applicationId-$versionName")
 	}

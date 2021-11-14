@@ -3,7 +3,7 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
-## Next_Ver - 2021/11/xx
+## 20211114 - 2021/11/14
 
 - Reopen last used pack https://github.com/FredHappyface/Android.EweSticker/issues/14
 - Variable number of columns in vertical scroll https://github.com/FredHappyface/Android.EweSticker/issues/16

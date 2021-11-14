@@ -1,0 +1,11 @@
+<ul>
+<li>Reopen last used pack https://github.com/FredHappyface/Android.EweSticker/issues/14</li>
+<li>Variable number of columns in vertical scroll https://github.com/FredHappyface/Android.EweSticker/issues/16</li>
+<li>Nested directory structures now supported https://github.com/FredHappyface/Android.EweSticker/issues/17</li>
+<li>Recent stickers are in the expected order https://github.com/FredHappyface/Android.EweSticker/issues/18</li>
+<li>Back button now switches to the previously used keyboard (api&gt;=28) https://github.com/FredHappyface/Android.EweSticker/issues/23</li>
+<li>Localisations for Sticker Path: Not Set, Sticker Date: Never</li>
+<li>Code clean up + documentation improvements</li>
+<li>The new target SDK version is 31 (Android 12) - previously 30 (Android 11)</li>
+<li>The new minimum SDK version is 26 (Android 8 Oreo) - previously 28 (Android 9 Pie)</li>
+</ul>
