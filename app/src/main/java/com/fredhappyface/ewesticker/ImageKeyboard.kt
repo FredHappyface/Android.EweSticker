@@ -94,14 +94,14 @@ class ImageKeyboard : InputMethodService() {
 		//    Constants
 		val scale = applicationContext.resources.displayMetrics.density
 		mInternalDir = File(filesDir, "stickers")
-		mTotalIconPadding =
-			(resources.getDimension(R.dimen.sticker_padding) * 2 * (mIconsPerX + 1)).toInt()
 		//    Shared Preferences
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
 		mVertical = mSharedPreferences.getBoolean("vertical", false)
 		mIconsPerX = mSharedPreferences.getInt("iconsPerX", 3)
+		mTotalIconPadding =
+			(resources.getDimension(R.dimen.sticker_padding) * 2 * (mIconsPerX + 1)).toInt()
 		mIconSize = (if (mVertical) {
-			(resources.displayMetrics.widthPixels - mTotalIconPadding) / mIconsPerX
+			(resources.displayMetrics.widthPixels - mTotalIconPadding) / mIconsPerX.toFloat()
 		} else {
 			(mSharedPreferences.getInt("iconSize", 80) * scale)
 		}).toInt()
@@ -142,7 +142,10 @@ class ImageKeyboard : InputMethodService() {
 			mIconSize * mIconsPerX + mTotalIconPadding
 		}
 		mPackContent.layoutParams?.height = mKeyboardHeight
-		mFullIconSize = (min(resources.displayMetrics.widthPixels, mKeyboardHeight) * 0.8).toInt()
+		mFullIconSize = (min(
+			resources.displayMetrics.widthPixels,
+			mKeyboardHeight - resources.getDimensionPixelOffset(R.dimen.text_size_body)
+		) * 0.95).toInt()
 		createPackIcons()
 		return keyboardLayout
 	}
