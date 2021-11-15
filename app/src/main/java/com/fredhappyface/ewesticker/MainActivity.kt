@@ -28,11 +28,16 @@ import java.util.concurrent.Executors
  */
 class MainActivity : AppCompatActivity() {
 	// init
+	private val gMaxFiles = 4096
 	private val mSupportedMimes = Utils.getSupportedMimes()
 
 	// onCreate
 	private lateinit var mSharedPreferences: SharedPreferences
 	private lateinit var mContextView: View
+
+	// importSticker(s)
+	private var mFilesLeft = gMaxFiles
+	private var mTotalStickers = 0
 
 	/**
 	 * Sets up content view, shared prefs, etc.
@@ -91,6 +96,8 @@ class MainActivity : AppCompatActivity() {
 	 * @param view: View
 	 */
 	fun chooseDir(view: View) {
+		mFilesLeft = gMaxFiles
+		mTotalStickers = 0
 		val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
 		intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 		intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
@@ -104,9 +111,9 @@ class MainActivity : AppCompatActivity() {
 	 *
 	 * @return 1 if sticker imported successfully else 0
 	 */
-	private fun importSticker(sticker: DocumentFile): Int {
+	private fun importSticker(sticker: DocumentFile) {
 		if (sticker.isDirectory || sticker.type !in mSupportedMimes) {
-			return 0
+			return
 		}
 		val destSticker = File(filesDir, "stickers/${sticker.parentFile?.name}/${sticker.name}")
 		destSticker.parentFile?.mkdirs()
@@ -115,9 +122,8 @@ class MainActivity : AppCompatActivity() {
 			Files.copy(inputStream, destSticker.toPath())
 			inputStream?.close()
 		} catch (e: java.lang.Exception) {
-			return 0
 		}
-		return 1
+		mTotalStickers++
 	}
 
 	/**
@@ -140,20 +146,19 @@ class MainActivity : AppCompatActivity() {
 				"stickerDirPath",
 				resources.getString(R.string.update_sticker_pack_info_path)
 			)
-			var totalStickers = 0
 			val leafNodes =
 				fileWalk(DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath)))
-			for (file in leafNodes) {
-				totalStickers += importSticker(file)
+			for (file in leafNodes.take(gMaxFiles)) {
+				importSticker(file)
 			}
 			handler.post {
 				Snackbar.make(
 					mContextView,
-					"Imported $totalStickers stickers. You may need to reload the keyboard for new stickers to show up.",
+					"Imported $mTotalStickers stickers. You may need to reload the keyboard for new stickers to show up.",
 					Snackbar.LENGTH_LONG
 				).show()
 				val editor = mSharedPreferences.edit()
-				editor.putInt("numStickersImported", totalStickers)
+				editor.putInt("numStickersImported", mTotalStickers)
 				editor.apply()
 				refreshStickerDirPath()
 				button.isEnabled = true
@@ -169,13 +174,15 @@ class MainActivity : AppCompatActivity() {
 	 */
 	private fun fileWalk(rootNode: DocumentFile?): MutableSet<DocumentFile> {
 		val leafNodes = mutableSetOf<DocumentFile>()
-		if (rootNode == null) {
+		if (rootNode == null || mFilesLeft < 0) {
 			return leafNodes
 		}
-		for (file in rootNode.listFiles()) {
+		val files = rootNode.listFiles()
+		for (file in files) {
 			if (file.isFile) leafNodes.add(file)
 			if (file.isDirectory) leafNodes.addAll(fileWalk(file))
 		}
+		mFilesLeft -= files.size
 		return leafNodes
 	}
 
