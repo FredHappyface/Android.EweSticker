@@ -3,6 +3,8 @@ output-metadata.json
 .idea/misc.xml
 /captures
 /ktlint
+/app/debug
+/app/release
 
 # Built application files
 # *.apk

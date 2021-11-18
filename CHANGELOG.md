@@ -3,12 +3,13 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
-## Next_Ver - 2021/11/xx
+## 20211118 - 2021/11/18
 
 - Attempt to resolve issue reported where the app crashed when importing stickers (suspected cause
   of a `java.lang.OutOfMemoryError`)
 - Improve sticker layout https://github.com/FredHappyface/Android.EweSticker/issues/24
 - Improve large sticker preview https://github.com/FredHappyface/Android.EweSticker/issues/25
+- Recent tab can now be saved as last used https://github.com/FredHappyface/Android.EweSticker/issues/30
 
 ## 20211114 - 2021/11/14
 

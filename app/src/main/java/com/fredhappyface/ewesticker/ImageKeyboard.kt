@@ -260,6 +260,17 @@ class ImageKeyboard : InputMethodService() {
 	}
 
 	/**
+	 * Select the recent pack and create the pack layout
+	 *
+	 */
+	private fun recentPackLayout() {
+		val packLayout = createPackLayout(mRecentCache.toFiles().reversedArray())
+		mPackContent.removeAllViewsInLayout()
+		packLayout.parent ?: mPackContent.addView(packLayout)
+		mActivePack = "__recentSticker__"
+	}
+
+	/**
 	 * Swap the pack layout every time a pack is selected. If already cached use that
 	 * otherwise create the pack layout
 	 *
@@ -394,8 +405,7 @@ class ImageKeyboard : InputMethodService() {
 		val recentButton =
 			addPackButton(ResourcesCompat.getDrawable(resources, R.drawable.ic_clock, null))
 		recentButton.setOnClickListener {
-			mPackContent.removeAllViewsInLayout()
-			mPackContent.addView(createPackLayout(mRecentCache.toFiles().reversedArray()))
+			recentPackLayout()
 		}
 		// Packs
 		val sortedPackNames = mLoadedPacks.keys.toTypedArray()
@@ -410,10 +420,10 @@ class ImageKeyboard : InputMethodService() {
 			}
 		}
 		if (sortedPackNames.isNotEmpty()) {
-			if (mActivePack in sortedPackNames) {
-				switchPackLayout((mLoadedPacks[mActivePack] ?: return))
-			} else {
-				switchPackLayout((mLoadedPacks[sortedPackNames[0]] ?: return))
+			when (mActivePack) {
+				"__recentSticker__" -> recentPackLayout()
+				in sortedPackNames -> switchPackLayout((mLoadedPacks[mActivePack] ?: return))
+				else -> switchPackLayout((mLoadedPacks[sortedPackNames[0]] ?: return))
 			}
 		}
 	}
