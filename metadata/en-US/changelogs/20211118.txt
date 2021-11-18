@@ -1,0 +1,6 @@
+<ul>
+<li>Attempt to resolve issue reported where the app crashed when importing stickers (suspected cause of a <code>java.lang.OutOfMemoryError</code>)</li>
+<li>Improve sticker layout https://github.com/FredHappyface/Android.EweSticker/issues/24</li>
+<li>Improve large sticker preview https://github.com/FredHappyface/Android.EweSticker/issues/25</li>
+<li>Recent tab can now be saved as last used https://github.com/FredHappyface/Android.EweSticker/issues/30</li>
+</ul>

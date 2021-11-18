@@ -11,8 +11,8 @@ android {
 		applicationId = "com.fredhappyface.ewesticker"
 		minSdk = 26
 		targetSdk = 31
-		versionCode = 20211114
-		versionName = "2021.11.14"
+		versionCode = 20211118
+		versionName = "2021.11.18"
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		setProperty("archivesBaseName", "$applicationId-$versionName")
 	}
@@ -41,7 +41,7 @@ android {
 dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
 	implementation("androidx.core:core-ktx:1.7.0")
-	implementation("androidx.appcompat:appcompat:1.3.1")
+	implementation("androidx.appcompat:appcompat:1.4.0")
 	implementation("com.google.android.material:material:1.4.0")
 	implementation("androidx.preference:preference-ktx:1.1.1")
 	implementation("io.coil-kt:coil:1.4.0")
