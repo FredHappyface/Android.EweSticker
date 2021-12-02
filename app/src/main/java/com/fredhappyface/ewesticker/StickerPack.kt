@@ -7,7 +7,7 @@ import java.io.File
  * A "Pack" is informally represented as a File
  */
 class StickerPack(packDir: File) {
-	private val mStickers: Array<File>? =
+	private val stickers: Array<File>? =
 		packDir.listFiles { obj: File -> obj.isFile }?.sortedArray()
 
 	/**
@@ -23,7 +23,7 @@ class StickerPack(packDir: File) {
 	 * @return Array of Files corresponding to all stickers found in this pack
 	 */
 	val stickerList: Array<File>
-		get() = mStickers ?: arrayOf()
+		get() = this.stickers ?: arrayOf()
 
 	/**
 	 * Provides a sticker to use as the pack-nav container thumbnail.
@@ -32,5 +32,5 @@ class StickerPack(packDir: File) {
 	 * @return File that should be used for thumbnail
 	 */
 	val thumbSticker: File
-		get() = mStickers!![0]
+		get() = this.stickers!![0]
 }
