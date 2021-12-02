@@ -44,32 +44,32 @@ class ImageKeyboard : InputMethodService() {
 
 	// onCreate
 	//    Constants
-	private lateinit var mInternalDir: File
-	private var mTotalIconPadding = 0
+	private lateinit var internalDir: File
+	private var totalIconPadding = 0
 
 	//    Shared Preferences
-	private lateinit var mSharedPreferences: SharedPreferences
-	private var mVertical = false
-	private var mIconsPerX = 0
-	private var mIconSize = 0
+	private lateinit var sharedPreferences: SharedPreferences
+	private var vertical = false
+	private var iconsPerX = 0
+	private var iconSize = 0
 
 	//    Load Packs
-	private lateinit var mLoadedPacks: HashMap<String, StickerPack>
-	private var mActivePack = ""
+	private lateinit var loadedPacks: HashMap<String, StickerPack>
+	private var activePack = ""
 
 	//    Caches
-	private var mCompatCache = Cache()
-	private var mRecentCache = Cache()
+	private var compatCache = Cache()
+	private var recentCache = Cache()
 
 	// onStartInput
-	private lateinit var mSupportedMimes: List<String>
+	private lateinit var supportedMimes: List<String>
 
 	// onCreateInputView
-	private lateinit var mKeyboardRoot: ViewGroup
-	private lateinit var mPacksList: ViewGroup
-	private lateinit var mPackContent: ViewGroup
-	private var mKeyboardHeight = 0
-	private var mFullIconSize = 0
+	private lateinit var keyboardRoot: ViewGroup
+	private lateinit var packsList: ViewGroup
+	private lateinit var packContent: ViewGroup
+	private var keyboardHeight = 0
+	private var fullIconSize = 0
 
 	// switchPackLayout: cache for image container
 	private var imageContainerCache = HashMap<Int, FrameLayout>()
@@ -93,33 +93,39 @@ class ImageKeyboard : InputMethodService() {
 		Coil.setImageLoader(imageLoader)
 		//    Constants
 		val scale = applicationContext.resources.displayMetrics.density
-		mInternalDir = File(filesDir, "stickers")
+		this.internalDir = File(filesDir, "stickers")
 		//    Shared Preferences
-		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
-		mVertical = mSharedPreferences.getBoolean("vertical", false)
-		mIconsPerX = mSharedPreferences.getInt("iconsPerX", 3)
-		mTotalIconPadding =
-			(resources.getDimension(R.dimen.sticker_padding) * 2 * (mIconsPerX + 1)).toInt()
-		mIconSize = (if (mVertical) {
-			(resources.displayMetrics.widthPixels - mTotalIconPadding) / mIconsPerX.toFloat()
+		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
+		this.vertical = this.sharedPreferences.getBoolean("vertical", false)
+		this.iconsPerX = this.sharedPreferences.getInt("iconsPerX", 3)
+		this.totalIconPadding =
+			(resources.getDimension(R.dimen.sticker_padding) * 2 * (this.iconsPerX + 1)).toInt()
+		this.iconSize = (if (this.vertical) {
+			(resources.displayMetrics.widthPixels - this.totalIconPadding) / this.iconsPerX.toFloat()
 		} else {
-			(mSharedPreferences.getInt("iconSize", 80) * scale)
+			(this.sharedPreferences.getInt("iconSize", 80) * scale)
 		}).toInt()
 		//    Load Packs
-		mLoadedPacks = HashMap()
+		this.loadedPacks = HashMap()
 		val packs =
-			mInternalDir.listFiles { obj: File -> obj.isDirectory && !obj.absolutePath.contains("__compatSticker__") }
+			this.internalDir.listFiles { obj: File ->
+				obj.isDirectory && !obj.absolutePath.contains(
+					"__compatSticker__"
+				)
+			}
 				?: arrayOf()
 		for (file in packs) {
 			val pack = StickerPack(file)
 			if (pack.stickerList.isNotEmpty()) {
-				mLoadedPacks[file.name] = pack
+				this.loadedPacks[file.name] = pack
 			}
 		}
-		mActivePack = mSharedPreferences.getString("activePack", "").toString()
+		this.activePack = this.sharedPreferences.getString("activePack", "").toString()
 		//    Caches
-		mSharedPreferences.getString("recentCache", "")?.let { mRecentCache.fromSharedPref(it) }
-		mSharedPreferences.getString("compatCache", "")?.let { mCompatCache.fromSharedPref(it) }
+		this.sharedPreferences.getString("recentCache", "")
+			?.let { this.recentCache.fromSharedPref(it) }
+		this.sharedPreferences.getString("compatCache", "")
+			?.let { this.compatCache.fromSharedPref(it) }
 	}
 
 	/**
@@ -133,18 +139,18 @@ class ImageKeyboard : InputMethodService() {
 	override fun onCreateInputView(): View {
 		val keyboardLayout =
 			View.inflate(applicationContext, R.layout.keyboard_layout, null)
-		mKeyboardRoot = keyboardLayout.findViewById(R.id.keyboardRoot)
-		mPacksList = keyboardLayout.findViewById(R.id.packsList)
-		mPackContent = keyboardLayout.findViewById(R.id.packContent)
-		mKeyboardHeight = if (mVertical) {
+		this.keyboardRoot = keyboardLayout.findViewById(R.id.keyboardRoot)
+		this.packsList = keyboardLayout.findViewById(R.id.packsList)
+		this.packContent = keyboardLayout.findViewById(R.id.packContent)
+		this.keyboardHeight = if (this.vertical) {
 			800
 		} else {
-			mIconSize * mIconsPerX + mTotalIconPadding
+			this.iconSize * this.iconsPerX + this.totalIconPadding
 		}
-		mPackContent.layoutParams?.height = mKeyboardHeight
-		mFullIconSize = (min(
+		this.packContent.layoutParams?.height = this.keyboardHeight
+		this.fullIconSize = (min(
 			resources.displayMetrics.widthPixels,
-			mKeyboardHeight - resources.getDimensionPixelOffset(R.dimen.text_size_body)
+			this.keyboardHeight - resources.getDimensionPixelOffset(R.dimen.text_size_body)
 		) * 0.95).toInt()
 		createPackIcons()
 		return keyboardLayout
@@ -166,7 +172,8 @@ class ImageKeyboard : InputMethodService() {
 	 * @param restarting
 	 */
 	override fun onStartInput(info: EditorInfo?, restarting: Boolean) {
-		mSupportedMimes = Utils.getSupportedMimes().filter { isCommitContentSupported(info, it) }
+		this.supportedMimes =
+			Utils.getSupportedMimes().filter { isCommitContentSupported(info, it) }
 	}
 
 	/**
@@ -174,10 +181,10 @@ class ImageKeyboard : InputMethodService() {
 	 *
 	 */
 	override fun onFinishInput() {
-		val editor = mSharedPreferences.edit()
-		editor.putString("recentCache", mRecentCache.toSharedPref())
-		editor.putString("compatCache", mCompatCache.toSharedPref())
-		editor.putString("activePack", mActivePack)
+		val editor = this.sharedPreferences.edit()
+		editor.putString("recentCache", this.recentCache.toSharedPref())
+		editor.putString("compatCache", this.compatCache.toSharedPref())
+		editor.putString("activePack", this.activePack)
 		editor.apply()
 		super.onFinishInput()
 	}
@@ -191,7 +198,7 @@ class ImageKeyboard : InputMethodService() {
 	 */
 	private suspend fun doFallbackCommitContent(file: File) {
 		// PNG might not be supported
-		if ("image/png" !in mSupportedMimes) {
+		if ("image/png" !in this.supportedMimes) {
 			Toast.makeText(
 				applicationContext,
 				file.extension + " not supported here.", Toast.LENGTH_SHORT
@@ -200,7 +207,7 @@ class ImageKeyboard : InputMethodService() {
 		}
 		// Create a new compatSticker and convert the sticker to png
 		val compatStickerName = file.hashCode().toString()
-		val compatSticker = File(mInternalDir, "__compatSticker__/$compatStickerName.png")
+		val compatSticker = File(this.internalDir, "__compatSticker__/$compatStickerName.png")
 		if (!compatSticker.exists()) {
 			// If the sticker doesn't exist then create
 			compatSticker.parentFile?.mkdirs()
@@ -216,8 +223,8 @@ class ImageKeyboard : InputMethodService() {
 		// Send the compatSticker!
 		doCommitContent("image/png", compatSticker)
 		// Remove old stickers
-		val remSticker = mCompatCache.add(compatStickerName)
-		remSticker?.let { File(mInternalDir, "__compatSticker__/$remSticker.png").delete() }
+		val remSticker = this.compatCache.add(compatStickerName)
+		remSticker?.let { File(this.internalDir, "__compatSticker__/$remSticker.png").delete() }
 	}
 
 	/**
@@ -264,10 +271,10 @@ class ImageKeyboard : InputMethodService() {
 	 *
 	 */
 	private fun recentPackLayout() {
-		val packLayout = createPackLayout(mRecentCache.toFiles().reversedArray())
-		mPackContent.removeAllViewsInLayout()
-		packLayout.parent ?: mPackContent.addView(packLayout)
-		mActivePack = "__recentSticker__"
+		val packLayout = createPackLayout(this.recentCache.toFiles().reversedArray())
+		this.packContent.removeAllViewsInLayout()
+		packLayout.parent ?: this.packContent.addView(packLayout)
+		this.activePack = "__recentSticker__"
 	}
 
 	/**
@@ -278,7 +285,7 @@ class ImageKeyboard : InputMethodService() {
 	 */
 	private fun switchPackLayout(pack: StickerPack) {
 		// Check the cache
-		mActivePack = pack.name
+		this.activePack = pack.name
 		val stickers = pack.stickerList
 		val imageContainerHash = stickers.hashCode()
 		lateinit var packLayout: FrameLayout
@@ -289,8 +296,8 @@ class ImageKeyboard : InputMethodService() {
 			imageContainerCache[imageContainerHash] = packLayout
 		}
 		// Swap the image container
-		mPackContent.removeAllViewsInLayout()
-		packLayout.parent ?: mPackContent.addView(packLayout)
+		this.packContent.removeAllViewsInLayout()
+		packLayout.parent ?: this.packContent.addView(packLayout)
 	}
 
 	/**
@@ -299,21 +306,21 @@ class ImageKeyboard : InputMethodService() {
 	 * @return Pair<FrameLayout, GridLayout> packContainer to pack
 	 */
 	private fun createPartialPackLayout(): Pair<FrameLayout, GridLayout> {
-		if (mVertical) {
+		if (this.vertical) {
 			val packContainer = layoutInflater.inflate(
-				R.layout.pack_vertical, mPackContent, false
+				R.layout.pack_vertical, this.packContent, false
 			) as FrameLayout
 			val pack = packContainer.findViewById<GridLayout>(R.id.pack)
-			pack.columnCount = mIconsPerX
+			pack.columnCount = this.iconsPerX
 			return packContainer to pack
 		}
 		val packContainer = layoutInflater.inflate(
 			R.layout.pack_horizontal,
-			mPackContent,
+			this.packContent,
 			false
 		) as FrameLayout
 		val pack = packContainer.findViewById<GridLayout>(R.id.pack)
-		pack.rowCount = mIconsPerX
+		pack.rowCount = this.iconsPerX
 		return packContainer to pack
 	}
 
@@ -331,15 +338,15 @@ class ImageKeyboard : InputMethodService() {
 				false
 			) as FrameLayout
 			val imgButton = imageCard.findViewById<ImageButton>(R.id.stickerButton)
-			imgButton.layoutParams.height = mIconSize
-			imgButton.layoutParams.width = mIconSize
+			imgButton.layoutParams.height = this.iconSize
+			imgButton.layoutParams.width = this.iconSize
 			imgButton.load(sticker)
 			imgButton.tag = sticker
 			imgButton.setOnClickListener {
 				val file = it.tag as File
-				mRecentCache.add(file.absolutePath)
+				this.recentCache.add(file.absolutePath)
 				val stickerType = Utils.getMimeType(file)
-				if (stickerType == null || stickerType !in mSupportedMimes) {
+				if (stickerType == null || stickerType !in this.supportedMimes) {
 					CoroutineScope(Dispatchers.Main).launch {
 						doFallbackCommitContent(file)
 					}
@@ -351,22 +358,22 @@ class ImageKeyboard : InputMethodService() {
 				val file = view.tag as File
 				val fullSticker = layoutInflater.inflate(
 					R.layout.sticker_preview,
-					mKeyboardRoot,
+					this.keyboardRoot,
 					false
 				) as RelativeLayout
 				val fSticker = fullSticker.findViewById<ImageButton>(R.id.stickerButton)
 				// Set dimens + load image
 				fullSticker.layoutParams.height =
-					mKeyboardHeight + (resources.getDimension(R.dimen.pack_dimens) + resources.getDimension(
+					this.keyboardHeight + (resources.getDimension(R.dimen.pack_dimens) + resources.getDimension(
 						R.dimen.pack_padding_vertical
 					) * 2).toInt()
-				fSticker.layoutParams.height = mFullIconSize
-				fSticker.layoutParams.width = mFullIconSize
+				fSticker.layoutParams.height = this.fullIconSize
+				fSticker.layoutParams.width = this.fullIconSize
 				fSticker.load(file)
 				// Tap to exit popup
-				fullSticker.setOnClickListener { mKeyboardRoot.removeView(it) }
-				fSticker.setOnClickListener { mKeyboardRoot.removeView(fullSticker) }
-				mKeyboardRoot.addView(fullSticker)
+				fullSticker.setOnClickListener { this.keyboardRoot.removeView(it) }
+				fSticker.setOnClickListener { this.keyboardRoot.removeView(fullSticker) }
+				this.keyboardRoot.addView(fullSticker)
 				return@setOnLongClickListener true
 			}
 			pack.addView(imageCard)
@@ -375,10 +382,10 @@ class ImageKeyboard : InputMethodService() {
 	}
 
 	private fun addPackButton(icon: Drawable? = null): ImageButton {
-		val packCard = layoutInflater.inflate(R.layout.pack_card, mPacksList, false)
+		val packCard = layoutInflater.inflate(R.layout.pack_card, this.packsList, false)
 		val packButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 		packButton.setImageDrawable(icon)
-		mPacksList.addView(packCard)
+		this.packsList.addView(packCard)
 		return packButton
 	}
 
@@ -387,9 +394,9 @@ class ImageKeyboard : InputMethodService() {
 	 *
 	 */
 	private fun createPackIcons() {
-		mPacksList.removeAllViewsInLayout()
+		this.packsList.removeAllViewsInLayout()
 		// Back button
-		if (mSharedPreferences.getBoolean("showBackButton", false)) {
+		if (this.sharedPreferences.getBoolean("showBackButton", false)) {
 			val backButton = addPackButton(
 				ResourcesCompat.getDrawable(resources, R.drawable.ic_chevron_left, null)
 			)
@@ -408,10 +415,10 @@ class ImageKeyboard : InputMethodService() {
 			recentPackLayout()
 		}
 		// Packs
-		val sortedPackNames = mLoadedPacks.keys.toTypedArray()
+		val sortedPackNames = this.loadedPacks.keys.toTypedArray()
 		Arrays.sort(sortedPackNames)
 		for (sortedPackName in sortedPackNames) {
-			val pack = mLoadedPacks[sortedPackName] ?: return
+			val pack = this.loadedPacks[sortedPackName] ?: return
 			val packButton = addPackButton()
 			packButton.load(pack.thumbSticker)
 			packButton.tag = pack
@@ -420,10 +427,10 @@ class ImageKeyboard : InputMethodService() {
 			}
 		}
 		if (sortedPackNames.isNotEmpty()) {
-			when (mActivePack) {
+			when (this.activePack) {
 				"__recentSticker__" -> recentPackLayout()
-				in sortedPackNames -> switchPackLayout((mLoadedPacks[mActivePack] ?: return))
-				else -> switchPackLayout((mLoadedPacks[sortedPackNames[0]] ?: return))
+				in sortedPackNames -> switchPackLayout((this.loadedPacks[this.activePack] ?: return))
+				else -> switchPackLayout((this.loadedPacks[sortedPackNames[0]] ?: return))
 			}
 		}
 	}

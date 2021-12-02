@@ -23,21 +23,22 @@ import java.nio.file.Files
 import java.util.*
 import java.util.concurrent.Executors
 
+private const val MAX_FILES = 4096
+
 /**
  * MainActivity class inherits from the AppCompatActivity class - provides the settings view
  */
 class MainActivity : AppCompatActivity() {
 	// init
-	private val gMaxFiles = 4096
-	private val mSupportedMimes = Utils.getSupportedMimes()
+	private val supportedMimes = Utils.getSupportedMimes()
 
 	// onCreate
-	private lateinit var mSharedPreferences: SharedPreferences
-	private lateinit var mContextView: View
+	private lateinit var sharedPreferences: SharedPreferences
+	private lateinit var contextView: View
 
 	// importSticker(s)
-	private var mFilesLeft = gMaxFiles
-	private var mTotalStickers = 0
+	private var filesLeft = MAX_FILES
+	private var totalStickers = 0
 
 	/**
 	 * Sets up content view, shared prefs, etc.
@@ -49,8 +50,8 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		// Set late-init attrs
-		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-		mContextView = findViewById(R.id.activityMainRoot)
+		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+		this.contextView = findViewById(R.id.activityMainRoot)
 		refreshStickerDirPath()
 		// Update UI with config
 		seekBar(
@@ -74,12 +75,12 @@ class MainActivity : AppCompatActivity() {
 
 	/**
 	 * Handles ACTION_OPEN_DOCUMENT_TREE result and adds stickerDirPath, lastUpdateDate to
-	 * mSharedPreferences and resets recentCache, compatCache
+	 * this.sharedPreferences and resets recentCache, compatCache
 	 */
 	private val chooseDirResultLauncher =
 		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
 			if (result.resultCode == Activity.RESULT_OK) {
-				val editor = mSharedPreferences.edit()
+				val editor = this.sharedPreferences.edit()
 				editor.putString("stickerDirPath", result.data?.data.toString())
 				editor.putString("lastUpdateDate", Calendar.getInstance().time.toString())
 				editor.putString("recentCache", "")
@@ -96,8 +97,8 @@ class MainActivity : AppCompatActivity() {
 	 * @param view: View
 	 */
 	fun chooseDir(view: View) {
-		mFilesLeft = gMaxFiles
-		mTotalStickers = 0
+		this.filesLeft = MAX_FILES
+		this.totalStickers = 0
 		val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
 		intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 		intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
@@ -112,7 +113,7 @@ class MainActivity : AppCompatActivity() {
 	 * @return 1 if sticker imported successfully else 0
 	 */
 	private fun importSticker(sticker: DocumentFile) {
-		if (sticker.isDirectory || sticker.type !in mSupportedMimes) {
+		if (sticker.isDirectory || sticker.type !in this.supportedMimes) {
 			return
 		}
 		val destSticker = File(filesDir, "stickers/${sticker.parentFile?.name}/${sticker.name}")
@@ -123,7 +124,7 @@ class MainActivity : AppCompatActivity() {
 			inputStream?.close()
 		} catch (e: java.lang.Exception) {
 		}
-		mTotalStickers++
+		this.totalStickers++
 	}
 
 	/**
@@ -134,7 +135,7 @@ class MainActivity : AppCompatActivity() {
 		val executor = Executors.newSingleThreadExecutor()
 		val handler = Handler(Looper.getMainLooper())
 		Snackbar.make(
-			mContextView,
+			this.contextView,
 			"Starting import. You will not be able to reselect directory until finished. This might take a bit!",
 			Snackbar.LENGTH_LONG
 		).show()
@@ -142,23 +143,23 @@ class MainActivity : AppCompatActivity() {
 		button.isEnabled = false
 		executor.execute {
 			File(filesDir, "stickers").deleteRecursively()
-			val stickerDirPath = mSharedPreferences.getString(
+			val stickerDirPath = this.sharedPreferences.getString(
 				"stickerDirPath",
 				resources.getString(R.string.update_sticker_pack_info_path)
 			)
 			val leafNodes =
 				fileWalk(DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath)))
-			for (file in leafNodes.take(gMaxFiles)) {
+			for (file in leafNodes.take(MAX_FILES)) {
 				importSticker(file)
 			}
 			handler.post {
 				Snackbar.make(
-					mContextView,
-					"Imported $mTotalStickers stickers. You may need to reload the keyboard for new stickers to show up.",
+					this.contextView,
+					"Imported ${this.totalStickers} stickers. You may need to reload the keyboard for new stickers to show up.",
 					Snackbar.LENGTH_LONG
 				).show()
-				val editor = mSharedPreferences.edit()
-				editor.putInt("numStickersImported", mTotalStickers)
+				val editor = this.sharedPreferences.edit()
+				editor.putInt("numStickersImported", this.totalStickers)
 				editor.apply()
 				refreshStickerDirPath()
 				button.isEnabled = true
@@ -174,7 +175,7 @@ class MainActivity : AppCompatActivity() {
 	 */
 	private fun fileWalk(rootNode: DocumentFile?): MutableSet<DocumentFile> {
 		val leafNodes = mutableSetOf<DocumentFile>()
-		if (rootNode == null || mFilesLeft < 0) {
+		if (rootNode == null || this.filesLeft < 0) {
 			return leafNodes
 		}
 		val files = rootNode.listFiles()
@@ -182,7 +183,7 @@ class MainActivity : AppCompatActivity() {
 			if (file.isFile) leafNodes.add(file)
 			if (file.isDirectory) leafNodes.addAll(fileWalk(file))
 		}
-		mFilesLeft -= files.size
+		this.filesLeft -= files.size
 		return leafNodes
 	}
 
@@ -199,12 +200,12 @@ class MainActivity : AppCompatActivity() {
 		sharedPrefKey: String,
 		callback: (Boolean) -> Unit
 	) {
-		compoundButton.isChecked = mSharedPreferences.getBoolean(sharedPrefKey, false)
+		compoundButton.isChecked = this.sharedPreferences.getBoolean(sharedPrefKey, false)
 		callback(compoundButton.isChecked)
 		compoundButton.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
 			showChangedPrefText()
 			callback(compoundButton.isChecked)
-			val editor = mSharedPreferences.edit()
+			val editor = this.sharedPreferences.edit()
 			editor.putBoolean(sharedPrefKey, isChecked)
 			editor.apply()
 		}
@@ -226,8 +227,10 @@ class MainActivity : AppCompatActivity() {
 		sharedPrefDefault: Int,
 		multiplier: Int = 1
 	) {
-		seekBarLabel.text = mSharedPreferences.getInt(sharedPrefKey, sharedPrefDefault).toString()
-		seekBar.progress = mSharedPreferences.getInt(sharedPrefKey, sharedPrefDefault) / multiplier
+		seekBarLabel.text =
+			this.sharedPreferences.getInt(sharedPrefKey, sharedPrefDefault).toString()
+		seekBar.progress =
+			this.sharedPreferences.getInt(sharedPrefKey, sharedPrefDefault) / multiplier
 		seekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
 			var progressMultiplier = sharedPrefDefault
 			override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
@@ -237,7 +240,7 @@ class MainActivity : AppCompatActivity() {
 
 			override fun onStartTrackingTouch(seekBar: SeekBar) {}
 			override fun onStopTrackingTouch(seekBar: SeekBar) {
-				val editor = mSharedPreferences.edit()
+				val editor = sharedPreferences.edit()
 				editor.putInt(sharedPrefKey, progressMultiplier)
 				editor.apply()
 				showChangedPrefText()
@@ -249,16 +252,16 @@ class MainActivity : AppCompatActivity() {
 	 * Reads saved sticker dir path from preferences
 	 */
 	private fun refreshStickerDirPath() {
-		findViewById<TextView>(R.id.stickerPackInfoPath).text = mSharedPreferences.getString(
+		findViewById<TextView>(R.id.stickerPackInfoPath).text = this.sharedPreferences.getString(
 			"stickerDirPath",
 			resources.getString(R.string.update_sticker_pack_info_path)
 		)
-		findViewById<TextView>(R.id.stickerPackInfoDate).text = mSharedPreferences.getString(
+		findViewById<TextView>(R.id.stickerPackInfoDate).text = this.sharedPreferences.getString(
 			"lastUpdateDate",
 			resources.getString(R.string.update_sticker_pack_info_date)
 		)
 		findViewById<TextView>(R.id.stickerPackInfoTotal).text =
-			mSharedPreferences.getInt("numStickersImported", 0).toString()
+			this.sharedPreferences.getInt("numStickersImported", 0).toString()
 	}
 
 	/**
@@ -266,7 +269,7 @@ class MainActivity : AppCompatActivity() {
 	 */
 	internal fun showChangedPrefText() {
 		Snackbar.make(
-			mContextView,
+			this.contextView,
 			"Preferences changed. You may need to reload the keyboard for settings to apply.",
 			Snackbar.LENGTH_SHORT
 		).show()
