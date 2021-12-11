@@ -3,6 +3,9 @@
 	<string name="pack_icon">Icono del paquete</string>
 	<string name="sticker_icon">Icono del sticker</string>
 	<string name="close_sticker_preview">[Toque para cerrar la vista previa de la etiqueta]</string>
+	<!-- Enable Keyboard -->
+	<string name="enable_keyboard_heading">Habilitar teclado</string>
+	<string name="enable_keyboard_button">Configuración de inicio</string>
 	<!-- Update Sticker Pack -->
 	<string name="update_sticker_pack_heading">Paquete de etiqueta actualización</string>
 	<string name="update_sticker_pack_button">Elija el directorio de fuente de la etiqueta</string>

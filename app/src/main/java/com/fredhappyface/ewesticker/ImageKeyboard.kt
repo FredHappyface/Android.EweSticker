@@ -429,7 +429,9 @@ class ImageKeyboard : InputMethodService() {
 		if (sortedPackNames.isNotEmpty()) {
 			when (this.activePack) {
 				"__recentSticker__" -> recentPackLayout()
-				in sortedPackNames -> switchPackLayout((this.loadedPacks[this.activePack] ?: return))
+				in sortedPackNames -> switchPackLayout(
+					(this.loadedPacks[this.activePack] ?: return)
+				)
 				else -> switchPackLayout((this.loadedPacks[sortedPackNames[0]] ?: return))
 			}
 		}
