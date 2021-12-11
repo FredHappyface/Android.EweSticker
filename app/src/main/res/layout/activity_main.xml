@@ -14,6 +14,23 @@
 			style="@style/widthMatchHeightWrap"
 			android:orientation="vertical"
 			android:padding="@dimen/content_margin">
+			<!-- Enable Keyboard -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
+
+				<LinearLayout
+					style="@style/widthMatchHeightWrap"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/heading"
+						android:text="@string/enable_keyboard_heading" />
+
+					<Button
+						style="@style/button"
+						android:onClick="enableKeyboard"
+						android:text="@string/enable_keyboard_button" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
 			<!-- Update Sticker Pack -->
 			<com.google.android.material.card.MaterialCardView style="@style/card">
 

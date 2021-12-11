@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
 import android.view.View
 import android.widget.Button
 import android.widget.CompoundButton
@@ -67,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 			80,
 			20
 		)
-		toggle(findViewById(R.id.showBackButton), "showBackButton") { }
+		toggle(findViewById(R.id.showBackButton), "showBackButton", true) { }
 		toggle(findViewById(R.id.vertical), "vertical") { isChecked: Boolean ->
 			findViewById<SeekBar>(R.id.iconSizeSb).isEnabled = !isChecked
 		}
@@ -90,6 +91,16 @@ class MainActivity : AppCompatActivity() {
 				importStickers()
 			}
 		}
+
+	/**
+	 * Called on button press to launch settings
+	 *
+	 * @param view: View
+	 */
+	fun enableKeyboard(view: View) {
+		val intent = Intent(Settings.ACTION_INPUT_METHOD_SETTINGS)
+		startActivity(intent)
+	}
 
 	/**
 	 * Called on button press to choose a new directory
@@ -192,15 +203,18 @@ class MainActivity : AppCompatActivity() {
 	 *
 	 * @param compoundButton CompoundButton
 	 * @param sharedPrefKey String - Id/Key of the SharedPreferences to update
+	 * @param sharedPrefDefault Boolean - default value (default=false)
 	 * @param callback (Boolean) -> Unit - Add custom behaviour with a callback - for instance to
 	 * disable some options
 	 */
 	private fun toggle(
 		compoundButton: CompoundButton,
 		sharedPrefKey: String,
+		sharedPrefDefault: Boolean = false,
 		callback: (Boolean) -> Unit
 	) {
-		compoundButton.isChecked = this.sharedPreferences.getBoolean(sharedPrefKey, false)
+		compoundButton.isChecked =
+			this.sharedPreferences.getBoolean(sharedPrefKey, sharedPrefDefault)
 		callback(compoundButton.isChecked)
 		compoundButton.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
 			showChangedPrefText()

@@ -4,6 +4,9 @@
 	<string name="pack_icon">Pack icon</string>
 	<string name="sticker_icon">Sticker icon</string>
 	<string name="close_sticker_preview">[tap to close sticker preview]</string>
+	<!-- Enable Keyboard -->
+	<string name="enable_keyboard_heading">Enable Keyboard</string>
+	<string name="enable_keyboard_button">Launch Settings</string>
 	<!-- Update Sticker Pack -->
 	<string name="update_sticker_pack_heading">Update Sticker Pack</string>
 	<string name="update_sticker_pack_button">Choose sticker source directory</string>
