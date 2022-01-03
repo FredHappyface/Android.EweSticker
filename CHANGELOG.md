@@ -3,7 +3,11 @@
 All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
-## Next_Ver - 2021/12/xx
+<!--
+## Next_Ver - 2022/xx/xx
+-->
+
+## 20220103 - 2022/01/03
 
 - Add 'Enable Keyboard' section with 'Launch Settings' button. https://github.com/FredHappyface/Android.EweSticker/issues/31
 - Show back button in navbar by default. https://github.com/FredHappyface/Android.EweSticker/issues/32
