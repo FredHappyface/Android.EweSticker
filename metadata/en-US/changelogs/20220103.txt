@@ -1,0 +1,4 @@
+<ul>
+<li>Add ‘Enable Keyboard’ section with ‘Launch Settings’ button. https://github.com/FredHappyface/Android.EweSticker/issues/31</li>
+<li>Show back button in navbar by default. https://github.com/FredHappyface/Android.EweSticker/issues/32</li>
+</ul>
