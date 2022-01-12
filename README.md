@@ -5,6 +5,7 @@
 [![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../commits/master)
 [![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../commits/master)
 [![GitHub all releases](https://img.shields.io/github/downloads/FredHappyface/Android.EweSticker/total?style=for-the-badge)](../../releases)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FFredHappyface%2FAndroid.EweSticker.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FFredHappyface%2FAndroid.EweSticker?ref=badge_shield)
 
 <!-- omit in toc -->
 # Android.EweSticker
@@ -176,6 +177,9 @@ https://help.github.com/en/desktop/contributing-to-projects/cloning-a-repository
 
 MIT License
 (See the [LICENSE](/LICENSE.md) for more information.)
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FFredHappyface%2FAndroid.EweSticker.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FFredHappyface%2FAndroid.EweSticker?ref=badge_large)
 
 ### Changelog
 
