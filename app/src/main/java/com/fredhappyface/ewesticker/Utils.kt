@@ -3,9 +3,7 @@ package com.fredhappyface.ewesticker
 import android.webkit.MimeTypeMap
 import java.io.File
 
-/**
- * Class to provide utils that are shared across ewesticker.
- */
+/** Class to provide utils that are shared across ewesticker. */
 object Utils {
 	/**
 	 * Get the mimetype of a File
@@ -23,6 +21,16 @@ object Utils {
 	 * @return MutableList of EweSticker Supported mimetypes
 	 */
 	fun getSupportedMimes(): MutableList<String> {
-		return mutableListOf("image/gif", "image/png", "image/webp", "image/jpeg", "image/heif")
+		return mutableListOf(
+			"image/gif",
+			"image/png",
+			"image/webp",
+			"image/jpeg",
+			"image/heif",
+			"video/3gpp",
+			"video/mp4",
+			"video/x-matroska",
+			"video/webm"
+		)
 	}
 }

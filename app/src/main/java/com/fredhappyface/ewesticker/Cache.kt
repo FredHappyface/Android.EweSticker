@@ -6,7 +6,6 @@ import java.util.*
 /**
  * Basically this behaved like an ordered set with some maximum capacity. When this capacity is
  * exceeded an element is removed from the start
- *
  */
 class Cache(private val size: Int = 30) {
 	private var data: LinkedList<String> = LinkedList()
@@ -55,9 +54,7 @@ class Cache(private val size: Int = 30) {
 		return this.data.map { File(it) }.toTypedArray()
 	}
 
-	/**
-	 * convert from a string (shared-pref) to this
-	 */
+	/** convert from a string (shared-pref) to this */
 	fun fromSharedPref(raw: String) {
 		this.data = LinkedList()
 		this.data.addAll(raw.split("\n").filter { it.isNotEmpty() })

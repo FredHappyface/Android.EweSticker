@@ -18,11 +18,9 @@ android {
 	}
 
 	buildTypes {
-		getByName("debug") {
-			versionNameSuffix = "-debug"
-		}
+		getByName("debug") { versionNameSuffix = "-debug" }
 		getByName("release") {
-			//versionNameSuffix = "-release"
+			// versionNameSuffix = "-release"
 			proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
 			isMinifyEnabled = false
 		}
@@ -33,19 +31,18 @@ android {
 		targetCompatibility(JavaVersion.VERSION_11)
 	}
 
-	kotlinOptions {
-		jvmTarget = "11"
-	}
+	kotlinOptions { jvmTarget = "11" }
 }
 
 dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.31")
 	implementation("androidx.core:core-ktx:1.7.0")
-	implementation("androidx.appcompat:appcompat:1.4.0")
-	implementation("com.google.android.material:material:1.4.0")
+	implementation("androidx.appcompat:appcompat:1.4.1")
+	implementation("com.google.android.material:material:1.5.0")
 	implementation("androidx.preference:preference-ktx:1.1.1")
 	implementation("io.coil-kt:coil:1.4.0")
 	implementation("io.coil-kt:coil-gif:1.4.0")
+	implementation("io.coil-kt:coil-video:1.4.0")
 	implementation("androidx.gridlayout:gridlayout:1.0.0")
 	testImplementation("junit:junit:4.13.2")
 	testImplementation("androidx.test.ext:junit:1.1.3")

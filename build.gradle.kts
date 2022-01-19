@@ -20,6 +20,4 @@ allprojects {
 	}
 }
 
-task("clean") {
-	delete(rootProject.buildDir)
-}
+task("clean") { delete(rootProject.buildDir) }

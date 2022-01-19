@@ -3,6 +3,7 @@ output-metadata.json
 .idea/misc.xml
 /captures
 /ktlint
+ktfmt-*.jar
 /app/debug
 /app/release
 

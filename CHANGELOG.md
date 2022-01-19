@@ -7,6 +7,15 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver - 2022/xx/xx
 -->
 
+## Next_Ver - 2022/xx/xx
+
+- Highlight the selected tab. https://github.com/FredHappyface/Android.EweSticker/issues/29
+- Add support for video formats https://github.com/FredHappyface/Android.EweSticker/issues/34
+	- "video/3gpp", "video/mp4", "video/x-matroska", "video/webm"
+- Reformat
+- Update deps
+- Limit sticker pack size to resolve `java.lang.OutOfMemoryError: at androidx.gridlayout.widget.GridLayout`
+
 ## 20220103 - 2022/01/03
 
 - Add 'Enable Keyboard' section with 'Launch Settings' button. https://github.com/FredHappyface/Android.EweSticker/issues/31
