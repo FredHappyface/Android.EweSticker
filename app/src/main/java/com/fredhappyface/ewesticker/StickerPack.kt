@@ -2,17 +2,12 @@ package com.fredhappyface.ewesticker
 
 import java.io.File
 
-/**
- * Helper class to provide pack-related information
- * A "Pack" is informally represented as a File
- */
+/** Helper class to provide pack-related information A "Pack" is informally represented as a File */
 class StickerPack(packDir: File) {
 	private val stickers: Array<File>? =
 		packDir.listFiles { obj: File -> obj.isFile }?.sortedArray()
 
-	/**
-	 * Get the pack name (name of the pack directory)
-	 */
+	/** Get the pack name (name of the pack directory) */
 	internal val name: String = packDir.name
 
 	/**
@@ -26,8 +21,8 @@ class StickerPack(packDir: File) {
 		get() = this.stickers ?: arrayOf()
 
 	/**
-	 * Provides a sticker to use as the pack-nav container thumbnail.
-	 * Currently just takes the first element, but could theoretically include any selection logic.
+	 * Provides a sticker to use as the pack-nav container thumbnail. Currently just takes the first
+	 * element, but could theoretically include any selection logic.
 	 *
 	 * @return File that should be used for thumbnail
 	 */

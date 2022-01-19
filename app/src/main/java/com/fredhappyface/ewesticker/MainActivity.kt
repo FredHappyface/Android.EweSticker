@@ -25,10 +25,9 @@ import java.util.*
 import java.util.concurrent.Executors
 
 private const val MAX_FILES = 4096
+private const val MAX_PACK_SIZE = 128
 
-/**
- * MainActivity class inherits from the AppCompatActivity class - provides the settings view
- */
+/** MainActivity class inherits from the AppCompatActivity class - provides the settings view */
 class MainActivity : AppCompatActivity() {
 	// init
 	private val supportedMimes = Utils.getSupportedMimes()
@@ -39,6 +38,7 @@ class MainActivity : AppCompatActivity() {
 
 	// importSticker(s)
 	private var filesLeft = MAX_FILES
+	private var packSizes: MutableMap<String, Int> = mutableMapOf()
 	private var totalStickers = 0
 
 	/**
@@ -55,20 +55,9 @@ class MainActivity : AppCompatActivity() {
 		this.contextView = findViewById(R.id.activityMainRoot)
 		refreshStickerDirPath()
 		// Update UI with config
-		seekBar(
-			findViewById(R.id.iconsPerXSb),
-			findViewById(R.id.iconsPerXLbl),
-			"iconsPerX",
-			3
-		)
-		seekBar(
-			findViewById(R.id.iconSizeSb),
-			findViewById(R.id.iconSizeLbl),
-			"iconSize",
-			80,
-			20
-		)
-		toggle(findViewById(R.id.showBackButton), "showBackButton", true) { }
+		seekBar(findViewById(R.id.iconsPerXSb), findViewById(R.id.iconsPerXLbl), "iconsPerX", 3)
+		seekBar(findViewById(R.id.iconSizeSb), findViewById(R.id.iconSizeLbl), "iconSize", 80, 20)
+		toggle(findViewById(R.id.showBackButton), "showBackButton", true) {}
 		toggle(findViewById(R.id.vertical), "vertical") { isChecked: Boolean ->
 			findViewById<SeekBar>(R.id.iconSizeSb).isEnabled = !isChecked
 		}
@@ -124,10 +113,15 @@ class MainActivity : AppCompatActivity() {
 	 * @return 1 if sticker imported successfully else 0
 	 */
 	private fun importSticker(sticker: DocumentFile) {
-		if (sticker.isDirectory || sticker.type !in this.supportedMimes) {
+		// Exit if sticker is unsupported or if pack size > MAX_PACK_SIZE
+		val parentDir = sticker.parentFile?.name ?: "__default__"
+		val packSize = this.packSizes[parentDir] ?: 0
+		if (sticker.type !in this.supportedMimes || packSize > MAX_PACK_SIZE) {
 			return
 		}
-		val destSticker = File(filesDir, "stickers/${sticker.parentFile?.name}/${sticker.name}")
+		this.packSizes[parentDir] = packSize + 1
+		// Copy sticker to app storage
+		val destSticker = File(filesDir, "stickers/${parentDir}/${sticker.name}")
 		destSticker.parentFile?.mkdirs()
 		try {
 			val inputStream = contentResolver.openInputStream(sticker.uri)
@@ -138,9 +132,7 @@ class MainActivity : AppCompatActivity() {
 		this.totalStickers++
 	}
 
-	/**
-	 * Import files from storage to internal directory
-	 */
+	/** Import files from storage to internal directory */
 	private fun importStickers() {
 		// Use worker thread because this takes several seconds
 		val executor = Executors.newSingleThreadExecutor()
@@ -149,15 +141,16 @@ class MainActivity : AppCompatActivity() {
 			this.contextView,
 			"Starting import. You will not be able to reselect directory until finished. This might take a bit!",
 			Snackbar.LENGTH_LONG
-		).show()
+		)
+			.show()
 		val button = findViewById<Button>(R.id.updateStickerPackInfoBtn)
 		button.isEnabled = false
 		executor.execute {
 			File(filesDir, "stickers").deleteRecursively()
-			val stickerDirPath = this.sharedPreferences.getString(
-				"stickerDirPath",
-				resources.getString(R.string.update_sticker_pack_info_path)
-			)
+			val stickerDirPath =
+				this.sharedPreferences.getString(
+					"stickerDirPath", resources.getString(R.string.update_sticker_pack_info_path)
+				)
 			val leafNodes =
 				fileWalk(DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath)))
 			for (file in leafNodes.take(MAX_FILES)) {
@@ -168,7 +161,8 @@ class MainActivity : AppCompatActivity() {
 					this.contextView,
 					"Imported ${this.totalStickers} stickers. You may need to reload the keyboard for new stickers to show up.",
 					Snackbar.LENGTH_LONG
-				).show()
+				)
+					.show()
 				val editor = this.sharedPreferences.edit()
 				editor.putInt("numStickersImported", this.totalStickers)
 				editor.apply()
@@ -229,10 +223,11 @@ class MainActivity : AppCompatActivity() {
 	 * Add seekbar logic for each seekbar in the layout
 	 *
 	 * @param seekBar SeekBar
-	 * @param seekBarLabel  TextView - the label with a value updated when the progress is changed
+	 * @param seekBarLabel TextView - the label with a value updated when the progress is changed
 	 * @param sharedPrefKey String - Id/Key of the SharedPreferences to update
 	 * @param sharedPrefDefault Int - default value
-	 * @param multiplier Int - multiplier (used to update SharedPreferences and set the seekBarLabel)
+	 * @param multiplier Int - multiplier (used to update SharedPreferences and set the
+	 * seekBarLabel)
 	 */
 	private fun seekBar(
 		seekBar: SeekBar,
@@ -245,47 +240,45 @@ class MainActivity : AppCompatActivity() {
 			this.sharedPreferences.getInt(sharedPrefKey, sharedPrefDefault).toString()
 		seekBar.progress =
 			this.sharedPreferences.getInt(sharedPrefKey, sharedPrefDefault) / multiplier
-		seekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
-			var progressMultiplier = sharedPrefDefault
-			override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-				progressMultiplier = progress * multiplier
-				seekBarLabel.text = progressMultiplier.toString()
-			}
+		seekBar.setOnSeekBarChangeListener(
+			object : OnSeekBarChangeListener {
+				var progressMultiplier = sharedPrefDefault
+				override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+					progressMultiplier = progress * multiplier
+					seekBarLabel.text = progressMultiplier.toString()
+				}
 
-			override fun onStartTrackingTouch(seekBar: SeekBar) {}
-			override fun onStopTrackingTouch(seekBar: SeekBar) {
-				val editor = sharedPreferences.edit()
-				editor.putInt(sharedPrefKey, progressMultiplier)
-				editor.apply()
-				showChangedPrefText()
-			}
-		})
+				override fun onStartTrackingTouch(seekBar: SeekBar) {}
+				override fun onStopTrackingTouch(seekBar: SeekBar) {
+					val editor = sharedPreferences.edit()
+					editor.putInt(sharedPrefKey, progressMultiplier)
+					editor.apply()
+					showChangedPrefText()
+				}
+			})
 	}
 
-	/**
-	 * Reads saved sticker dir path from preferences
-	 */
+	/** Reads saved sticker dir path from preferences */
 	private fun refreshStickerDirPath() {
-		findViewById<TextView>(R.id.stickerPackInfoPath).text = this.sharedPreferences.getString(
-			"stickerDirPath",
-			resources.getString(R.string.update_sticker_pack_info_path)
-		)
-		findViewById<TextView>(R.id.stickerPackInfoDate).text = this.sharedPreferences.getString(
-			"lastUpdateDate",
-			resources.getString(R.string.update_sticker_pack_info_date)
-		)
+		findViewById<TextView>(R.id.stickerPackInfoPath).text =
+			this.sharedPreferences.getString(
+				"stickerDirPath", resources.getString(R.string.update_sticker_pack_info_path)
+			)
+		findViewById<TextView>(R.id.stickerPackInfoDate).text =
+			this.sharedPreferences.getString(
+				"lastUpdateDate", resources.getString(R.string.update_sticker_pack_info_date)
+			)
 		findViewById<TextView>(R.id.stickerPackInfoTotal).text =
 			this.sharedPreferences.getInt("numStickersImported", 0).toString()
 	}
 
-	/**
-	 * Reusable function to warn about changing preferences
-	 */
+	/** Reusable function to warn about changing preferences */
 	internal fun showChangedPrefText() {
 		Snackbar.make(
 			this.contextView,
 			"Preferences changed. You may need to reload the keyboard for settings to apply.",
 			Snackbar.LENGTH_SHORT
-		).show()
+		)
+			.show()
 	}
 }
