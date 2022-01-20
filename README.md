@@ -42,9 +42,16 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 ## Features
 
 - Wide range of custom stickers supported
-	- Formats include image/gif (.gif), image/png (.png), image/webp
-	(.webp), image/jpg (.jpg, .jpeg, .jpe, ...), image/heif (.heif, .heifs, .heic, ...)
-- Send stickers in supported apps (.png is used as a fallback)
+	- image/gif
+	- image/png
+	- image/webp
+	- image/jpeg
+	- image/heif
+	- video/3gpp
+	- video/mp4
+	- video/x-matroska
+	- video/webm
+- Send stickers in supported apps (image/png is used as a fallback)
 - Vertical and Horizontal scrolling
 - Change number of rows and sticker preview size
 - Ties in with the system theme
