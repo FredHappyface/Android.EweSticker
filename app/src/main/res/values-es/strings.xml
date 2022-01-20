@@ -26,8 +26,16 @@
 	<string name="info_text">Tablero de stickers para android inspirado en uSticker (bifurcado de woosticker).</string>
 	<!-- Features -->
 	<string name="features_heading">Características</string>
-	<string name="features_text">"- Amplia gama de pegatinas personalizadas admitidas
-    - Los formatos admitidos son image/gif (.gif), image/png (.png), image/webp (.webp), image/jpg (.jpg, .jpeg, .jpe, …), image/heif (.heif,.heifs, .heic, …)
+	<string name="features_text">"- Amplia gama de pegatinas personalizadas admitidas:
+	- image/gif
+	- image/png
+	- image/webp
+	- image/jpeg
+	- image/heif
+	- video/3gpp
+	- video/mp4
+	- video/x-matroska
+	- video/webm
 - Envíe stickers en las aplicaciones compatibles (.png se utiliza como alternativa)
 - Desplazamiento vertical y horizontal.
 - Cambio Número de filas y tamaño de vista previa de la etiqueta
