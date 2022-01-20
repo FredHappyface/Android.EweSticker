@@ -352,7 +352,8 @@ class ImageKeyboard : InputMethodService() {
 			val imageCard =
 				layoutInflater.inflate(R.layout.sticker_card, pack, false) as FrameLayout
 			val imgButton = imageCard.findViewById<ImageButton>(R.id.stickerButton)
-			imgButton.layoutParams = ViewGroup.LayoutParams(this.iconSize, this.iconSize)
+			imgButton.layoutParams.height = this.iconSize
+			imgButton.layoutParams.width = this.iconSize
 			imgButton.load(sticker)
 			imgButton.tag = sticker
 			imgButton.setOnClickListener {
@@ -377,7 +378,8 @@ class ImageKeyboard : InputMethodService() {
 									resources.getDimension(R.dimen.pack_padding_vertical) * 2)
 								.toInt()
 				val fSticker = fullStickerLayout.findViewById<ImageButton>(R.id.stickerButton)
-				fSticker.layoutParams = ViewGroup.LayoutParams(this.fullIconSize, this.fullIconSize)
+				fSticker.layoutParams.height = this.fullIconSize
+				fSticker.layoutParams.width = this.fullIconSize
 				fSticker.load(file)
 				// Tap to exit popup
 				fullStickerLayout.setOnClickListener { this.keyboardRoot.removeView(it) }
