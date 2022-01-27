@@ -1,0 +1,13 @@
+<ul>
+<li>Highlight the selected tab.
+https://github.com/FredHappyface/Android.EweSticker/issues/29</li>
+<li>Add support for video formats
+https://github.com/FredHappyface/Android.EweSticker/issues/34
+<ul>
+<li>“video/3gpp”, “video/mp4”, “video/x-matroska”, “video/webm”</li>
+</ul></li>
+<li>Reformat</li>
+<li>Update deps</li>
+<li>Limit sticker pack size to resolve <code>java.lang.OutOfMemoryError:
+at androidx.gridlayout.widget.GridLayout</code></li>
+</ul>

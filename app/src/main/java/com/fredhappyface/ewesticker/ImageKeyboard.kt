@@ -275,8 +275,8 @@ class ImageKeyboard : InputMethodService() {
 		editorInfo?.packageName ?: return false
 		mimeType ?: return false
 		currentInputConnection ?: return false
-		for (supportedMimeType in EditorInfoCompat.getContentMimeTypes(editorInfo)) {
-			if (ClipDescription.compareMimeTypes(mimeType, supportedMimeType)) {
+		EditorInfoCompat.getContentMimeTypes(editorInfo).forEach {
+			if (ClipDescription.compareMimeTypes(mimeType, it)) {
 				return true
 			}
 		}
