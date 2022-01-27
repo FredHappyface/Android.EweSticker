@@ -7,7 +7,7 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver - 2022/xx/xx
 -->
 
-## 20220127 - 2022/01/27
+## 20220128 - 2022/01/28
 
 - Highlight the selected tab. https://github.com/FredHappyface/Android.EweSticker/issues/29
 - Add support for video formats https://github.com/FredHappyface/Android.EweSticker/issues/34
