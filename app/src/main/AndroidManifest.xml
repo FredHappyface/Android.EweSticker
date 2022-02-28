@@ -7,12 +7,12 @@
 		android:icon="@mipmap/ic_launcher"
 		android:label="@string/app_name"
 		android:theme="@style/AppTheme"
-		tools:ignore="GoogleAppIndexingWarning">
+		tools:ignore="GoogleAppIndexingWarning"
+		android:dataExtractionRules="@xml/data_extraction_rules">
 		<activity
 			android:name="com.fredhappyface.ewesticker.MainActivity"
 			android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
 			android:exported="true"
-			android:label="@string/app_name"
 			android:windowSoftInputMode="adjustResize">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />

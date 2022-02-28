@@ -54,4 +54,14 @@ Copyright © Randy Zhou</string>
 	<string name="links_text">"- Project: https://github.com/FredHappyface/Android.EweSticker
 - Tutorial: https://github.com/FredHappyface/Android.EweSticker/blob/main/TUTORIAL.md
 - License: https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md</string>
+	<!-- Interactive Messages -->
+	<string name="pref_000">Preferences changed. Reload the keyboard for settings to apply</string>
+	<string name="imported_010">Starting import. This might take some time!</string>
+	<string name="imported_020">Imported %1$d stickers. Reload the keyboard for new stickers to show</string>
+	<string name="imported_031">E031: Some stickers failed to import (%1$d imported). Max stickers reached</string>
+	<string name="imported_032">E032: Some stickers failed to import (%1$d imported). Max pack size reached</string>
+	<string name="imported_033">E033: Some stickers failed to import (%1$d imported). Unsupported formats found</string>
+	<string name="fallback_040">E040: %1$s not supported here</string>
+	<string name="fallback_041">E041: Unexpected IOException when converting sticker</string>
+	<string name="switch_050">E050: IllegalStateException when switching packs. Try switching away from and back to EweSticker</string>
 </resources>
