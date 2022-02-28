@@ -18,7 +18,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.documentfile.provider.DocumentFile
 import androidx.preference.PreferenceManager
-import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.nio.file.Files
 import java.util.*
@@ -35,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 	// onCreate
 	private lateinit var sharedPreferences: SharedPreferences
 	private lateinit var contextView: View
+	private lateinit var toaster: Toaster
 
 	// importSticker(s)
 	private var filesLeft = MAX_FILES
@@ -53,6 +53,7 @@ class MainActivity : AppCompatActivity() {
 		// Set late-init attrs
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 		this.contextView = findViewById(R.id.activityMainRoot)
+		this.toaster = Toaster(applicationContext)
 		refreshStickerDirPath()
 		// Update UI with config
 		seekBar(findViewById(R.id.iconsPerXSb), findViewById(R.id.iconsPerXLbl), "iconsPerX", 3)
@@ -116,8 +117,11 @@ class MainActivity : AppCompatActivity() {
 		// Exit if sticker is unsupported or if pack size > MAX_PACK_SIZE
 		val parentDir = sticker.parentFile?.name ?: "__default__"
 		val packSize = this.packSizes[parentDir] ?: 0
-		if (sticker.type !in this.supportedMimes || packSize > MAX_PACK_SIZE) {
-			return
+		if (packSize > MAX_PACK_SIZE) {
+			this.toaster.setState(2); return
+		}
+		if (sticker.type !in this.supportedMimes) {
+			this.toaster.setState(3); return
 		}
 		this.packSizes[parentDir] = packSize + 1
 		// Copy sticker to app storage
@@ -137,12 +141,9 @@ class MainActivity : AppCompatActivity() {
 		// Use worker thread because this takes several seconds
 		val executor = Executors.newSingleThreadExecutor()
 		val handler = Handler(Looper.getMainLooper())
-		Snackbar.make(
-			this.contextView,
-			"Starting import. You will not be able to reselect directory until finished. This might take a bit!",
-			Snackbar.LENGTH_LONG
+		toaster.toast(
+			getString(R.string.imported_010),
 		)
-			.show()
 		val button = findViewById<Button>(R.id.updateStickerPackInfoBtn)
 		button.isEnabled = false
 		executor.execute {
@@ -153,16 +154,21 @@ class MainActivity : AppCompatActivity() {
 				)
 			val leafNodes =
 				fileWalk(DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath)))
+			if (leafNodes.size > MAX_FILES) {
+				toaster.setState(1)
+			}
 			for (file in leafNodes.take(MAX_FILES)) {
 				importSticker(file)
 			}
 			handler.post {
-				Snackbar.make(
-					this.contextView,
-					"Imported ${this.totalStickers} stickers. You may need to reload the keyboard for new stickers to show up.",
-					Snackbar.LENGTH_LONG
+				toaster.toastOnState(
+					arrayOf(
+						getString(R.string.imported_020, this.totalStickers),
+						getString(R.string.imported_031, this.totalStickers),
+						getString(R.string.imported_032, this.totalStickers),
+						getString(R.string.imported_033, this.totalStickers),
+					)
 				)
-					.show()
 				val editor = this.sharedPreferences.edit()
 				editor.putInt("numStickersImported", this.totalStickers)
 				editor.apply()
@@ -274,11 +280,8 @@ class MainActivity : AppCompatActivity() {
 
 	/** Reusable function to warn about changing preferences */
 	internal fun showChangedPrefText() {
-		Snackbar.make(
-			this.contextView,
-			"Preferences changed. You may need to reload the keyboard for settings to apply.",
-			Snackbar.LENGTH_SHORT
+		this.toaster.toast(
+			getString(R.string.pref_000)
 		)
-			.show()
 	}
 }

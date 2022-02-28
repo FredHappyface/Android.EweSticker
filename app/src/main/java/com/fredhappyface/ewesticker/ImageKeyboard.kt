@@ -12,7 +12,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.RelativeLayout
-import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.inputmethod.EditorInfoCompat
@@ -52,6 +51,7 @@ class ImageKeyboard : InputMethodService() {
 	//  Constants
 	private lateinit var internalDir: File
 	private var totalIconPadding = 0
+	private lateinit var toaster: Toaster
 
 	//  Load Packs
 	private lateinit var loadedPacks: HashMap<String, StickerPack>
@@ -112,6 +112,7 @@ class ImageKeyboard : InputMethodService() {
 				(this.sharedPreferences.getInt("iconSize", 80) * scale)
 			})
 				.toInt()
+		this.toaster = Toaster(applicationContext)
 		//  Load Packs
 		this.loadedPacks = HashMap()
 		val packs =
@@ -206,10 +207,7 @@ class ImageKeyboard : InputMethodService() {
 	private suspend fun doFallbackCommitContent(file: File) {
 		// PNG might not be supported
 		if ("image/png" !in this.supportedMimes) {
-			Toast.makeText(
-				applicationContext, file.extension + " not supported here.", Toast.LENGTH_SHORT
-			)
-				.show()
+			toaster.toast(getString(R.string.fallback_040, file.extension))
 			return
 		}
 		// Create a new compatSticker and convert the sticker to png
@@ -231,6 +229,7 @@ class ImageKeyboard : InputMethodService() {
 						.build()
 				imageLoader.execute(request)
 			} catch (ignore: IOException) {
+				toaster.toast(getString(R.string.fallback_041))
 			}
 		}
 		// Send the compatSticker!
@@ -317,7 +316,11 @@ class ImageKeyboard : InputMethodService() {
 		}
 		// Swap the image container
 		this.packContent.removeAllViewsInLayout()
-		packLayout.parent ?: this.packContent.addView(packLayout)
+		if (packLayout.parent != null) {
+			toaster.toast(getString(R.string.switch_050))
+		} else {
+			this.packContent.addView(packLayout)
+		}
 	}
 
 	/**
@@ -405,7 +408,7 @@ class ImageKeyboard : InputMethodService() {
 	private fun createPackIcons() {
 		this.packsList.removeAllViewsInLayout()
 		// Back button
-		if (this.sharedPreferences.getBoolean("showBackButton", false)) {
+		if (this.sharedPreferences.getBoolean("showBackButton", true)) {
 			val backButton = addPackButton("__back__")
 			backButton.load(getDrawable(R.drawable.ic_chevron_left))
 			backButton.setOnClickListener {

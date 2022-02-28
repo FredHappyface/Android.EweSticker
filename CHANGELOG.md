@@ -7,13 +7,20 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver - 2022/xx/xx
 -->
 
+## Next_Ver - 2022/xx/xx
+
+- New Feature: Improve error messages for the user per https://github.com/FredHappyface/Android.EweSticker/issues/39
+- Bugfix: Back button now enabled in fresh install per https://github.com/FredHappyface/Android.EweSticker/issues/38
+- Update navbar theme (dark/light rather than the app accent colour)
+- Update dependencies
+
 ## 20220128 - 2022/01/28
 
 - Highlight the selected tab. https://github.com/FredHappyface/Android.EweSticker/issues/29
 - Add support for video formats https://github.com/FredHappyface/Android.EweSticker/issues/34
 	- "video/3gpp", "video/mp4", "video/x-matroska", "video/webm"
 - Reformat
-- Update deps
+- Update dependencies
 - Limit sticker pack size to resolve `java.lang.OutOfMemoryError: at androidx.gridlayout.widget.GridLayout`
 
 ## 20220103 - 2022/01/03
