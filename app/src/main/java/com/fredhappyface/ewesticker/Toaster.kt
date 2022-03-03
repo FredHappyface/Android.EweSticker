@@ -8,7 +8,7 @@ import android.widget.Toast
  * android.content.Context to the constructor and call the 'toast' function (others as below)
  * toaster.state keeps track of an error state or similar.
  *
- * @property context: android.content.Context. e.g. applicationContext
+ * @property context: android.content.Context. e.g. baseContext
  */
 class Toaster(private val context: Context) {
 	private var state = 0
@@ -43,19 +43,6 @@ class Toaster(private val context: Context) {
 			this.toast(strings[this.state])
 		} else {
 			this.toast("toaster.state=${this.state} out of range strings.size=${strings.size}")
-		}
-	}
-
-	/**
-	 * Call toaster.toastOnNonZero with a messages to create a toast notification of the state is
-	 * not zero. Context is set when Toaster is instantiated. Duration is determined based on
-	 * text length.
-	 *
-	 *  @param string: String. Message to output
-	 */
-	fun toastOnNonZero(string: String) {
-		if (this.state != 0) {
-			toast(string)
 		}
 	}
 

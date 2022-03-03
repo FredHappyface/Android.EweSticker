@@ -16,6 +16,7 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [How to use](#how-to-use)
+- [Help](#help)
 - [Lint with](#lint-with)
 - [Language Information](#language-information)
 	- [Kotlin and Android Version](#kotlin-and-android-version)
@@ -71,6 +72,10 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 ## How to use
 
 See the [Tutorial](/TUTORIAL.md) for more information.
+
+## Help
+
+See the [Help](/HELP.md) for more information.
 
 ## Lint with
 

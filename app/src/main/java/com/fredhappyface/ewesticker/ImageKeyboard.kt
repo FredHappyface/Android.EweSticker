@@ -1,8 +1,6 @@
 package com.fredhappyface.ewesticker
 
-import android.content.ClipDescription
 import android.content.SharedPreferences
-import android.graphics.Bitmap
 import android.inputmethodservice.InputMethodService
 import android.os.Build.VERSION.SDK_INT
 import android.view.View
@@ -12,11 +10,6 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.ImageButton
 import android.widget.RelativeLayout
-import androidx.core.content.FileProvider
-import androidx.core.graphics.drawable.toBitmap
-import androidx.core.view.inputmethod.EditorInfoCompat
-import androidx.core.view.inputmethod.InputConnectionCompat
-import androidx.core.view.inputmethod.InputContentInfoCompat
 import androidx.core.view.iterator
 import androidx.gridlayout.widget.GridLayout
 import androidx.preference.PreferenceManager
@@ -27,13 +20,8 @@ import coil.decode.ImageDecoderDecoder
 import coil.fetch.VideoFrameFileFetcher
 import coil.imageLoader
 import coil.load
-import coil.request.ImageRequest
-import kotlinx.coroutines.*
 import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
 import java.util.*
-import kotlin.collections.HashMap
 import kotlin.math.min
 
 /**
@@ -62,7 +50,7 @@ class ImageKeyboard : InputMethodService() {
 	private var recentCache = Cache()
 
 	// onStartInput
-	private lateinit var supportedMimes: List<String>
+	private lateinit var stickerSender: StickerSender
 
 	// onCreateInputView
 	private lateinit var keyboardRoot: ViewGroup
@@ -83,7 +71,7 @@ class ImageKeyboard : InputMethodService() {
 	override fun onCreate() {
 		// Misc
 		super.onCreate()
-		val scale = applicationContext.resources.displayMetrics.density
+		val scale = baseContext.resources.displayMetrics.density
 		// Setup coil
 		val imageLoader =
 			ImageLoader.Builder(baseContext)
@@ -112,7 +100,7 @@ class ImageKeyboard : InputMethodService() {
 				(this.sharedPreferences.getInt("iconSize", 80) * scale)
 			})
 				.toInt()
-		this.toaster = Toaster(applicationContext)
+		this.toaster = Toaster(baseContext)
 		//  Load Packs
 		this.loadedPacks = HashMap()
 		val packs =
@@ -145,7 +133,7 @@ class ImageKeyboard : InputMethodService() {
 	 * @return View keyboardLayout
 	 */
 	override fun onCreateInputView(): View {
-		val keyboardLayout = View.inflate(applicationContext, R.layout.keyboard_layout, null)
+		val keyboardLayout = View.inflate(baseContext, R.layout.keyboard_layout, null)
 		this.keyboardRoot = keyboardLayout.findViewById(R.id.keyboardRoot)
 		this.packsList = keyboardLayout.findViewById(R.id.packsList)
 		this.packContent = keyboardLayout.findViewById(R.id.packContent)
@@ -183,8 +171,15 @@ class ImageKeyboard : InputMethodService() {
 	 * @param restarting
 	 */
 	override fun onStartInput(info: EditorInfo?, restarting: Boolean) {
-		this.supportedMimes =
-			Utils.getSupportedMimes().filter { isCommitContentSupported(info, it) }
+		this.stickerSender = StickerSender(
+			this.baseContext,
+			this.toaster,
+			this.internalDir,
+			this.currentInputConnection,
+			this.currentInputEditorInfo,
+			this.compatCache,
+			this.imageLoader
+		)
 	}
 
 	/** When leaving some input field update the caches */
@@ -195,91 +190,6 @@ class ImageKeyboard : InputMethodService() {
 		editor.putString("activePack", this.activePack)
 		editor.apply()
 		super.onFinishInput()
-	}
-
-	/**
-	 * In the event that a mimetype is unsupported by a InputConnectionCompat (looking at you,
-	 * Signal) create a temporary png and send that. In the event that png is not supported, alert
-	 * the user.
-	 *
-	 * @param file: File
-	 */
-	private suspend fun doFallbackCommitContent(file: File) {
-		// PNG might not be supported
-		if ("image/png" !in this.supportedMimes) {
-			toaster.toast(getString(R.string.fallback_040, file.extension))
-			return
-		}
-		// Create a new compatSticker and convert the sticker to png
-		val compatStickerName = file.hashCode().toString()
-		val compatSticker = File(this.internalDir, "__compatSticker__/$compatStickerName.png")
-		if (!compatSticker.exists()) {
-			// If the sticker doesn't exist then create
-			compatSticker.parentFile?.mkdirs()
-			try {
-				val request =
-					ImageRequest.Builder(baseContext)
-						.data(file)
-						.target { result ->
-							val bitmap = result.toBitmap()
-							bitmap.compress(
-								Bitmap.CompressFormat.PNG, 90, FileOutputStream(compatSticker)
-							)
-						}
-						.build()
-				imageLoader.execute(request)
-			} catch (ignore: IOException) {
-				toaster.toast(getString(R.string.fallback_041))
-			}
-		}
-		// Send the compatSticker!
-		doCommitContent("image/png", compatSticker)
-		// Remove old stickers
-		val remSticker = this.compatCache.add(compatStickerName)
-		remSticker?.let { File(this.internalDir, "__compatSticker__/$remSticker.png").delete() }
-	}
-
-	/**
-	 * Send a sticker file to a InputConnectionCompat
-	 *
-	 * @param mimeType String
-	 * @param file File
-	 */
-	private fun doCommitContent(mimeType: String, file: File) {
-		// ContentUri, ClipDescription, linkUri
-		val inputContentInfoCompat =
-			InputContentInfoCompat(
-				FileProvider.getUriForFile(this, "com.fredhappyface.ewesticker.inputcontent", file),
-				ClipDescription(file.name, arrayOf(mimeType)),
-				null
-			)
-		// InputConnection, EditorInfo, InputContentInfoCompat, int flags, null opts
-		InputConnectionCompat.commitContent(
-			currentInputConnection,
-			currentInputEditorInfo,
-			inputContentInfoCompat,
-			InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION,
-			null
-		)
-	}
-
-	/**
-	 * Check if the sticker is supported by the receiver
-	 *
-	 * @param editorInfo: EditorInfo - the editor/ receiver
-	 * @param mimeType: String - the image mimetype
-	 * @return boolean - is the mimetype supported?
-	 */
-	private fun isCommitContentSupported(editorInfo: EditorInfo?, mimeType: String?): Boolean {
-		editorInfo?.packageName ?: return false
-		mimeType ?: return false
-		currentInputConnection ?: return false
-		EditorInfoCompat.getContentMimeTypes(editorInfo).forEach {
-			if (ClipDescription.compareMimeTypes(mimeType, it)) {
-				return true
-			}
-		}
-		return false
 	}
 
 	/**
@@ -362,12 +272,7 @@ class ImageKeyboard : InputMethodService() {
 			imgButton.setOnClickListener {
 				val file = it.tag as File
 				this.recentCache.add(file.absolutePath)
-				val stickerType = Utils.getMimeType(file)
-				if (stickerType == null || stickerType !in this.supportedMimes) {
-					CoroutineScope(Dispatchers.Main).launch { doFallbackCommitContent(file) }
-					return@setOnClickListener
-				}
-				doCommitContent(stickerType, file)
+				stickerSender.sendSticker(file)
 			}
 			imgButton.setOnLongClickListener { view: View ->
 				val file = view.tag as File
@@ -415,7 +320,7 @@ class ImageKeyboard : InputMethodService() {
 				if (SDK_INT >= 28) {
 					this.switchToPreviousInputMethod()
 				} else {
-					(applicationContext.getSystemService(INPUT_METHOD_SERVICE) as
+					(baseContext.getSystemService(INPUT_METHOD_SERVICE) as
 							InputMethodManager)
 						.showInputMethodPicker()
 				}
