@@ -1,8 +1,17 @@
-
+<!-- omit in toc -->
 # Tutorial
 
 See below for a step-by-step tutorial on how to use EweSticker with your existing
 sticker collection.
+
+- [Step 1 - Create Sticker Directory (and transfer to device)](#step-1---create-sticker-directory-and-transfer-to-device)
+- [Step 2 - Download EweSticker](#step-2---download-ewesticker)
+	- [Get it on F-Droid](#get-it-on-f-droid)
+	- [Get it on Google Play](#get-it-on-google-play)
+	- [Download the APK](#download-the-apk)
+- [Step 3 - Select Directory with EweSticker (and wait...)](#step-3---select-directory-with-ewesticker-and-wait)
+- [Step 4 - Activate the keyboard](#step-4---activate-the-keyboard)
+- [Step 5 - Send Stickers in your favourite apps](#step-5---send-stickers-in-your-favourite-apps)
 
 ## Step 1 - Create Sticker Directory (and transfer to device)
 
@@ -22,6 +31,9 @@ The sticker directory has the following structure:
 
 Then transfer this to your phone/ device. Plugging this into a PC is a pretty
 convenient way to do this.
+
+**NOTE:** that the maximum pack size is currently **128** and the total maximum number of stickers supported
+is **4096**
 
 ## Step 2 - Download EweSticker
 

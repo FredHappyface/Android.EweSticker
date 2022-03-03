@@ -52,6 +52,7 @@ Copyright © Randy Zhou</string>
 	<string name="links_heading">Enlaces</string>
 	<string name="links_text">"- Proyecto: https://github.com/FredHappyface/Android.EweSticker
 - Tutorial: https://github.com/FredHappyface/Android.EweSticker/blob/main/TUTORIAL.md
+- Ayuda: https://github.com/FredHappyface/Android.EweSticker/blob/main/HELP.md
 - Licencia: https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md</string>
 	<!-- Interactive Messages -->
 	<string name="pref_000">Preferencias cambiadas.Actualizar el teclado para configurar para aplicar</string>

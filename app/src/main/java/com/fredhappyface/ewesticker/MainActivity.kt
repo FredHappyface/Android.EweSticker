@@ -3,7 +3,6 @@ package com.fredhappyface.ewesticker
 import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -16,30 +15,17 @@ import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.documentfile.provider.DocumentFile
 import androidx.preference.PreferenceManager
-import java.io.File
-import java.nio.file.Files
 import java.util.*
 import java.util.concurrent.Executors
 
-private const val MAX_FILES = 4096
-private const val MAX_PACK_SIZE = 128
 
 /** MainActivity class inherits from the AppCompatActivity class - provides the settings view */
 class MainActivity : AppCompatActivity() {
-	// init
-	private val supportedMimes = Utils.getSupportedMimes()
-
 	// onCreate
 	private lateinit var sharedPreferences: SharedPreferences
 	private lateinit var contextView: View
 	private lateinit var toaster: Toaster
-
-	// importSticker(s)
-	private var filesLeft = MAX_FILES
-	private var packSizes: MutableMap<String, Int> = mutableMapOf()
-	private var totalStickers = 0
 
 	/**
 	 * Sets up content view, shared prefs, etc.
@@ -53,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 		// Set late-init attrs
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 		this.contextView = findViewById(R.id.activityMainRoot)
-		this.toaster = Toaster(applicationContext)
+		this.toaster = Toaster(baseContext)
 		refreshStickerDirPath()
 		// Update UI with config
 		seekBar(findViewById(R.id.iconsPerXSb), findViewById(R.id.iconsPerXLbl), "iconsPerX", 3)
@@ -72,13 +58,14 @@ class MainActivity : AppCompatActivity() {
 		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
 			if (result.resultCode == Activity.RESULT_OK) {
 				val editor = this.sharedPreferences.edit()
-				editor.putString("stickerDirPath", result.data?.data.toString())
+				val stickerDirPath = result.data?.data.toString()
+				editor.putString("stickerDirPath", stickerDirPath)
 				editor.putString("lastUpdateDate", Calendar.getInstance().time.toString())
 				editor.putString("recentCache", "")
 				editor.putString("compatCache", "")
 				editor.apply()
 				refreshStickerDirPath()
-				importStickers()
+				importStickers(stickerDirPath)
 			}
 		}
 
@@ -98,46 +85,14 @@ class MainActivity : AppCompatActivity() {
 	 * @param view: View
 	 */
 	fun chooseDir(view: View) {
-		this.filesLeft = MAX_FILES
-		this.totalStickers = 0
 		val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
 		intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 		intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
 		chooseDirResultLauncher.launch(intent)
 	}
 
-	/**
-	 * Copies stickers from source to internal storage
-	 *
-	 * @param sticker sticker to copy over
-	 *
-	 * @return 1 if sticker imported successfully else 0
-	 */
-	private fun importSticker(sticker: DocumentFile) {
-		// Exit if sticker is unsupported or if pack size > MAX_PACK_SIZE
-		val parentDir = sticker.parentFile?.name ?: "__default__"
-		val packSize = this.packSizes[parentDir] ?: 0
-		if (packSize > MAX_PACK_SIZE) {
-			this.toaster.setState(2); return
-		}
-		if (sticker.type !in this.supportedMimes) {
-			this.toaster.setState(3); return
-		}
-		this.packSizes[parentDir] = packSize + 1
-		// Copy sticker to app storage
-		val destSticker = File(filesDir, "stickers/${parentDir}/${sticker.name}")
-		destSticker.parentFile?.mkdirs()
-		try {
-			val inputStream = contentResolver.openInputStream(sticker.uri)
-			Files.copy(inputStream, destSticker.toPath())
-			inputStream?.close()
-		} catch (e: java.lang.Exception) {
-		}
-		this.totalStickers++
-	}
-
 	/** Import files from storage to internal directory */
-	private fun importStickers() {
+	private fun importStickers(stickerDirPath: String) {
 		// Use worker thread because this takes several seconds
 		val executor = Executors.newSingleThreadExecutor()
 		val handler = Handler(Looper.getMainLooper())
@@ -147,30 +102,21 @@ class MainActivity : AppCompatActivity() {
 		val button = findViewById<Button>(R.id.updateStickerPackInfoBtn)
 		button.isEnabled = false
 		executor.execute {
-			File(filesDir, "stickers").deleteRecursively()
-			val stickerDirPath =
-				this.sharedPreferences.getString(
-					"stickerDirPath", resources.getString(R.string.update_sticker_pack_info_path)
+			val totalStickers =
+				StickerImporter(baseContext, this.toaster).importStickers(
+					stickerDirPath
 				)
-			val leafNodes =
-				fileWalk(DocumentFile.fromTreeUri(applicationContext, Uri.parse(stickerDirPath)))
-			if (leafNodes.size > MAX_FILES) {
-				toaster.setState(1)
-			}
-			for (file in leafNodes.take(MAX_FILES)) {
-				importSticker(file)
-			}
 			handler.post {
 				toaster.toastOnState(
 					arrayOf(
-						getString(R.string.imported_020, this.totalStickers),
-						getString(R.string.imported_031, this.totalStickers),
-						getString(R.string.imported_032, this.totalStickers),
-						getString(R.string.imported_033, this.totalStickers),
+						getString(R.string.imported_020, totalStickers),
+						getString(R.string.imported_031, totalStickers),
+						getString(R.string.imported_032, totalStickers),
+						getString(R.string.imported_033, totalStickers),
 					)
 				)
 				val editor = this.sharedPreferences.edit()
-				editor.putInt("numStickersImported", this.totalStickers)
+				editor.putInt("numStickersImported", totalStickers)
 				editor.apply()
 				refreshStickerDirPath()
 				button.isEnabled = true
@@ -178,25 +124,6 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
-	/**
-	 * Get a MutableSet of DocumentFiles from a root node
-	 *
-	 * @param rootNode parent dir to get all files from
-	 * @return MutableSet<DocumentFile> set of files
-	 */
-	private fun fileWalk(rootNode: DocumentFile?): MutableSet<DocumentFile> {
-		val leafNodes = mutableSetOf<DocumentFile>()
-		if (rootNode == null || this.filesLeft < 0) {
-			return leafNodes
-		}
-		val files = rootNode.listFiles()
-		for (file in files) {
-			if (file.isFile) leafNodes.add(file)
-			if (file.isDirectory) leafNodes.addAll(fileWalk(file))
-		}
-		this.filesLeft -= files.size
-		return leafNodes
-	}
 
 	/**
 	 * Add toggle logic for each toggle/ checkbox in the layout

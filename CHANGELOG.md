@@ -10,6 +10,8 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver - 2022/xx/xx
 
 - New Feature: Improve error messages for the user per https://github.com/FredHappyface/Android.EweSticker/issues/39
+- New Feature: Add help (HELP.md) to provide guidance for error messages
+- Bugfix: Refactor in response bug found when investigating https://github.com/FredHappyface/Android.EweSticker/issues/37
 - Bugfix: Back button now enabled in fresh install per https://github.com/FredHappyface/Android.EweSticker/issues/38
 - Update navbar theme (dark/light rather than the app accent colour)
 - Update dependencies
