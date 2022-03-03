@@ -29,9 +29,10 @@ see [Tutorial](/TUTORIAL.md)
 **NOTE:** that the maximum pack size is currently **128** and the total maximum number of stickers supported
 is **4096**
 
-If you feel strongly that the maximum limit should be increased, open an issue (use the
-'Question' template) and make a request - Be sure to explain why this would be useful. Simply saying
-'I want 20000 stickers!' will likely result in the issue being closed
+If you feel strongly that the maximum limit should be increased, contribute to the discussion at
+https://github.com/FredHappyface/Android.EweSticker/discussions/41 and make a request - Be sure
+to explain why this would be useful. Simply creating an issue saying 'I want 20000 stickers!'
+will likely result in the issue being closed
 
 ### E032
 Some stickers failed to import (some number imported). Max pack size reached
@@ -43,9 +44,10 @@ see [Tutorial](/TUTORIAL.md)
 **NOTE:** that the maximum pack size is currently **128** and the total maximum number of stickers supported
 is **4096**
 
-If you feel strongly that the maximum limit should be increased, open an issue (use the
-'Question' template) and make a request - Be sure to explain why this would be useful. Simply saying
-'I want 20000 stickers!' will likely result in the issue being closed
+If you feel strongly that the maximum limit should be increased, contribute to the discussion at
+https://github.com/FredHappyface/Android.EweSticker/discussions/41 and make a request - Be sure
+to explain why this would be useful. Simply creating an issue saying 'I want 20000 stickers!'
+will likely result in the issue being closed
 
 ### E033
 Some stickers failed to import (some number imported). Unsupported formats found
