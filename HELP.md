@@ -65,7 +65,7 @@ developer you are trying to send a sticker to
 ### E041
 Unexpected IOException when converting sticker
 
-This is an unexpected error and happened when creating a compat-sticker to send to the application.
+This is an unexpected error and happens when creating a compat-sticker to send to the application.
 Please open an issue and provide as much information as you can. E.g. Android Version, phone
 manufacturer, app you are trying to send the sticker in
 
@@ -81,13 +81,13 @@ manufacturer, app you are trying to send the sticker in.
 
 Support is provided via GitHub issues, please note this is provided on a voluntary basis
 
-you are therefore not entitled to free customer service (that is not to say that contributions/ issues and questions are not welcome - more reminding you that project maintainers are well within their rights to prioritize other issues).
+You are therefore not entitled to free customer service (that is not to say that contributions/ issues and questions are not welcome - more reminding you that project maintainers are well within their rights to prioritize other issues).
 
 https://github.com/FredHappyface/.github/blob/master/SUPPORT.md provides a little more info
 from the types of support you can expect
 
 Please make sure to read https://github.com/FredHappyface/Android.EweSticker/issues/21 before
-opening an issue, this ay seem a bit grumpy but chances are I won't be able to help with your
+opening an issue, this may seem a bit grumpy but chances are I won't be able to help with your
 issue if you do not fill in the template provided
 
 To open a new issue click the following link: https://github.com/FredHappyface/Android.EweSticker/issues/new/choose
