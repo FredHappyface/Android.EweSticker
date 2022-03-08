@@ -44,7 +44,7 @@ is **4096**
 
 **Or**
 
-[<img src="readme-assets/badges/f-droid-download.png"
+[<img src="../../readme-assets/badges/f-droid-download.png"
 alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.fredhappyface.ewesticker/)
 
 Follow the link to the listing on F-Droid by clicking on the badge above,
@@ -57,7 +57,7 @@ then download/ install
 
 **Or**
 
-[<img src="readme-assets/badges/google-play-download.png"
+[<img src="../../readme-assets/badges/google-play-download.png"
 alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/details?id=com.fredhappyface.ewesticker)
 
 Follow the link to the listing on Google Play by clicking on the badge above,
@@ -71,7 +71,7 @@ filenames are in the form: com.fredhappyface.ewesticker-(version)-(debug|release
 
 **Or**
 
-[<img src="readme-assets/badges/direct-apk-download.png" alt="Direct apk
+[<img src="../../readme-assets/badges/direct-apk-download.png" alt="Direct apk
 download" height="80">](../../releases)
 
 Navigate to the releases page by clicking on the badge above.
