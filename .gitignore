@@ -7,7 +7,7 @@ output-metadata.json
 ktfmt-*.jar
 /app/debug
 /app/release
-/reference/**/package-list
+package-list
 
 # Built application files
 # *.apk
