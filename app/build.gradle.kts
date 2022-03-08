@@ -12,17 +12,21 @@ tasks.dokkaGfm.configure {
 			skipDeprecated.set(true)
 			skipEmptyPackages.set(true)
 			sourceRoots.from(file("src/main/java"))
+			suppressInheritedMembers.set(true)
 		}
 	}
 }
 
 tasks.register("genDocs") {
 	val ref = buildDir.resolve("../../documentation/reference")
+	delete(ref)
 	dependsOn("dokkaGfm")
-	copy {
-		from("$ref/index.md")
-		into(ref)
-		rename { "README.md" }
+	doLast {
+		copy {
+			from("$ref/index.md")
+			into(ref)
+			rename { "README.md" }
+		}
 	}
 }
 
