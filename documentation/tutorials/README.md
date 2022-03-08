@@ -15,7 +15,7 @@ sticker collection.
 
 ## Step 1 - Create Sticker Directory (and transfer to device)
 
-<img src="readme-assets/tutorial/step1.png" alt="Step 1" width="600">
+<img src="assets/step1.png" alt="Step 1" width="600">
 
 The sticker directory has the following structure:
 
@@ -80,25 +80,25 @@ Navigate to the releases page by clicking on the badge above.
 
 1. Click the "CHOOSE STICKER SOURCE DIRECTORY" button
 
-	<img src="readme-assets/tutorial/step3.png" alt="Step 3.1" width="300">
+	<img src="assets/step3.png" alt="Step 3.1" width="300">
 
 2. Select the sticker directory created in step 1
 
-	<img src="readme-assets/tutorial/step3_2.png" alt="Step 3.2" width="300">
+	<img src="assets/step3_2.png" alt="Step 3.2" width="300">
 
 ## Step 4 - Activate the keyboard
 
 - Search 'keyboard' in settings and select 'On-screen keyboard', then '+ Manage
 	on-screen keyboards' and toggle EweSticker on.
 
-	<img src="readme-assets/tutorial/step4.png" alt="Step 4" width="300">
+	<img src="assets/step4.png" alt="Step 4" width="300">
 
 ## Step 5 - Send Stickers in your favourite apps
 
 1. Tap the keyboard switcher icon and select EweSticker
 
-	<img src="readme-assets/tutorial/step5.png" alt="Step 5" width="300">
+	<img src="assets/step5.png" alt="Step 5" width="300">
 
 2. Find and send a sticker of your choosing
 
-	<img src="readme-assets/tutorial/step5_2.png" alt="Step 5" width="300">
+	<img src="assets/step5_2.png" alt="Step 5" width="300">
