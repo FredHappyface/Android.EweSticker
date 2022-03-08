@@ -1,11 +1,13 @@
 output-metadata.json
 .idea/deploymentTargetDropDown.xml
 .idea/misc.xml
+.idea/render.experimental.xml
 /captures
 /ktlint
 ktfmt-*.jar
 /app/debug
 /app/release
+/reference/**/package-list
 
 # Built application files
 # *.apk

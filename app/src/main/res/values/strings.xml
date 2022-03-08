@@ -52,8 +52,8 @@ Copyright © Randy Zhou</string>
 	<!-- Links -->
 	<string name="links_heading">Links</string>
 	<string name="links_text">"- Project: https://github.com/FredHappyface/Android.EweSticker
-- Tutorial: https://github.com/FredHappyface/Android.EweSticker/blob/main/TUTORIAL.md
-- Help: https://github.com/FredHappyface/Android.EweSticker/blob/main/HELP.md
+- Tutorial: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+- Help: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
 - License: https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md</string>
 	<!-- Interactive Messages -->
 	<string name="pref_000">Preferences changed. Reload the keyboard for settings to apply</string>

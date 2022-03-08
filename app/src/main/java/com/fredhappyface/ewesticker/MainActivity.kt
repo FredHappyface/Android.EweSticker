@@ -19,7 +19,6 @@ import androidx.preference.PreferenceManager
 import java.util.*
 import java.util.concurrent.Executors
 
-
 /** MainActivity class inherits from the AppCompatActivity class - provides the settings view */
 class MainActivity : AppCompatActivity() {
 	// onCreate
@@ -123,7 +122,6 @@ class MainActivity : AppCompatActivity() {
 			}
 		}
 	}
-
 
 	/**
 	 * Add toggle logic for each toggle/ checkbox in the layout
