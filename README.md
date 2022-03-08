@@ -15,9 +15,8 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 
 - [Features](#features)
 - [Screenshots](#screenshots)
-- [How to use](#how-to-use)
-- [Help](#help)
-- [Lint with](#lint-with)
+- [Documentation](#documentation)
+- [Gradle tasks](#gradle-tasks)
 - [Language Information](#language-information)
 	- [Kotlin and Android Version](#kotlin-and-android-version)
 		- [Download Android Studio](#download-android-studio)
@@ -69,19 +68,23 @@ Sticker-board for android inspired by uSticker (forked from woosticker).
 <img src="metadata/en-US/images/phoneScreenshots/screenshot-6.png" alt="Screenshot 6" width="300">
 </p>
 
-## How to use
+## Documentation
 
-See the [Tutorial](/TUTORIAL.md) for more information.
+A high-level overview of how the documentation is organized organized will help you know
+where to look for certain things:
 
-## Help
+- [Tutorials](/documentation/tutorials) take you by the hand through a series of steps to get
+  started using the software. Start here if you’re new
+- The [Technical Reference](/documentation/reference) documents APIs and other aspects of the
+  machinery. This documentation describes how to use the classes and functions at a lower level
+  and assume that you have a good high-level understanding of the software.
+- The [Help](/documentation/help) guide provides a starting point and outlines common issues that you
+  may have with the software
 
-See the [Help](/HELP.md) for more information.
+## Gradle tasks
 
-## Lint with
-
-```txt
-java -jar .\ktlint --experimental --android --disabled_rules='indent,parameter-list-wrapping,experimental:argument-list-wrapping'
-```
+- ktlintCheck (`gradlew ktlintCheck`): run ktlint over the codebase
+- genDocs (`gradlew genDocs`): generate the api reference using dokka
 
 ## Language Information
 

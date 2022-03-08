@@ -61,7 +61,7 @@ class StickerImporter(
 		}
 		this.packSizes[parentDir] = packSize + 1
 		// Copy sticker to app storage
-		val destSticker = File(this.context.filesDir, "stickers/${parentDir}/${sticker.name}")
+		val destSticker = File(this.context.filesDir, "stickers/$parentDir/${sticker.name}")
 		destSticker.parentFile?.mkdirs()
 		try {
 			val inputStream = context.contentResolver.openInputStream(sticker.uri)

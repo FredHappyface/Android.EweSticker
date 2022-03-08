@@ -24,7 +24,7 @@ Some stickers failed to import (some number imported). Max stickers reached
 
 This means that the total number of stickers that you are trying to import exceeds the
 maximum number of stickers supported by EweSticker. Try and import fewer stickers,
-see [Tutorial](/TUTORIAL.md)
+see [Tutorial](/documentation/tutorials)
 
 **NOTE:** that the maximum pack size is currently **128** and the total maximum number of stickers supported
 is **4096**
@@ -39,7 +39,7 @@ Some stickers failed to import (some number imported). Max pack size reached
 
 This means that one of your sticker packs contains a number of stickers that exceeds the
 maximum pack size supported by EweSticker. Try splitting the pack up into smaller chunks,
-see [Tutorial](/TUTORIAL.md)
+see [Tutorial](/documentation/tutorials)
 
 **NOTE:** that the maximum pack size is currently **128** and the total maximum number of stickers supported
 is **4096**

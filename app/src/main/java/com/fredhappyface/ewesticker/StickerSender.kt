@@ -147,5 +147,4 @@ class StickerSender(
 		}
 		return false
 	}
-
 }
