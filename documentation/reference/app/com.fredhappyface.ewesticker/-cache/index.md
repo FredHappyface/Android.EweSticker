@@ -22,3 +22,10 @@ Basically this behaved like an ordered set with some maximum capacity. When this
 | [get](get.md) | [androidJvm]<br>fun [get](get.md)(idx: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html))<br>Get an element |
 | [toFiles](to-files.md) | [androidJvm]<br>fun [toFiles](to-files.md)(): [Array](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html)&lt;[File](https://developer.android.com/reference/kotlin/java/io/File.html)&gt;<br>convert this to a array of files |
 | [toSharedPref](to-shared-pref.md) | [androidJvm]<br>fun [toSharedPref](to-shared-pref.md)(): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>convert this to a string to write to shared-pref |
+
+## Properties
+
+| Name | Summary |
+|---|---|
+| [data](data.md) | [androidJvm]<br>private var [data](data.md): [LinkedList](https://developer.android.com/reference/kotlin/java/util/LinkedList.html)&lt;[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)&gt; |
+| [size](size.md) | [androidJvm]<br>private val [size](size.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) = 30 |

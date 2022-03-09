@@ -20,15 +20,20 @@ import java.io.FileOutputStream
 import java.io.IOException
 
 /**
- * TODO
+ * The StickerSender Class used to contain all of the methods used for sending a sticker to an
+ * InputConnection
  *
- * @property context
- * @property toaster
- * @property internalDir
- * @property currentInputConnection
- * @property currentInputEditorInfo
- * @property compatCache
- * @property imageLoader
+ * @property context: application baseContext
+ * @property toaster: an instance of Toaster (used to store an error state for later reporting to the
+ * user)
+ * @property internalDir: the internal /stickers directory used when creating a compat sticker
+ * @property currentInputConnection: the currentInputConnection. i.e. the input field that the
+ * keyboard is going to send a sticker to
+ * @property currentInputEditorInfo: currentInputEditorInfo. i.e. info on the input field that the
+ * keyboard is going to send a sticker to
+ * @property compatCache: used to track previous x converted compat stickers
+ * @property imageLoader: coil imageLoader object used to convert a sticker file to a drawable ready
+ * for writing to a compat sticker
  */
 class StickerSender(
 	private val context: Context,

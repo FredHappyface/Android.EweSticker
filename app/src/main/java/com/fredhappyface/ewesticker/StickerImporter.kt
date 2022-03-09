@@ -10,10 +10,13 @@ private const val MAX_FILES = 4096
 private const val MAX_PACK_SIZE = 128
 
 /**
- * TODO
+ * The StickerImporter class includes a helper function to import stickers from a user-selected
+ * stickerDirPath (see importStickers). The class requires the application baseContext and an
+ * instance of Toaster (in turn requiring the application baseContext)
  *
- * @property context
- * @property toaster
+ * @property context: application baseContext
+ * @property toaster: an instance of Toaster (used to store an error state for later reporting to the
+ * user)
  */
 class StickerImporter(
 	private val context: Context,
@@ -25,9 +28,11 @@ class StickerImporter(
 	private var totalStickers = 0
 
 	/**
-	 * TODO
+	 * Used by the ACTION_OPEN_DOCUMENT_TREE handler function to copy stickers from a
+	 * stickerDirPath to the appplication internal storage for access later on by the
+	 * keyboard
 	 *
-	 * @param stickerDirPath
+	 * @param stickerDirPath a URI to the stikers directory to import into EweSticker
 	 */
 	fun importStickers(stickerDirPath: String): Int {
 		File(this.context.filesDir, "stickers").deleteRecursively()

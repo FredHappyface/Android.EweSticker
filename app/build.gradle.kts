@@ -13,6 +13,7 @@ tasks.dokkaGfm.configure {
 			skipEmptyPackages.set(true)
 			sourceRoots.from(file("src/main/java"))
 			suppressInheritedMembers.set(true)
+			includeNonPublic.set(true)
 		}
 	}
 }
