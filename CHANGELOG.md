@@ -19,6 +19,7 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 - Update navbar theme (dark/light rather than the app accent colour)
 - Update dependencies
 - Update tutorial location to [Tutorials](/documentation/tutorials)
+- Update tutorial
 
 ## 20220128 - 2022/01/28
 

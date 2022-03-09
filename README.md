@@ -117,7 +117,7 @@ Android SDK. Additional information can be found at
 1. Open the F-Droid app
 2. Search for EweSticker
 
-**Or**
+or
 
 [<img src="readme-assets/badges/f-droid-download.png"
 alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.fredhappyface.ewesticker/)
@@ -130,7 +130,7 @@ then download/ install
 1. Open the Google Play app
 2. Search for EweSticker
 
-**Or**
+or
 
 [<img src="readme-assets/badges/google-play-download.png"
 alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/details?id=com.fredhappyface.ewesticker)
@@ -144,7 +144,7 @@ then download/ install
 2. Select the debug or release APK depending on your preference. Note that the
 filenames are in the form: com.fredhappyface.ewesticker-(version)-(debug|release).apk
 
-**Or**
+or
 
 [<img src="readme-assets/badges/direct-apk-download.png" alt="Direct apk
 download" height="80">](../../releases)
