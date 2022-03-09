@@ -74,12 +74,12 @@ A high-level overview of how the documentation is organized organized will help 
 where to look for certain things:
 
 - [Tutorials](/documentation/tutorials) take you by the hand through a series of steps to get
-  started using the software. Start here if you’re new
+  started using the software. Start here if you’re new.
 - The [Technical Reference](/documentation/reference) documents APIs and other aspects of the
   machinery. This documentation describes how to use the classes and functions at a lower level
   and assume that you have a good high-level understanding of the software.
 - The [Help](/documentation/help) guide provides a starting point and outlines common issues that you
-  may have with the software
+  may have.
 
 ## Gradle tasks
 
