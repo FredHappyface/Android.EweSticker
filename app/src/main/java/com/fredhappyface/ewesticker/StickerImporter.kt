@@ -29,10 +29,10 @@ class StickerImporter(
 
 	/**
 	 * Used by the ACTION_OPEN_DOCUMENT_TREE handler function to copy stickers from a
-	 * stickerDirPath to the appplication internal storage for access later on by the
+	 * stickerDirPath to the application internal storage for access later on by the
 	 * keyboard
 	 *
-	 * @param stickerDirPath a URI to the stikers directory to import into EweSticker
+	 * @param stickerDirPath a URI to the stickers directory to import into EweSticker
 	 */
 	fun importStickers(stickerDirPath: String): Int {
 		File(this.context.filesDir, "stickers").deleteRecursively()

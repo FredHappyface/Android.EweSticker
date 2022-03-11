@@ -19,7 +19,7 @@ The StickerImporter class includes a helper function to import stickers from a u
 |---|---|
 | [fileWalk](file-walk.md) | [androidJvm]<br>private fun [fileWalk](file-walk.md)(rootNode: [DocumentFile](https://developer.android.com/reference/kotlin/androidx/documentfile/provider/DocumentFile.html)?): [MutableSet](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-mutable-set/index.html)&lt;[DocumentFile](https://developer.android.com/reference/kotlin/androidx/documentfile/provider/DocumentFile.html)&gt;<br>Get a MutableSet of DocumentFiles from a root node |
 | [importSticker](import-sticker.md) | [androidJvm]<br>private fun [importSticker](import-sticker.md)(sticker: [DocumentFile](https://developer.android.com/reference/kotlin/androidx/documentfile/provider/DocumentFile.html))<br>Copies stickers from source to internal storage |
-| [importStickers](import-stickers.md) | [androidJvm]<br>fun [importStickers](import-stickers.md)(stickerDirPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>Used by the ACTION_OPEN_DOCUMENT_TREE handler function to copy stickers from a stickerDirPath to the appplication internal storage for access later on by the keyboard |
+| [importStickers](import-stickers.md) | [androidJvm]<br>fun [importStickers](import-stickers.md)(stickerDirPath: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>Used by the ACTION_OPEN_DOCUMENT_TREE handler function to copy stickers from a stickerDirPath to the application internal storage for access later on by the keyboard |
 
 ## Properties
 

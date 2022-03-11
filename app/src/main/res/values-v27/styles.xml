@@ -23,7 +23,5 @@
 		<item name="colorOnSurface">@color/fg</item>
 		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent
 		</item>
-		<item name="snackbarStyle">@style/Widget.App.Snackbar</item>
-		<item name="snackbarTextViewStyle">@style/Widget.App.Snackbar.TextView</item>
 	</style>
 </resources>
