@@ -7,7 +7,7 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver - 2022/xx/xx
 -->
 
-## Next_Ver - 2022/xx/xx
+## 20220311 - 2022/03/11
 
 - New Feature: Improve error messages for the user per https://github.com/FredHappyface/Android.EweSticker/issues/39
 - New Feature: Add [Help](/documentation/help) to provide guidance for error messages
