@@ -10,14 +10,13 @@ codebase</li>
 <li>genDocs (<code>gradlew genDocs</code>): generate the api reference
 using dokka</li>
 </ul></li>
+<li>New Feature: Update navbar theme (dark/light rather than the app
+accent colour)</li>
 <li>Bugfix: Refactor in response to bug found when investigating
 https://github.com/FredHappyface/Android.EweSticker/issues/37</li>
 <li>Bugfix: Back button now enabled in fresh install per
 https://github.com/FredHappyface/Android.EweSticker/issues/38</li>
-<li>Update navbar theme (dark/light rather than the app accent
-colour)</li>
-<li>Update dependencies</li>
-<li>Update tutorial location to <a
+<li>Update: dependencies</li>
+<li>Update: tutorial, and tutorial location to <a
 href="/documentation/tutorials">Tutorials</a></li>
-<li>Update tutorial</li>
 </ul>

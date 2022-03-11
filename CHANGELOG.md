@@ -14,12 +14,11 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 - New Feature: Add Gradle tasks
 	- ktlintCheck (`gradlew ktlintCheck`): run ktlint over the codebase
 	- genDocs (`gradlew genDocs`): generate the api reference using dokka
+- New Feature: Update navbar theme (dark/light rather than the app accent colour)
 - Bugfix: Refactor in response to bug found when investigating https://github.com/FredHappyface/Android.EweSticker/issues/37
 - Bugfix: Back button now enabled in fresh install per https://github.com/FredHappyface/Android.EweSticker/issues/38
-- Update navbar theme (dark/light rather than the app accent colour)
-- Update dependencies
-- Update tutorial location to [Tutorials](/documentation/tutorials)
-- Update tutorial
+- Update: dependencies
+- Update: tutorial, and tutorial location to [Tutorials](/documentation/tutorials)
 
 ## 20220128 - 2022/01/28
 
