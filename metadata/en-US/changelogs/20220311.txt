@@ -10,7 +10,7 @@ codebase</li>
 <li>genDocs (<code>gradlew genDocs</code>): generate the api reference
 using dokka</li>
 </ul></li>
-<li>Bugfix: Refactor in response bug found when investigating
+<li>Bugfix: Refactor in response to bug found when investigating
 https://github.com/FredHappyface/Android.EweSticker/issues/37</li>
 <li>Bugfix: Back button now enabled in fresh install per
 https://github.com/FredHappyface/Android.EweSticker/issues/38</li>
