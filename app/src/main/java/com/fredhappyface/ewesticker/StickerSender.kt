@@ -50,7 +50,9 @@ class StickerSender(
 			.filter { isCommitContentSupported(this.currentInputEditorInfo, it) }
 
 	/**
-	 * TODO
+	 * Start the process of sending a sticker when the sticker is tapped in the
+	 * keyboard. If the sticker type is not supported by the InputConnection then
+	 * doFallbackCommitContent, otherwise doCommitContent
 	 *
 	 * @param file
 	 */

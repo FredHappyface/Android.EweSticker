@@ -21,23 +21,6 @@
 		<item name="colorOnSurface">@color/fg</item>
 		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent
 		</item>
-		<item name="snackbarStyle">@style/Widget.App.Snackbar</item>
-		<item name="snackbarTextViewStyle">@style/Widget.App.Snackbar.TextView</item>
-	</style>
-
-	<style name="Widget.App.Snackbar" parent="Widget.MaterialComponents.Snackbar">
-		<item name="materialThemeOverlay">@style/ThemeOverlay.App.Snackbar</item>
-		<item name="actionTextColorAlpha">1</item>
-	</style>
-
-	<style name="Widget.App.Snackbar.TextView" parent="Widget.MaterialComponents.Snackbar.TextView">
-		<item name="android:textColor">@color/onAccent</item>
-		<item name="android:textSize">@dimen/text_size_body</item>
-		<item name="android:fontFamily">@font/firasans</item>
-	</style>
-
-	<style name="ThemeOverlay.App.Snackbar" parent="">
-		<item name="colorOnSurface">@color/accent</item>
 	</style>
 
 	<style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
