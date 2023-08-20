@@ -1,4 +1,4 @@
-package com.fredhappyface.ewesticker
+package com.fredhappyface.ewesticker.utilities
 
 import java.io.File
 import java.util.*

@@ -17,9 +17,13 @@ import coil.Coil
 import coil.ImageLoader
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
-import coil.fetch.VideoFrameFileFetcher
+import coil.decode.VideoFrameDecoder
+
 import coil.imageLoader
 import coil.load
+import com.fredhappyface.ewesticker.model.StickerPack
+import com.fredhappyface.ewesticker.utilities.Cache
+import com.fredhappyface.ewesticker.utilities.Toaster
 import java.io.File
 import java.util.*
 import kotlin.math.min
@@ -75,13 +79,13 @@ class ImageKeyboard : InputMethodService() {
 		// Setup coil
 		val imageLoader =
 			ImageLoader.Builder(baseContext)
-				.componentRegistry {
+				.components {
 					if (SDK_INT >= 28) {
-						add(ImageDecoderDecoder(baseContext))
+						add(ImageDecoderDecoder.Factory())
 					} else {
-						add(GifDecoder())
+						add(GifDecoder.Factory())
 					}
-					add(VideoFrameFileFetcher(baseContext))
+					add(VideoFrameDecoder.Factory())
 				}
 				.build()
 		Coil.setImageLoader(imageLoader)

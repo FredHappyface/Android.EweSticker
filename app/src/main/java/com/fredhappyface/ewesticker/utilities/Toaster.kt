@@ -1,4 +1,4 @@
-package com.fredhappyface.ewesticker
+package com.fredhappyface.ewesticker.utilities
 
 import android.content.Context
 import android.widget.Toast
