@@ -3,6 +3,7 @@ package com.fredhappyface.ewesticker
 import android.content.SharedPreferences
 import android.inputmethodservice.InputMethodService
 import android.os.Build.VERSION.SDK_INT
+import android.util.LruCache
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
@@ -64,7 +65,8 @@ class ImageKeyboard : InputMethodService() {
 	private var fullIconSize = 0
 
 	// switchPackLayout: cache for image container
-	private var imageContainerCache = HashMap<Int, FrameLayout>()
+	private val imageContainerCache: LruCache<Int, FrameLayout> =
+		LruCache(10)
 
 	/**
 	 * When the activity is created...
@@ -214,19 +216,13 @@ class ImageKeyboard : InputMethodService() {
 			}
 		}
 		// Deal with recent
-		val packLayout: FrameLayout
-		if (packName == "__recentSticker__") {
-			packLayout = createPackLayout(this.recentCache.toFiles().reversedArray())
+		val packLayout: FrameLayout = if (packName == "__recentSticker__") {
+			createPackLayout(this.recentCache.toFiles().reversedArray())
 		} else {
-			// Otherwise
 			val stickers = this.loadedPacks[packName]?.stickerList ?: return
 			val imageContainerHash = stickers.hashCode()
-			if (imageContainerHash in imageContainerCache.keys) {
-				packLayout = (imageContainerCache[imageContainerHash] ?: return)
-			} else {
-				packLayout = createPackLayout(stickers)
-				imageContainerCache[imageContainerHash] = packLayout
-			}
+			imageContainerCache.get(imageContainerHash)
+				?: createPackLayout(stickers).also { imageContainerCache.put(imageContainerHash, it)}
 		}
 		// Swap the image container
 		this.packContent.removeAllViewsInLayout()
@@ -335,19 +331,17 @@ class ImageKeyboard : InputMethodService() {
 		recentButton.load(getDrawable(R.drawable.ic_clock))
 		recentButton.setOnClickListener { switchPackLayout(it?.tag as String) }
 		// Packs
-		val sortedPackNames = this.loadedPacks.keys.toTypedArray()
-		Arrays.sort(sortedPackNames)
+		val sortedPackNames = this.loadedPacks.keys.sorted().toTypedArray()
 		for (sortedPackName in sortedPackNames) {
 			val packButton = addPackButton(sortedPackName)
 			packButton.load(this.loadedPacks[sortedPackName]?.thumbSticker)
 			packButton.setOnClickListener { switchPackLayout(it?.tag as String) }
 		}
+
+		val targetPack = if (activePack in sortedPackNames) activePack else sortedPackNames.firstOrNull()
+
 		if (sortedPackNames.isNotEmpty()) {
-			when (this.activePack) {
-				"__recentSticker__" -> switchPackLayout(this.activePack)
-				in sortedPackNames -> switchPackLayout(this.activePack)
-				else -> switchPackLayout(sortedPackNames[0])
-			}
+			targetPack?.let { switchPackLayout(it) }
 		}
 	}
 }
