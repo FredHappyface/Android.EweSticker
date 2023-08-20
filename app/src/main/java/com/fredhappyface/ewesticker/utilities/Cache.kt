@@ -7,8 +7,8 @@ import java.util.*
  * Basically this behaved like an ordered set with some maximum capacity. When this capacity is
  * exceeded an element is removed from the start
  */
-class Cache(private val size: Int = 30) {
-	private var data: LinkedList<String> = LinkedList()
+class Cache(private val capacity: Int = 30) {
+	private val data: Deque<String> = ArrayDeque()
 
 	/**
 	 * Logic to add an element
@@ -18,22 +18,13 @@ class Cache(private val size: Int = 30) {
 	 * @return
 	 */
 	fun add(elem: String): String? {
-		if (!this.data.contains(elem)) {
-			this.data.add(elem)
+		if (data.contains(elem)) {
+			data.remove(elem)
+		} else if (data.size >= capacity) {
+			return data.pollFirst()
 		}
-		if (this.data.size > size) {
-			return this.data.removeAt(0)
-		}
+		data.offerLast(elem)
 		return null
-	}
-
-	/**
-	 * Get an element
-	 *
-	 * @param idx
-	 */
-	fun get(idx: Int) {
-		this.data[idx]
 	}
 
 	/**
@@ -42,7 +33,7 @@ class Cache(private val size: Int = 30) {
 	 * @return
 	 */
 	fun toSharedPref(): String {
-		return this.data.joinToString("\n") { it }
+		return data.joinToString("\n")
 	}
 
 	/**
@@ -51,12 +42,14 @@ class Cache(private val size: Int = 30) {
 	 * @return
 	 */
 	fun toFiles(): Array<File> {
-		return this.data.map { File(it) }.toTypedArray()
+		return data.map { File(it) }.toTypedArray()
 	}
 
 	/** convert from a string (shared-pref) to this */
 	fun fromSharedPref(raw: String) {
-		this.data = LinkedList()
-		this.data.addAll(raw.split("\n").filter { it.isNotEmpty() })
+		data.clear()
+		data.addAll(raw.split("\n"))
 	}
+
+
 }

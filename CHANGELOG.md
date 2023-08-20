@@ -12,6 +12,8 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 
 - Update deps
 - Performance improvements for sticker import (3-4x faster)
+- Performance improvements for sticker keyboard (recyclerview). Current regressions:
+	- long press for preview
 
 ## 20220311 - 2022/03/11
 
