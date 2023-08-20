@@ -7,31 +7,30 @@ import com.google.gson.Gson
 import com.google.gson.JsonSyntaxException
 import com.google.gson.reflect.TypeToken
 
+private const val SHARED_PREF = "com.fredhappyface.ewesticker.pref"
+private const val KEY_STICKERS = "com.fredhappyface.ewesticker.pref.stickers"
+
 class SharedPrefHelper {
-
-	private val SHARED_PREF = "com.fredhappyface.ewesticker.pref"
-	private val KEY_STICKERS = "com.fredhappyface.ewesticker.pref.stickers"
-
-	fun getSharedPreferences(context: Context): SharedPreferences{
-		return context.getSharedPreferences(this.SHARED_PREF, Context.MODE_PRIVATE)
+	fun getSharedPreferences(context: Context): SharedPreferences {
+		return context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE)
 	}
 
 
 	fun getStickerPacksFromPref(context: Context): ArrayList<StickerPack?> {
 		val sharedPreferences =
-			context.getSharedPreferences(this.SHARED_PREF, Context.MODE_PRIVATE)
+			context.getSharedPreferences(SHARED_PREF, Context.MODE_PRIVATE)
 		val gson = Gson()
-		val json = sharedPreferences.getString(this.KEY_STICKERS, "")
+		val json = sharedPreferences.getString(KEY_STICKERS, "")
 		val stickerPacks: ArrayList<StickerPack?> = if (json == "") {
-			ArrayList<StickerPack?>()
+			ArrayList()
 		} else {
 			try {
 				gson.fromJson(
-					sharedPreferences.getString(this.KEY_STICKERS, null),
+					sharedPreferences.getString(KEY_STICKERS, null),
 					object : TypeToken<ArrayList<StickerPack>>() {}.type
 				)
 			} catch (e: JsonSyntaxException) {
-				ArrayList<StickerPack?>()
+				ArrayList()
 			}
 		}
 		return stickerPacks
