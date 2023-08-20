@@ -4,8 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.provider.Settings
 import android.view.View
 import android.widget.Button
@@ -17,8 +15,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import com.fredhappyface.ewesticker.utilities.Toaster
+import kotlinx.coroutines.Dispatchers
 import java.util.*
-import java.util.concurrent.Executors
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /** MainActivity class inherits from the AppCompatActivity class - provides the settings view */
 class MainActivity : AppCompatActivity() {
@@ -93,20 +94,14 @@ class MainActivity : AppCompatActivity() {
 
 	/** Import files from storage to internal directory */
 	private fun importStickers(stickerDirPath: String) {
-		// Use worker thread because this takes several seconds
-		val executor = Executors.newSingleThreadExecutor()
-		val handler = Handler(Looper.getMainLooper())
-		toaster.toast(
-			getString(R.string.imported_010),
-		)
+		toaster.toast(getString(R.string.imported_010))
 		val button = findViewById<Button>(R.id.updateStickerPackInfoBtn)
 		button.isEnabled = false
-		executor.execute {
-			val totalStickers =
-				StickerImporter(baseContext, this.toaster).importStickers(
-					stickerDirPath
-				)
-			handler.post {
+
+		lifecycleScope.launch(Dispatchers.IO) {
+			val totalStickers = StickerImporter(baseContext, toaster).importStickers(stickerDirPath)
+
+			withContext(Dispatchers.Main) {
 				toaster.toastOnState(
 					arrayOf(
 						getString(R.string.imported_020, totalStickers),
@@ -115,7 +110,7 @@ class MainActivity : AppCompatActivity() {
 						getString(R.string.imported_033, totalStickers),
 					)
 				)
-				val editor = this.sharedPreferences.edit()
+				val editor = sharedPreferences.edit()
 				editor.putInt("numStickersImported", totalStickers)
 				editor.apply()
 				refreshStickerDirPath()

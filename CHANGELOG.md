@@ -11,7 +11,7 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver - 2023/xx/xx
 
 - Update deps
-- Performance improvements for sticker import
+- Performance improvements for sticker import (3-4x faster)
 
 ## 20220311 - 2022/03/11
 

@@ -5,13 +5,17 @@ import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
 import com.fredhappyface.ewesticker.utilities.Toaster
 import com.fredhappyface.ewesticker.utilities.Utils
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.withContext
 import java.io.File
-import java.io.InputStream
 import java.io.FileOutputStream
 import java.io.IOException
 
 private const val MAX_FILES = 4096
 private const val MAX_PACK_SIZE = 128
+private const val BUFFER_SIZE = 64 * 1024  // 64 KB
 
 /**
  * The StickerImporter class includes a helper function to import stickers from a user-selected
@@ -38,15 +42,20 @@ class StickerImporter(
 	 *
 	 * @param stickerDirPath a URI to the stickers directory to import into EweSticker
 	 */
-	fun importStickers(stickerDirPath: String): Int {
+	suspend fun importStickers(stickerDirPath: String): Int {
 		File(context.filesDir, "stickers").deleteRecursively()
 		val leafNodes = fileWalk(DocumentFile.fromTreeUri(context, Uri.parse(stickerDirPath)))
 		if (leafNodes.size > MAX_FILES) {
 			toaster.setState(1)
 		}
-		for (file in leafNodes.take(MAX_FILES)) {
-			importSticker(file)
+
+		// Perform concurrent file copy operations
+		withContext(Dispatchers.IO) {
+			leafNodes.take(MAX_FILES).map { file ->
+				async { importSticker(file) }
+			}.awaitAll()
 		}
+
 		return leafNodes.size
 	}
 
@@ -57,9 +66,7 @@ class StickerImporter(
 	 *
 	 * @return 1 if sticker imported successfully else 0
 	 */
-	private val BUFFER_SIZE = 8192 // Experiment with buffer size
-
-	private fun importSticker(sticker: DocumentFile) {
+	private suspend fun importSticker(sticker: DocumentFile) {
 		val parentDir = sticker.parentFile?.name ?: "__default__"
 		val packSize = packSizes[parentDir] ?: 0
 		if (packSize > MAX_PACK_SIZE) {
@@ -79,51 +86,19 @@ class StickerImporter(
 				val destSticker = File(context.filesDir, "stickers/$parentDir/${sticker.name}")
 				destSticker.parentFile?.mkdirs()
 
-				FileOutputStream(destSticker).use { outputStream ->
-					val buffer = ByteArray(BUFFER_SIZE)
-					var bytesRead: Int
-					while (inputStream.read(buffer).also { bytesRead = it } != -1) {
-						outputStream.write(buffer, 0, bytesRead)
+				withContext(Dispatchers.IO) {
+					inputStream.buffered(BUFFER_SIZE).use { input ->
+						destSticker.outputStream().buffered(BUFFER_SIZE).use { output ->
+							input.copyTo(output)
+						}
 					}
 				}
-
 				inputStream.close()
 				totalStickers++
 			}
-		} catch (e: IOException) {
+		} catch (_: IOException) {
 		}
 	}
-
-
-
-
-//	private fun importSticker(sticker: DocumentFile) {
-//		val parentDir = sticker.parentFile?.name ?: "__default__"
-//		val packSize = packSizes[parentDir] ?: 0
-//		if (packSize > MAX_PACK_SIZE) {
-//			toaster.setState(2)
-//			return
-//		}
-//		if (sticker.type !in supportedMimes) {
-//			toaster.setState(3)
-//			return
-//		}
-//		packSizes[parentDir] = packSize + 1
-//
-//		val inputStream: InputStream? = context.contentResolver.openInputStream(sticker.uri)
-//		if (inputStream != null) {
-//			val destSticker = File(context.filesDir, "stickers/$parentDir/${sticker.name}")
-//			destSticker.parentFile?.mkdirs()
-//
-//			FileOutputStream(destSticker).use { outputStream ->
-//				inputStream.copyTo(outputStream)
-//			}
-//			inputStream.close()
-//
-//			totalStickers++
-//		}
-//	}
-
 
 	/**
 	 * Get a MutableSet of DocumentFiles from a root node
