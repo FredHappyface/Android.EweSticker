@@ -4,8 +4,14 @@ All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
 <!--
-## Next_Ver - 2022/xx/xx
+## Next_Ver - 2023/xx/xx
 -->
+
+
+## Next_Ver - 2023/xx/xx
+
+- Update deps
+- Performance improvements for sticker import
 
 ## 20220311 - 2022/03/11
 
