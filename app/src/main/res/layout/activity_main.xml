@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/activityMainRoot"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -28,7 +29,9 @@
 					<Button
 						style="@style/button"
 						android:onClick="enableKeyboard"
-						android:text="@string/enable_keyboard_button" />
+						android:text="@string/enable_keyboard_button"
+						app:shapeAppearance="?attr/shapeAppearanceSmallComponent"
+						/>
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 			<!-- Update Sticker Pack -->
@@ -100,7 +103,9 @@
 						android:id="@+id/updateStickerPackInfoBtn"
 						style="@style/button"
 						android:onClick="chooseDir"
-						android:text="@string/update_sticker_pack_button" />
+						android:text="@string/update_sticker_pack_button"
+						app:shapeAppearance="?attr/shapeAppearanceSmallComponent"
+						/>
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 			<!-- Options -->

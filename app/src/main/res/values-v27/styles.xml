@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+	<style name="AppTheme" parent="Theme.Material3.DayNight">
 		<!-- Primary brand color. -->
 		<item name="colorPrimaryVariant">@color/accent</item>
 		<item name="colorOnPrimary">@color/onAccent</item>
@@ -20,7 +20,7 @@
 		<item name="actionBarTheme">@style/AppBarText</item>
 		<item name="colorSurface">@color/sticker</item>
 		<item name="colorOnSurface">@color/fg</item>
-		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent
-		</item>
+		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+		<item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
 	</style>
 </resources>
