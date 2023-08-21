@@ -1,7 +1,7 @@
 <resources>
 	<!-- Base application theme. -->
-	<color name="bg">#f0f0f1</color>
-	<color name="fg">#383a42</color>
-	<color name="sticker">#e7e7e9</color>
+	<color name="bg">#fafdfa</color>
+	<color name="fg">#191c1b</color>
+	<color name="sticker">#edf5f2</color>
 	<bool name="light_theme">true</bool>
 </resources>

@@ -46,24 +46,15 @@ class StickerSender(
 	private val imageLoader: ImageLoader,
 ) {
 
-	private val supportedMimes =
+	private val supportedMimes: List<String> by lazy {
 		Utils.getSupportedMimes()
 			.filter { isCommitContentSupported(this.currentInputEditorInfo, it) }
+	}
 
-	/**
-	 * Start the process of sending a sticker when the sticker is tapped in the
-	 * keyboard. If the sticker type is not supported by the InputConnection then
-	 * doFallbackCommitContent, otherwise doCommitContent
-	 *
-	 * @param file
-	 */
-	fun sendSticker(file: File) {
-		val stickerType = Utils.getMimeType(file)
-		if (stickerType == null || stickerType !in this.supportedMimes) {
-			CoroutineScope(Dispatchers.Main).launch { doFallbackCommitContent(file) }
-			return
+	private fun showToast(message: String) {
+		CoroutineScope(Dispatchers.Main).launch {
+			toaster.toast(message)
 		}
-		doCommitContent(stickerType, file)
 	}
 
 	/**
@@ -73,39 +64,59 @@ class StickerSender(
 	 *
 	 * @param file: File
 	 */
-	private suspend fun doFallbackCommitContent(file: File) {
-		// PNG might not be supported
-		if ("image/png" !in this.supportedMimes) {
-			this.toaster.toast(context.getString(R.string.fallback_040, file.extension))
-			return
-		}
-		// Create a new compatSticker and convert the sticker to png
+	private suspend fun createCompatSticker(file: File): File? {
 		val compatStickerName = file.hashCode().toString()
-		val compatSticker = File(this.internalDir, "__compatSticker__/$compatStickerName.png")
+		val compatSticker = File(internalDir, "__compatSticker__/$compatStickerName.png")
+
 		if (!compatSticker.exists()) {
-			// If the sticker doesn't exist then create
 			compatSticker.parentFile?.mkdirs()
 			try {
-				val request =
-					ImageRequest.Builder(this.context)
-						.data(file)
-						.target { result ->
-							val bitmap = result.toBitmap()
-							bitmap.compress(
-								Bitmap.CompressFormat.PNG, 90, FileOutputStream(compatSticker)
-							)
-						}
-						.build()
-				this.imageLoader.execute(request)
+				val request = ImageRequest.Builder(context)
+					.data(file)
+					.target { result ->
+						val bitmap = result.toBitmap()
+						bitmap.compress(
+							Bitmap.CompressFormat.PNG,
+							90,
+							FileOutputStream(compatSticker)
+						)
+					}
+					.build()
+				imageLoader.execute(request)
 			} catch (ignore: IOException) {
-				this.toaster.toast(this.context.getString(R.string.fallback_041))
+				showToast(context.getString(R.string.fallback_041))
+				return null
 			}
 		}
-		// Send the compatSticker!
-		doCommitContent("image/png", compatSticker)
-		// Remove old stickers
-		val remSticker = this.compatCache.add(compatStickerName)
-		remSticker?.let { File(this.internalDir, "__compatSticker__/$remSticker.png").delete() }
+
+		compatCache.add(compatStickerName)?.let {
+			File(internalDir, "__compatSticker__/$it.png").delete()
+		}
+
+		return compatSticker
+	}
+
+	fun sendSticker(file: File) {
+		val stickerType = Utils.getMimeType(file)
+		if (stickerType == null || stickerType !in supportedMimes) {
+			showToast(context.getString(R.string.fallback_040, file.extension))
+			CoroutineScope(Dispatchers.Main).launch {
+				doFallbackCommitContent(file)
+			}
+		} else {
+			doCommitContent(stickerType, file)
+		}
+	}
+
+	private suspend fun doFallbackCommitContent(file: File) {
+		if ("image/png" !in supportedMimes) {
+			showToast(context.getString(R.string.fallback_040, "png"))
+			return
+		}
+		val compatSticker = createCompatSticker(file)
+		if (compatSticker != null) {
+			doCommitContent("image/png", compatSticker)
+		}
 	}
 
 	/**
@@ -115,26 +126,25 @@ class StickerSender(
 	 * @param file File
 	 */
 	private fun doCommitContent(mimeType: String, file: File) {
-		// ContentUri, ClipDescription, linkUri
-		val inputContentInfoCompat =
-			InputContentInfoCompat(
-				FileProvider.getUriForFile(
-					this.context,
-					"com.fredhappyface.ewesticker.inputcontent",
-					file
-				),
-				ClipDescription(file.name, arrayOf(mimeType)),
-				null
-			)
-		// InputConnection, EditorInfo, InputContentInfoCompat, int flags, null opts
-		if (this.currentInputConnection == null || this.currentInputEditorInfo == null) return
-		InputConnectionCompat.commitContent(
-			this.currentInputConnection,
-			this.currentInputEditorInfo,
-			inputContentInfoCompat,
-			InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION,
+		val inputContentInfoCompat = InputContentInfoCompat(
+			FileProvider.getUriForFile(
+				context,
+				"com.fredhappyface.ewesticker.inputcontent",
+				file
+			),
+			ClipDescription(file.name, arrayOf(mimeType)),
 			null
 		)
+
+		if (currentInputConnection != null && currentInputEditorInfo != null) {
+			InputConnectionCompat.commitContent(
+				currentInputConnection,
+				currentInputEditorInfo,
+				inputContentInfoCompat,
+				InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION,
+				null
+			)
+		}
 	}
 
 	/**
@@ -145,14 +155,8 @@ class StickerSender(
 	 * @return boolean - is the mimetype supported?
 	 */
 	private fun isCommitContentSupported(editorInfo: EditorInfo?, mimeType: String?): Boolean {
-		editorInfo?.packageName ?: return false
-		mimeType ?: return false
-		this.currentInputConnection ?: return false
-		EditorInfoCompat.getContentMimeTypes(editorInfo).forEach {
-			if (ClipDescription.compareMimeTypes(mimeType, it)) {
-				return true
-			}
-		}
-		return false
+		return editorInfo?.packageName != null && mimeType != null && currentInputConnection != null &&
+				EditorInfoCompat.getContentMimeTypes(editorInfo)
+					.any { ClipDescription.compareMimeTypes(mimeType, it) }
 	}
 }
