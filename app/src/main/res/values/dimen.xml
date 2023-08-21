@@ -3,11 +3,12 @@
 	<dimen name="r_btn">32sp</dimen>
 	<dimen name="text_size_heading">24sp</dimen>
 	<dimen name="text_size_body">16sp</dimen>
-	<dimen name="content_margin">10sp</dimen>
-	<dimen name="content_margin_top">6sp</dimen>
-	<dimen name="content_margin_bottom">2sp</dimen>
-	<dimen name="zero">0sp</dimen>
-	<dimen name="corner">20sp</dimen>
+	<dimen name="content_margin">10dp</dimen>
+	<dimen name="card_margin">16dp</dimen>
+	<dimen name="content_margin_top">8dp</dimen>
+	<dimen name="content_margin_bottom">4dp</dimen>
+	<dimen name="zero">0dp</dimen>
+	<dimen name="corner">16dp</dimen>
 	<dimen name="pack_dimens">40dp</dimen>
 	<dimen name="pack_padding_vertical">4dp</dimen>
 	<dimen name="pack_padding_horizontal">8dp</dimen>

@@ -18,12 +18,12 @@
 			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
-					style="@style/widthMatchHeightWrap"
+					style="@style/cardchild"
 					android:orientation="vertical">
 
 					<TextView
 						style="@style/heading"
-						android:text="@string/enable_keyboard_heading" />
+						android:text="@string/enable_keyboard_heading"/>
 
 					<Button
 						style="@style/button"
@@ -35,7 +35,7 @@
 			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
-					style="@style/widthMatchHeightWrap"
+					style="@style/cardchild"
 					android:orientation="vertical">
 
 					<TextView
@@ -48,6 +48,7 @@
 
 					<LinearLayout
 						style="@style/widthMatchHeightWrap"
+						android:layout_marginHorizontal="@dimen/zero"
 						android:orientation="horizontal">
 
 						<TextView
@@ -64,6 +65,7 @@
 
 					<LinearLayout
 						style="@style/widthMatchHeightWrap"
+						android:layout_marginHorizontal="@dimen/zero"
 						android:orientation="horizontal">
 
 						<TextView
@@ -105,7 +107,7 @@
 			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
-					style="@style/widthMatchHeightWrap"
+					style="@style/cardchild"
 					android:orientation="vertical">
 
 					<TextView
@@ -187,7 +189,7 @@
 			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
-					style="@style/widthMatchHeightWrap"
+					style="@style/cardchild"
 					android:orientation="vertical">
 
 					<TextView
@@ -203,7 +205,7 @@
 			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
-					style="@style/widthMatchHeightWrap"
+					style="@style/cardchild"
 					android:orientation="vertical">
 
 					<TextView
@@ -219,7 +221,7 @@
 			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
-					style="@style/widthMatchHeightWrap"
+					style="@style/cardchild"
 					android:orientation="vertical">
 
 					<TextView
@@ -235,7 +237,7 @@
 			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
-					style="@style/widthMatchHeightWrap"
+					style="@style/cardchild"
 					android:orientation="vertical">
 
 					<TextView
@@ -251,7 +253,7 @@
 			<com.google.android.material.card.MaterialCardView style="@style/card">
 
 				<LinearLayout
-					style="@style/widthMatchHeightWrap"
+					style="@style/cardchild"
 					android:orientation="vertical">
 
 					<TextView

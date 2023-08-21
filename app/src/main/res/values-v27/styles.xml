@@ -18,7 +18,6 @@
 		<item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
 		<item name="actionBarStyle">@style/AppBarBackground</item>
 		<item name="actionBarTheme">@style/AppBarText</item>
-		<item name="android:fontFamily">@font/firasans_bold</item>
 		<item name="colorSurface">@color/sticker</item>
 		<item name="colorOnSurface">@color/fg</item>
 		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent
