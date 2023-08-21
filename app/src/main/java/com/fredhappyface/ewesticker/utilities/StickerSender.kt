@@ -1,4 +1,4 @@
-package com.fredhappyface.ewesticker
+package com.fredhappyface.ewesticker.utilities
 
 import android.content.ClipDescription
 import android.content.Context
@@ -12,9 +12,7 @@ import androidx.core.view.inputmethod.InputConnectionCompat
 import androidx.core.view.inputmethod.InputContentInfoCompat
 import coil.ImageLoader
 import coil.request.ImageRequest
-import com.fredhappyface.ewesticker.utilities.Cache
-import com.fredhappyface.ewesticker.utilities.Toaster
-import com.fredhappyface.ewesticker.utilities.Utils
+import com.fredhappyface.ewesticker.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

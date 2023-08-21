@@ -1,9 +1,12 @@
-package com.fredhappyface.ewesticker
+package com.fredhappyface.ewesticker.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.fredhappyface.ewesticker.R
+import com.fredhappyface.ewesticker.utilities.StickerClickListener
+import com.fredhappyface.ewesticker.view.StickerPackViewHolder
 import java.io.File
 
 class StickerPackAdapter(
