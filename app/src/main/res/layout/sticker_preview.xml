@@ -5,19 +5,30 @@
 	android:layout_height="wrap_content"
 	android:background="@color/bg">
 
+	<TextView
+		android:id="@+id/stickerInfo"
+		style="@style/body_text"
+		android:layout_centerHorizontal="true"
+		android:text="" />
+
 	<ImageButton
 		android:id="@+id/stickerButton"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_centerInParent="true"
+		android:layout_below="@id/stickerInfo"
+		android:layout_centerHorizontal="true"
 		android:layout_gravity="center|center_horizontal|center_vertical"
-		android:background="@color/bg2"
+		android:background="@color/bg"
 		android:contentDescription="@string/sticker_icon"
 		android:cropToPadding="true"
 		android:scaleType="fitCenter" />
 
 	<TextView
+		android:id="@+id/stickerPreview"
 		style="@style/body_text"
+		android:layout_below="@id/stickerButton"
 		android:layout_centerHorizontal="true"
 		android:text="@string/close_sticker_preview" />
+
+
 </RelativeLayout>

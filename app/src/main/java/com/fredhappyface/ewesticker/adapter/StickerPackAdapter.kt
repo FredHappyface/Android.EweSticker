@@ -34,6 +34,11 @@ class StickerPackAdapter(
 			val file = it.tag as File
 			listener.onStickerClicked(file)
 		}
+		holder.stickerThumbnail.setOnLongClickListener {
+			val file = it.tag as File
+			listener.onStickerLongClicked(file)
+			return@setOnLongClickListener true
+		}
 	}
 
 	override fun getItemCount(): Int = stickers.size
