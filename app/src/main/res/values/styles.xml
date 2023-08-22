@@ -16,7 +16,7 @@
 		<item name="actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
 		<item name="actionBarStyle">@style/AppBarBackground</item>
 		<item name="actionBarTheme">@style/AppBarText</item>
-		<item name="colorSurface">@color/sticker</item>
+		<item name="colorSurface">@color/bg2</item>
 		<item name="colorOnSurface">@color/fg</item>
 		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
 		<item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>

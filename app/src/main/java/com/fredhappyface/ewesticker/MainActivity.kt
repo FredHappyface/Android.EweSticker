@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
 		toggle(findViewById(R.id.vertical), "vertical") { isChecked: Boolean ->
 			findViewById<SeekBar>(R.id.iconSizeSb).isEnabled = !isChecked
 		}
+		toggle(findViewById(R.id.restoreOnClose), "restoreOnClose", false) {}
 	}
 
 	/**
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 	private val chooseDirResultLauncher =
 		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
 			if (result.resultCode == Activity.RESULT_OK) {
-				val editor = this.sharedPreferences.edit()
+				val editor = sharedPreferences.edit()
 				val stickerDirPath = result.data?.data.toString()
 				editor.putString("stickerDirPath", stickerDirPath)
 				editor.putString("lastUpdateDate", Calendar.getInstance().time.toString())

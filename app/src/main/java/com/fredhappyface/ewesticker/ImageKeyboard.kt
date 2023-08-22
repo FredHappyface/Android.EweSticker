@@ -39,6 +39,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	// onCreate
 	//  Shared Preferences
 	private lateinit var sharedPreferences: SharedPreferences
+	private var restoreOnClose = false
 	private var vertical = false
 	private var iconsPerX = 0
 	private var iconSize = 0
@@ -91,6 +92,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		Coil.setImageLoader(imageLoader)
 		//  Shared Preferences
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
+		this.restoreOnClose = this.sharedPreferences.getBoolean("restoreOnClose", false)
 		this.vertical = this.sharedPreferences.getBoolean("vertical", false)
 		this.iconsPerX = this.sharedPreferences.getInt("iconsPerX", 3)
 		this.totalIconPadding =
@@ -126,6 +128,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		this.sharedPreferences.getString("compatCache", "")?.let {
 			this.compatCache.fromSharedPref(it)
 		}
+		window.window?.navigationBarColor = getColor(R.color.bg)
 	}
 
 	/**
@@ -195,6 +198,9 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		editor.putString("activePack", this.activePack)
 		editor.apply()
 		super.onFinishInput()
+		if (restoreOnClose){
+			closeKeyboard()
+		}
 	}
 
 	/**
@@ -238,7 +244,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 
 
 	private fun addPackButton(tag: Any): ImageButton {
-		val packCard = layoutInflater.inflate(R.layout.pack_card, this.packsList, false)
+		val packCard = layoutInflater.inflate(R.layout.sticker_card, this.packsList, false)
 		val packButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 		packButton.tag = tag
 		packButton.setOnClickListener { switchPackLayout(it?.tag as String) }
@@ -252,20 +258,14 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		// Back button
 		if (this.sharedPreferences.getBoolean("showBackButton", true)) {
 			val backButton = addPackButton("__back__")
-			backButton.load(getDrawable(R.drawable.ic_chevron_left))
+			backButton.load(getDrawable(R.drawable.arrow_back_circle))
 			backButton.setOnClickListener {
-				if (SDK_INT >= 28) {
-					this.switchToPreviousInputMethod()
-				} else {
-					(baseContext.getSystemService(INPUT_METHOD_SERVICE) as
-							InputMethodManager)
-						.showInputMethodPicker()
-				}
+				closeKeyboard()
 			}
 		}
 		// Recent
 		val recentButton = addPackButton("__recentSticker__")
-		recentButton.load(getDrawable(R.drawable.ic_clock))
+		recentButton.load(getDrawable(R.drawable.time))
 		recentButton.setOnClickListener { switchPackLayout(it?.tag as String) }
 		// Packs
 		val sortedPackNames = this.loadedPacks.keys.sorted().toTypedArray()
@@ -280,6 +280,16 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 
 		if (sortedPackNames.isNotEmpty()) {
 			targetPack?.let { switchPackLayout(it) }
+		}
+	}
+
+	fun closeKeyboard(){
+		if (SDK_INT >= 28) {
+			this.switchToPreviousInputMethod()
+		} else {
+			(baseContext.getSystemService(INPUT_METHOD_SERVICE) as
+					InputMethodManager)
+				.showInputMethodPicker()
 		}
 	}
 

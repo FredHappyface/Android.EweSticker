@@ -2,6 +2,6 @@
 	<!-- Base application theme. -->
 	<color name="bg">#191c1b</color>
 	<color name="fg">#e0e3e1</color>
-	<color name="sticker">#1c2624</color>
+	<color name="bg2">#1c2624</color>
 	<bool name="light_theme">false</bool>
 </resources>
