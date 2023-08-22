@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<color name="accent">#00917E</color>
-	<color name="accent_a">#8800917E</color>
+	<color name="accent">#10a9a8</color>
+	<color name="accent_a">#8810a9a8</color>
 	<color name="transparent">#0000</color>
 	<color name="onAccent">#e6e6e6</color>
 </resources>

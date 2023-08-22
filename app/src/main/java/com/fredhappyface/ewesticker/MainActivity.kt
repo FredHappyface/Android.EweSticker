@@ -60,7 +60,16 @@ class MainActivity : AppCompatActivity() {
 		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
 			if (result.resultCode == Activity.RESULT_OK) {
 				val editor = sharedPreferences.edit()
+				val uri = result.data?.data
 				val stickerDirPath = result.data?.data.toString()
+				val contentResolver = applicationContext.contentResolver
+
+				val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or
+						Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+				if (uri != null) {
+					contentResolver.takePersistableUriPermission(uri, takeFlags)
+				}
+
 				editor.putString("stickerDirPath", stickerDirPath)
 				editor.putString("lastUpdateDate", Calendar.getInstance().time.toString())
 				editor.putString("recentCache", "")
@@ -93,11 +102,26 @@ class MainActivity : AppCompatActivity() {
 		chooseDirResultLauncher.launch(intent)
 	}
 
+	fun reloadStickers(view: View) {
+		val stickerDirPath = this.sharedPreferences.getString(
+			"stickerDirPath", null
+		)
+		if (stickerDirPath != null) {
+			importStickers(stickerDirPath)
+		} else {
+			this.toaster.toast(
+				getString(R.string.imported_034)
+			)
+		}
+	}
+
 	/** Import files from storage to internal directory */
 	private fun importStickers(stickerDirPath: String) {
 		toaster.toast(getString(R.string.imported_010))
 		val button = findViewById<Button>(R.id.updateStickerPackInfoBtn)
+		val button2 = findViewById<Button>(R.id.reloadStickerPackInfoBtn)
 		button.isEnabled = false
+		button2.isEnabled = false
 
 		lifecycleScope.launch(Dispatchers.IO) {
 			val totalStickers = StickerImporter(baseContext, toaster).importStickers(stickerDirPath)
@@ -116,6 +140,7 @@ class MainActivity : AppCompatActivity() {
 				editor.apply()
 				refreshStickerDirPath()
 				button.isEnabled = true
+				button2.isEnabled = true
 			}
 		}
 	}

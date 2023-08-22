@@ -2,6 +2,7 @@ package com.fredhappyface.ewesticker.utilities
 
 import android.content.ClipDescription
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
@@ -108,9 +109,29 @@ class StickerSender(
 		}
 	}
 
+	private fun openShareSheet(file: File) {
+		val uri = FileProvider.getUriForFile(
+			context,
+			"com.fredhappyface.ewesticker.inputcontent",
+			file
+		)
+
+		val shareIntent = Intent().apply {
+			action = Intent.ACTION_SEND
+			putExtra(Intent.EXTRA_STREAM, uri)
+			type = "image/*"
+		}
+
+		shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+
+		val chooserIntent = Intent.createChooser(shareIntent, "Share Sticker")
+		chooserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+		context.startActivity(chooserIntent)
+	}
+
 	private suspend fun doFallbackCommitContent(file: File) {
 		if ("image/png" !in supportedMimes) {
-			showToast(context.getString(R.string.fallback_040, "png"))
+			openShareSheet(file)
 			return
 		}
 		val compatSticker = createCompatSticker(file)

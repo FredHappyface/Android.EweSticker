@@ -1,7 +1,7 @@
 <resources>
 	<!-- Base application theme. -->
-	<color name="bg">#fafdfa</color>
-	<color name="fg">#191c1b</color>
-	<color name="bg2">#edf5f2</color>
+	<color name="bg">#fafdfc</color>
+	<color name="fg">#2d3131</color>
+	<color name="bg2">#edf5f4</color>
 	<bool name="light_theme">true</bool>
 </resources>
