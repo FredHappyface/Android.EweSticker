@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
+import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.core.view.iterator
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.GridLayoutManager
@@ -17,7 +19,6 @@ import coil.ImageLoader
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import coil.decode.VideoFrameDecoder
-
 import coil.imageLoader
 import coil.load
 import com.fredhappyface.ewesticker.adapter.StickerPackAdapter
@@ -27,7 +28,6 @@ import com.fredhappyface.ewesticker.utilities.StickerClickListener
 import com.fredhappyface.ewesticker.utilities.StickerSender
 import com.fredhappyface.ewesticker.utilities.Toaster
 import java.io.File
-import java.util.*
 import kotlin.math.min
 
 
@@ -156,7 +156,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			(min(
 				resources.displayMetrics.widthPixels,
 				this.keyboardHeight -
-						resources.getDimensionPixelOffset(R.dimen.text_size_body)
+						resources.getDimensionPixelOffset(R.dimen.text_size_body) * 2
 			) * 0.95)
 				.toInt()
 		createPackIcons()
@@ -198,7 +198,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		editor.putString("activePack", this.activePack)
 		editor.apply()
 		super.onFinishInput()
-		if (restoreOnClose){
+		if (restoreOnClose) {
 			closeKeyboard()
 		}
 	}
@@ -283,7 +283,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		}
 	}
 
-	fun closeKeyboard(){
+	fun closeKeyboard() {
 		if (SDK_INT >= 28) {
 			this.switchToPreviousInputMethod()
 		} else {
@@ -296,5 +296,27 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	override fun onStickerClicked(sticker: File) {
 		this.recentCache.add(sticker.absolutePath)
 		this.stickerSender.sendSticker(sticker)
+	}
+
+	override fun onStickerLongClicked(sticker: File) {
+		val fullStickerLayout =
+			layoutInflater.inflate(R.layout.sticker_preview, this.keyboardRoot, false) as
+					RelativeLayout
+		// Set dimens + load image
+		fullStickerLayout.layoutParams.height =
+			this.keyboardHeight +
+					(resources.getDimension(R.dimen.pack_dimens) +
+							resources.getDimension(R.dimen.sticker_padding) * 4)
+						.toInt()
+		val fSticker = fullStickerLayout.findViewById<ImageButton>(R.id.stickerButton)
+		fSticker.layoutParams.height = this.fullIconSize
+		fSticker.layoutParams.width = this.fullIconSize
+		fSticker.load(sticker)
+		val fText = fullStickerLayout.findViewById<TextView>(R.id.stickerInfo)
+		fText.text = "${sticker.name} (Pack: ${sticker.parent.split('/').last()})"
+		// Tap to exit popup
+		fullStickerLayout.setOnClickListener { this.keyboardRoot.removeView(it) }
+		fSticker.setOnClickListener { this.keyboardRoot.removeView(fullStickerLayout) }
+		this.keyboardRoot.addView(fullStickerLayout)
 	}
 }

@@ -20,7 +20,8 @@
 		<item name="actionBarTheme">@style/AppBarText</item>
 		<item name="colorSurface">@color/bg2</item>
 		<item name="colorOnSurface">@color/fg</item>
-		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+		<item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent
+		</item>
 		<item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
 	</style>
 </resources>

@@ -24,14 +24,13 @@
 
 					<TextView
 						style="@style/heading"
-						android:text="@string/enable_keyboard_heading"/>
+						android:text="@string/enable_keyboard_heading" />
 
 					<Button
 						style="@style/button"
 						android:onClick="enableKeyboard"
 						android:text="@string/enable_keyboard_button"
-						app:shapeAppearance="?attr/shapeAppearanceSmallComponent"
-						/>
+						app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 			<!-- Update Sticker Pack -->
@@ -104,8 +103,7 @@
 						style="@style/button"
 						android:onClick="chooseDir"
 						android:text="@string/update_sticker_pack_button"
-						app:shapeAppearance="?attr/shapeAppearanceSmallComponent"
-						/>
+						app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 			<!-- Options -->

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools"  tools:ignore="PluralsCandidate">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
 	<!-- App info -->
 	<string name="app_name" translatable="false">EweSticker</string>
 	<string name="pack_icon">Pack icon</string>

@@ -1,7 +1,8 @@
 package com.fredhappyface.ewesticker.utilities
 
 import java.io.File
-import java.util.*
+import java.util.ArrayDeque
+import java.util.Deque
 
 /**
  * Basically this behaved like an ordered set with some maximum capacity. When this capacity is

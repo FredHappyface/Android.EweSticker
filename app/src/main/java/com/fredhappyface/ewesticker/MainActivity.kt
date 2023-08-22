@@ -13,13 +13,13 @@ import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceManager
 import com.fredhappyface.ewesticker.utilities.Toaster
 import kotlinx.coroutines.Dispatchers
-import java.util.*
-import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.Calendar
 
 /** MainActivity class inherits from the AppCompatActivity class - provides the settings view */
 class MainActivity : AppCompatActivity() {
