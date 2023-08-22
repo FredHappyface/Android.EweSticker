@@ -104,6 +104,13 @@
 						android:onClick="chooseDir"
 						android:text="@string/update_sticker_pack_button"
 						app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
+
+					<Button
+						android:id="@+id/reloadStickerPackInfoBtn"
+						style="@style/button"
+						android:onClick="reloadStickers"
+						android:text="@string/reload_sticker_pack_button"
+						app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 			<!-- Options -->

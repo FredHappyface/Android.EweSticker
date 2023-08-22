@@ -283,7 +283,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		}
 	}
 
-	fun closeKeyboard() {
+	private fun closeKeyboard() {
 		if (SDK_INT >= 28) {
 			this.switchToPreviousInputMethod()
 		} else {
@@ -313,10 +313,18 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		fSticker.layoutParams.width = this.fullIconSize
 		fSticker.load(sticker)
 		val fText = fullStickerLayout.findViewById<TextView>(R.id.stickerInfo)
-		fText.text = "${sticker.name} (Pack: ${sticker.parent.split('/').last()})"
+		fText.text =
+			"${trimString(sticker.name)} (Pack: ${trimString(sticker.parent.split('/').last())})"
 		// Tap to exit popup
 		fullStickerLayout.setOnClickListener { this.keyboardRoot.removeView(it) }
 		fSticker.setOnClickListener { this.keyboardRoot.removeView(fullStickerLayout) }
 		this.keyboardRoot.addView(fullStickerLayout)
 	}
+}
+
+fun trimString(str: String): String {
+	if (str.length > 32) {
+		return str.substring(0, 32) + "..."
+	}
+	return str
 }

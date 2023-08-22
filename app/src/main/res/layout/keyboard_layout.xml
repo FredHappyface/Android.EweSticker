@@ -12,7 +12,8 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentTop="true"
-		android:padding="@dimen/sticker_padding">
+		android:padding="@dimen/sticker_padding"
+		android:scrollbars="none">
 
 		<LinearLayout
 			android:id="@+id/packsList"
