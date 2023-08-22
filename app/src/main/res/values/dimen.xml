@@ -10,8 +10,5 @@
 	<dimen name="zero">0dp</dimen>
 	<dimen name="corner">16dp</dimen>
 	<dimen name="pack_dimens">40dp</dimen>
-	<dimen name="pack_padding_vertical">4dp</dimen>
-	<dimen name="pack_padding_horizontal">8dp</dimen>
-	<dimen name="sticker_padding">2dp</dimen>
-	<dimen name="sticker_radius">8dp</dimen>
+	<dimen name="sticker_padding">4dp</dimen>
 </resources>
