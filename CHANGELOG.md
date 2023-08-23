@@ -4,16 +4,18 @@ All major and minor version changes will be documented in this file. Details of
 patch-level version changes can be found in [commit messages](../../commits/master).
 
 <!--
-## Next_Ver - 2023/xx/xx
+## Next_Ver
 -->
 
+## 20230823
 
-## Next_Ver - 2023/xx/xx
-
-- Update deps
+- Update dependencies
 - Performance improvements for sticker import (3-4x faster)
-- Performance improvements for sticker keyboard (recyclerview). Current regressions:
-	- long press for preview
+- Performance improvements for sticker keyboard (recyclerview)
+- Add `example-files`
+- Add restore prior keyboard on minimize (closes issue #49)
+- Add send stickers with system sharesheets (closes issue #48)
+- Add reload stickers from directory (closes issue #46)
 
 ## 20220311 - 2022/03/11
 
