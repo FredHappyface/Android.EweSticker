@@ -1,0 +1,10 @@
+<h2 id="section">20230823</h2>
+<ul>
+<li>Update dependencies</li>
+<li>Performance improvements for sticker import (3-4x faster)</li>
+<li>Performance improvements for sticker keyboard (recyclerview)</li>
+<li>Add <code>example-files</code></li>
+<li>Add restore prior keyboard on minimize (closes issue #49)</li>
+<li>Add send stickers with system sharesheets (closes issue #48)</li>
+<li>Add reload stickers from directory (closes issue #46)</li>
+</ul>

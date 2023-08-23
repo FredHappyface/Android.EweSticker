@@ -100,7 +100,6 @@ class StickerSender(
 	fun sendSticker(file: File) {
 		val stickerType = Utils.getMimeType(file)
 		if (stickerType == null || stickerType !in supportedMimes) {
-			showToast(context.getString(R.string.fallback_040, file.extension))
 			CoroutineScope(Dispatchers.Main).launch {
 				doFallbackCommitContent(file)
 			}
