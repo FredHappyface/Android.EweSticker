@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceManager
 import com.fredhappyface.ewesticker.utilities.Toaster
+import com.google.android.material.progressindicator.LinearProgressIndicator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -120,11 +121,13 @@ class MainActivity : AppCompatActivity() {
 		toaster.toast(getString(R.string.imported_010))
 		val button = findViewById<Button>(R.id.updateStickerPackInfoBtn)
 		val button2 = findViewById<Button>(R.id.reloadStickerPackInfoBtn)
+		val progressBar = findViewById<LinearProgressIndicator>(R.id.linearProgressIndicator)
 		button.isEnabled = false
 		button2.isEnabled = false
 
 		lifecycleScope.launch(Dispatchers.IO) {
-			val totalStickers = StickerImporter(baseContext, toaster).importStickers(stickerDirPath)
+			val totalStickers =
+				StickerImporter(baseContext, toaster, progressBar).importStickers(stickerDirPath)
 
 			withContext(Dispatchers.Main) {
 				toaster.toastOnState(

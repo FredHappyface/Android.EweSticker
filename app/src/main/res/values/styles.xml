@@ -1,6 +1,6 @@
 <resources>
 	<!-- Base application theme. -->
-	<style name="AppTheme" parent="Theme.Material3.DayNight">
+	<style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
 		<!-- Primary brand color. -->
 		<item name="colorPrimaryVariant">@color/accent</item>
 		<item name="colorOnPrimary">@color/onAccent</item>
@@ -22,6 +22,11 @@
 		</item>
 		<item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
 	</style>
+
+	<style name="ToolbarTitleTextAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+		<item name="android:textSize">@dimen/text_size_title</item>
+	</style>
+
 
 	<style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
 		<item name="cornerSize">@dimen/corner</item>

@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/activityMainRoot"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:background="@color/bg">
 
-	<ScrollView
+	<com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/appBarLayout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/accent">
+
+		<com.google.android.material.appbar.CollapsingToolbarLayout
+			android:id="@+id/collapsingToolbarLayout"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			app:layout_scrollFlags="scroll|exitUntilCollapsed"
+			android:background="@color/accent"
+			app:collapsedTitleTextAppearance="@style/ToolbarTitleTextAppearance"
+			app:expandedTitleTextAppearance="@style/ToolbarTitleTextAppearance"
+			app:title="  EweSticker">
+
+			<View
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/appbar_padding"
+				android:background="@color/accent" />
+
+			<androidx.appcompat.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="?attr/actionBarSize"
+				app:layout_collapseMode="none"
+				app:layout_collapseParallaxMultiplier="0.7"
+				android:background="@color/accent" />
+
+
+		</com.google.android.material.appbar.CollapsingToolbarLayout>
+	</com.google.android.material.appbar.AppBarLayout>
+
+	<androidx.core.widget.NestedScrollView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:orientation="vertical">
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 		<LinearLayout
 			style="@style/widthMatchHeightWrap"
@@ -111,6 +144,13 @@
 						android:onClick="reloadStickers"
 						android:text="@string/reload_sticker_pack_button"
 						app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
+
+					<com.google.android.material.progressindicator.LinearProgressIndicator
+						android:id="@+id/linearProgressIndicator"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:visibility="gone" />
+
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 			<!-- Options -->
@@ -292,5 +332,5 @@
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 		</LinearLayout>
-	</ScrollView>
-</com.google.android.material.circularreveal.coordinatorlayout.CircularRevealCoordinatorLayout>
+	</androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
