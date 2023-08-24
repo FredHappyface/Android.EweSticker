@@ -3,6 +3,8 @@ package com.fredhappyface.ewesticker
 import android.content.SharedPreferences
 import android.inputmethodservice.InputMethodService
 import android.os.Build.VERSION.SDK_INT
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
@@ -28,8 +30,11 @@ import com.fredhappyface.ewesticker.utilities.StickerClickListener
 import com.fredhappyface.ewesticker.utilities.StickerSender
 import com.fredhappyface.ewesticker.utilities.Toaster
 import java.io.File
+import kotlin.math.abs
 import kotlin.math.min
 
+private const val SWIPE_THRESHOLD = 1
+private const val SWIPE_VELOCITY_THRESHOLD = 1
 
 /**
  * ImageKeyboard class inherits from the InputMethodService class - provides the keyboard
@@ -41,6 +46,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	private lateinit var sharedPreferences: SharedPreferences
 	private var restoreOnClose = false
 	private var vertical = false
+	private var scroll = false
 	private var iconsPerX = 0
 	private var iconSize = 0
 
@@ -66,6 +72,9 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	private lateinit var packContent: ViewGroup
 	private var keyboardHeight = 0
 	private var fullIconSize = 0
+
+	private lateinit var gestureDetector: GestureDetector
+
 
 	/**
 	 * When the activity is created...
@@ -94,6 +103,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
 		this.restoreOnClose = this.sharedPreferences.getBoolean("restoreOnClose", false)
 		this.vertical = this.sharedPreferences.getBoolean("vertical", false)
+		this.scroll = this.sharedPreferences.getBoolean("scroll", false)
 		this.iconsPerX = this.sharedPreferences.getInt("iconsPerX", 3)
 		this.totalIconPadding =
 			(resources.getDimension(R.dimen.sticker_padding) * 2 * (this.iconsPerX + 1)).toInt()
@@ -141,6 +151,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	 */
 	override fun onCreateInputView(): View {
 		val keyboardLayout = View.inflate(baseContext, R.layout.keyboard_layout, null)
+		gestureDetector = GestureDetector(baseContext, GestureListener())
 
 		this.keyboardRoot = keyboardLayout.findViewById(R.id.keyboardRoot)
 		this.packsList = keyboardLayout.findViewById(R.id.packsList)
@@ -228,7 +239,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			stickers = loadedPacks[packName]?.stickerList ?: return
 		}
 		val recyclerView = RecyclerView(this)
-		val adapter = StickerPackAdapter(iconSize, stickers, this)
+		val adapter = StickerPackAdapter(iconSize, stickers, this, gestureDetector)
 		val layoutManager = GridLayoutManager(
 			this,
 			iconsPerX,
@@ -320,6 +331,76 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		fSticker.setOnClickListener { this.keyboardRoot.removeView(fullStickerLayout) }
 		this.keyboardRoot.addView(fullStickerLayout)
 	}
+
+	internal fun switchToPreviousPack() {
+		// Get a list of sorted pack names
+		val sortedPackNames = loadedPacks.keys.sorted()
+
+		// Find the index of the current active pack
+		val currentIndex = sortedPackNames.indexOf(activePack)
+
+		// Calculate the index of the previous pack, considering wrap-around
+		val previousIndex = if (currentIndex > 0) currentIndex - 1 else sortedPackNames.size - 1
+
+		// Get the name of the previous pack
+		val previousPack = sortedPackNames[previousIndex]
+
+		// Switch to the previous pack layout
+		switchPackLayout(previousPack)
+	}
+
+	internal fun switchToNextPack() {
+		// Get a list of sorted pack names
+		val sortedPackNames = loadedPacks.keys.sorted()
+
+		// Find the index of the current active pack
+		val currentIndex = sortedPackNames.indexOf(activePack)
+
+		// Calculate the index of the next pack, considering wrap-around
+		val nextIndex = (currentIndex + 1) % sortedPackNames.size
+
+		// Get the name of the next pack
+		val nextPack = sortedPackNames[nextIndex]
+
+		// Switch to the next pack layout
+		switchPackLayout(nextPack)
+	}
+
+
+	private inner class GestureListener : GestureDetector.SimpleOnGestureListener() {
+		override fun onDown(e: MotionEvent): Boolean {
+			return false
+		}
+
+		override fun onScroll(
+			e1: MotionEvent,
+			e2: MotionEvent,
+			velocityX: Float,
+			velocityY: Float
+		): Boolean {
+			val diffX = e2.x - e1.x
+			val diffY = e2.y - e1.y
+
+			if (
+				scroll &&
+				abs(if (vertical) diffX else diffY) > SWIPE_THRESHOLD &&
+				abs(if (vertical) velocityX else velocityY) > SWIPE_VELOCITY_THRESHOLD
+			) {
+				if (diffX > 0) {
+					// Swipe right
+					switchToPreviousPack()
+				} else {
+					// Swipe left
+					switchToNextPack()
+				}
+				return true
+			}
+
+			return false
+		}
+	}
+
+
 }
 
 fun trimString(str: String): String {
@@ -328,3 +409,4 @@ fun trimString(str: String): String {
 	}
 	return str
 }
+

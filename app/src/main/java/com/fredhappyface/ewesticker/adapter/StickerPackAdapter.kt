@@ -1,5 +1,6 @@
 package com.fredhappyface.ewesticker.adapter
 
+import android.view.GestureDetector
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,8 @@ import java.io.File
 class StickerPackAdapter(
 	private val iconSize: Int,
 	private val stickers: Array<File>,
-	private val listener: StickerClickListener
+	private val listener: StickerClickListener,
+	private val gestureDetector: GestureDetector,
 ) :
 
 
@@ -38,6 +40,9 @@ class StickerPackAdapter(
 			val file = it.tag as File
 			listener.onStickerLongClicked(file)
 			return@setOnLongClickListener true
+		}
+		holder.stickerThumbnail.setOnTouchListener { _, event ->
+			gestureDetector.onTouchEvent(event)
 		}
 	}
 
