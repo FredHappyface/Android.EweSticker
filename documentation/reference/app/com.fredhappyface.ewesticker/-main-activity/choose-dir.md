@@ -3,14 +3,14 @@
 # chooseDir
 
 [androidJvm]\
-fun [chooseDir](choose-dir.md)(view: [View](https://developer.android.com/reference/kotlin/android/view/View.html))
+fun [chooseDir](choose-dir.md)(ignoredView: [View](https://developer.android.com/reference/kotlin/android/view/View.html))
 
 Called on button press to choose a new directory
 
-## Parameters
+#### Parameters
 
 androidJvm
 
 | | |
 |---|---|
-| view | : View |
+| ignoredView | : View |

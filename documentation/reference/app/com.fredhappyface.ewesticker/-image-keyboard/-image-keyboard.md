@@ -3,4 +3,4 @@
 # ImageKeyboard
 
 [androidJvm]\
-fun [ImageKeyboard](-image-keyboard.md)()
+constructor()

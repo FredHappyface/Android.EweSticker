@@ -3,14 +3,14 @@
 # enableKeyboard
 
 [androidJvm]\
-fun [enableKeyboard](enable-keyboard.md)(view: [View](https://developer.android.com/reference/kotlin/android/view/View.html))
+fun [enableKeyboard](enable-keyboard.md)(ignoredView: [View](https://developer.android.com/reference/kotlin/android/view/View.html))
 
 Called on button press to launch settings
 
-## Parameters
+#### Parameters
 
 androidJvm
 
 | | |
 |---|---|
-| view | : View |
+| ignoredView | : View |
