@@ -7,6 +7,11 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver
 -->
 
+## 20230824
+
+- Add Feature: switch between folders by swiping (closes issue #33)
+- Add Progress bar for sticker import (closes issue #51)
+
 ## 20230823
 
 - Update dependencies

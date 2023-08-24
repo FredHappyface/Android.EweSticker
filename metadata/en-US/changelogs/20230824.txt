@@ -1,0 +1,6 @@
+<h2 id="section">20230824</h2>
+<ul>
+<li>Add Feature: switch between folders by swiping (closes issue
+#33)</li>
+<li>Add Progress bar for sticker import (closes issue #51)</li>
+</ul>

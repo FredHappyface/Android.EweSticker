@@ -7,11 +7,11 @@ open override fun [onStartInput](on-start-input.md)(info: [EditorInfo](https://d
 
 When entering some input field update the list of supported-mimes
 
-## Parameters
+#### Parameters
 
 androidJvm
 
-| | |
-|---|---|
-| info |  |
-| restarting |  |
+| |
+|---|
+| info |
+| restarting |
