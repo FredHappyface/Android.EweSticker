@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 			findViewById<SeekBar>(R.id.iconSizeSb).isEnabled = !isChecked
 		}
 		toggle(findViewById(R.id.restoreOnClose), "restoreOnClose", false) {}
+		toggle(findViewById(R.id.scroll), "scroll", false) {}
 	}
 
 	/**
