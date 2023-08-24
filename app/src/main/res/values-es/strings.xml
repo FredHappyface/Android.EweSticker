@@ -10,6 +10,7 @@
 	<string name="update_sticker_pack_heading">Paquete de etiqueta actualización</string>
 	<string name="update_sticker_pack_button">Elija el directorio de fuente de la etiqueta</string>
 	<string name="update_sticker_pack_info">Paquetes de etiqueta cargada actual Información:</string>
+	<string name="reload_sticker_pack_button">Recargar pegatinas</string>
 	<string name="update_sticker_pack_info_path_lbl">- Sendero: </string>
 	<string name="update_sticker_pack_info_path">No se establece</string>
 	<string name="update_sticker_pack_info_date_lbl">- Fecha: </string>
@@ -19,6 +20,8 @@
 	<string name="options_heading">Opciones</string>
 	<string name="options_show_back_button">Mostrar botón atrás en navbar</string>
 	<string name="options_vertical">Usar layout vertical</string>
+	<string name="options_restore_on_close">Restaurar el teclado anterior al cerrar el teclado</string>
+	<string name="options_scroll">Habilitar el deslizamiento entre paquetes (perpendicular a la dirección de desplazamiento)</string>
 	<string name="options_icons_per_x_lbl">"Número de filas: "</string>
 	<string name="options_icon_size_status_lbl">"Tamaño del icono: "</string>
 	<!-- Info -->
@@ -61,5 +64,6 @@ Copyright © Randy Zhou</string>
 	<string name="imported_031">E031: Algunos pegatinas no se importaron (%1$d importado).Pegatinas max alcanzadas</string>
 	<string name="imported_032">E032: Algunos pegatinas no importaron (%1$d importado).Tamaño máximo del paquete alcanzado</string>
 	<string name="imported_033">E033: Algunos pegatinas no importaron (%1$d importado).Formatos no compatibles encontrados</string>
+	<string name="imported_034">E034: Falló la recarga de stickers, intenta elegir un directorio de origen de stickers</string>
 	<string name="fallback_041">E041: IOException inesperado al convertir la pegatina</string>
 </resources>
