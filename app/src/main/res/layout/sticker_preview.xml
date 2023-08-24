@@ -24,7 +24,6 @@
 		android:scaleType="fitCenter" />
 
 	<TextView
-		android:id="@+id/stickerPreview"
 		style="@style/body_text"
 		android:layout_below="@id/stickerButton"
 		android:layout_centerHorizontal="true"

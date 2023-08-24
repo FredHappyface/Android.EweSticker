@@ -42,7 +42,7 @@ class StickerPackAdapter(
 			return@setOnLongClickListener true
 		}
 		holder.stickerThumbnail.setOnTouchListener { _, event ->
-			gestureDetector.onTouchEvent(event)
+			return@setOnTouchListener gestureDetector.onTouchEvent(event)
 		}
 	}
 

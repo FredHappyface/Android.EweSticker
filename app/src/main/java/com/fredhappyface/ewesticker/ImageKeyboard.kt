@@ -304,11 +304,25 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		}
 	}
 
+	/**
+	 * onStickerClicked
+	 *
+	 * When a sticker is tapped/ clicked. Update the cache and send the sticker
+	 *
+	 *  @param sticker: File
+	 */
 	override fun onStickerClicked(sticker: File) {
 		this.recentCache.add(sticker.absolutePath)
 		this.stickerSender.sendSticker(sticker)
 	}
 
+	/**
+	 * onStickerLongClicked
+	 *
+	 * When a sticker is long tapped/ clicked. Attach a new view to see an enlarged version of the sticker
+	 *
+	 *  @param sticker: File
+	 */
 	override fun onStickerLongClicked(sticker: File) {
 		val fullStickerLayout =
 			layoutInflater.inflate(R.layout.sticker_preview, this.keyboardRoot, false) as
@@ -409,4 +423,3 @@ fun trimString(str: String): String {
 	}
 	return str
 }
-

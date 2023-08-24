@@ -9,7 +9,7 @@
 <!-- omit in toc -->
 # Android.EweSticker
 
-<img src="readme-assets/icons/name.png" alt="Project Icon" width="750">
+<img src="metadata/en-US/images/featureGraphic.png" alt="Feature Graphic" width="750">
 
 Sticker-board for android inspired by uSticker (forked from woosticker).
 

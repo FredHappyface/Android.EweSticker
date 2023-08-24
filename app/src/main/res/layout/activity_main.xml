@@ -7,13 +7,11 @@
 	android:background="@color/bg">
 
 	<com.google.android.material.appbar.AppBarLayout
-		android:id="@+id/appBarLayout"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:background="@color/accent">
 
 		<com.google.android.material.appbar.CollapsingToolbarLayout
-			android:id="@+id/collapsingToolbarLayout"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -28,7 +26,6 @@
 				android:background="@color/accent" />
 
 			<androidx.appcompat.widget.Toolbar
-				android:id="@+id/toolbar"
 				android:layout_width="match_parent"
 				android:layout_height="?attr/actionBarSize"
 				app:layout_collapseMode="none"

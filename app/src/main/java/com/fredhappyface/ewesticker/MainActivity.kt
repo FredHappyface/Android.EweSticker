@@ -85,9 +85,9 @@ class MainActivity : AppCompatActivity() {
 	/**
 	 * Called on button press to launch settings
 	 *
-	 * @param view: View
+	 * @param ignoredView: View
 	 */
-	fun enableKeyboard(view: View) {
+	fun enableKeyboard(ignoredView: View) {
 		val intent = Intent(Settings.ACTION_INPUT_METHOD_SETTINGS)
 		startActivity(intent)
 	}
@@ -95,16 +95,23 @@ class MainActivity : AppCompatActivity() {
 	/**
 	 * Called on button press to choose a new directory
 	 *
-	 * @param view: View
+	 * @param ignoredView: View
 	 */
-	fun chooseDir(view: View) {
+	fun chooseDir(ignoredView: View) {
 		val intent = Intent(Intent.ACTION_OPEN_DOCUMENT_TREE)
 		intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 		intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
 		chooseDirResultLauncher.launch(intent)
 	}
 
-	fun reloadStickers(view: View) {
+	/**
+	 * reloadStickers
+	 *
+	 * Call this function when a user taps the reload stickers button. If we have a set stickerDirPath, call importStickers()
+	 *
+	 * @param ignoredView: View
+	 */
+	fun reloadStickers(ignoredView: View) {
 		val stickerDirPath = this.sharedPreferences.getString(
 			"stickerDirPath", null
 		)

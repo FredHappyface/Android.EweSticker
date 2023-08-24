@@ -123,7 +123,9 @@ class StickerImporter(
 						}
 					}
 				}
-				inputStream.close()
+				withContext(Dispatchers.IO) {
+					inputStream.close()
+				}
 				totalStickers++
 			}
 		} catch (_: IOException) {
