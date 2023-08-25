@@ -10,7 +10,7 @@ sticker collection.
 	- [Get it on Google Play](#get-it-on-google-play)
 	- [Download the APK](#download-the-apk)
 - [Step 3 - Activate the keyboard](#step-3---activate-the-keyboard)
-- [Step 4 - Select Directory with EweSticker )](#step-4---select-directory-with-ewesticker-)
+- [Step 4 - Select Directory with EweSticker](#step-4---select-directory-with-ewesticker)
 - [Step 5 - Send Stickers in your favourite apps](#step-5---send-stickers-in-your-favourite-apps)
 
 ## Step 1 - Create Sticker Directory (and transfer to device)
@@ -86,7 +86,7 @@ Toggle EweSticker on
 
 <img src="assets/sys-enable.png" alt="System UI 'On Screen Keyboard' with EweSticker toggle" width="300">
 
-## Step 4 - Select Directory with EweSticker )
+## Step 4 - Select Directory with EweSticker
 
 Click the `Choose sticker source directory` button
 
