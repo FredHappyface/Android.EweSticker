@@ -12,9 +12,8 @@ you'll likely be asked if you've read this :)
 	- [E031](#e031)
 	- [E032](#e032)
 	- [E033](#e033)
-	- [E040](#e040)
+	- [E034](#e034)
 	- [E041](#e041)
-	- [E050](#e050)
 - [Reach out](#reach-out)
 
 ## Error Codes
@@ -56,13 +55,9 @@ This could be for a few reasons, perhaps you have a non sticker file in the stic
 as a document in the wrong place. Alternatively this may result in a seemingly valid sticker not being
 imported. Chances are that the sticker is not in a [supported format](/README.md#features).
 
-### E040
-(image type) not supported here
+### E034
 
-The application you are using doesn't support a sticker format or the compat-format
-
-Unfortunately, nothing can be done by EweSticker to solve this, you may need to contact the application
-developer you are trying to send a sticker to
+Reloading stickers failed, try choosing a sticker source directory
 
 ### E041
 Unexpected IOException when converting sticker
@@ -70,14 +65,6 @@ Unexpected IOException when converting sticker
 This is an unexpected error and happens when creating a compat-sticker to send to the application.
 Please open an issue and provide as much information as you can. E.g. Android Version, phone
 manufacturer, app you are trying to send the sticker in
-
-### E050
-IllegalStateException when switching packs. Try switching away from and back to EweSticker
-
-This sometimes happens if you leave EweSticker as the current keyboard and switch back to it. The best
-way to solve this is to tap the back button in the pack selector and switch back to EweSticker.
-Please open an issue and provide as much information as you can. E.g. Android Version, phone
-manufacturer, app you are trying to send the sticker in.
 
 ## Reach out
 

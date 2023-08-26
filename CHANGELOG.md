@@ -7,6 +7,10 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver
 -->
 
+## 20230825
+
+- Update launcher icon, version, screenshots
+
 ## 20230824
 
 - Add Feature: switch between folders by swiping (closes issue #33)
