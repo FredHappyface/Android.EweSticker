@@ -18,6 +18,8 @@
 			android:background="@color/accent"
 			app:collapsedTitleTextAppearance="@style/ToolbarTitleTextAppearance"
 			app:expandedTitleTextAppearance="@style/ToolbarTitleTextAppearance"
+			app:collapsedTitleTextColor="@color/onAccent"
+			app:expandedTitleTextColor="@color/onAccent"
 			app:title="  EweSticker">
 
 			<View
