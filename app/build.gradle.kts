@@ -6,7 +6,7 @@ plugins {
 }
 
 tasks.dokkaGfm.configure {
-	outputDirectory.set(buildDir.resolve("../../documentation/reference"))
+	outputDirectory.set(file(layout.buildDirectory.dir("../../documentation/reference")))
 	dokkaSourceSets {
 		named("main") {
 			skipDeprecated.set(true)
@@ -19,7 +19,7 @@ tasks.dokkaGfm.configure {
 }
 
 tasks.register("genDocs") {
-	val ref = buildDir.resolve("../../documentation/reference")
+	val ref = layout.buildDirectory.dir("../../documentation/reference")
 	delete(ref)
 	dependsOn("dokkaGfm")
 	doLast {
@@ -39,8 +39,8 @@ android {
 		applicationId = "com.fredhappyface.ewesticker"
 		minSdk = 26
 		targetSdk = 33
-		versionCode = 20230824
-		versionName = "20230824"
+		versionCode = 20230825
+		versionName = "20230825"
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		setProperty("archivesBaseName", "$applicationId-$versionName")
 	}

@@ -6,7 +6,7 @@ plugins {
 	id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
 }
 
-tasks.register("clean") { delete(buildDir) }
+tasks.register("clean") { delete(layout.buildDirectory) }
 
 ktlint {
 	coloredOutput.set(false)
