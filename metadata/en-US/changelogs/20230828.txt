@@ -1,0 +1,6 @@
+<h2 id="section">20230828</h2>
+<ul>
+<li>Update app description</li>
+<li>Add German (de) translations with help from google translate and
+friends. Contributions to enhance this are very welcome!</li>
+</ul>

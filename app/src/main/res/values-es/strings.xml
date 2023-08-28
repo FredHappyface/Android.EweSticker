@@ -1,7 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
 	<!-- App info -->
-	<string name="pack_icon">Icono del paquete</string>
-	<string name="sticker_icon">Icono del sticker</string>
+	<string name="pack_icon">Ícono del paquete</string>
+	<string name="sticker_icon">Ícono del sticker</string>
 	<string name="close_sticker_preview">[Toque para cerrar la vista previa de la etiqueta]</string>
 	<!-- Enable Keyboard -->
 	<string name="enable_keyboard_heading">Habilitar teclado</string>
@@ -23,40 +23,45 @@
 	<string name="options_restore_on_close">Restaurar el teclado anterior al cerrar el teclado</string>
 	<string name="options_scroll">Habilitar el deslizamiento entre paquetes (perpendicular a la dirección de desplazamiento)</string>
 	<string name="options_icons_per_x_lbl">"Número de filas: "</string>
-	<string name="options_icon_size_status_lbl">"Tamaño del icono: "</string>
+	<string name="options_icon_size_status_lbl">"Tamaño del ícono: "</string>
 	<!-- Info -->
 	<string name="info_heading">Información</string>
-	<string name="info_text">Tablero de stickers para android inspirado en uSticker (bifurcado de woosticker).</string>
+	<string name="info_text">EweSticker es una aplicación de teclado de stickers para Android, diseñada específicamente para compartir una amplia variedad de stickers personalizados en aplicaciones de mensajería compatibles. Este proyecto se inspira en el proyecto uSticker y es un fork del repositorio woosticker.</string>
 	<!-- Features -->
 	<string name="features_heading">Características</string>
-	<string name="features_text">"- Amplia gama de pegatinas personalizadas admitidas:
-	- image/gif
-	- image/png
-	- image/webp
-	- image/jpeg
-	- image/heif
-	- video/3gpp
-	- video/mp4
-	- video/x-matroska
-	- video/webm
-- Envíe stickers en las aplicaciones compatibles (.png se utiliza como alternativa)
-- Desplazamiento vertical y horizontal.
-- Cambio Número de filas y tamaño de vista previa de la etiqueta
-- Se ajusta al tema del sistema.
-- Pulse larga en una etiqueta para mostrar una vista previa.</string>
-	<!-- How to use -->
-	<string name="how_to_use_heading">Cómo utilizar</string>
-	<string name="how_to_use_text">Selecciona un directorio que contenga pegatinas y envíalas en tus aplicaciones favoritas.</string>
-	<!-- License -->
+	<string name="features_text">La aplicación de Android EweSticker ofrece las siguientes características clave para mejorar tu experiencia de mensajería:
+
+- **Amplia gama de stickers personalizados compatibles**: EweSticker admite una variedad de formatos de stickers, asegurando que los usuarios puedan compartir su creatividad de diversas formas. Los formatos compatibles incluyen image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska y video/webm.
+
+- **Compartir stickers de manera sencilla**: Los usuarios pueden enviar stickers fácilmente en aplicaciones de mensajería que admiten el intercambio de contenido multimedia personalizado, utilizando image/png como alternativa.
+
+- **Desplazamiento personalizable**: La aplicación ofrece opciones de desplazamiento vertical y horizontal, permitiendo a los usuarios navegar por su colección de stickers según su orientación preferida.
+
+- **Personalización de la vista previa del sticker**: Los usuarios pueden ajustar el número de filas y el tamaño de la vista previa del sticker, adaptando la experiencia de visualización a sus preferencias y dimensiones de la pantalla del dispositivo.
+
+- **Integración con el tema del sistema**: EweSticker se integra perfectamente con el tema del sistema, asegurando que la apariencia de la aplicación esté en línea con las elecciones de diseño en todo el dispositivo del usuario.
+
+- **Vista previa del sticker al mantener pulsado**: Para facilitar la selección de stickers, los usuarios pueden mantener pulsado un sticker para ver una vista previa. Esta función ayuda a los usuarios a decidir rápidamente qué sticker desean compartir sin necesidad de abrir la colección de stickers por separado.
+
+EweSticker ofrece una amplia variedad de opciones de personalización, soporte para diversos formatos e integración con aplicaciones de mensajería. Ya sea que los usuarios estén compartiendo imágenes estáticas, GIFs animados o incluso videos cortos, la aplicación tiene como objetivo proporcionar una forma atractiva y expresiva de comunicarse mediante stickers personalizados.</string>
+
+	<!-- Cómo usar -->
+	<string name="how_to_use_heading">Cómo Usar</string>
+	<string name="how_to_use_text">¡Selecciona un directorio que contenga stickers y envíalos en tus aplicaciones favoritas!</string>
+	<!-- Licencia -->
 	<string name="license_heading">Licencia MIT</string>
-	<string name="license_text">"Copyright © FredHappyface
-Copyright © Randy Zhou</string>
-	<!-- Links -->
+	<string name="license_text">"Derechos de Autor © FredHappyface
+Derechos de Autor © Randy Zhou</string>
+	<!-- Enlaces -->
 	<string name="links_heading">Enlaces</string>
-	<string name="links_text">"- Proyecto: https://github.com/FredHappyface/Android.EweSticker
-- Tutorial: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
-- Ayuda: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
-- Licencia: https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md</string>
+	<string name="links_text">"- El código fuente de EweSticker está disponible en https://github.com/FredHappyface/Android.EweSticker
+
+- Los tutoriales te guían paso a paso para comenzar a usar el software. Comienza aquí si eres nuevo: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+
+- La guía de ayuda proporciona un punto de partida y describe problemas comunes que podrías tener: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+
+- Licencia MIT
+(Consulta la licencia para obtener más información https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<!-- Interactive Messages -->
 	<string name="pref_000">Preferencias cambiadas.Actualizar el teclado para configurar para aplicar</string>
 	<string name="imported_010">Entendiendo la importación.¡Esto podría llevar algún tiempo!</string>
@@ -64,6 +69,6 @@ Copyright © Randy Zhou</string>
 	<string name="imported_031">E031: Algunos pegatinas no se importaron (%1$d importado).Pegatinas max alcanzadas</string>
 	<string name="imported_032">E032: Algunos pegatinas no importaron (%1$d importado).Tamaño máximo del paquete alcanzado</string>
 	<string name="imported_033">E033: Algunos pegatinas no importaron (%1$d importado).Formatos no compatibles encontrados</string>
-	<string name="imported_034">E034: Falló la recarga de stickers, intenta elegir un directorio de origen de stickers</string>
+	<string name="imported_034">E034: Falló la recarga de stickers, intenta seleccionar un directorio de origen de stickers</string>
 	<string name="fallback_041">E041: IOException inesperado al convertir la pegatina</string>
 </resources>

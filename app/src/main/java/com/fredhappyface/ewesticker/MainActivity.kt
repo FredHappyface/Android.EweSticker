@@ -17,6 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceManager
 import com.fredhappyface.ewesticker.utilities.Toaster
 import com.google.android.material.progressindicator.LinearProgressIndicator
+import io.noties.markwon.Markwon
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -38,6 +39,15 @@ class MainActivity : AppCompatActivity() {
 		// Inflate view
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
+
+		val markwon: Markwon = Markwon.create(this)
+		val featuresText = findViewById<TextView>(R.id.features_text)
+		markwon.setMarkdown(featuresText, getString(R.string.features_text))
+
+		val linksText = findViewById<TextView>(R.id.links_text)
+		markwon.setMarkdown(linksText, getString(R.string.links_text))
+
+
 		// Set late-init attrs
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 		this.contextView = findViewById(R.id.activityMainRoot)

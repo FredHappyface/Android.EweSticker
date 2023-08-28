@@ -27,24 +27,25 @@
 	<string name="options_icon_size_status_lbl">"Icon size: "</string>
 	<!-- Info -->
 	<string name="info_heading">Info</string>
-	<string name="info_text">Sticker-board for android inspired by uSticker (forked from woosticker).</string>
+	<string name="info_text">EweSticker is an Android sticker keyboard application, specifically designed for sharing a wide variety of custom stickers in supported messaging apps. This project draws inspiration from the uSticker project and is a fork of the woosticker repository.</string>
 	<!-- Features -->
 	<string name="features_heading">Features</string>
-	<string name="features_text">"- Wide range of custom stickers supported:
-	- image/gif
-	- image/png
-	- image/webp
-	- image/jpeg
-	- image/heif
-	- video/3gpp
-	- video/mp4
-	- video/x-matroska
-	- video/webm
-- Send stickers in supported apps (image/png is used as a fallback)
-- Vertical and Horizontal scrolling
-- Change number of rows and sticker preview size
-- Ties in with the system theme
-- Long press on a sticker to show a preview</string>
+	<string name="features_text">"The EweSticker Android app offers the following key features to enhance your messaging experience:
+
+- **Wide Range of Custom Stickers Supported**: EweSticker supports a diverse set of sticker formats, ensuring that users can share their creativity in various ways. Supported formats include image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska, and video/webm.
+
+- **Seamless Sticker Sharing**: Users can easily send stickers within messaging apps that support custom media sharing using image/png as a fallback.
+
+- **Customizable Scrolling**: The app offers both vertical and horizontal scrolling options, enabling users to navigate through their sticker collection according to their preferred orientation.
+
+- **Sticker Preview Customization**: Users have the freedom to adjust the number of rows and the sticker preview size, tailoring the viewing experience to their liking and device screen dimensions.
+
+- **Integration with System Theme**: EweSticker seamlessly integrates with the system's theme, ensuring that the app's appearance aligns with the user's device-wide design choices.
+
+- **Sticker Preview on Long Press**: To facilitate sticker selection, users can long-press on a sticker to reveal a preview. This feature helps users quickly decide which sticker they want to share without the need to open the sticker collection separately.
+
+EweSticker brings a wide range of customization options, diverse format support, and integration with messaging apps. Whether users are sharing static images, animated GIFs, or even short videos, the app aims to provide an engaging and expressive way to communicate using custom stickers.</string>
+
 	<!-- How to use -->
 	<string name="how_to_use_heading">How to Use</string>
 	<string name="how_to_use_text">Select a directory containing stickers and send them in your favourite apps!</string>
@@ -54,10 +55,14 @@
 Copyright © Randy Zhou</string>
 	<!-- Links -->
 	<string name="links_heading">Links</string>
-	<string name="links_text">"- Project: https://github.com/FredHappyface/Android.EweSticker
-- Tutorial: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
-- Help: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
-- License: https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md</string>
+	<string name="links_text">"- The source code for EweSticker is available at https://github.com/FredHappyface/Android.EweSticker
+
+- The tutorials take you by the hand through a series of steps to get  started using the software. Start here if you're new: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+
+- The help guide provides a starting point and outlines common issues that you may have: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+
+- MIT License
+(See the license for more information https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<!-- Interactive Messages -->
 	<string name="pref_000">Preferences changed. Reload the keyboard for settings to apply</string>
 	<string name="imported_010">Starting import. This might take some time!</string>

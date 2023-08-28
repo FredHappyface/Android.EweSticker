@@ -6,9 +6,6 @@ sticker collection.
 
 - [Step 1 - Create Sticker Directory (and transfer to device)](#step-1---create-sticker-directory-and-transfer-to-device)
 - [Step 2 - Download EweSticker](#step-2---download-ewesticker)
-	- [Get it on F-Droid](#get-it-on-f-droid)
-	- [Get it on Google Play](#get-it-on-google-play)
-	- [Download the APK](#download-the-apk)
 - [Step 3 - Activate the keyboard](#step-3---activate-the-keyboard)
 - [Step 4 - Select Directory with EweSticker](#step-4---select-directory-with-ewesticker)
 - [Step 5 - Send Stickers in your favourite apps](#step-5---send-stickers-in-your-favourite-apps)
@@ -37,44 +34,12 @@ is **4096**
 
 ## Step 2 - Download EweSticker
 
-### Get it on F-Droid
+You can install the app using the following methods, Follow the link to the listing on your
+preferred store by clicking on one of the badges below, then download/install:
 
-1. Open the F-Droid app
-2. Search for EweSticker
-
-or
-
-[<img src="../../readme-assets/badges/f-droid-download.png"
-alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.fredhappyface.ewesticker/)
-
-Follow the link to the listing on F-Droid by clicking on the badge above,
-then download/ install
-
-### Get it on Google Play
-
-1. Open the Google Play app
-2. Search for EweSticker
-
-or
-
-[<img src="../../readme-assets/badges/google-play-download.png"
-alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/details?id=com.fredhappyface.ewesticker)
-
-Follow the link to the listing on Google Play by clicking on the badge above,
-then download/ install
-
-### Download the APK
-
-1. For releases, navigate to the releases page [here](../../releases).
-2. Select the debug or release APK depending on your preference. Note that the
-filenames are in the form: com.fredhappyface.ewesticker-(version)-(debug|release).apk
-
-or
-
-[<img src="../../readme-assets/badges/direct-apk-download.png" alt="Direct apk
-download" height="80">](../../releases)
-
-Navigate to the releases page by clicking on the badge above.
+[<img src="readme-assets/badges/f-droid-download.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.fredhappyface.ewesticker/)
+[<img src="readme-assets/badges/google-play-download.png" alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/details?id=com.fredhappyface.ewesticker)
+[<img src="readme-assets/badges/direct-apk-download.png" alt="Direct apk download" height="80">](../../releases)
 
 ## Step 3 - Activate the keyboard
 

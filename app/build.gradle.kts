@@ -39,8 +39,8 @@ android {
 		applicationId = "com.fredhappyface.ewesticker"
 		minSdk = 26
 		targetSdk = 33
-		versionCode = 20230825
-		versionName = "20230825"
+		versionCode = 20230828
+		versionName = "20230828"
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		setProperty("archivesBaseName", "$applicationId-$versionName")
 	}
@@ -78,6 +78,7 @@ dependencies {
 	testImplementation("androidx.test.ext:junit:1.1.5")
 	testImplementation("androidx.test.espresso:espresso-core:3.5.1")
 	implementation("com.google.code.gson:gson:2.10.1")
+	implementation("io.noties.markwon:core:4.6.2")
 }
 
 ktlint {

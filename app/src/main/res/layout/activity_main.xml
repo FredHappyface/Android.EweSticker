@@ -291,6 +291,7 @@
 
 					<TextView
 						style="@style/body_text"
+						android:id="@+id/features_text"
 						android:text="@string/features_text" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
@@ -341,6 +342,7 @@
 						style="@style/body_text"
 						android:autoLink="web"
 						android:linksClickable="true"
+						android:id="@+id/links_text"
 						android:text="@string/links_text" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>

@@ -1,10 +1,7 @@
 package com.fredhappyface.ewesticker
 
-import org.hamcrest.MatcherAssert
-import org.hamcrest.MatcherAssert.*
-import org.hamcrest.Matchers
-import org.hamcrest.Matchers.*
-import org.junit.Assert.assertEquals
+import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.Matchers.`is`
 import org.junit.Test
 
 /**
