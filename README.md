@@ -176,7 +176,7 @@ for more information.
 ### Security
 
 If you discover a security vulnerability, we appreciate your responsible disclosure. Please see the
-[Security Policy](https://github.com/FredHappyface/.github/blob/master/.github/SECURITY/SECURITY.md)
+[Security Policy](https://github.com/FredHappyface/.github/blob/master/SECURITY.md)
 for more information.
 
 ### Support
