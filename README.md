@@ -1,11 +1,11 @@
 
 <img src="metadata/en-US/images/featureGraphic.png" alt="Feature Graphic" width="">
 
-[![GitHub top language](https://img.shields.io/github/languages/top/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../)
-[![Issues](https://img.shields.io/github/issues/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../issues)
-[![License](https://img.shields.io/github/license/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](/LICENSE.md)
-[![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../commits/master)
-[![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Android.EweSticker.svg?style=for-the-badge)](../../commits/master)
+[![GitHub top language](https://img.shields.io/github/languages/top/FredHappyface/Android.EweSticker.svg?style=for-the-badge&cacheSeconds=28800)](../../)
+[![Issues](https://img.shields.io/github/issues/FredHappyface/Android.EweSticker.svg?style=for-the-badge&cacheSeconds=28800)](../../issues)
+[![License](https://img.shields.io/github/license/FredHappyface/Android.EweSticker.svg?style=for-the-badge&cacheSeconds=28800)](/LICENSE.md)
+[![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Android.EweSticker.svg?style=for-the-badge&cacheSeconds=28800)](../../commits/master)
+[![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Android.EweSticker.svg?style=for-the-badge&cacheSeconds=28800)](../../commits/master)
 [![GitHub all releases](https://img.shields.io/github/downloads/FredHappyface/Android.EweSticker/total?style=for-the-badge)](../../releases)
 
 <!-- omit in toc -->
