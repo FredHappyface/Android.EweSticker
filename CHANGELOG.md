@@ -7,6 +7,12 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver
 -->
 
+## 20230828
+
+- Update app description
+- Add German (de) translations with help from google translate and friends. Contributions to enhance
+  this are very welcome!
+
 ## 20230825
 
 - Update launcher icon, version, screenshots
