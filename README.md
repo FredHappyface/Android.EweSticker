@@ -88,7 +88,7 @@ preferred store by clicking on one of the badges below, then download/install:
 <!-- omit in toc -->
 ### Build from Source
 
-Follow the steps in [Building from Source](link_to_building_from_source) section.
+Follow the steps in the [Building from Source](#building-from-source) section.
 
 ## Gradle tasks
 
@@ -189,6 +189,6 @@ for more information.
 
 ### Development Info
 
-Serves as a guide to various aspects of project development, including versioning, style guidelines, and recommended practices. Please see the
-[Rationale](https://github.com/FredHappyface/.github/blob/master/DEVELOPMENT_INFO.md)
+Serves as a guide to various aspects of project development, including versioning, style guidelines, and recommended practices. Please see
+[Development Info](https://github.com/FredHappyface/.github/blob/master/DEVELOPMENT_INFO.md)
 for more information.
