@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pack_icon">Emballe</string>
-    <string name="sticker_icon">Sticker icon</string>
-    <string name="close_sticker_preview">[tap to close sticker preview]</string>
-    <string name="enable_keyboard_heading">Enable Keyboard</string>
+    <string name="pack_icon">Icône du paquet</string>
+    <string name="sticker_icon">Icône de l\'autocollant</string>
+    <string name="close_sticker_preview">[appuyer pour fermer l\'aperçu de l\'autocollant]</string>
+    <string name="enable_keyboard_heading">Activer le clavier</string>
     <string name="enable_keyboard_button">Réglages de lancement</string>
-    <string name="update_sticker_pack_heading">Update Sticker Pack</string>
-    <string name="update_sticker_pack_button">Choisissez le répertoire source d\'autocollant</string>
-    <string name="reload_sticker_pack_button">Reload stickers</string>
-    <string name="update_sticker_pack_info_path_lbl">- Sentier :</string>
-    <string name="imported_033">E033: Certains autocollants n\'ont pas importé (%1$d importé). Formats non supportés trouvés</string>
-    <string name="imported_034">E034: Les autocollants de recharge ont échoué, essayez de choisir un répertoire source d\'autocollant</string>
-    <string name="fallback_041">E041: IOException inattendue lors de la conversion de sticker</string>
-    <string name="update_sticker_pack_info">Informations actuelles sur les autocollants chargés:</string>
-    <string name="update_sticker_pack_info_path">Pas ensemble</string>
-    <string name="update_sticker_pack_info_date_lbl">- Date:</string>
+    <string name="update_sticker_pack_heading">Mettre à jour le paquet d\'autocollant</string>
+    <string name="update_sticker_pack_button">Choisissez le répertoire source d\'autocollants</string>
+    <string name="reload_sticker_pack_button">Recharger les autocollants</string>
+    <string name="update_sticker_pack_info_path_lbl">- Chemin :</string>
+    <string name="imported_033">E033 : Certains autocollants n\'ont pas été importés (%1$d importés). Formats non pris en charge trouvés</string>
+    <string name="imported_034">E034 : Impossible de recharger les autocollants, essayez de choisir un répertoire source d\'autocollants</string>
+    <string name="fallback_041">E041 : IOException inattendue lors de la conversion de l\'autocollant</string>
+    <string name="update_sticker_pack_info">Informations actuelles sur les autocollants chargés :</string>
+    <string name="update_sticker_pack_info_path">Non défini</string>
+    <string name="update_sticker_pack_info_date_lbl">- Date :</string>
     <string name="update_sticker_pack_info_date">Jamais</string>
-    <string name="update_sticker_pack_info_total_lbl">- Total :</string>
+    <string name="update_sticker_pack_info_total_lbl">- Total :</string>
     <string name="options_heading">Options</string>
-    <string name="options_show_back_button">Afficher le bouton dos dans navbar</string>
+    <string name="options_show_back_button">Afficher le bouton dans la barre de navigation</string>
     <string name="options_vertical">Utiliser la mise en page verticale</string>
-    <string name="options_restore_on_close">Restaurer le clavier précédent sur le clavier fermer</string>
+    <string name="options_restore_on_close">Restaurer le clavier précédent en fermant le clavier</string>
     <string name="options_scroll">Permet de glisser entre les paquets (perpendiculaire à la direction de défilement)</string>
-    <string name="options_icons_per_x_lbl">"Nombre de truies: "</string>
-    <string name="options_icon_size_status_lbl">"Icon size: "</string>
-    <string name="info_heading">Info</string>
-    <string name="info_text">EweSticker est une application de clavier d\'autocollant Android, spécialement conçue pour partager une grande variété d\'autocollants personnalisés dans les applications de messagerie supportées. Ce projet s\'inspire du projet uSticker et est une fourche du dépôt woosticker.</string>
+    <string name="options_icons_per_x_lbl">"Nombre de rangées : "</string>
+    <string name="options_icon_size_status_lbl">"Taille de l\'icône "</string>
+    <string name="info_heading">Infos</string>
+    <string name="info_text">EweSticker est une application de clavier d\'autocollant Android, spécialement conçue pour partager une grande variété d\'autocollants personnalisés dans les applications de messagerie prises en charge. Ce projet s\'inspire du projet uSticker et est une fourche du dépôt woosticker.</string>
     <string name="features_heading">Caractéristiques</string>
     <string name="features_text">L\'application EweSticker Android offre les fonctionnalités clés suivantes pour améliorer votre expérience de messagerie:
 \n
@@ -42,23 +42,23 @@
 \n- **Sticker Preview on Long Press**: Pour faciliter la sélection des autocollants, les utilisateurs peuvent faire pression sur un autocollant pour révéler un aperçu. Cette fonctionnalité aide les utilisateurs à décider rapidement quel autocollant ils veulent partager sans avoir à ouvrir la collection d\'autocollants séparément.
 \n
 \nEweSticker propose un large éventail d\'options de personnalisation, un support de format divers et une intégration avec des applications de messagerie. Que les utilisateurs partagent des images statiques, des GIF animés ou même des vidéos courtes, l\'application vise à fournir un moyen attrayant et expressif de communiquer en utilisant des autocollants personnalisés.</string>
-    <string name="how_to_use_heading">Comment utiliser</string>
-    <string name="how_to_use_text">Sélectionnez un répertoire contenant des autocollants et envoyez-les dans vos applications préférées!</string>
-    <string name="license_heading">MIT Licence</string>
+    <string name="how_to_use_heading">Comment l\'utiliser</string>
+    <string name="how_to_use_text">Sélectionnez un répertoire contenant des autocollants et envoyez-les dans vos applications préférées !</string>
+    <string name="license_heading">Licence MIT</string>
     <string name="license_text">Copyright © FredHappyface
 \nCopyright © Randy Zhou</string>
     <string name="links_heading">Liens</string>
-    <string name="links_text">- Le code source pour EweSticker est disponible à l \' adresse https://github.com/FredHappyface/Android.
+    <string name="links_text">- Le code source pour EweSticker est disponible à l\'adresse https://github.com/FredHappyface/Android.
 \n
 \n- Les tutoriels vous emmènent à la main par une série de étapes pour commencer à utiliser le logiciel. Commencez ici si vous êtes nouveau: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
 \n
-\n- Le guide d\'aide fournit un point de départ et décrit les questions communes que vous pouvez avoir: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+\n- Le guide d\'aide fournit un point de départ et décrit les questions fréquentes que vous pouvez avoir : https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
 \n
-\n- MIT Licence
+\n- Licence MIT
 \n(Voir la licence pour plus d\'informations https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-    <string name="pref_000">Les préférences ont changé. Recharger le clavier pour les réglages</string>
-    <string name="imported_010">Démarrer l\'importation. Ça prendra du temps !</string>
-    <string name="imported_020">Autocollants importés %1$d. Recharger le clavier pour les nouveaux stickers</string>
-    <string name="imported_031">E031: Certains autocollants n\'ont pas importé (%1$d importé). Max stickers atteint</string>
-    <string name="imported_032">E032: Certains autocollants n\'ont pas importé (%1$d importé). Taille maximale du paquet atteint</string>
+    <string name="pref_000">Les préférences ont changé. Recharger le clavier pour les appliquer</string>
+    <string name="imported_010">Démarrage de l\'importation. Ceci va prendre du temps !</string>
+    <string name="imported_020">Autocollants importés %1$d. Recharger le clavier pour afficher les nouveaux autocollants</string>
+    <string name="imported_031">E031 : Certains autocollants n\'ont pas été importés (%1$d importés). Nombre maximal atteint</string>
+    <string name="imported_032">E032 : Certains autocollants n\'ont pas été importés (%1$d importés). Taille maximale du paquet atteint</string>
 </resources>
