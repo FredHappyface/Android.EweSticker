@@ -50,11 +50,11 @@
     <string name="links_heading">Login</string>
     <string name="links_text">- Kode sumber untuk EweSticker tersedia di https://github.com/FredHappyface/Android.EweSticker
 \n
-\nLogin Tutorial mengambil Anda dengan tangan melalui serangkaian langkah untuk memulai menggunakan perangkat lunak. Mulai di sini jika Anda baru: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+\n- Tutorial membawa Anda melalui serangkaian langkah untuk mulai menggunakan perangkat lunak. Mulai di sini jika Anda baru: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
 \n
-\nLogin Panduan bantuan menyediakan titik awal dan mengeluarkan masalah umum yang mungkin Anda miliki: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+\n- Panduan bantuan memberikan titik awal dan menguraikan masalah umum yang mungkin Anda alami: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
 \n
-\nLogin Login
+\n- Lisensi MIT
 \n(Lihat lisensi untuk informasi lebih lanjut https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <string name="imported_010">Mulai impor. Ini mungkin memakan waktu!</string>
     <string name="imported_020">Impor %1$d stiker. Reload keyboard untuk stiker baru untuk menunjukkan</string>
