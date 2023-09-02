@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="pack_icon">パックアイコン</string>
-	<string name="sticker_icon">ステッカーアイコン</string>
-	<string name="close_sticker_preview">[ステッカープレビューを閉じるにはタップ]</string>
-	<!-- キーボードを有効にする -->
-	<string name="enable_keyboard_heading">キーボードを有効にする</string>
-	<string name="enable_keyboard_button">設定を起動</string>
-	<!-- ステッカーパックを更新 -->
-	<string name="update_sticker_pack_heading">ステッカーパックを更新</string>
-	<string name="update_sticker_pack_button">ステッカーソースディレクトリを選択</string>
-	<string name="reload_sticker_pack_button">ステッカーを再読み込み</string>
-	<string name="update_sticker_pack_info">現在読み込まれているステッカーパック情報: </string>
-	<string name="update_sticker_pack_info_path_lbl">- パス: </string>
-	<string name="update_sticker_pack_info_path">未設定</string>
-	<string name="update_sticker_pack_info_date_lbl">- 日付: </string>
-	<string name="update_sticker_pack_info_date">なし</string>
-	<string name="update_sticker_pack_info_total_lbl">- 合計: </string>
-	<!-- オプション -->
-	<string name="options_heading">オプション</string>
-	<string name="options_show_back_button">ナビゲーションバーに戻るボタンを表示</string>
-	<string name="options_vertical">垂直レイアウトを使用</string>
-	<string name="options_restore_on_close">キーボードを閉じた際に前回のキーボードを復元</string>
-	<string name="options_scroll">パック間をスワイプで切り替えるを有効にする（スクロール方向に対して垂直）</string>
-	<string name="options_icons_per_x_lbl">"行数: "</string>
-	<string name="options_icon_size_status_lbl">"アイコンサイズ: "</string>
-	<!-- 情報 -->
-	<string name="info_heading">情報</string>
-	<string name="info_text">EweStickerは、サポートされているメッセージングアプリでさまざまなカスタムステッカーを共有するために特別に設計されたAndroidステッカーキーボードアプリです。このプロジェクトはuStickerプロジェクトからインスパイアを受け、woostickerリポジトリのフォークです。</string>
-	<!-- 特徴 -->
-	<string name="features_heading">特徴</string>
-	<string name="features_text">"EweSticker Androidアプリは、メッセージング体験を向上させるために以下の主要な機能を提供します:
+    <string name="pack_icon">パックアイコン</string>
+    <string name="sticker_icon">ステッカーアイコン</string>
+    <string name="close_sticker_preview">[ステッカープレビューを閉じるにはタップ]</string>
+    <!-- キーボードを有効にする -->
+    <string name="enable_keyboard_heading">キーボードを有効にする</string>
+    <string name="enable_keyboard_button">設定を起動</string>
+    <!-- ステッカーパックを更新 -->
+    <string name="update_sticker_pack_heading">ステッカーパックを更新</string>
+    <string name="update_sticker_pack_button">ステッカーソースディレクトリを選択</string>
+    <string name="reload_sticker_pack_button">ステッカーを再読み込み</string>
+    <string name="update_sticker_pack_info">現在読み込まれているステッカーパック情報: </string>
+    <string name="update_sticker_pack_info_path_lbl">- パス: </string>
+    <string name="update_sticker_pack_info_path">未設定</string>
+    <string name="update_sticker_pack_info_date_lbl">- 日付: </string>
+    <string name="update_sticker_pack_info_date">なし</string>
+    <string name="update_sticker_pack_info_total_lbl">- 合計: </string>
+    <!-- オプション -->
+    <string name="options_heading">オプション</string>
+    <string name="options_show_back_button">ナビゲーションバーに戻るボタンを表示</string>
+    <string name="options_vertical">垂直レイアウトを使用</string>
+    <string name="options_restore_on_close">キーボードを閉じた際に前回のキーボードを復元</string>
+    <string name="options_scroll">パック間をスワイプで切り替えるを有効にする（スクロール方向に対して垂直）</string>
+    <string name="options_icons_per_x_lbl">"行数: "</string>
+    <string name="options_icon_size_status_lbl">"アイコンサイズ: "</string>
+    <!-- 情報 -->
+    <string name="info_heading">情報</string>
+    <string name="info_text">EweStickerは、サポートされているメッセージングアプリでさまざまなカスタムステッカーを共有するために特別に設計されたAndroidステッカーキーボードアプリです。このプロジェクトはuStickerプロジェクトからインスパイアを受け、woostickerリポジトリのフォークです。</string>
+    <!-- 特徴 -->
+    <string name="features_heading">特徴</string>
+    <string name="features_text">"EweSticker Androidアプリは、メッセージング体験を向上させるために以下の主要な機能を提供します:
 
 - **多様なカスタムステッカー対応**: EweStickerは多様なステッカーフォーマットをサポートし、ユーザーがさまざまな方法でクリエイティビティを共有できるようにします。サポートされるフォーマットにはimage/gif、image/png、image/webp、image/jpeg、image/heif、video/3gpp、video/mp4、video/x-matroska、およびvideo/webmが含まれます。
 
@@ -44,30 +44,30 @@
 - **ロングプレスでのステッカープレビュー**: ステッカーの選択を容易にするため、ユーザーはステッカーを長押ししてプレビューを表示できます。この機能により、ステッカーコレクションを別途開かずに素早く共有したいステッカーを選択できます。
 
 EweStickerは幅広いカスタマイズオプション、多様なフォーマットのサポート、メッセージングアプリとの統合を提供します。ユーザーが静止画、アニメーションGIF、または短いビデオを共有している場合でも、このアプリはカスタムステッカーを使用したコミュニケーションの魅力的で表現豊かな方法を提供することを目指しています。</string>
-	<!-- 使い方 -->
-	<string name="how_to_use_heading">使い方</string>
-	<string name="how_to_use_text">ステッカーを含むディレクトリを選択し、お気に入りのアプリで送信してください！</string>
-	<!-- ライセンス -->
-	<string name="license_heading">MITライセンス</string>
-	<string name="license_text">"Copyright © FredHappyface
+    <!-- 使い方 -->
+    <string name="how_to_use_heading">使い方</string>
+    <string name="how_to_use_text">ステッカーを含むディレクトリを選択し、お気に入りのアプリで送信してください！</string>
+    <!-- ライセンス -->
+    <string name="license_heading">MITライセンス</string>
+    <string name="license_text">"Copyright © FredHappyface
 Copyright © Randy Zhou</string>
-	<!-- リンク -->
-	<string name="links_heading">リンク</string>
-	<string name="links_text">"- EweStickerのソースコードは https://github.com/FredHappyface/Android.EweSticker で利用可能です。
-
-- チュートリアルでは、ソフトウェアの使用を開始する一連の手順を紹介しています。新規の場合はこちらから始めてください: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
-
-- ヘルプガイドはスタート地点を提供し、一般的な問題について概説しています: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
-
-- MITライセンス
-(詳細についてはライセンスを参照 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-	<!-- インタラクティブメッセージ -->
-	<string name="pref_000">設定が変更されました。設定が適用されるようにキーボードを再読み込みしてください</string>
-	<string name="imported_010">インポートを開始しました。しばらく時間がかかることがあります！</string>
-	<string name="imported_020">%1$d ステッカーをインポートしました。新しいステッカーを表示するにはキーボードを再読み込みしてください</string>
-	<string name="imported_031">E031: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。最大ステッカー数に達しました</string>
-	<string name="imported_032">E032: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。最大パックサイズに達しました</string>
-	<string name="imported_033">E033: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。サポートされていないフォーマットが見つかりました</string>
-	<string name="imported_034">E034: ステッカーの再読み込みに失敗しました。ステッカーソースディレクトリを選択してみてください</string>
-	<string name="fallback_041">E041: ステッカーを変換する際に予期しないIOExceptionが発生しました</string>
+    <!-- リンク -->
+    <string name="links_heading">リンク</string>
+    <string name="links_text">- EweStickerのソースコードは https://github.com/FredHappyface/Android.EweSticker で利用可能です。
+\n
+\n- チュートリアルでは、ソフトウェアの使用を開始する一連の手順を紹介しています。新規の場合はこちらから始めてください: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+\n
+\n- ヘルプガイドはスタート地点を提供し、一般的な問題について概説しています: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+\n
+\n- MITライセンス
+\n(詳細についてはライセンスを参照 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
+    <!-- インタラクティブメッセージ -->
+    <string name="pref_000">設定が変更されました。設定が適用されるようにキーボードを再読み込みしてください</string>
+    <string name="imported_010">インポートを開始しました。しばらく時間がかかることがあります！</string>
+    <string name="imported_020">%1$d ステッカーをインポートしました。新しいステッカーを表示するにはキーボードを再読み込みしてください</string>
+    <string name="imported_031">E031: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。最大ステッカー数に達しました</string>
+    <string name="imported_032">E032: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。最大パックサイズに達しました</string>
+    <string name="imported_033">E033: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。サポートされていないフォーマットが見つかりました</string>
+    <string name="imported_034">E034: ステッカーの再読み込みに失敗しました。ステッカーソースディレクトリを選択してみてください</string>
+    <string name="fallback_041">E041: ステッカーを変換する際に予期しないIOExceptionが発生しました</string>
 </resources>
