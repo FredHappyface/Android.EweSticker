@@ -1,59 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
-	<!-- অ্যাপ তথ্য -->
-	<string name="pack_icon">প্যাক আইকন</string>
-	<string name="sticker_icon">স্টিকার আইকন</string>
-	<string name="close_sticker_preview">[স্টিকার প্রিভিউ বন্ধ করতে ট্যাপ করুন]</string>
-	<!-- কীবোর্ড সক্রিয় করুন -->
-	<string name="enable_keyboard_heading">কীবোর্ড সক্রিয় করুন</string>
-	<string name="enable_keyboard_button">সেটিংস চালান</string>
-	<!-- স্টিকার প্যাক আপডেট করুন -->
-	<string name="update_sticker_pack_heading">স্টিকার প্যাক আপডেট করুন</string>
-	<string name="update_sticker_pack_button">স্টিকার শোর্স ডিরেক্টরি চয়ন করুন</string>
-	<string name="reload_sticker_pack_button">স্টিকার পুনরায় লোড করুন</string>
-	<string name="update_sticker_pack_info">বর্তমান লোড করা স্টিকার প্যাকের তথ্য: </string>
-	<string name="update_sticker_pack_info_path_lbl">- পথ: </string>
-	<string name="update_sticker_pack_info_path">সেট করা হয়নি</string>
-	<string name="update_sticker_pack_info_date_lbl">- তারিখ: </string>
-	<string name="update_sticker_pack_info_date">কখনো না</string>
-	<string name="update_sticker_pack_info_total_lbl">- মোট: </string>
-	<!-- বিকল্পসমূহ -->
-	<string name="options_heading">বিকল্পসমূহ</string>
-	<string name="options_show_back_button">ন্যাভবারে ব্যাক বাটন দেখান</string>
-	<string name="options_vertical">ভার্টিক্যাল লেআউট ব্যবহার করুন</string>
-	<string name="options_restore_on_close">কীবোর্ড বন্ধ হলে পূর্বের কীবোর্ড পুনরুদ্ধার করুন</string>
-	<string name="options_scroll">প্যাক মধ্যে স্বাইপ সক্রিয় করুন (স্ক্রল দিকে লম্ব)</string>
-	<string name="options_icons_per_x_lbl">"সারির সংখ্যা: "</string>
-	<string name="options_icon_size_status_lbl">"আইকন সাইজ: "</string>
-	<!-- তথ্য -->
-	<string name="info_heading">তথ্য</string>
-	<string name="info_text">EweSticker হল একটি Android স্টিকার কীবোর্ড অ্যাপ্লিকেশন, যা সমর্থিত মেসেজিং অ্যাপ্সে বিভিন্ন ধরণের কাস্টম স্টিকার শেয়ার করতে উন্নত করা হয়েছে। এই প্রকল্পটি uSticker প্রকল্প থেকে ইন্সপাইরেশন পেয়েছে এবং ওস্টিকার সংরক্ষণের জন্য একটি প্রজ্ঞপতি প্রকল্পের একটি ফোর্ক।</string>
-	<!-- বৈশিষ্ট্যসমূহ -->
-	<string name="features_heading">বৈশিষ্ট্যসমূহ</string>
-	<string name="features_text">"EweSticker Android অ্যাপটি আপনার মেসেজিং অভিজ্ঞতাকে আরো সুন্দর করার জন্য নিম্নলিখিত প্রধান বৈশিষ্ট্যগুলি প্রদান করে:
-
-- **বিভিন্ন ধরণের কাস্টম স্টিকার সমর্থন**: EweSticker বিভিন্ন ধরণের স্টিকার ফর্ম্যাট সমর্থন করে, যাতে ব্যবহারকারীরা বিভিন্ন উপায়ে তাদের সৃজনাত্মকতা শেয়ার করতে পারে। সমর্থিত ফর্ম্যাট image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska, এবং video/webm অন্তর্ভুক্ত করে।
-
-- **স্টিকার শেয়ারিং সহজলভ্য**: ব্যবহারকারীরা আপনাতে পারেন স্টিকার সমর্থন করা মেসেজিং অ্যাপ্সে স্টিকার সহজলভ্য স্টিকার শেয়ার করতে, যেগুলি চমৎকার মিডিয়া শেয়ারিং সমর্থন করে ছবি/png হিসেবে একটি অপর্যাপ্ত পরিবর্তন।
-
-- **স্ক্রোলিং কাস্টমাইজেশন**: এই অ্যাপটি সমর্থন করে স্থা-প্রদর্শন অনুভাগ উভয় উপসর্গী এবং আভমুখী স্ক্রোলিং বিকল্প, যা ব্যবহারকারীদের তাদের পছন্দনীয় উপস্থিতি অনুসারে তাদের স্টিকার সংগ্রহ মধ্যে চলার সুযোগ দেয়।
-
-- **স্টিকার প্রিভিউ কাস্টমাইজেশন**: ব্যবহারকারীরা ম্যানিপুলেট স্টিকার প্রিভিউ সারির সংখ্যা এবং স্টিকার প্রিভিউ সাইজে স্বাধীনভাবে সাজানোর স্বাধীনভাবে ব্যবহার করতে পারেন, এটির দেখা অভিজ্ঞতার তাদের পছন্দের অনুসারে এবং ডিভাইসের স্ক্রীন মাত্রানুসারের মাপন অনুসারে।
-
-- **সিস্টেম থিম সাথে ইন্টিগ্রেশন**: EweSticker সিস্টেমের থিম সাথে সমন্বিতভাবে ইন্টিগ্রেট হয়, যাতে অ্যাপটির চেহারা ব্যবহারকারীর ডিভাইসের প্রয়োগের নির্দেশনা মেলে।
-
-- **স্টিকার প্রিভিউ দীর্ঘ প্রেস করে**: স্টিকার নির্বাচন সুবিধা সরল করতে, ব্যবহারকারীরা স্টিকার দীর্ঘ প্রেস করতে পারেন এবং একটি প্রিভিউ উদ্ভাবন করতে পারেন। এই সুবিধা ব্যবহারকারীদের ব্যবস্থাপনা ছাড়া স্টিকার সংগ্রহ প্রাপ্ত করার জন্য কোন স্টিকার তাদের চাওয়া স্থানে খোলার প্রয়োজন নেই।
-
-EweSticker কাস্টমাইজেশন বিকল্প, বিভিন্ন ফর্ম্যাট সমর্থন, এবং মেসেজিং অ্যাপ্স সংগতি আনতে। ব্যবহারকারীরা যখন স্থিতিক ছবি, গিফ বা সাধারণ video শেয়ার করছেন, এই অ্যাপটি স্থিতিক স্থিতিক উপায়ে স্টিকার ব্যবহার করার এবং কাস্টম স্টিকার ব্যবহার করার একটি মোবাইল এবং স্পষ্ট উপায় সরবরাহ করতে লক্ষ্য করে।</string>
-	<!-- কীভাবে ব্যবহার করবেন -->
-	<string name="how_to_use_heading">কীভাবে ব্যবহার করবেন</string>
-	<string name="how_to_use_text">একটি স্টিকার সংগ্রহ নির্বাচন করুন এবং তাদেরকে আপনার প্রিয় অ্যাপগুলিতে প্রেরণ করুন!</string>
-	<!-- লাইসেন্স -->
-	<string name="license_heading">মিট লাইসেন্স</string>
-	<string name="license_text">"কপিরাইট © ফ্রেডহ্যাপি ফেস
+    <!-- অ্যাপ তথ্য -->
+    <string name="pack_icon">প্যাক আইকন</string>
+    <string name="sticker_icon">স্টিকার আইকন</string>
+    <string name="close_sticker_preview">[স্টিকার প্রিভিউ বন্ধ করতে ট্যাপ করুন]</string>
+    <!-- কীবোর্ড সক্রিয় করুন -->
+    <string name="enable_keyboard_heading">কীবোর্ড সক্রিয় করুন</string>
+    <string name="enable_keyboard_button">সেটিংস চালান</string>
+    <!-- স্টিকার প্যাক আপডেট করুন -->
+    <string name="update_sticker_pack_heading">স্টিকার প্যাক আপডেট করুন</string>
+    <string name="update_sticker_pack_button">স্টিকার শোর্স ডিরেক্টরি চয়ন করুন</string>
+    <string name="reload_sticker_pack_button">স্টিকার পুনরায় লোড করুন</string>
+    <string name="update_sticker_pack_info">বর্তমান লোড করা স্টিকার প্যাকের তথ্য: </string>
+    <string name="update_sticker_pack_info_path_lbl">- পথ: </string>
+    <string name="update_sticker_pack_info_path">সেট করা হয়নি</string>
+    <string name="update_sticker_pack_info_date_lbl">- তারিখ: </string>
+    <string name="update_sticker_pack_info_date">কখনো না</string>
+    <string name="update_sticker_pack_info_total_lbl">- মোট: </string>
+    <!-- বিকল্পসমূহ -->
+    <string name="options_heading">বিকল্পসমূহ</string>
+    <string name="options_show_back_button">ন্যাভবারে ব্যাক বাটন দেখান</string>
+    <string name="options_vertical">ভার্টিক্যাল লেআউট ব্যবহার করুন</string>
+    <string name="options_restore_on_close">কীবোর্ড বন্ধ হলে পূর্বের কীবোর্ড পুনরুদ্ধার করুন</string>
+    <string name="options_scroll">প্যাক মধ্যে স্বাইপ সক্রিয় করুন (স্ক্রল দিকে লম্ব)</string>
+    <string name="options_icons_per_x_lbl">"সারির সংখ্যা: "</string>
+    <string name="options_icon_size_status_lbl">"আইকন সাইজ: "</string>
+    <!-- তথ্য -->
+    <string name="info_heading">তথ্য</string>
+    <string name="info_text">EweSticker হল একটি Android স্টিকার কীবোর্ড অ্যাপ্লিকেশন, যা সমর্থিত মেসেজিং অ্যাপ্সে বিভিন্ন ধরণের কাস্টম স্টিকার শেয়ার করতে উন্নত করা হয়েছে। এই প্রকল্পটি uSticker প্রকল্প থেকে ইন্সপাইরেশন পেয়েছে এবং ওস্টিকার সংরক্ষণের জন্য একটি প্রজ্ঞপতি প্রকল্পের একটি ফোর্ক।</string>
+    <!-- বৈশিষ্ট্যসমূহ -->
+    <string name="features_heading">বৈশিষ্ট্যসমূহ</string>
+    <string name="features_text">EweSticker Android অ্যাপটি আপনার মেসেজিং অভিজ্ঞতাকে আরো সুন্দর করার জন্য নিম্নলিখিত প্রধান বৈশিষ্ট্যগুলি প্রদান করে:
+\n
+\n- **বিভিন্ন ধরণের কাস্টম স্টিকার সমর্থন**: EweSticker বিভিন্ন ধরণের স্টিকার ফর্ম্যাট সমর্থন করে, যাতে ব্যবহারকারীরা বিভিন্ন উপায়ে তাদের সৃজনাত্মকতা শেয়ার করতে পারে। সমর্থিত ফর্ম্যাট image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska, এবং video/webm অন্তর্ভুক্ত করে।
+\n
+\n- **স্টিকার শেয়ারিং সহজলভ্য**: ব্যবহারকারীরা আপনাতে পারেন স্টিকার সমর্থন করা মেসেজিং অ্যাপ্সে স্টিকার সহজলভ্য স্টিকার শেয়ার করতে, যেগুলি চমৎকার মিডিয়া শেয়ারিং সমর্থন করে ছবি/png হিসেবে একটি অপর্যাপ্ত পরিবর্তন।
+\n
+\n- **স্ক্রোলিং কাস্টমাইজেশন**: এই অ্যাপটি সমর্থন করে স্থা-প্রদর্শন অনুভাগ উভয় উপসর্গী এবং আভমুখী স্ক্রোলিং বিকল্প, যা ব্যবহারকারীদের তাদের পছন্দনীয় উপস্থিতি অনুসারে তাদের স্টিকার সংগ্রহ মধ্যে চলার সুযোগ দেয়।
+\n
+\n- **স্টিকার প্রিভিউ কাস্টমাইজেশন**: ব্যবহারকারীরা ম্যানিপুলেট স্টিকার প্রিভিউ সারির সংখ্যা এবং স্টিকার প্রিভিউ সাইজে স্বাধীনভাবে সাজানোর স্বাধীনভাবে ব্যবহার করতে পারেন, এটির দেখা অভিজ্ঞতার তাদের পছন্দের অনুসারে এবং ডিভাইসের স্ক্রীন মাত্রানুসারের মাপন অনুসারে।
+\n
+\n- **সিস্টেম থিম সাথে ইন্টিগ্রেশন**: EweSticker সিস্টেমের থিম সাথে সমন্বিতভাবে ইন্টিগ্রেট হয়, যাতে অ্যাপটির চেহারা ব্যবহারকারীর ডিভাইসের প্রয়োগের নির্দেশনা মেলে।
+\n
+\n- **স্টিকার প্রিভিউ দীর্ঘ প্রেস করে**: স্টিকার নির্বাচন সুবিধা সরল করতে, ব্যবহারকারীরা স্টিকার দীর্ঘ প্রেস করতে পারেন এবং একটি প্রিভিউ উদ্ভাবন করতে পারেন। এই সুবিধা ব্যবহারকারীদের ব্যবস্থাপনা ছাড়া স্টিকার সংগ্রহ প্রাপ্ত করার জন্য কোন স্টিকার তাদের চাওয়া স্থানে খোলার প্রয়োজন নেই।
+\n
+\nEweSticker কাস্টমাইজেশন বিকল্প, বিভিন্ন পার্টে সমর্থন, এবং মেসেজিং অ্যাপস সংগতি আনতে। ব্যবহারকারীরা যখন স্থায়ী ছবি, গিফ বা সাধারণ ভিডিও শেয়ার করছেন, এই অ্যাপটি সস্থির উপায়ে স্টিকার ব্যবহার করার এবং কাস্টম স্টিকার ব্যবহার করার জন্য একটি মোবাইল এবং উপায় সরবরাহ করতে লক্ষ্য করে।</string>
+    <!-- কীভাবে ব্যবহার করবেন -->
+    <string name="how_to_use_heading">কীভাবে ব্যবহার করবেন</string>
+    <string name="how_to_use_text">একটি স্টিকার সংগ্রহ নির্বাচন করুন এবং তাদেরকে আপনার প্রিয় অ্যাপগুলিতে প্রেরণ করুন!</string>
+    <!-- লাইসেন্স -->
+    <string name="license_heading">মিট লাইসেন্স</string>
+    <string name="license_text">"কপিরাইট © ফ্রেডহ্যাপি ফেস
 কপিরাইট © র্যান্ডি জো"</string>
-	<!-- লিঙ্ক -->
-	<string name="links_heading">লিঙ্কস</string>
-	<string name="links_text">"- EweStickerের উৎসকোড উপলব্ধ https://github.com/FredHappyface/Android.EweSticker
+    <!-- লিঙ্ক -->
+    <string name="links_heading">লিঙ্কস</string>
+    <string name="links_text">"- EweStickerের উৎসকোড উপলব্ধ https://github.com/FredHappyface/Android.EweSticker
 
 - টিউটোরিয়ালগুলি আপনাকে সফলভাবে সফটওয়্যার ব্যবহার করার জন্য এক ধরনের ধরাধারিত ধাক্কা মেয়ে নিয়ে যায়। নতুন হলে এখানে শুরু করুন: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
 
@@ -61,13 +62,13 @@ EweSticker কাস্টমাইজেশন বিকল্প, বিভি
 
 - মিট লাইসেন্স
 (আরও তথ্যের জন্য লাইসেন্সটি দেখুন https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-	<!-- ইন্টারাক্টিভ মেসেজ -->
-	<string name="pref_000">পছন্দস্থান পরিবর্তন হয়েছে। সেটিংস প্রয়োগ করার জন্য কীবোর্ড পুনরায় লোড করুন</string>
-	<string name="imported_010">আমদানি শুরু হয়েছে। এটি কিছু সময় নিতে পারে!</string>
-	<string name="imported_020">%1$d টি স্টিকার আমদানি করা হয়েছে। নতুন স্টিকার দেখানোর জন্য কীবোর্ড পুনরায় লোড করুন</string>
-	<string name="imported_031">E031: কিছু স্টিকার আমদানি করা হয়নি (%1$d টি আমদানি করা হয়েছে)। সর্বাধিক স্টিকার পৌঁছানো হয়েছে</string>
-	<string name="imported_032">E032: কিছু স্টিকার আমদানি করা হয়নি (%1$d টি আমদানি করা হয়েছে)। সর্বমোট প্যাক সাইজ পৌঁছানো হয়েছে</string>
-	<string name="imported_033">E033: কিছু স্টিকার আমদানি করা হয়নি (%1$d টি আমদানি করা হয়েছে)। সমর্থিত ফর্ম্যাট পাওয়া হয়নি</string>
-	<string name="imported_034">E034: স্টিকার পুনরায় লোড করা যায়নি, স্টিকার শোর্স ডিরেক্টরি চয়ন করার চেষ্টা করুন</string>
-	<string name="fallback_041">E041: অপ্রত্যাশিত IOException যখন স্টিকার রুপান্তর করা হয়</string>
+    <!-- ইন্টারাক্টিভ মেসেজ -->
+    <string name="pref_000">পছন্দস্থান পরিবর্তন হয়েছে। সেটিংস প্রয়োগ করার জন্য কীবোর্ড পুনরায় লোড করুন</string>
+    <string name="imported_010">আমদানি শুরু হয়েছে। এটি কিছু সময় নিতে পারে!</string>
+    <string name="imported_020">%1$d টি স্টিকার আমদানি করা হয়েছে। নতুন স্টিকার দেখানোর জন্য কীবোর্ড পুনরায় লোড করুন</string>
+    <string name="imported_031">E031: কিছু স্টিকার আমদানি করা হয়নি (%1$d টি আমদানি করা হয়েছে)। সর্বাধিক স্টিকার পৌঁছানো হয়েছে</string>
+    <string name="imported_032">E032: কিছু স্টিকার আমদানি করা হয়নি (%1$d টি আমদানি করা হয়েছে)। সর্বমোট প্যাক সাইজ পৌঁছানো হয়েছে</string>
+    <string name="imported_033">E033: কিছু স্টিকার আমদানি করা হয়নি (%1$d টি আমদানি করা হয়েছে)। সমর্থিত ফর্ম্যাট পাওয়া হয়নি</string>
+    <string name="imported_034">E034: স্টিকার পুনরায় লোড করা যায়নি, স্টিকার শোর্স ডিরেক্টরি চয়ন করার চেষ্টা করুন</string>
+    <string name="fallback_041">E041: অপ্রত্যাশিত IOException যখন স্টিকার রুপান্তর করা হয়</string>
 </resources>
