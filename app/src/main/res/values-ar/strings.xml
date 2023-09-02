@@ -1,64 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="update_sticker_pack_info_total_lbl">- المجموع:</string>
-    <string name="options_heading">الخيارات</string>
-    <string name="options_icons_per_x_lbl">"عدد الأرصفة: "</string>
-    <string name="options_icon_size_status_lbl">"Icon size: "</string>
-    <string name="info_heading">المعلومات</string>
-    <string name="info_text">EweSticker is an Android sticker keyboard application, specifically designed for sharing a wide variety of custom stickers in supported Messaging apps. This project draws inspiration from the uSticker project and is a fork of the woosticker repository.</string>
-    <string name="features_heading">المعالم</string>
-    <string name="fallback_041">E041: Unexpected IOException when converting sticker</string>
-    <string name="pack_icon">Pack icon</string>
-    <string name="sticker_icon">Sticker icon</string>
-    <string name="close_sticker_preview">[الاختبار لإغلاق الملصقات استعراض أولي]</string>
-    <string name="enable_keyboard_heading">لوحة مفاتيح تمكينية</string>
-    <string name="enable_keyboard_button">الإطلاق</string>
-    <string name="update_sticker_pack_heading">Update Sticker Pack</string>
-    <string name="update_sticker_pack_button">دليل مصادر الملصقات المختارة</string>
-    <string name="reload_sticker_pack_button">أجهزة تحميل</string>
-    <string name="update_sticker_pack_info">معلومات عن الملصقات المحملة حاليا:</string>
-    <string name="update_sticker_pack_info_path_lbl">-</string>
-    <string name="update_sticker_pack_info_path">لا</string>
-    <string name="update_sticker_pack_info_date_lbl">- التاريخ:</string>
-    <string name="update_sticker_pack_info_date">أبداً</string>
-    <string name="options_show_back_button">اظهر الزر الخلفي في نافبار</string>
-    <string name="options_vertical">استخدام المخطط الرأسي</string>
-    <string name="options_restore_on_close">إعادة لوحة المفاتيح السابقة على لوحة المفاتيح</string>
-    <string name="options_scroll">تسرّب بين الأحزمة (منظار إلى اتجاه التنظيف)</string>
-    <string name="features_text">برنامج (إيوستيكر أندرويد) يعرض الملامح الرئيسية التالية لتعزيز خبرتك في التراسل:
-\n
-\n- ** الرنجة الغربية للزبائن العرفية المدعمة**: تدعم منظمة EweSticker مجموعة متنوعة من أشكال الملصقات، بما يكفل للمستعملين تقاسم إبداعهم بطرق مختلفة. وتشمل الأشكال الداعمة الصورة/الغم، والصورة/الصورة، والصورة/النسخ، والصورة/النسخ، والصورة/الصوت، والصورة/الحديقة، والفيديو/3غب، والفيديو/مبتر4، والفيديو/x-matroska، والفيديو/webm.
-\n
-\n- **Seamless Sticker Sharing**: ويمكن للمستعملين بسهولة أن يرسلوا ملصقات في إطار تطبيقات التراسل التي تدعم تبادل وسائط الإعلام العرفية باستخدام الصور/الدقائق كتراجع.
-\n
-\n- ** ويعرض هذا التطبيق خيارات التنظيف الرأسي والأفقي على حد سواء، مما يمكّن المستعملين من التنقل من خلال مجموعة الملصقات الخاصة بهم وفقا لتوجههم المفضل.
-\n
-\n- **Sticker Preview Customization**: ويتمتع المستعملون بحرية تعديل عدد الصفوف وحجم الملصقات التمهيدية، مع تكييف تجربة النظر مع أبعادها المتعلقة بفحص الإعجاب والجهاز.
-\n
-\n(إيوستيكر) يدمج بشكل لامع مع موضوع النظام
-\n
-\n- **Sticker Preview on Long Press**: ولتيسير اختيار الملصقات، يمكن للمستعملين أن يضغطوا على ملصق ليكشفوا عنه مسبقا. وتساعد هذه السمة المستعملين على تحديد الملصقات التي يريدون تقاسمها دون الحاجة إلى فتح مجموعة الملصقات بشكل منفصل.
-\n
-\nويجلب EweSticker طائفة واسعة من خيارات التكييف، والدعم المتنوع للشكل، والتكامل مع تطبيقات التراسل. وسواء كان المستعملون يتقاسمون الصور الثابتة، أو نظم المعلومات الجغرافية المتحركة، أو حتى أشرطة الفيديو القصيرة، فإن هذا التطبيق يهدف إلى توفير طريقة مؤثرة وصريحة للاتصال باستخدام الملصقات الجمركية.</string>
-    <string name="how_to_use_heading">How to Use</string>
-    <string name="how_to_use_text">اختيار دليل يحتوي على الملصقات وإرسالها في تطبيقاتك المفضلة!</string>
-    <string name="license_heading">MIT الترخيص</string>
-    <string name="license_text">حقوق التأليف والنشر
-\nراندي زو</string>
-    <string name="links_heading">الروابط</string>
-    <string name="links_text">- الرمز المصدري EweSticker متاح على الموقع: https://github.com/FredHappyface/ Android.EweSticker.
-\n
-\n- المعلمون يأخذونك من خلال سلسلة من الخطوات ليبدأوا باستخدام البرنامج ابدأ هنا إذا كنت جديد: https://github.com/FredHappyface/ Android.EweSticker/blob/main/documentation/tutorials
-\n
-\n- ويقدم دليل المساعدة نقطة انطلاق ويجمل مسائل مشتركة قد تكون لديكم: https://github.com/FredHappyface/ Android.EweSticker/blob/main/documentation/help
-\n
-\n- MIT الترخيص
-\n(انظر الترخيص لمزيد من المعلومات: https://github.com/FredHappyface/ Android.EweSticker/blob/main/LICENSE.md)</string>
-    <string name="pref_000">تغيرت الأفضليات Reload the keyboard for settings to apply</string>
-    <string name="imported_010">بدء الاستيراد هذا قد يستغرق بعض الوقت!</string>
-    <string name="imported_020">ملصقات مستوردة إعادة تحميل لوحة المفاتيح للملصقات الجديدة</string>
-    <string name="imported_031">E031: Some stickers failed to import (%1$d imported). ملصقات ماكس وصلت</string>
-    <string name="imported_032">E032: Some stickers failed to import (%1$d imported). حجم الحزمة القصوى</string>
-    <string name="imported_033">E033: Some stickers failed to import (%1$d imported). الأشكال غير المدعومة</string>
-    <string name="imported_034">E034: Reloading stickers failed, try choice a sticker source director</string>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
+	<!-- معلومات التطبيق -->
+	<string name="pack_icon">أيقونة الحزمة</string>
+	<string name="sticker_icon">أيقونة الملصق</string>
+	<string name="close_sticker_preview">[انقر لإغلاق معاينة الملصق]</string>
+	<!-- تمكين لوحة المفاتيح -->
+	<string name="enable_keyboard_heading">تمكين لوحة المفاتيح</string>
+	<string name="enable_keyboard_button">شغل الإعدادات</string>
+	<!-- تحديث حزمة الملصقات -->
+	<string name="update_sticker_pack_heading">تحديث حزمة الملصقات</string>
+	<string name="update_sticker_pack_button">اختر مجلد مصدر الملصقات</string>
+	<string name="reload_sticker_pack_button">إعادة تحميل الملصقات</string>
+	<string name="update_sticker_pack_info">معلومات حزم الملصقات المحمَّلة حاليًا: </string>
+	<string name="update_sticker_pack_info_path_lbl">- المسار: </string>
+	<string name="update_sticker_pack_info_path">لم يتم تحديده</string>
+	<string name="update_sticker_pack_info_date_lbl">- التاريخ: </string>
+	<string name="update_sticker_pack_info_date">أبدًا</string>
+	<string name="update_sticker_pack_info_total_lbl">- الإجمالي: </string>
+	<!-- الخيارات -->
+	<string name="options_heading">الخيارات</string>
+	<string name="options_show_back_button">إظهار زر الرجوع في شريط التنقل</string>
+	<string name="options_vertical">استخدام تخطيط عمودي</string>
+	<string name="options_restore_on_close">استعادة لوحة المفاتيح السابقة عند إغلاق لوحة المفاتيح</string>
+	<string name="options_scroll">تمكين التمرير بين الحزم (عرضيًا لاتجاه التمرير)</string>
+	<string name="options_icons_per_x_lbl">"عدد الصفوف: "</string>
+	<string name="options_icon_size_status_lbl">"حجم الأيقونة: "</string>
+	<!-- المعلومات -->
+	<string name="info_heading">المعلومات</string>
+	<string name="info_text">EweSticker هو تطبيق لوحة المفاتيح للملصقات على نظام Android، مصمم خصيصًا لمشاركة مجموعة متنوعة من الملصقات المخصصة في تطبيقات المراسلة المدعومة. يستلهم هذا المشروع من مشروع uSticker وهو نسخة مشعرة من مستودع woosticker.</string>
+	<!-- الميزات -->
+	<string name="features_heading">الميزات</string>
+	<string name="features_text">تقدم تطبيق EweSticker لنظام Android الميزات الرئيسية التالية لتعزيز تجربتك في الرسائل:
+
+- **دعم مجموعة واسعة من الملصقات المخصصة**: يدعم EweSticker مجموعة متنوعة من تنسيقات الملصقات، مما يضمن للمستخدمين مشاركة إبداعهم بطرق مختلفة. التنسيقات المدعومة تشمل image/gif، image/png، image/webp، image/jpeg، image/heif، فيديو/3gpp، فيديو/mp4، فيديو/x-matroska، وفيديو/webm.
+
+- **مشاركة الملصقات بسلاسة**: يمكن للمستخدمين بسهولة إرسال الملصقات داخل تطبيقات المراسلة التي تدعم مشاركة وسائط مخصصة باستخدام image/png كخيار احتياطي.
+
+- **التمرير قابل للتخصيص**: يقدم التطبيق خيارات للتمرير العمودي والأفقي، مما يتيح للمستخدمين التنقل في مجموعة الملصقات وفقًا لتوجيه تفضيلهم.
+
+- **تخصيص معاينة الملصقات**: يتيح للمستخدمين ضبط عدد الصفوف وحجم معاينة الملصقات، مما يتيح لهم تخصيص تجربة المشاهدة وفقًا لتفضيلاتهم وأبعاد شاشة الجهاز.
+
+- **تكامل مع سمة النظام**: يتكامل EweSticker بسلاسة مع سمة النظام، مما يضمن توافق مظهر التطبيق مع اختيارات المستخدم لتصميم الجهاز على مستوى النظام.
+
+- **معاينة الملصقات عند
+
+ الضغط المطول**: لتسهيل اختيار الملصقات، يمكن للمستخدمين الضغط بشكل مطول على الملصق لعرض معاينة. تساعد هذه الميزة المستخدمين على اختيار الملصق الذي يرغبون في مشاركته بسرعة دون الحاجة إلى فتح مجموعة الملصقات بشكل منفصل.
+
+EweSticker يقدم مجموعة واسعة من خيارات التخصيص، ودعم تنسيقات متنوعة، وتكامل مع تطبيقات المراسلة. سواء كان المستخدمون يشاركون صورًا ثابتة أو صور GIF متحركة أو حتى مقاطع فيديو قصيرة، يهدف التطبيق إلى توفير وسيلة مشوقة وتعبيرية للتواصل باستخدام الملصقات المخصصة.</string>
+	<!-- كيفية الاستخدام -->
+	<string name="how_to_use_heading">كيفية الاستخدام</string>
+	<string name="how_to_use_text">حدد مجلدًا يحتوي على الملصقات وأرسلها في تطبيقاتك المفضلة!</string>
+	<!-- الترخيص -->
+	<string name="license_heading">رخصة MIT</string>
+	<string name="license_text">"حقوق النشر © فريد هابي فيس
+حقوق النشر © راندي زو</string>
+	<!-- الروابط -->
+	<string name="links_heading">الروابط</string>
+	<string name="links_text">"- الشيفرة المصدرية لEweSticker متاحة على https://github.com/FredHappyface/Android.EweSticker
+
+- تأخذ الدروس بيدك خلال سلسلة من الخطوات لبدء استخدام البرنامج. ابدأ من هنا إذا كنت جديدًا: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+
+- دليل المساعدة يوفر نقطة انطلاق ويوضح المشكلات الشائعة التي قد تواجهها: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+
+- رخصة MIT
+(انظر الرخصة لمزيد من المعلومات https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
+	<!-- الرسائل التفاعلية -->
+	<string name="pref_000">تم تغيير التفضيلات. أعد تحميل لوحة المفاتيح لتطبيق الإعدادات</string>
+	<string name="imported_010">بدء عملية الاستيراد. قد يستغرق ذلك بعض الوقت!</string>
+	<string name="imported_020">تم استيراد %1$d ملصق. أعد تحميل لوحة المفاتيح لعرض الملصقات الجديدة</string>
+	<string name="imported_031">E031: فشل بعض الملصقات في الاستيراد (%1$d تم استيرادها). تم الوصول إلى الحد الأقصى للملصقات</string>
+	<string name="imported_032">E032: فشل بعض الملصقات في الاستيراد (%1$d تم استيرادها). تم الوصول إلى الحد الأقصى لحجم الحزمة</string>
+	<string name="imported_033">E033: فشل بعض الملصقات في الاستيراد (%1$d تم استيرادها). تم العثور على تنسيقات غير مدعومة</string>
+	<string name="imported_034">E034: فشلت عملية إعادة تحميل الملصقات، حاول اختيار مجلد مصدر الملصقات</string>
+	<string name="fallback_041">E041: حدث استثناء غير متوقع أثناء تحويل الملصق</string>
 </resources>
