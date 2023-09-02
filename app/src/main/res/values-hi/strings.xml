@@ -22,8 +22,8 @@
 	<string name="options_vertical">उद्देश्य खगोल उपयोग करें</string>
 	<string name="options_restore_on_close">कीबोर्ड बंद होने पर पिछली स्थिति को पुनर्स्थापित करें</string>
 	<string name="options_scroll">पैक के बीच स्वाइप को सक्षम करें (स्क्रॉल दिशा के पर्पेंडिक्युलर)</string>
-	<string name="options_icons_per_x_lbl">"पंक्तियों की संख्या: "</string>
-	<string name="options_icon_size_status_lbl">"आइकन आकार: "</string>
+	<string name="options_icons_per_x_lbl">पंक्तियों की संख्या: </string>
+	<string name="options_icon_size_status_lbl">आइकन आकार: </string>
 	<!-- Info -->
 	<string name="info_heading">जानकारी</string>
 	<string name="info_text">EweSticker एक Android स्टिकर कीबोर्ड एप्लिकेशन है, जिसे खासतर आपके पसंदीदा समर्थित संदेशन एप्लिकेशन्स में विभिन्न प्रकार के कस्टम स्टिकर साझा करने के लिए डिज़ाइन किया गया है। इस प्रोजेक्ट का प्रेरणा uSticker प्रोजेक्ट से मिली है और यह woosticker रिपॉजिटरी का एक फोर्क है।</string>
@@ -50,7 +50,7 @@ EweSticker विभिन्न संविदान विकल्पों,
 	<!-- License -->
 	<string name="license_heading">MIT लाइसेंस</string>
 	<string name="license_text">"कॉपीराइट © फ्रेडहैपीफेस
-कॉपीराइट © रैंडी ज़ो"
+कॉपीराइट © रैंडी ज़ो</string>
 
 	<!-- Links -->
 	<string name="links_heading">लिंक्स</string>
