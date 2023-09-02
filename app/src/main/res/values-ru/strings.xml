@@ -1,2 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="pack_icon">Значок пакета</string>
+    <string name="sticker_icon">Значок наклейки</string>
+    <string name="close_sticker_preview">[вверх к закрытому просмотру наклейки]</string>
+    <string name="enable_keyboard_heading">Включить клавиатуру</string>
+    <string name="imported_010">Начало импорта. Это может занять некоторое время!</string>
+    <string name="imported_032">E032: Некоторые наклейки не импортировали (%1$d). Макс размер пакета достиг</string>
+    <string name="imported_033">E033: Некоторые наклейки не импортировали (%1$d). Неподдерживаемые форматы найдены</string>
+    <string name="enable_keyboard_button">Настройка запуска</string>
+    <string name="update_sticker_pack_heading">Пакет наклейки обновления</string>
+    <string name="update_sticker_pack_button">Выберите папку источника наклейки</string>
+    <string name="reload_sticker_pack_button">Загрузить наклейки</string>
+    <string name="update_sticker_pack_info">Текущие загружаемые наклейки информации:</string>
+    <string name="update_sticker_pack_info_path_lbl">- Путь:</string>
+    <string name="update_sticker_pack_info_path">Не установлен</string>
+    <string name="update_sticker_pack_info_date_lbl">- Дата:</string>
+    <string name="update_sticker_pack_info_date">Никогда</string>
+    <string name="update_sticker_pack_info_total_lbl">- Всего:</string>
+    <string name="options_heading">Параметры</string>
+    <string name="options_show_back_button">Показывать кнопку назад в navbar</string>
+    <string name="options_vertical">Использовать вертикальную компоновку</string>
+    <string name="options_restore_on_close">Восстановление предыдущей клавиатуры на клавиатуре</string>
+    <string name="options_scroll">Включить прокрутку между пачками (перпендикулярно направлению прокрутки)</string>
+    <string name="options_icons_per_x_lbl">"Количество роев: "</string>
+    <string name="options_icon_size_status_lbl">"Размер иконы: "</string>
+    <string name="info_heading">Информация</string>
+    <string name="info_text">EweSticker - это приложение для клавиатуры Android, специально разработанное для обмена широким спектром пользовательских наклеек в поддерживаемых приложениях для обмена сообщениями. Этот проект черпает вдохновение из проекта uSticker и является вилкой репозитория виостикера.</string>
+    <string name="features_heading">Особенности</string>
+    <string name="features_text">Приложение EweSticker Android предлагает следующие ключевые функции для улучшения вашего опыта обмена сообщениями:
+\n
+\n**Wide Range of Custom Stickers Supported**: EweSticker поддерживает разнообразный набор форматов наклеек, гарантируя, что пользователи могут делиться своим творчеством различными способами. Поддерживаемые форматы включают изображения/gif, image/png, image/webp, image/jpeg, image/heif, видео/3gpp, видео/mp4, видео/x-matroska и видео/webm.
+\n
+\n- ** Безымянный стикер Разделение**: Пользователи могут легко отправлять наклейки в приложения для обмена сообщениями, которые поддерживают обмен пользовательскими СМИ с использованием изображения / png в качестве обрата.
+\n
+\n- **Настраиваемый свиток**: Приложение предлагает как вертикальные, так и горизонтальные варианты прокрутки, что позволяет пользователям перемещаться по своей коллекции наклейки в соответствии с их предпочтительной ориентацией.
+\n
+\n- **Sticker Preview Customization**: Пользователи имеют свободу регулировать количество рядов и размер превью наклейки, приспосабливая опыт просмотра к своим размерам экрана и устройства.
+\n
+\n- **Интеграция с System Theme**: EweSticker легко интегрируется с темой системы, гарантируя, что внешний вид приложения согласуется с выбором дизайна для всего пользователя.
+\n
+\n- **Sticker Preview on Long Press**: Чтобы облегчить выбор наклейки, пользователи могут долго нажимать на наклейку, чтобы показать предварительный просмотр. Эта функция помогает пользователям быстро решить, какой стикер они хотят поделиться без необходимости открывать коллекцию наклейки отдельно.
+\n
+\nEweSticker предлагает широкий спектр вариантов настройки, разнообразную поддержку формата и интеграцию с приложениями для обмена сообщениями. Независимо от того, обмениваются ли пользователи статическими изображениями, анимированными GIF или даже короткими видеороликами, приложение стремится предоставить увлекательный и выразительный способ общения с помощью пользовательских наклеек.</string>
+    <string name="how_to_use_heading">Как использовать</string>
+    <string name="how_to_use_text">Выберите каталог, содержащий наклейки и отправьте их в любимые приложения!</string>
+    <string name="license_heading">MIT Лицензия</string>
+    <string name="license_text">Авторское право © FredHappyface
+\nАвторское право © Рэнди Чжоу</string>
+    <string name="links_heading">Ссылки</string>
+    <string name="links_text">- Код источника для EweSticker доступен на https://github.com/FredHappyface/Android.EweSticker
+\n
+\n- Учебники берут вас за руку через ряд шагов, чтобы начать использовать программное обеспечение. Начните здесь, если вы новичок: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+\n
+\n- Справочное руководство предоставляет отправную точку и очерчивает общие вопросы, которые у вас могут быть: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+\n
+\n- MIT Лицензия
+\n(См. лицензию на дополнительную информацию https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md)</string>
+    <string name="pref_000">Предпочтения изменились. Перезагрузка клавиатуры для наложения</string>
+    <string name="imported_020">Импортированные %1$d наклейки. Перезагрузка клавиатуры для новых наклеек</string>
+    <string name="imported_031">E031: Некоторые наклейки не импортировали (%1$d). Макс наклейки</string>
+    <string name="imported_034">E034: Перезагрузка наклеек потерпела неудачу, попробуйте выбрать каталог наклейки</string>
+    <string name="fallback_041">E041: Неожиданный IOException при преобразовании наклейки</string>
+</resources>
