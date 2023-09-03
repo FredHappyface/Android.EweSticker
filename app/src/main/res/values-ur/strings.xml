@@ -1,2 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+	<!-- ایپ کی معلومات -->
+	<string name="app_name" translatable="false">EweSticker</string>
+	<string name="pack_icon">پیک آئکن</string>
+	<string name="sticker_icon">اسٹکر آئکن</string>
+	<string name="close_sticker_preview">[اسٹکر پیشنظری کو بند کرنے کے لئے ٹیپ کریں]</string>
+	<!-- کی بورڈ فعال کریں -->
+	<string name="enable_keyboard_heading">کی بورڈ فعال کریں</string>
+	<string name="enable_keyboard_button">سیٹنگز شروع کریں</string>
+	<!-- اپ ڈیٹ اسٹکر پیک -->
+	<string name="update_sticker_pack_heading">اپ ڈیٹ اسٹکر پیک</string>
+	<string name="update_sticker_pack_button">اسٹکر سورس ڈائریکٹری منتخب کریں</string>
+	<string name="reload_sticker_pack_button">اسٹکر دوبارہ لوڈ کریں</string>
+	<string name="update_sticker_pack_info">موجودہ لوڈ شدہ اسٹکر پیک کی معلومات: </string>
+	<string name="update_sticker_pack_info_path_lbl">- راہ: </string>
+	<string name="update_sticker_pack_info_path">مقرر نہیں</string>
+	<string name="update_sticker_pack_info_date_lbl">- تاریخ: </string>
+	<string name="update_sticker_pack_info_date">کبھی نہیں</string>
+	<string name="update_sticker_pack_info_total_lbl">- کل: </string>
+	<!-- اختیارات -->
+	<string name="options_heading">اختیارات</string>
+	<string name="options_show_back_button">نیویگیشن بار میں پیچھے جائیں کا بٹن دکھائیں</string>
+	<string name="options_vertical">عمودی لے آؤٹ استعمال کریں</string>
+	<string name="options_restore_on_close">کی بورڈ بند ہونے پر پچھلا کی بورڈ بحال کریں</string>
+	<string name="options_scroll">پیک کے درمیان میں چھلانے کی اجازت دیں (سکرول کی سمت کے عمودی)</string>
+	<string name="options_icons_per_x_lbl">"قطاروں کی تعداد: "</string>
+	<string name="options_icon_size_status_lbl">"آئکن سائز: "</string>
+	<!-- معلومات -->
+	<string name="info_heading">معلومات</string>
+	<string name="info_text">EweSticker ایک اینڈروئیڈ اسٹکر کی بورڈ ایپلیکیشن ہے، خصوصاً تصدیق شدہ میسیجنگ ایپس میں مختلف انوکھے اختیارات کے ساتھ اپنے کسٹم اسٹکر شیئر کرنے کے لئے ڈیزائن کی گئی ہے۔ یہ پروجیکٹ uSticker پروجیکٹ سے انسپائریشن حاصل کرتا ہے اور وووسٹکر مخزن کا فورک ہے۔</string>
+	<!-- خصوصیات -->
+	<string name="features_heading">خصوصیات</string>
+	<string name="features_text">"EweSticker اینڈروئیڈ ایپ آپ کے میسیجنگ تجربے کو بہتر بنانے کیلئے مندرجہ ذیل کی کلیدی خصوصیات پیش کرتا ہے:
+
+- **مختلف کسٹم اسٹکر کی وسیع تعداد کی حمایت**: EweSticker مختلف اسٹکر فارمیٹس کی وسیع تعداد کی حمایت کرتا ہے، یہ یقینی بناتا ہے کہ صارفین اپنی تخلیقیت مختلف طریقوں سے شیئر کر سکتے ہیں۔ حمایت کی جانے والی فارمیٹس میں تصویر/gif، تصویر/png، تصویر/webp، تصویر/jpeg، تصویر/heif، ویڈیو/3gpp، ویڈیو/mp4، ویڈیو/x-matroska، اور ویڈیو/webm شامل ہیں۔
+
+- **بلا مشکل اسٹکر شیئر کرنا**: صارفین اسٹکرز کو بہت آسانی سے شیئر کر سکتے ہیں جو کسٹم میڈیا شیئر کرنے کی حمایت کرنے والے میسیجنگ ایپس کو استعمال کرتے ہیں، تصویر/png کو فال بیک اپنے لئے۔
+
+- **کسٹمائز اسکرول کرنا**: ایپ دونوں عمودی اور افقی اسکرول کرنے کے اختیارات فراہم کرتا ہے، جو صارفین کو ان کی ترجیح کے مطابق اپنی اسٹکر کلیکشن میں گشت کرنے کی اجازت دیتا ہے۔
+
+- **اسٹکر پیشنظری کو کسٹمائز کرنا**: صارفین کو صفوف کی تعداد اور اسٹکر پیشنظری کا سائز ترتیب دینے کی اجازت دیتا ہے، جو دیکھنے کی تجربے کو ان کی پسندیدگی اور ڈوائس اسکرین کے طراز کے مطابق ترتیب دینے میں مدد فراہم کرتا ہے۔
+
+- **سسٹم تھیم کے ساتھ انٹیگریشن**: EweSticker کو سسٹم کے تھیم کے ساتھ بے دردی سے انٹیگریٹ کیا گیا ہے، جو یقینی بناتا ہے کہ ایپ کی ظاہری صورت صارف کی ڈوائس کی وائیڈ ڈیزائن چوائس کے ساتھ ملتی ہے۔
+
+- **لمحہ اسٹکر پیشنظری پر لمگانا**: اسٹکر منتخب کرنے کو آسان بنانے کیلئے، صارفین اسٹکر کو لمحہ تک دبا کر پیشنظری دکھا سکتے ہیں۔ یہ خصوصیت صارفین کو جلدی فیصلہ کرنے میں مدد فراہم کرتی ہے بغیر اسٹکر کلیکشن کو الگ طور پر کھولنے کی ضرورت کے بغیر کونسا اسٹکر شیئر کرنا چاہتے ہیں۔
+
+EweSticker صارفین کو کئی مختلف ترتیبات کی وسیع تعداد کی حمایت، مختلف فارمیٹ کی حمایت، اور میسیجنگ ایپس کے ساتھ انٹیگریشن فراہم کرتا ہے۔ چاہے صارفین استاتیک تصاویر، اینیمیٹڈ GIFs، یا چھوٹے ویڈیوز کو شیئر کر رہے ہیں، یہ ایپ کسٹم اسٹکرز کا استعمال کرکے اپنے ارادے کو اظہار کرنے کے ایک دلچسپ اور اظہاری طریقے فراہم کرنے کا مقصد رکھتا ہے۔</string>
+	<!-- استعمال کرنے کا طریقہ -->
+	<string name="how_to_use_heading">استعمال کرنے کا طریقہ</string>
+	<string name="how_to_use_text">اسٹکرز کو شامل کرنے والی ڈائریکٹری کو منتخب کریں اور انہیں اپنے پسندیدہ ایپس میں بھیجیں!</string>
+	<!-- لائسنس -->
+	<string name="license_heading">MIT لائسنس</string>
+	<string name="license_text">"کاپی رائٹ © فریڈ ہیپی فیس
+کاپی رائٹ © رینڈی چو</string>
+	<!-- لنکس -->
+	<string name="links_heading">لنکس</string>
+	<string name="links_text">"- EweSticker کا سورس کوڈ https://github.com/FredHappyface/Android.EweSticker پر دستیاب ہے۔
+
+- ٹیوٹوریلز آپ کو استعمال کرنے کے لئے ایک سلسلہ کاروائیوں کے ذریعے لے جاتے ہیں۔ اگر آپ نئے ہیں تو یہاں سے شروع کریں: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+
+- مدد گائیڈ عمدہ آغاز فراہم کرتا ہے اور آپ کی سامنے آنے والی عام مسائل کی مختصر جائزہ دیتا ہے: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+
+- MIT لائسنس
+(مزید معلومات کے لئے لائسنس دیکھیں https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
+	<!-- انٹرایکٹو پیغامات -->
+	<string name="pref_000">ترتیبات تبدیل ہوگئی ہیں. ترتیبات کو اطلاق کرنے کے لئے کی بورڈ دوبارہ لوڈ کریں</string>
+	<string name="imported_010">شروع کریں منتقلی. اس میں کچھ وقت لگ سکتا ہے!</string>
+	<string name="imported_020">%1$d اسٹکر منتقل کر لئے گئے ہیں. نئے اسٹکرز دکھانے کے لئے کی بورڈ دوبارہ لوڈ کریں</string>
+	<string name="imported_031">E031: کچھ اسٹکر منتقل کرنے میں ناکامی (%1$d منتقل کیے گئے). زیادہ سے زیادہ اسٹکرز پہنچ گئے</string>
+	<string name="imported_032">E032: کچھ اسٹکر منتقل کرنے میں ناکامی (%1$d منتقل کیے گئے). زیادہ سے زیادہ پیک سائز پہنچ گیا</string>
+	<string name="imported_033">E033: کچھ اسٹکر منتقل کرنے میں ناکامی (%1$d منتقل کیے گئے). غیر معاون فارمیٹس پائے گئے</string>
+	<string name="imported_034">E034: اسٹکرز دوبارہ لوڈ کرنے میں ناکامی. ایک اسٹکر سورس ڈائریکٹری منتخب کرنے کا کوشش کریں</string>
+	<string name="fallback_041">E041: اسٹکر کو تبدیل کرنے کے دوران غیر متوقع IOException کا اعلان</string>
+</resources>
