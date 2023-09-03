@@ -1,2 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+	<!-- 应用信息 -->
+	<string name="app_name" translatable="false">EweSticker</string>
+	<string name="pack_icon">包图标</string>
+	<string name="sticker_icon">贴纸图标</string>
+	<string name="close_sticker_preview">[点击关闭贴纸预览]</string>
+	<!-- 启用键盘 -->
+	<string name="enable_keyboard_heading">启用键盘</string>
+	<string name="enable_keyboard_button">启动设置</string>
+	<!-- 更新贴纸包 -->
+	<string name="update_sticker_pack_heading">更新贴纸包</string>
+	<string name="update_sticker_pack_button">选择贴纸源目录</string>
+	<string name="reload_sticker_pack_button">重新加载贴纸</string>
+	<string name="update_sticker_pack_info">当前已加载的贴纸包信息: </string>
+	<string name="update_sticker_pack_info_path_lbl">- 路径: </string>
+	<string name="update_sticker_pack_info_path">未设置</string>
+	<string name="update_sticker_pack_info_date_lbl">- 日期: </string>
+	<string name="update_sticker_pack_info_date">从不</string>
+	<string name="update_sticker_pack_info_total_lbl">- 总数: </string>
+	<!-- 选项 -->
+	<string name="options_heading">选项</string>
+	<string name="options_show_back_button">在导航栏中显示返回按钮</string>
+	<string name="options_vertical">使用垂直布局</string>
+	<string name="options_restore_on_close">在键盘关闭时还原上一个键盘</string>
+	<string name="options_scroll">启用在贴纸包之间滑动（垂直于滚动方向）</string>
+	<string name="options_icons_per_x_lbl">"行数: "</string>
+	<string name="options_icon_size_status_lbl">"图标大小: "</string>
+	<!-- 信息 -->
+	<string name="info_heading">信息</string>
+	<string name="info_text">EweSticker 是一款专为在支持的消息应用程序中分享各种自定义贴纸而设计的 Android 贴纸键盘应用程序。该项目从 uSticker 项目中汲取灵感，是 woosticker 存储库的分支。</string>
+	<!-- 特性 -->
+	<string name="features_heading">特性</string>
+	<string name="features_text">"EweSticker Android 应用程序提供以下关键特性，以增强您的消息体验:
+
+- **支持广泛的自定义贴纸**: EweSticker 支持多种贴纸格式，确保用户可以以各种方式分享他们的创意。支持的格式包括image/gif、image/png、image/webp、image/jpeg、image/heif、video/3gpp、video/mp4、video/x-matroska video/webm。
+
+- **无缝贴纸分享**: 用户可以在支持自定义媒体共享的消息应用程序中轻松发送贴纸，以image/png作为后备。
+
+- **可定制的滚动**: 该应用程序提供垂直和水平滚动选项，使用户可以根据其首选方向浏览贴纸收藏。
+
+- **贴纸预览定制**: 用户可以自由调整行数和贴纸预览大小，以适应其喜好和设备屏幕尺寸，从而定制查看体验。
+
+- **与系统主题集成**: EweSticker 与系统主题无缝集成，确保应用程序的外观与用户设备的设计选择相一致。
+
+- **长按显示贴纸预览**: 为了便于选择贴纸，用户可以长按贴纸以显示预览。这个功能帮助用户在不需要单独打开贴纸收藏的情况下快速决定要分享哪个贴纸。
+
+EweSticker 提供了广泛的定制选项、多种格式支持以及与消息应用程序的集成。无论用户是分享静态图像、动画 GIF 还是短视频，该应用程序旨在提供一种 engaging 和富有表现力的方式来使用自定义贴纸进行通信。</string>
+
+	<!-- 如何使用 -->
+	<string name="how_to_use_heading">如何使用</string>
+	<string name="how_to_use_text">选择包含贴纸的目录，然后将它们发送到您喜爱的应用程序中！</string>
+	<!-- 许可证 -->
+	<string name="license_heading">MIT 许可证</string>
+	<string name="license_text">"版权 © FredHappyface
+版权 © Randy Zhou</string>
+	<!-- 链接 -->
+	<string name="links_heading">链接</string>
+	<string name="links_text">"- EweSticker 的源代码可在 https://github.com/FredHappyface/Android.EweSticker 上获得
+
+- 教程将逐步引导您开始使用该软件。如果您是新手，请从这里开始: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+
+- 帮助指南提供了一个起点，并概述了您可能遇到的常见问题: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+
+- MIT 许可证
+（有关更多信息，请参阅许可证 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md）</string>
+	<!-- 交互消息 -->
+	<string name="pref_000">首选项已更改。重新加载键盘以应用设置</string>
+	<string name="imported_010">开始导入。这可能需要一些时间！</string>
+	<string name="imported_020">已导入 %1$d 个贴纸。重新加载键盘以显示新贴纸</string>
+	<string name="imported_031">E031: 一些贴纸
+
+未能导入（已导入 %1$d 个）。已达到最大贴纸数</string>
+	<string name="imported_032">E032: 一些贴纸未能导入（已导入 %1$d 个）。已达到最大包大小</string>
+	<string name="imported_033">E033: 一些贴纸未能导入（已导入 %1$d 个）。发现不受支持的格式</string>
+	<string name="imported_034">E034: 重新加载贴纸失败，请尝试选择贴纸源目录</string>
+	<string name="fallback_041">E041: 在转换贴纸时发生意外的 IOException</string>
+</resources>
