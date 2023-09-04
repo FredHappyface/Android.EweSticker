@@ -11,12 +11,12 @@
     <string name="update_sticker_pack_heading">تحديث حزمة الملصقات</string>
     <string name="update_sticker_pack_button">اختر مجلد مصدر الملصقات</string>
     <string name="reload_sticker_pack_button">إعادة تحميل الملصقات</string>
-    <string name="update_sticker_pack_info">معلومات حزم الملصقات المحمَّلة حاليًا: </string>
-    <string name="update_sticker_pack_info_path_lbl">- المسار: </string>
+    <string name="update_sticker_pack_info">معلومات حزم الملصقات المحمَّلة حاليًا:</string>
+    <string name="update_sticker_pack_info_path_lbl">- المسار:</string>
     <string name="update_sticker_pack_info_path">لم يتم تحديده</string>
     <string name="update_sticker_pack_info_date_lbl">- التاريخ: </string>
     <string name="update_sticker_pack_info_date">أبدًا</string>
-    <string name="update_sticker_pack_info_total_lbl">- الإجمالي: </string>
+    <string name="update_sticker_pack_info_total_lbl">- الإجمالي:</string>
     <!-- الخيارات -->
     <string name="options_heading">الخيارات</string>
     <string name="options_show_back_button">إظهار زر الرجوع في شريط التنقل</string>
@@ -50,18 +50,18 @@
     <string name="how_to_use_text">حدد مجلدًا يحتوي على الملصقات وأرسلها في تطبيقاتك المفضلة!</string>
     <!-- الترخيص -->
     <string name="license_heading">رخصة MIT</string>
-    <string name="license_text">"حقوق النشر © فريد هابي فيس
-حقوق النشر © راندي زو</string>
+    <string name="license_text">حقوق النشر © فريد هابي فيس
+\nحقوق النشر © راندي زو</string>
     <!-- الروابط -->
     <string name="links_heading">الروابط</string>
-    <string name="links_text">"- الشيفرة المصدرية لEweSticker متاحة على https://github.com/FredHappyface/Android.EweSticker
-
-- تأخذ الدروس بيدك خلال سلسلة من الخطوات لبدء استخدام البرنامج. ابدأ من هنا إذا كنت جديدًا: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
-
-- دليل المساعدة يوفر نقطة انطلاق ويوضح المشكلات الشائعة التي قد تواجهها: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
-
-- رخصة MIT
-(انظر الرخصة لمزيد من المعلومات https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
+    <string name="links_text">- الشيفرة المصدرية لEweSticker متاحة على https://github.com/FredHappyface/Android.EweSticker
+\n
+\n- تأخذ الدروس بيدك خلال سلسلة من الخطوات لبدء استخدام البرنامج. ابدأ من هنا إذا كنت جديدًا: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+\n
+\n- دليل المساعدة يوفر نقطة انطلاق ويوضح المشكلات الشائعة التي قد تواجهها: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+\n
+\n- رخصة MIT
+\n(انظر الرخصة لمزيد من المعلومات https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <!-- الرسائل التفاعلية -->
     <string name="pref_000">تم تغيير التفضيلات. أعد تحميل لوحة المفاتيح لتطبيق الإعدادات</string>
     <string name="imported_010">بدء عملية الاستيراد. قد يستغرق ذلك بعض الوقت!</string>
