@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name" translatable="false">EweSticker</string>
-	<string name="pack_icon">Ícone do Pacote</string>
-	<string name="sticker_icon">Ícone do Adesivo</string>
-	<string name="close_sticker_preview">[toque para fechar a pré-visualização de adesivos]</string>
-	<!-- Habilitar Teclado -->
-	<string name="enable_keyboard_heading">Habilitar Teclado</string>
-	<string name="enable_keyboard_button">Abrir Configurações</string>
-	<!-- Atualizar Pacote de Adesivos -->
-	<string name="update_sticker_pack_heading">Atualizar Pacote de Adesivos</string>
-	<string name="update_sticker_pack_button">Escolher diretório de origem dos adesivos</string>
-	<string name="reload_sticker_pack_button">Recarregar adesivos</string>
-	<string name="update_sticker_pack_info">Informações atuais dos pacotes de adesivos carregados: </string>
-	<string name="update_sticker_pack_info_path_lbl">- Diretório: </string>
-	<string name="update_sticker_pack_info_path">Não definido</string>
-	<string name="update_sticker_pack_info_date_lbl">- Data: </string>
-	<string name="update_sticker_pack_info_date">Nunca</string>
-	<string name="update_sticker_pack_info_total_lbl">- Total: </string>
-	<!-- Opções -->
-	<string name="options_heading">Opções</string>
-	<string name="options_show_back_button">Mostrar botão de voltar na barra de navegação</string>
-	<string name="options_vertical">Usar layout vertical</string>
-	<string name="options_restore_on_close">Restaurar teclado anterior ao fechar o teclado</string>
-	<string name="options_scroll">Habilitar deslize entre pacotes (perpendicular à direção de rolagem)</string>
-	<string name="options_icons_per_x_lbl">"Número de Linhas: "</string>
-	<string name="options_icon_size_status_lbl">"Tamanho do ícone: "</string>
-	<!-- Informações -->
-	<string name="info_heading">Informações</string>
-	<string name="info_text">O EweSticker é um aplicativo de teclado de adesivos para Android, projetado especificamente para compartilhar uma grande variedade de adesivos personalizados em aplicativos de mensagens suportados. Este projeto se inspira no projeto uSticker e é um fork do repositório woosticker.</string>
-	<!-- Recursos -->
-	<string name="features_heading">Recursos</string>
-	<string name="features_text">"O aplicativo Android EweSticker oferece os seguintes recursos principais para aprimorar sua experiência de mensagens:
-
-- **Suporte a uma ampla variedade de adesivos personalizados**: o EweSticker oferece suporte a diversos formatos de adesivos, garantindo que os usuários possam compartilhar sua criatividade de várias maneiras. Os formatos suportados incluem imagem/gif, imagem/png, imagem/webp, imagem/jpeg, imagem/heif, vídeo/3gpp, vídeo/mp4, vídeo/x-matroska e vídeo/webm.
-
-- **Compartilhamento de adesivos sem costura**: os usuários podem enviar adesivos facilmente em aplicativos de mensagens que suportam o compartilhamento de mídia personalizada usando imagem/png como alternativa.
-
-- **Rolagem personalizável**: o aplicativo oferece opções de rolagem vertical e horizontal, permitindo que os usuários naveguem por sua coleção de adesivos de acordo com sua orientação preferida.
-
-- **Personalização da pré-visualização de adesivos**: os usuários têm a liberdade de ajustar o número de linhas e o tamanho da pré-visualização de adesivos, personalizando a experiência de visualização de acordo com suas preferências e dimensões da tela do dispositivo.
-
-- **Integração com o Tema do Sistema**: o EweSticker integra-se perfeitamente com o tema do sistema, garantindo que a aparência do aplicativo esteja alinhada com as escolhas de design em todo o dispositivo do usuário.
-
-- **Pré-visualização de adesivos ao pressionar e segurar**: para facilitar a seleção de adesivos, os usuários podem pressionar e segurar um adesivo para revelar uma pré-visualização. Esse recurso ajuda os usuários a decidir rapidamente qual adesivo desejam compartilhar, sem a necessidade de abrir a coleção de adesivos separadamente.
-
-O EweSticker oferece uma ampla variedade de opções de personalização, suporte a formatos diversos e integração com aplicativos de mensagens. Se os usuários estão compartilhando imagens estáticas, GIFs animados ou até mesmo vídeos curtos, o aplicativo tem como objetivo fornecer uma maneira envolvente e expressiva de se comunicar usando adesivos personalizados.</string>
-	<!-- Como Usar -->
-	<string name="how_to_use_heading">Como Usar</string>
-	<string name="how_to_use_text">Selecione um diretório contendo adesivos e envie-os em seus aplicativos favoritos!</string>
-	<!-- Licença -->
-	<string name="license_heading">Licença MIT</string>
-	<string name="license_text">"Direitos autorais © FredHappyface
+    <string name="app_name" translatable="false">EweSticker</string>
+    <string name="pack_icon">Ícone do Pacote</string>
+    <string name="sticker_icon">Ícone do Adesivo</string>
+    <string name="close_sticker_preview">[toque para fechar a pré-visualização de adesivos]</string>
+    <!-- Habilitar Teclado -->
+    <string name="enable_keyboard_heading">Habilitar Teclado</string>
+    <string name="enable_keyboard_button">Abrir Configurações</string>
+    <!-- Atualizar Pacote de Adesivos -->
+    <string name="update_sticker_pack_heading">Atualizar Pacote de Adesivos</string>
+    <string name="update_sticker_pack_button">Escolher diretório de origem dos adesivos</string>
+    <string name="reload_sticker_pack_button">Recarregar adesivos</string>
+    <string name="update_sticker_pack_info">Informações atuais dos pacotes de adesivos carregados:</string>
+    <string name="update_sticker_pack_info_path_lbl">- Diretório:</string>
+    <string name="update_sticker_pack_info_path">Não definido</string>
+    <string name="update_sticker_pack_info_date_lbl">- Data: </string>
+    <string name="update_sticker_pack_info_date">Nunca</string>
+    <string name="update_sticker_pack_info_total_lbl">- Total: </string>
+    <!-- Opções -->
+    <string name="options_heading">Opções</string>
+    <string name="options_show_back_button">Mostrar botão de voltar na barra de navegação</string>
+    <string name="options_vertical">Usar layout vertical</string>
+    <string name="options_restore_on_close">Restaurar teclado anterior ao fechar o teclado</string>
+    <string name="options_scroll">Habilitar deslize entre pacotes (perpendicular à direção de rolagem)</string>
+    <string name="options_icons_per_x_lbl">"Número de Linhas: "</string>
+    <string name="options_icon_size_status_lbl">"Tamanho do ícone: "</string>
+    <!-- Informações -->
+    <string name="info_heading">Informações</string>
+    <string name="info_text">O EweSticker é um aplicativo de teclado de adesivos para Android, projetado especificamente para compartilhar uma grande variedade de adesivos personalizados em aplicativos de mensagens suportados. Este projeto se inspira no projeto uSticker e é um fork do repositório woosticker.</string>
+    <!-- Recursos -->
+    <string name="features_heading">Recursos</string>
+    <string name="features_text">O aplicativo Android EweSticker oferece os seguintes recursos principais para aprimorar sua experiência de mensagens:
+\n
+\n- **Suporte a uma ampla variedade de adesivos personalizados**: o EweSticker oferece suporte a diversos formatos de adesivos, garantindo que os usuários possam compartilhar sua criatividade de várias maneiras. Os formatos suportados incluem imagem/gif, imagem/png, imagem/webp, imagem/jpeg, imagem/heif, vídeo/3gpp, vídeo/mp4, vídeo/x-matroska e vídeo/webm.
+\n
+\n- **Compartilhamento de adesivos sem costura**: os usuários podem enviar adesivos facilmente em aplicativos de mensagens que suportam o compartilhamento de mídia personalizada usando imagem/png como alternativa.
+\n
+\n- **Rolagem personalizável**: o aplicativo oferece opções de rolagem vertical e horizontal, permitindo que os usuários naveguem por sua coleção de adesivos de acordo com sua orientação preferida.
+\n
+\n- **Personalização da pré-visualização de adesivos**: os usuários têm a liberdade de ajustar o número de linhas e o tamanho da pré-visualização de adesivos, personalizando a experiência de visualização de acordo com suas preferências e dimensões da tela do dispositivo.
+\n
+\n- **Integração com o Tema do Sistema**: o EweSticker integra-se perfeitamente com o tema do sistema, garantindo que a aparência do aplicativo esteja alinhada com as escolhas de design em todo o dispositivo do usuário.
+\n
+\n- **Pré-visualização de adesivos ao pressionar e segurar**: para facilitar a seleção de adesivos, os usuários podem pressionar e segurar um adesivo para revelar uma pré-visualização. Esse recurso ajuda os usuários a decidir rapidamente qual adesivo desejam compartilhar, sem a necessidade de abrir a coleção de adesivos separadamente.
+\n
+\nO EweSticker oferece uma ampla variedade de opções de personalização, suporte a formatos diversos e integração com aplicativos de mensagens. Se os usuários estão compartilhando imagens estáticas, GIFs animados ou até mesmo vídeos curtos, o aplicativo tem como objetivo fornecer uma maneira envolvente e expressiva de se comunicar usando adesivos personalizados.</string>
+    <!-- Como Usar -->
+    <string name="how_to_use_heading">Como Usar</string>
+    <string name="how_to_use_text">Selecione um diretório contendo adesivos e envie-os em seus aplicativos favoritos!</string>
+    <!-- Licença -->
+    <string name="license_heading">Licença MIT</string>
+    <string name="license_text">"Direitos autorais © FredHappyface
 Direitos autorais © Randy Zhou</string>
-	<!-- Links -->
-	<string name="links_heading">Links</string>
-	<string name="links_text">"- O código-fonte do EweSticker está disponível em https://github.com/FredHappyface/Android.EweSticker
-
-- Os tutoriais o guiarão passo a passo para começar a usar o software. Comece aqui se você for iniciante: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
-
-- O guia de ajuda fornece um ponto de partida e destaca problemas comuns que você pode encontrar: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
-
-- Licença MIT
-(Consulte a licença para obter mais informações em https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-	<!-- Mensagens Interativas -->
-	<string name="pref_000">Preferências alteradas. Recarregue o teclado para que as configurações se apliquem</string>
-	<string name="imported_010">Iniciando a importação. Isso pode levar algum tempo!</string>
-	<string name="imported_020">Importados %1$d adesivos. Recarregue o teclado para mostrar os novos adesivos</string>
-	<string name="imported_031">E031: Alguns adesivos não puderam ser importados (%1$d importados). Limite máximo de adesivos atingido</string>
-	<string name="imported_032">E032: Alguns adesivos não puderam ser importados (%1$d importados). Tamanho máximo do pacote atingido</string>
-	<string name="imported_033">E033: Alguns adesivos não puderam ser importados (%1$d importados). Formatos não suportados encontrados</string>
-	<string name="imported_034">E034: Falha ao recarregar adesivos, tente escolher um diretório de origem dos adesivos</string>
-	<string name="fallback_041">E041: IOException inesperada ao converter adesivo</string>
+    <!-- Links -->
+    <string name="links_heading">Links</string>
+    <string name="links_text">- O código-fonte do EweSticker está disponível em https://github.com/FredHappyface/Android.EweSticker
+\n
+\n- Os tutoriais o guiarão passo a passo para começar a usar o software. Comece aqui se você for iniciante: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+\n
+\n- O guia de ajuda fornece um ponto de partida e destaca problemas comuns que você pode encontrar: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+\n
+\n- Licença MIT
+\n(Consulte a licença para obter mais informações em https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
+    <!-- Mensagens Interativas -->
+    <string name="pref_000">Preferências alteradas. Recarregue o teclado para que as configurações se apliquem</string>
+    <string name="imported_010">Iniciando a importação. Isso pode levar algum tempo!</string>
+    <string name="imported_020">Importados %1$d adesivos. Recarregue o teclado para mostrar os novos adesivos</string>
+    <string name="imported_031">E031: Alguns adesivos não puderam ser importados (%1$d importados). Limite máximo de adesivos atingido</string>
+    <string name="imported_032">E032: Alguns adesivos não puderam ser importados (%1$d importados). Tamanho máximo do pacote atingido</string>
+    <string name="imported_033">E033: Alguns adesivos não puderam ser importados (%1$d importados). Formatos não suportados encontrados</string>
+    <string name="imported_034">E034: Falha ao recarregar adesivos, tente escolher um diretório de origem dos adesivos</string>
+    <string name="fallback_041">E041: IOException inesperada ao converter adesivo</string>
 </resources>
