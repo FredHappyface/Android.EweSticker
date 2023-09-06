@@ -11,12 +11,12 @@
     <string name="update_sticker_pack_heading">Sticker-Pack aktualisieren</string>
     <string name="update_sticker_pack_button">Sticker-Quellverzeichnis auswählen</string>
     <string name="reload_sticker_pack_button">Sticker neu laden</string>
-    <string name="update_sticker_pack_info">Aktuelle Informationen zu geladenen Sticker-Packs: </string>
-    <string name="update_sticker_pack_info_path_lbl">- Pfad: </string>
+    <string name="update_sticker_pack_info">Aktuelle Informationen zu geladenen Sticker-Packs:</string>
+    <string name="update_sticker_pack_info_path_lbl">- Pfad:</string>
     <string name="update_sticker_pack_info_path">Nicht festgelegt</string>
-    <string name="update_sticker_pack_info_date_lbl">- Datum: </string>
+    <string name="update_sticker_pack_info_date_lbl">- Datum:</string>
     <string name="update_sticker_pack_info_date">Nie</string>
-    <string name="update_sticker_pack_info_total_lbl">- Gesamt: </string>
+    <string name="update_sticker_pack_info_total_lbl">- Gesamt:</string>
     <!-- Optionen -->
     <string name="options_heading">Optionen</string>
     <string name="options_show_back_button">Zurück-Button in der Navigationsleiste anzeigen</string>
@@ -50,8 +50,8 @@
     <string name="how_to_use_text">Wähle ein Verzeichnis mit Stickern aus und sende sie in deinen Lieblings-Apps!</string>
     <!-- Lizenz -->
     <string name="license_heading">MIT Lizenz</string>
-    <string name="license_text">"Copyright © FredHappyface
-Copyright © Randy Zhou</string>
+    <string name="license_text">Copyright © FredHappyface
+\nCopyright © Randy Zhou</string>
     <!-- Links -->
     <string name="links_heading">Links</string>
     <string name="links_text">"- Der Quellcode für EweSticker ist verfügbar unter https://github.com/FredHappyface/Android.EweSticker
