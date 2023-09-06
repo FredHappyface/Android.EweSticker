@@ -6,7 +6,8 @@
 [![License](https://img.shields.io/github/license/FredHappyface/Android.EweSticker.svg?style=for-the-badge&cacheSeconds=28800)](/LICENSE.md)
 [![Commit activity](https://img.shields.io/github/commit-activity/m/FredHappyface/Android.EweSticker.svg?style=for-the-badge&cacheSeconds=28800)](../../commits/master)
 [![Last commit](https://img.shields.io/github/last-commit/FredHappyface/Android.EweSticker.svg?style=for-the-badge&cacheSeconds=28800)](../../commits/master)
-[![GitHub all releases](https://img.shields.io/github/downloads/FredHappyface/Android.EweSticker/total?style=for-the-badge)](../../releases)
+[![GitHub all releases](https://img.shields.io/github/downloads/FredHappyface/Android.EweSticker/total?style=for-the-badge&cacheSeconds=28800)](../../releases)
+[![Weblate project translated](https://img.shields.io/weblate/progress/ewesticker.svg?style=for-the-badge&cacheSeconds=28800)](https://hosted.weblate.org/engage/ewesticker/)
 
 <!-- omit in toc -->
 # Android.EweSticker
