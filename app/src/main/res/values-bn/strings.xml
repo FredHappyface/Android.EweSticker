@@ -11,12 +11,12 @@
     <string name="update_sticker_pack_heading">স্টিকার প্যাক আপডেট করুন</string>
     <string name="update_sticker_pack_button">স্টিকার শোর্স ডিরেক্টরি চয়ন করুন</string>
     <string name="reload_sticker_pack_button">স্টিকার পুনরায় লোড করুন</string>
-    <string name="update_sticker_pack_info">বর্তমান লোড করা স্টিকার প্যাকের তথ্য: </string>
-    <string name="update_sticker_pack_info_path_lbl">- পথ: </string>
+    <string name="update_sticker_pack_info">বর্তমান লোড করা স্টিকার প্যাকের তথ্য:</string>
+    <string name="update_sticker_pack_info_path_lbl">- পথ:</string>
     <string name="update_sticker_pack_info_path">সেট করা হয়নি</string>
-    <string name="update_sticker_pack_info_date_lbl">- তারিখ: </string>
+    <string name="update_sticker_pack_info_date_lbl">- তারিখ:</string>
     <string name="update_sticker_pack_info_date">কখনো না</string>
-    <string name="update_sticker_pack_info_total_lbl">- মোট: </string>
+    <string name="update_sticker_pack_info_total_lbl">- মোট:</string>
     <!-- বিকল্পসমূহ -->
     <string name="options_heading">বিকল্পসমূহ</string>
     <string name="options_show_back_button">ন্যাভবারে ব্যাক বাটন দেখান</string>
@@ -50,18 +50,18 @@
     <string name="how_to_use_text">একটি স্টিকার সংগ্রহ নির্বাচন করুন এবং তাদেরকে আপনার প্রিয় অ্যাপগুলিতে প্রেরণ করুন!</string>
     <!-- লাইসেন্স -->
     <string name="license_heading">মিট লাইসেন্স</string>
-    <string name="license_text">"কপিরাইট © ফ্রেডহ্যাপি ফেস
-কপিরাইট © র্যান্ডি জো"</string>
+    <string name="license_text">কপিরাইট © ফ্রেডহ্যাপি ফেস
+\nকপিরাইট © র্যান্ডি জো</string>
     <!-- লিঙ্ক -->
     <string name="links_heading">লিঙ্কস</string>
-    <string name="links_text">"- EweStickerের উৎসকোড উপলব্ধ https://github.com/FredHappyface/Android.EweSticker
-
-- টিউটোরিয়ালগুলি আপনাকে সফলভাবে সফটওয়্যার ব্যবহার করার জন্য এক ধরনের ধরাধারিত ধাক্কা মেয়ে নিয়ে যায়। নতুন হলে এখানে শুরু করুন: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
-
-- সাহায্য গাইড একটি শুরুপ্রয়াস প্রদান করে এবং আপনি যে সাধারণ সমস্যা নিয়ে বাধা পান তা প্রতিপাদন করে: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
-
-- মিট লাইসেন্স
-(আরও তথ্যের জন্য লাইসেন্সটি দেখুন https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
+    <string name="links_text">- EweStickerের উৎসকোড উপলব্ধ https://github.com/FredHappyface/Android.EweSticker
+\n
+\n- টিউটোরিয়ালগুলি আপনাকে সফলভাবে সফটওয়্যার ব্যবহার করার জন্য এক ধরনের ধরাধারিত ধাক্কা মেয়ে নিয়ে যায়। নতুন হলে এখানে শুরু করুন: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+\n
+\n- সাহায্য গাইড একটি শুরুপ্রয়াস প্রদান করে এবং আপনি যে সাধারণ সমস্যা নিয়ে বাধা পান তা প্রতিপাদন করে: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+\n
+\n- মিট লাইসেন্স
+\n(আরও তথ্যের জন্য লাইসেন্সটি দেখুন https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <!-- ইন্টারাক্টিভ মেসেজ -->
     <string name="pref_000">পছন্দস্থান পরিবর্তন হয়েছে। সেটিংস প্রয়োগ করার জন্য কীবোর্ড পুনরায় লোড করুন</string>
     <string name="imported_010">আমদানি শুরু হয়েছে। এটি কিছু সময় নিতে পারে!</string>
