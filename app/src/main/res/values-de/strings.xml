@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
+<resources>
     <!-- App-Informationen -->
     <string name="pack_icon">Pack-Symbol</string>
     <string name="sticker_icon">Sticker-Symbol</string>
@@ -71,4 +71,6 @@
     <string name="imported_033">E033: Einige Sticker konnten nicht importiert werden (%1$d importiert). Nicht unterstützte Formate gefunden</string>
     <string name="imported_034">E034: Neuladen der Sticker fehlgeschlagen, versuche ein Sticker-Quellverzeichnis auszuwählen</string>
     <string name="fallback_041">E041: Unerwarteter IOException beim Konvertieren des Stickers</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s (Paket: %2$s)</string>
 </resources>

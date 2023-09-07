@@ -34,6 +34,15 @@ tasks.register("genDocs") {
 android {
 	compileSdk = 33
 	buildToolsVersion = "34.0.0"
+	namespace = "com.fredhappyface.ewesticker"
+
+	kotlinOptions {
+		jvmTarget = "17"
+	}
+
+	androidResources {
+		generateLocaleConfig = true
+	}
 
 	defaultConfig {
 		applicationId = "com.fredhappyface.ewesticker"
@@ -48,7 +57,6 @@ android {
 	buildTypes {
 		getByName("debug") { versionNameSuffix = "-debug" }
 		getByName("release") {
-			// versionNameSuffix = "-release"
 			proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
 			isMinifyEnabled = false
 		}
@@ -58,9 +66,6 @@ android {
 		sourceCompatibility(JavaVersion.VERSION_17)
 		targetCompatibility(JavaVersion.VERSION_17)
 	}
-
-	kotlinOptions { jvmTarget = "17" }
-	namespace = "com.fredhappyface.ewesticker"
 }
 
 dependencies {
@@ -74,11 +79,10 @@ dependencies {
 	implementation("io.coil-kt:coil-gif:2.4.0")
 	implementation("io.coil-kt:coil-video:2.4.0")
 	implementation("androidx.gridlayout:gridlayout:1.0.0")
+	implementation("io.noties.markwon:core:4.6.2")
 	testImplementation("junit:junit:4.13.2")
 	testImplementation("androidx.test.ext:junit:1.1.5")
 	testImplementation("androidx.test.espresso:espresso-core:3.5.1")
-	implementation("com.google.code.gson:gson:2.10.1")
-	implementation("io.noties.markwon:core:4.6.2")
 }
 
 ktlint {

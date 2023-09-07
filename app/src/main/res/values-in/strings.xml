@@ -71,4 +71,6 @@
     <string name="imported_033">E033: Beberapa stiker gagal diimpor (%1$d diimpor). Format yang tidak didukung ditemukan</string>
     <string name="imported_034">E034: Gagal memuat ulang stiker, coba pilih direktori sumber stiker</string>
     <string name="fallback_041">E041: IOException yang tidak diharapkan saat mengonversi stiker</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s (Paket: %2$s)</string>
 </resources>

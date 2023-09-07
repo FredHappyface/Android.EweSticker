@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- ایپ کی معلومات -->
-    <string name="app_name" translatable="false">EweSticker</string>
     <string name="pack_icon">پیک آئکن</string>
     <string name="sticker_icon">اسٹکر آئکن</string>
     <string name="close_sticker_preview">[اسٹکر پیشنظری کو بند کرنے کے لئے ٹیپ کریں]</string>
@@ -72,4 +71,6 @@
     <string name="imported_033">E033: کچھ اسٹکر منتقل کرنے میں ناکامی (%1$d منتقل کیے گئے). غیر معاون فارمیٹس پائے گئے</string>
     <string name="imported_034">E034: اسٹکرز دوبارہ لوڈ کرنے میں ناکامی. ایک اسٹکر سورس ڈائریکٹری منتخب کرنے کا کوشش کریں</string>
     <string name="fallback_041">E041: اسٹکر کو تبدیل کرنے کے دوران غیر متوقع IOException کا اعلان</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s (پیک: %2$s)</string>
 </resources>

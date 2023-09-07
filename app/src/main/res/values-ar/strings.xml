@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
+<resources>
     <!-- معلومات التطبيق -->
     <string name="pack_icon">أيقونة الحزمة</string>
     <string name="sticker_icon">أيقونة الملصق</string>
@@ -71,4 +71,6 @@
     <string name="imported_033">E033: فشل بعض الملصقات في الاستيراد (%1$d تم استيرادها). تم العثور على تنسيقات غير مدعومة</string>
     <string name="imported_034">E034: فشلت عملية إعادة تحميل الملصقات، حاول اختيار مجلد مصدر الملصقات</string>
     <string name="fallback_041">E041: حدث استثناء غير متوقع أثناء تحويل الملصق</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s (حزمة: %2$s)</string>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 应用信息 -->
-    <string name="app_name" translatable="false">EweSticker</string>
     <string name="pack_icon">包图标</string>
     <string name="sticker_icon">贴纸图标</string>
     <string name="close_sticker_preview">[点击关闭贴纸预览]</string>
@@ -72,4 +71,6 @@
     <string name="imported_033">E033: 一些贴纸未能导入（已导入 %1$d 个）。发现不受支持的格式</string>
     <string name="imported_034">E034: 重新加载贴纸失败，请尝试选择贴纸源目录</string>
     <string name="fallback_041">E041: 在转换贴纸时发生意外的 IOException</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s（包： %2$s）</string>
 </resources>

@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
+<resources>
 	<!-- App info -->
 	<string name="app_name" translatable="false">EweSticker</string>
 	<string name="pack_icon">Pack icon</string>
@@ -57,7 +57,7 @@ Copyright © Randy Zhou</string>
 	<string name="links_heading">Links</string>
 	<string name="links_text">"- The source code for EweSticker is available at https://github.com/FredHappyface/Android.EweSticker
 
-- The tutorials take you by the hand through a series of steps to get started using the software. Start here if you're new: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+- The tutorials take you by the hand through a series of steps to get started using the software. Start here if you’re new: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
 
 - The help guide provides a starting point and outlines common issues that you may have: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
 
@@ -72,4 +72,6 @@ Copyright © Randy Zhou</string>
 	<string name="imported_033">E033: Some stickers failed to import (%1$d imported). Unsupported formats found</string>
 	<string name="imported_034">E034: Reloading stickers failed, try choosing a sticker source directory</string>
 	<string name="fallback_041">E041: Unexpected IOException when converting sticker</string>
+	<!-- Keyboard -->
+	<string name="sticker_pack_info">%1$s (Pack: %2$s)</string>
 </resources>

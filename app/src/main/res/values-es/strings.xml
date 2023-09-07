@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
+<resources>
     <!-- App info -->
     <string name="pack_icon">Ícono del paquete</string>
     <string name="sticker_icon">Ícono del sticker</string>
@@ -71,4 +71,6 @@
     <string name="imported_033">E033: Algunos pegatinas no importaron (%1$d importado).Formatos no compatibles encontrados</string>
     <string name="imported_034">E034: Falló la recarga de stickers, intenta seleccionar un directorio de origen de stickers</string>
     <string name="fallback_041">E041: IOException inesperado al convertir la pegatina</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s (Paquete: %2$s)</string>
 </resources>
