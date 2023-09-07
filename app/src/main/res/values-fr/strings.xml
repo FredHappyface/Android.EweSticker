@@ -27,21 +27,21 @@
     <string name="info_heading">Infos</string>
     <string name="info_text">EweSticker est une application de clavier d\'autocollant Android, spécialement conçue pour partager une grande variété d\'autocollants personnalisés dans les applications de messagerie prises en charge. Ce projet s\'inspire du projet uSticker et est une fourche du dépôt woosticker.</string>
     <string name="features_heading">Caractéristiques</string>
-    <string name="features_text">L\'application EweSticker Android offre les fonctionnalités clés suivantes pour améliorer votre expérience de messagerie:
-\n
-\n- **Wide Range of Custom Stickers Soutenu**: EweSticker prend en charge un ensemble varié de formats d\'autocollants, assurant que les utilisateurs peuvent partager leur créativité de différentes manières. Les formats supportés incluent image/gif, image/png, image/webp, image/jpeg, image/hif, vidéo/3gpp, vidéo/mp4, vidéo/x-matroska et vidéo/webm.
-\n
-\n- ** Partage sans soudure**: Les utilisateurs peuvent facilement envoyer des autocollants dans les applications de messagerie qui supportent le partage de médias personnalisés en utilisant image/png comme un revers.
-\n
-\n- ** Scrolling personnalisable**: L\'application offre des options de défilement vertical et horizontal, permettant aux utilisateurs de naviguer à travers leur collection d\'autocollants selon leur orientation préférée.
-\n
-\n- **Sticker Preview Customization**: Les utilisateurs ont la liberté d\'ajuster le nombre de lignes et la taille de prévisualisation de l\'autocollant, en adaptant l\'expérience de visualisation à leurs dimensions d\'écran d\'appareil.
-\n
-\n- **Intégration avec le thème du système**: EweSticker s\'intègre parfaitement au thème du système, en veillant à ce que l\'apparence de l\'application s\'aligne avec les choix de conception de l\'appareil.
-\n
-\n- **Sticker Preview on Long Press**: Pour faciliter la sélection des autocollants, les utilisateurs peuvent faire pression sur un autocollant pour révéler un aperçu. Cette fonctionnalité aide les utilisateurs à décider rapidement quel autocollant ils veulent partager sans avoir à ouvrir la collection d\'autocollants séparément.
-\n
-\nEweSticker propose un large éventail d\'options de personnalisation, un support de format divers et une intégration avec des applications de messagerie. Que les utilisateurs partagent des images statiques, des GIF animés ou même des vidéos courtes, l\'application vise à fournir un moyen attrayant et expressif de communiquer en utilisant des autocollants personnalisés.</string>
+    <string name="features_text">"L'application Android EweSticker offre les fonctionnalités clés suivantes pour améliorer votre expérience de messagerie:
+
+- **Prise en charge d'une large gamme de stickers personnalisés** : EweSticker prend en charge une variété de formats de stickers, permettant aux utilisateurs de partager leur créativité de différentes manières. Les formats pris en charge incluent image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska, et video/webm.
+
+- **Partage de stickers transparent** : Les utilisateurs peuvent facilement envoyer des stickers dans les applications de messagerie qui prennent en charge le partage de médias personnalisés en utilisant image/png en tant qu'alternative.
+
+- **Défilement personnalisable** : L'application offre des options de défilement vertical et horizontal, permettant aux utilisateurs de naviguer dans leur collection de stickers selon leur orientation préférée.
+
+- **Personnalisation de l'aperçu des stickers** : Les utilisateurs ont la liberté d'ajuster le nombre de rangées et la taille de l'aperçu des stickers, adaptant ainsi l'expérience de visualisation à leurs préférences et aux dimensions de l'écran de leur appareil.
+
+- **Intégration avec le thème du système** : EweSticker s'intègre parfaitement avec le thème du système, garantissant que l'apparence de l'application corresponde aux choix de design à l'échelle de l'appareil de l'utilisateur.
+
+- **Aperçu des stickers par appui long** : Pour faciliter la sélection de stickers, les utilisateurs peuvent maintenir enfoncé un sticker pour afficher un aperçu. Cette fonctionnalité aide les utilisateurs à choisir rapidement le sticker qu'ils souhaitent partager sans avoir besoin d'ouvrir la collection de stickers séparément.
+
+EweSticker offre une large gamme d'options de personnalisation, prend en charge divers formats et s'intègre aux applications de messagerie. Que les utilisateurs partagent des images statiques, des GIF animés ou même de courtes vidéos, l'application vise à offrir un moyen engageant et expressif de communiquer à l'aide de stickers personnalisés.</string>
     <string name="how_to_use_heading">Comment l’utiliser</string>
     <string name="how_to_use_text">Sélectionnez un répertoire contenant des autocollants et envoyez-les dans vos applications préférées!</string>
     <string name="license_heading">Licence MIT</string>
