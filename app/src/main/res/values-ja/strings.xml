@@ -70,4 +70,6 @@
     <string name="imported_033">E033: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。サポートされていないフォーマットが見つかりました</string>
     <string name="imported_034">E034: ステッカーの再読み込みに失敗しました。ステッカーソースディレクトリを選択してみてください</string>
     <string name="fallback_041">E041: ステッカーを変換する際に予期しないIOExceptionが発生しました</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s（パック：%2$s）</string>
 </resources>

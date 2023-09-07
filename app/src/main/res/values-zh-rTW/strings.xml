@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 應用資訊 -->
-    <string name="app_name" translatable="false">EweSticker</string>
     <string name="pack_icon">套圖示</string>
     <string name="sticker_icon">貼圖示</string>
     <string name="close_sticker_preview">[點擊關閉貼圖預覽]</string>
@@ -72,4 +71,6 @@
     <string name="imported_033">E033: 一些貼圖未能導入（已導入 %1$d 個）。發現不受支援的格式</string>
     <string name="imported_034">E034: 重新載入貼圖失敗，請嘗試選擇貼圖來源目錄</string>
     <string name="fallback_041">E041: 在轉換貼圖時發生意外的 IOException</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s（包： %2$s）</string>
 </resources>

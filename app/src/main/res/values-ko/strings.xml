@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- 앱 정보 -->
-    <string name="app_name" translatable="false">EweSticker</string>
     <string name="pack_icon">팩 아이콘</string>
     <string name="sticker_icon">스티커 아이콘</string>
     <string name="close_sticker_preview">[스티커 미리보기 닫기를 탭하세요]</string>
@@ -72,4 +71,6 @@
     <string name="imported_033">E033: 일부 스티커 가져오기 실패 (%1$d개 가져옴). 지원하지 않는 형식을 발견함</string>
     <string name="imported_034">E034: 스티커 다시 불러오기 실패. 스티커 소스 디렉터리를 선택해보세요</string>
     <string name="fallback_041">E041: 스티커 변환 중 예기치 않은 IOException 발생</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s (팩: %2$s)</string>
 </resources>

@@ -338,8 +338,10 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		fSticker.layoutParams.width = this.fullIconSize
 		fSticker.load(sticker)
 		val fText = fullStickerLayout.findViewById<TextView>(R.id.stickerInfo)
-		fText.text =
-			"${trimString(sticker.name)} (Pack: ${trimString(sticker.parent.split('/').last())})"
+		val stickerName = trimString(sticker.name)
+		val packName = trimString(sticker.parent.split('/').last())
+		fText.text = getString(R.string.sticker_pack_info, stickerName, packName)
+
 		// Tap to exit popup
 		fullStickerLayout.setOnClickListener { this.keyboardRoot.removeView(it) }
 		fSticker.setOnClickListener { this.keyboardRoot.removeView(fullStickerLayout) }
@@ -417,6 +419,14 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 
 }
 
+/**
+ * trimString
+ *
+ * for strings longer than 32 chars, trim to 32 chars and add ellipsis ...
+ *
+ *  @param str: String
+ *  @return String
+ */
 fun trimString(str: String): String {
 	if (str.length > 32) {
 		return str.substring(0, 32) + "..."

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">EweSticker</string>
     <string name="pack_icon">Ícone do Pacote</string>
     <string name="sticker_icon">Ícone do Adesivo</string>
     <string name="close_sticker_preview">[toque para fechar a pré-visualização de adesivos]</string>
@@ -71,4 +70,6 @@ Direitos autorais © Randy Zhou</string>
     <string name="imported_033">E033: Alguns adesivos não puderam ser importados (%1$d importados). Formatos não suportados encontrados</string>
     <string name="imported_034">E034: Falha ao recarregar adesivos, tente escolher um diretório de origem dos adesivos</string>
     <string name="fallback_041">E041: IOException inesperada ao converter adesivo</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s (Pacote: %2$s)</string>
 </resources>

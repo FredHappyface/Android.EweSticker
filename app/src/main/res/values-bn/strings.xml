@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
+<resources>
     <!-- অ্যাপ তথ্য -->
     <string name="pack_icon">প্যাক আইকন</string>
     <string name="sticker_icon">স্টিকার আইকন</string>
@@ -71,4 +71,6 @@
     <string name="imported_033">E033: কিছু স্টিকার আমদানি করা হয়নি (%1$d টি আমদানি করা হয়েছে)। সমর্থিত ফর্ম্যাট পাওয়া হয়নি</string>
     <string name="imported_034">E034: স্টিকার পুনরায় লোড করা যায়নি, স্টিকার শোর্স ডিরেক্টরি চয়ন করার চেষ্টা করুন</string>
     <string name="fallback_041">E041: অপ্রত্যাশিত IOException যখন স্টিকার রুপান্তর করা হয়</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s (প্যাক: %2$s)</string>
 </resources>

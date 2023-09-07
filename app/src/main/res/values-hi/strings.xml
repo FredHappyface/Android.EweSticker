@@ -70,4 +70,6 @@
     <string name="imported_033">E033: कुछ स्टिकर्स का आयात असफल रहा (%1$d आयात किए गए)। असमर्थित प्रारूप मिला</string>
     <string name="imported_034">E034: स्टिकर्स को पुनः लोड करने में विफलता हुई, कृपया स्टिकर स्रोत निर्दिष्ट करने का प्रयास करें</string>
     <string name="fallback_041">E041: स्टिकर कन्वर्ट करते समय अप्रत्याशित IOException</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s (पैक: %2$s)</string>
 </resources>

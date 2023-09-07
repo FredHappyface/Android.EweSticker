@@ -247,7 +247,7 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	/** Reusable function to warn about changing preferences */
-	internal fun showChangedPrefText() {
+	private fun showChangedPrefText() {
 		this.toaster.toast(
 			getString(R.string.pref_000)
 		)
