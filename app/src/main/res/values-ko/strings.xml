@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- 앱 정보 -->
-    <string name="pack_icon">팩 아이콘</string>
-    <string name="sticker_icon">스티커 아이콘</string>
-    <string name="close_sticker_preview">[스티커 미리보기 닫기를 탭하세요]</string>
-    <!-- 키보드 활성화 -->
-    <string name="enable_keyboard_heading">키보드 활성화</string>
-    <string name="enable_keyboard_button">설정 시작</string>
-    <!-- 스티커 팩 업데이트 -->
-    <string name="update_sticker_pack_heading">스티커 팩 업데이트</string>
-    <string name="update_sticker_pack_button">스티커 소스 디렉터리 선택</string>
-    <string name="reload_sticker_pack_button">스티커 다시 불러오기</string>
-    <string name="update_sticker_pack_info">현재 로드된 스티커 팩 정보:</string>
-    <string name="update_sticker_pack_info_path_lbl">- 경로:</string>
-    <string name="update_sticker_pack_info_path">설정되지 않음</string>
-    <string name="update_sticker_pack_info_date_lbl">- 날짜:</string>
-    <string name="update_sticker_pack_info_date">없음</string>
-    <string name="update_sticker_pack_info_total_lbl">- 전체:</string>
-    <!-- 옵션 -->
-    <string name="options_heading">옵션</string>
-    <string name="options_show_back_button">네비게이션 바에 뒤로 가기 버튼 표시</string>
-    <string name="options_vertical">수직 레이아웃 사용</string>
-    <string name="options_restore_on_close">키보드 닫을 때 이전 키보드 복원</string>
-    <string name="options_scroll">팩 간 스와이프 활성화 (스크롤 방향과 수직)</string>
-    <string name="options_icons_per_x_lbl">"행 수: "</string>
-    <string name="options_icon_size_status_lbl">"아이콘 크기: "</string>
-    <!-- 정보 -->
-    <string name="info_heading">정보</string>
-    <string name="info_text">EweSticker는 Android 스티커 키보드 애플리케이션으로, 지원되는 메시징 앱에서 다양한 사용자 지정 스티커를 공유하기 위해 특별히 디자인되었습니다. 이 프로젝트는 uSticker 프로젝트에서 영감을 받아 woosticker 저장소의 포크입니다.</string>
-    <!-- 특징 -->
-    <string name="features_heading">특징</string>
-    <string name="features_text">EweSticker Android 앱은 다음과 같은 주요 기능을 제공하여 메시지 체험을 향상시킵니다:
+	<!-- App info -->
+	<string name="pack_icon">팩 아이콘</string>
+	<string name="sticker_icon">스티커 아이콘</string>
+	<string name="close_sticker_preview">[스티커 미리보기 닫기를 탭하세요]</string>
+	<!-- Enable Keyboard -->
+	<string name="enable_keyboard_heading">키보드 활성화</string>
+	<string name="enable_keyboard_button">설정 시작</string>
+	<!-- Update Sticker Pack -->
+	<string name="update_sticker_pack_heading">스티커 팩 업데이트</string>
+	<string name="update_sticker_pack_button">스티커 소스 디렉터리 선택</string>
+	<string name="reload_sticker_pack_button">스티커 다시 불러오기</string>
+	<string name="update_sticker_pack_info">현재 로드된 스티커 팩 정보:</string>
+	<string name="update_sticker_pack_info_path_lbl">- 경로:</string>
+	<string name="update_sticker_pack_info_path">설정되지 않음</string>
+	<string name="update_sticker_pack_info_date_lbl">- 날짜:</string>
+	<string name="update_sticker_pack_info_date">없음</string>
+	<string name="update_sticker_pack_info_total_lbl">- 전체:</string>
+	<!-- Options -->
+	<string name="options_heading">옵션</string>
+	<string name="options_show_back_button">네비게이션 바에 뒤로 가기 버튼 표시</string>
+	<string name="options_vertical">수직 레이아웃 사용</string>
+	<string name="options_restore_on_close">키보드 닫을 때 이전 키보드 복원</string>
+	<string name="options_scroll">팩 간 스와이프 활성화 (스크롤 방향과 수직)</string>
+	<string name="options_icons_per_x_lbl">"행 수: "</string>
+	<string name="options_icon_size_status_lbl">"아이콘 크기: "</string>
+	<!-- Info -->
+	<string name="info_heading">정보</string>
+	<string name="info_text">EweSticker는 Android 스티커 키보드 애플리케이션으로, 지원되는 메시징 앱에서 다양한 사용자 지정 스티커를 공유하기 위해 특별히 디자인되었습니다. 이 프로젝트는 uSticker 프로젝트에서 영감을 받아 woosticker 저장소의 포크입니다.</string>
+	<!-- Features -->
+	<string name="features_heading">특징</string>
+	<string name="features_text">EweSticker Android 앱은 다음과 같은 주요 기능을 제공하여 메시지 체험을 향상시킵니다:
 \n
 \n- **다양한 사용자 지정 스티커 지원**: EweSticker는 다양한 스티커 형식을 지원하여 사용자가 다양한 방법으로 창의력을 공유할 수 있도록 합니다. 지원되는 형식에는 image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska 및 video/webm이 포함됩니다.
 \n
@@ -45,16 +45,16 @@
 \n- **길게 눌러 스티커 미리보기**: 스티커 선택을 용이하게 하기 위해 사용자는 스티커를 길게 눌러 미리보기를 표시할 수 있습니다. 이 기능을 사용하면 사용자는 스티커 컬렉션을 별도로 열지 않고도 빠르게 공유할 스티커를 선택할 수 있습니다.
 \n
 \nEweSticker는 다양한 사용자 정의 옵션, 다양한 형식 지원 및 메시징 앱 통합을 제공합니다. 사용자가 정적 이미지, 애니메이션 GIF 또는 짧은 비디오를 공유하더라도 이 앱은 사용자 정의 스티커를 사용하여 의사 표현을 하는 데 흥미롭고 표현적인 방법을 제공하기 위한 것입니다.</string>
-    <!-- 사용 방법 -->
-    <string name="how_to_use_heading">사용 방법</string>
-    <string name="how_to_use_text">스티커를 포함한 디렉터리를 선택하고, 그것들을 좋아하는 앱으로 보내세요!</string>
-    <!-- 라이선스 -->
-    <string name="license_heading">MIT 라이선스</string>
-    <string name="license_text">저작권 © FredHappyface
+	<!-- How to use -->
+	<string name="how_to_use_heading">사용 방법</string>
+	<string name="how_to_use_text">스티커를 포함한 디렉터리를 선택하고, 그것들을 좋아하는 앱으로 보내세요!</string>
+	<!-- License -->
+	<string name="license_heading">MIT 라이선스</string>
+	<string name="license_text">저작권 © FredHappyface
 \n저작권 © Randy Zhou</string>
-    <!-- 링크 -->
-    <string name="links_heading">링크</string>
-    <string name="links_text">- EweSticker의 소스 코드는 https://github.com/FredHappyface/Android.EweSticker에서 제공됩니다.
+	<!-- Links -->
+	<string name="links_heading">링크</string>
+	<string name="links_text">- EweSticker의 소스 코드는 https://github.com/FredHappyface/Android.EweSticker에서 제공됩니다.
 \n
 \n- 튜토리얼은 소프트웨어 사용을 시작하기 위한 일련의 단계를 안내합니다. 처음 사용자라면 여기에서 시작하십시오: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
 \n
@@ -62,15 +62,15 @@
 \n
 \n- MIT 라이선스
 \n(자세한 정보는 라이선스에서 확인하십시오 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-    <!-- 대화식 메시지 -->
-    <string name="pref_000">설정이 변경되었습니다. 설정을 적용하려면 키보드를 다시 불러오세요</string>
-    <string name="imported_010">가져오기 시작. 시간이 걸릴 수 있습니다!</string>
-    <string name="imported_020">%1$d개의 스티커를 가져왔습니다. 새 스티커를 표시하려면 키보드를 다시 불러오세요</string>
-    <string name="imported_031">E031: 일부 스티커 가져오기 실패 (%1$d개 가져옴). 최대 스티커 개수에 도달함</string>
-    <string name="imported_032">E032: 일부 스티커 가져오기 실패 (%1$d개 가져옴). 최대 팩 크기에 도달함</string>
-    <string name="imported_033">E033: 일부 스티커 가져오기 실패 (%1$d개 가져옴). 지원하지 않는 형식을 발견함</string>
-    <string name="imported_034">E034: 스티커 다시 불러오기 실패. 스티커 소스 디렉터리를 선택해보세요</string>
-    <string name="fallback_041">E041: 스티커 변환 중 예기치 않은 IOException 발생</string>
-    <!-- Keyboard -->
-    <string name="sticker_pack_info">%1$s (팩: %2$s)</string>
+	<!-- Interactive Messages -->
+	<string name="pref_000">설정이 변경되었습니다. 설정을 적용하려면 키보드를 다시 불러오세요</string>
+	<string name="imported_010">가져오기 시작. 시간이 걸릴 수 있습니다!</string>
+	<string name="imported_020">%1$d개의 스티커를 가져왔습니다. 새 스티커를 표시하려면 키보드를 다시 불러오세요</string>
+	<string name="imported_031">E031: 일부 스티커 가져오기 실패 (%1$d개 가져옴). 최대 스티커 개수에 도달함</string>
+	<string name="imported_032">E032: 일부 스티커 가져오기 실패 (%1$d개 가져옴). 최대 팩 크기에 도달함</string>
+	<string name="imported_033">E033: 일부 스티커 가져오기 실패 (%1$d개 가져옴). 지원하지 않는 형식을 발견함</string>
+	<string name="imported_034">E034: 스티커 다시 불러오기 실패. 스티커 소스 디렉터리를 선택해보세요</string>
+	<string name="fallback_041">E041: 스티커 변환 중 예기치 않은 IOException 발생</string>
+	<!-- Keyboard -->
+	<string name="sticker_pack_info">%1$s (팩: %2$s)</string>
 </resources>
