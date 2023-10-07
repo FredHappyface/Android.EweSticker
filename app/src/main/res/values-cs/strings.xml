@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- App info -->
+	<string name="pack_icon">Pack icon</string>
+	<string name="sticker_icon">Sticker icon</string>
+	<string name="close_sticker_preview">[tap to close sticker preview]</string>
+	<!-- Enable Keyboard -->
+	<string name="enable_keyboard_heading">Enable Keyboard</string>
+	<string name="enable_keyboard_button">Launch Settings</string>
+	<!-- Update Sticker Pack -->
+	<string name="update_sticker_pack_heading">Update Sticker Pack</string>
+	<string name="update_sticker_pack_button">Choose sticker source directory</string>
+	<string name="reload_sticker_pack_button">Reload stickers</string>
+	<string name="update_sticker_pack_info">Current loaded sticker packs information: </string>
+	<string name="update_sticker_pack_info_path_lbl">- Path: </string>
+	<string name="update_sticker_pack_info_path">Not Set</string>
+	<string name="update_sticker_pack_info_date_lbl">- Date: </string>
+	<string name="update_sticker_pack_info_date">Never</string>
+	<string name="update_sticker_pack_info_total_lbl">- Total: </string>
+	<!-- Options -->
+	<string name="options_heading">Options</string>
+	<string name="options_show_back_button">Show back button in navbar</string>
+	<string name="options_vertical">Use vertical layout</string>
+	<string name="options_restore_on_close">Restore previous keyboard on keyboard close</string>
+	<string name="options_scroll">Enable swipe between packs (perpendicular to scroll direction)</string>
+	<string name="options_icons_per_x_lbl">"Number of Rows: "</string>
+	<string name="options_icon_size_status_lbl">"Icon size: "</string>
+	<!-- Info -->
+	<string name="info_heading">Info</string>
+	<string name="info_text">EweSticker is an Android sticker keyboard application, specifically designed for sharing a wide variety of custom stickers in supported messaging apps. This project draws inspiration from the uSticker project and is a fork of the woosticker repository.</string>
+	<!-- Features -->
+	<string name="features_heading">Features</string>
+	<string name="features_text">\"The EweSticker Android app offers the following key features to enhance your messaging experience:
+
+- **Wide Range of Custom Stickers Supported**: EweSticker supports a diverse set of sticker formats, ensuring that users can share their creativity in various ways. Supported formats include image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska, and video/webm.
+
+- **Seamless Sticker Sharing**: Users can easily send stickers within messaging apps that support custom media sharing using image/png as a fallback.
+
+- **Customizable Scrolling**: The app offers both vertical and horizontal scrolling options, enabling users to navigate through their sticker collection according to their preferred orientation.
+
+- **Sticker Preview Customization**: Users have the freedom to adjust the number of rows and the sticker preview size, tailoring the viewing experience to their liking and device screen dimensions.
+
+- **Integration with System Theme**: EweSticker seamlessly integrates with the system\'s theme, ensuring that the app\'s appearance aligns with the user\'s device-wide design choices.
+
+- **Sticker Preview on Long Press**: To facilitate sticker selection, users can long-press on a sticker to reveal a preview. This feature helps users quickly decide which sticker they want to share without the need to open the sticker collection separately.
+
+EweSticker brings a wide range of customization options, diverse format support, and integration with messaging apps. Whether users are sharing static images, animated GIFs, or even short videos, the app aims to provide an engaging and expressive way to communicate using custom stickers.</string>
+	<!-- How to use -->
+	<string name="how_to_use_heading">How to Use</string>
+	<string name="how_to_use_text">Select a directory containing stickers and send them in your favourite apps!</string>
+	<!-- License -->
+	<string name="license_heading">MIT License</string>
+	<string name="license_text">\"Copyright © FredHappyface
+Copyright © Randy Zhou</string>
+	<!-- Links -->
+	<string name="links_heading">Links</string>
+	<string name="links_text">\"- The source code for EweSticker is available at https://github.com/FredHappyface/Android.EweSticker
+
+- The tutorials take you by the hand through a series of steps to get started using the software. Start here if you’re new: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+
+- The help guide provides a starting point and outlines common issues that you may have: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+
+- MIT License
+(See the license for more information https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
+	<!-- Interactive Messages -->
+	<string name="pref_000">Preferences changed. Reload the keyboard for settings to apply</string>
+	<string name="imported_010">Starting import. This might take some time!</string>
+	<string name="imported_020">Imported %1$d stickers. Reload the keyboard for new stickers to show</string>
+	<string name="imported_031">E031: Some stickers failed to import (%1$d imported). Max stickers reached</string>
+	<string name="imported_032">E032: Some stickers failed to import (%1$d imported). Max pack size reached</string>
+	<string name="imported_033">E033: Some stickers failed to import (%1$d imported). Unsupported formats found</string>
+	<string name="imported_034">E034: Reloading stickers failed, try choosing a sticker source directory</string>
+	<string name="fallback_041">E041: Unexpected IOException when converting sticker</string>
+	<!-- Keyboard -->
+	<string name="sticker_pack_info">%1$s (Pack: %2$s)</string>
+</resources>
