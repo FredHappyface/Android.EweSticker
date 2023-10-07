@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- App info -->
-    <string name="pack_icon">Ícono del paquete</string>
-    <string name="sticker_icon">Ícono del sticker</string>
-    <string name="close_sticker_preview">[Toque para cerrar la vista previa de la etiqueta]</string>
-    <!-- Enable Keyboard -->
-    <string name="enable_keyboard_heading">Habilitar teclado</string>
-    <string name="enable_keyboard_button">Configuración de inicio</string>
-    <!-- Update Sticker Pack -->
-    <string name="update_sticker_pack_heading">Paquete de etiqueta actualización</string>
-    <string name="update_sticker_pack_button">Elija el directorio de fuente de la etiqueta</string>
-    <string name="update_sticker_pack_info">Paquetes de etiqueta cargada actual Información:</string>
-    <string name="reload_sticker_pack_button">Recargar pegatinas</string>
-    <string name="update_sticker_pack_info_path_lbl">- Sendero:</string>
-    <string name="update_sticker_pack_info_path">No se establece</string>
-    <string name="update_sticker_pack_info_date_lbl">- Fecha:</string>
-    <string name="update_sticker_pack_info_date">Nunca</string>
-    <string name="update_sticker_pack_info_total_lbl">- Total:</string>
-    <!-- Options -->
-    <string name="options_heading">Opciones</string>
-    <string name="options_show_back_button">Mostrar botón atrás en navbar</string>
-    <string name="options_vertical">Usar layout vertical</string>
-    <string name="options_restore_on_close">Restaurar el teclado anterior al cerrar el teclado</string>
-    <string name="options_scroll">Habilitar el deslizamiento entre paquetes (perpendicular a la dirección de desplazamiento)</string>
-    <string name="options_icons_per_x_lbl">"Número de filas: "</string>
-    <string name="options_icon_size_status_lbl">"Tamaño del ícono: "</string>
-    <!-- Info -->
-    <string name="info_heading">Información</string>
-    <string name="info_text">EweSticker es una aplicación de teclado de stickers para Android, diseñada específicamente para compartir una amplia variedad de stickers personalizados en aplicaciones de mensajería compatibles. Este proyecto se inspira en el proyecto uSticker y es un fork del repositorio woosticker.</string>
-    <!-- Features -->
-    <string name="features_heading">Características</string>
-    <string name="features_text">La aplicación de Android EweSticker ofrece las siguientes características clave para mejorar tu experiencia de mensajería:
+	<!-- App info -->
+	<string name="pack_icon">Ícono del paquete</string>
+	<string name="sticker_icon">Ícono del sticker</string>
+	<string name="close_sticker_preview">[Toque para cerrar la vista previa de la etiqueta]</string>
+	<!-- Enable Keyboard -->
+	<string name="enable_keyboard_heading">Habilitar teclado</string>
+	<string name="enable_keyboard_button">Configuración de inicio</string>
+	<!-- Update Sticker Pack -->
+	<string name="update_sticker_pack_heading">Paquete de etiqueta actualización</string>
+	<string name="update_sticker_pack_button">Elija el directorio de fuente de la etiqueta</string>
+	<string name="reload_sticker_pack_button">Recargar pegatinas</string>
+	<string name="update_sticker_pack_info">Paquetes de etiqueta cargada actual Información:</string>
+	<string name="update_sticker_pack_info_path_lbl">- Sendero:</string>
+	<string name="update_sticker_pack_info_path">No se establece</string>
+	<string name="update_sticker_pack_info_date_lbl">- Fecha:</string>
+	<string name="update_sticker_pack_info_date">Nunca</string>
+	<string name="update_sticker_pack_info_total_lbl">- Total:</string>
+	<!-- Options -->
+	<string name="options_heading">Opciones</string>
+	<string name="options_show_back_button">Mostrar botón atrás en navbar</string>
+	<string name="options_vertical">Usar layout vertical</string>
+	<string name="options_restore_on_close">Restaurar el teclado anterior al cerrar el teclado</string>
+	<string name="options_scroll">Habilitar el deslizamiento entre paquetes (perpendicular a la dirección de desplazamiento)</string>
+	<string name="options_icons_per_x_lbl">"Número de filas: "</string>
+	<string name="options_icon_size_status_lbl">"Tamaño del ícono: "</string>
+	<!-- Info -->
+	<string name="info_heading">Información</string>
+	<string name="info_text">EweSticker es una aplicación de teclado de stickers para Android, diseñada específicamente para compartir una amplia variedad de stickers personalizados en aplicaciones de mensajería compatibles. Este proyecto se inspira en el proyecto uSticker y es un fork del repositorio woosticker.</string>
+	<!-- Features -->
+	<string name="features_heading">Características</string>
+	<string name="features_text">La aplicación de Android EweSticker ofrece las siguientes características clave para mejorar tu experiencia de mensajería:
 \n
 \n- **Amplia gama de stickers personalizados compatibles**: EweSticker admite una variedad de formatos de stickers, asegurando que los usuarios puedan compartir su creatividad de diversas formas. Los formatos compatibles incluyen image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska y video/webm.
 \n
@@ -45,16 +45,16 @@
 \n - **Vista previa del sticker al mantener pulsado**: Para facilitar la selección de stickers, los usuarios pueden mantener pulsado un sticker para ver una vista previa. Esta función ayuda a los usuarios a decidir rápidamente qué sticker desean compartir sin necesidad de abrir la colección de stickers por separado.
 \n
 \nEweSticker ofrece una amplia variedad de opciones de personalización, soporte para diversos formatos e integración con aplicaciones de mensajería. Ya sea que los usuarios estén compartiendo imágenes estáticas, GIFs animados o incluso videos cortos, la aplicación tiene como objetivo proporcionar una forma atractiva y expresiva de comunicarse mediante stickers personalizados.</string>
-    <!-- Cómo usar -->
-    <string name="how_to_use_heading">Cómo Usar</string>
-    <string name="how_to_use_text">¡Selecciona un directorio que contenga stickers y envíalos en tus aplicaciones favoritas!</string>
-    <!-- Licencia -->
-    <string name="license_heading">Licencia MIT</string>
-    <string name="license_text">Derechos de Autor © FredHappyface
+	<!-- How to use -->
+	<string name="how_to_use_heading">Cómo Usar</string>
+	<string name="how_to_use_text">¡Selecciona un directorio que contenga stickers y envíalos en tus aplicaciones favoritas!</string>
+	<!-- License -->
+	<string name="license_heading">Licencia MIT</string>
+	<string name="license_text">Derechos de Autor © FredHappyface
 \nDerechos de Autor © Randy Zhou</string>
-    <!-- Enlaces -->
-    <string name="links_heading">Enlaces</string>
-    <string name="links_text">"- El código fuente de EweSticker está disponible en https://github.com/FredHappyface/Android.EweSticker
+	<!-- Links -->
+	<string name="links_heading">Enlaces</string>
+	<string name="links_text">\"- El código fuente de EweSticker está disponible en https://github.com/FredHappyface/Android.EweSticker
 
 - Los tutoriales te guían paso a paso para comenzar a usar el software. Comienza aquí si eres nuevo: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
 
@@ -62,15 +62,15 @@
 
 - Licencia MIT
 (Consulta la licencia para obtener más información https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-    <!-- Interactive Messages -->
-    <string name="pref_000">Preferencias cambiadas.Actualizar el teclado para configurar para aplicar</string>
-    <string name="imported_010">Entendiendo la importación.¡Esto podría llevar algún tiempo!</string>
-    <string name="imported_020">Importado %1$d pegatinas.Actualizar el teclado para nuevas etiquetas engomadas para mostrar</string>
-    <string name="imported_031">E031: Algunos pegatinas no se importaron (%1$d importado).Pegatinas max alcanzadas</string>
-    <string name="imported_032">E032: Algunos pegatinas no importaron (%1$d importado).Tamaño máximo del paquete alcanzado</string>
-    <string name="imported_033">E033: Algunos pegatinas no importaron (%1$d importado).Formatos no compatibles encontrados</string>
-    <string name="imported_034">E034: Falló la recarga de stickers, intenta seleccionar un directorio de origen de stickers</string>
-    <string name="fallback_041">E041: IOException inesperado al convertir la pegatina</string>
-    <!-- Keyboard -->
-    <string name="sticker_pack_info">%1$s (Paquete: %2$s)</string>
+	<!-- Interactive Messages -->
+	<string name="pref_000">Preferencias cambiadas.Actualizar el teclado para configurar para aplicar</string>
+	<string name="imported_010">Entendiendo la importación.¡Esto podría llevar algún tiempo!</string>
+	<string name="imported_020">Importado %1$d pegatinas.Actualizar el teclado para nuevas etiquetas engomadas para mostrar</string>
+	<string name="imported_031">E031: Algunos pegatinas no se importaron (%1$d importado).Pegatinas max alcanzadas</string>
+	<string name="imported_032">E032: Algunos pegatinas no importaron (%1$d importado).Tamaño máximo del paquete alcanzado</string>
+	<string name="imported_033">E033: Algunos pegatinas no importaron (%1$d importado).Formatos no compatibles encontrados</string>
+	<string name="imported_034">E034: Falló la recarga de stickers, intenta seleccionar un directorio de origen de stickers</string>
+	<string name="fallback_041">E041: IOException inesperado al convertir la pegatina</string>
+	<!-- Keyboard -->
+	<string name="sticker_pack_info">%1$s (Paquete: %2$s)</string>
 </resources>
