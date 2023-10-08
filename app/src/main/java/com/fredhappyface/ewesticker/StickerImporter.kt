@@ -45,7 +45,6 @@ class StickerImporter(
 		progressBar.progress = progressPercentage.toInt()
 	}
 
-
 	/**
 	 * Used by the ACTION_OPEN_DOCUMENT_TREE handler function to copy stickers from a
 	 * stickerDirPath to the application internal storage for access later on by the
@@ -68,7 +67,6 @@ class StickerImporter(
 		withContext(Dispatchers.Main) {
 			progressBar.isIndeterminate = false
 		}
-
 
 		// Perform concurrent file copy operations
 		withContext(Dispatchers.IO) {

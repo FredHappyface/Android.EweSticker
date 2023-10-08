@@ -75,7 +75,6 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 
 	private lateinit var gestureDetector: GestureDetector
 
-
 	/**
 	 * When the activity is created...
 	 * - ensure coil can decode (and display) animated images
@@ -253,7 +252,6 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 
 	}
 
-
 	private fun addPackButton(tag: Any): ImageButton {
 		val packCard = layoutInflater.inflate(R.layout.sticker_card, this.packsList, false)
 		val packButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
@@ -382,7 +380,6 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		switchPackLayout(nextPack)
 	}
 
-
 	private inner class GestureListener : GestureDetector.SimpleOnGestureListener() {
 		override fun onDown(e: MotionEvent): Boolean {
 			return false
@@ -415,8 +412,6 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			return false
 		}
 	}
-
-
 }
 
 /**

@@ -1,14 +1,14 @@
 package com.fredhappyface.ewesticker
 
+import android.app.UiModeManager
 import android.content.ContentValues
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Bitmap
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.takeScreenshot
-import android.app.UiModeManager
-import android.content.res.Configuration
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Before
@@ -42,7 +42,6 @@ class ScreenshotTest {
 		activityScenario = ActivityScenario.launch(MainActivity::class.java)
 	}
 
-
 	/**
 	 * Captures and saves an image of the entire device screen to storage.
 	 */
@@ -62,7 +61,6 @@ class ScreenshotTest {
 		val bitmap = takeScreenshot()
 		saveBitmapToMediaStore(appContext, bitmap, nameRule.methodName)
 
-
 		uiModeManager.nightMode = UiModeManager.MODE_NIGHT_NO
 
 		assert(true)
@@ -75,7 +73,6 @@ class ScreenshotTest {
 		saveBitmapToMediaStore(appContext, bitmap, nameRule.methodName)
 		assert(true)
 	}
-
 
 	private fun setLocale(languageCode: String) {
 		val locale = Locale(languageCode)
@@ -123,5 +120,3 @@ class ScreenshotTest {
 		}
 	}
 }
-
-

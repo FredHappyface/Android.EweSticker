@@ -17,7 +17,6 @@ class StickerPackAdapter(
 	private val gestureDetector: GestureDetector,
 ) :
 
-
 	RecyclerView.Adapter<StickerPackViewHolder>() {
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StickerPackViewHolder {

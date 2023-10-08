@@ -58,5 +58,4 @@ class Toaster(private val context: Context) {
 			this.state = state
 		}
 	}
-
 }

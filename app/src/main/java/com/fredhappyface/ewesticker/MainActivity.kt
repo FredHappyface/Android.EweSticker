@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
 		val linksText = findViewById<TextView>(R.id.links_text)
 		markwon.setMarkdown(linksText, getString(R.string.links_text))
 
-
 		// Set late-init attrs
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 		this.contextView = findViewById(R.id.activityMainRoot)
