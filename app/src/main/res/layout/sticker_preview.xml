@@ -28,5 +28,4 @@
 		android:layout_centerHorizontal="true"
 		android:text="@string/close_sticker_preview" />
 
-
 </RelativeLayout>

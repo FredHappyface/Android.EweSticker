@@ -71,7 +71,6 @@ Find and send a sticker of your choosing
 
 <img src="assets/few.png" alt="EweSticker UI showing horizontal layout 5 wide x 3 stickers deep" width="300">
 
-
 **Note:** That you can configure EweSticker to:
 
 - enable/disable the back button
@@ -82,6 +81,5 @@ Find and send a sticker of your choosing
 - icon size if not in vertical scroll layout
 
 <img src="assets/configure.png" alt="EweSticker UI showing configuration options" width="300">
-
 
 <img src="assets/many.png" alt="EweSticker UI showing horizontal layout 5 wide x 6 stickers deep" width="300">

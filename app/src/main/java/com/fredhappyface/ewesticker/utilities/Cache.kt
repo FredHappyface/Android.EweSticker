@@ -51,6 +51,4 @@ class Cache(private val capacity: Int = 30) {
 		data.clear()
 		data.addAll(raw.split("\n"))
 	}
-
-
 }
