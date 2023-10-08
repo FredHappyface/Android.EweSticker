@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pack_icon">Иконка пакета</string>
-    <string name="sticker_icon">Иконка стикера</string>
-    <string name="close_sticker_preview">[коснитесь, чтобы закрыть предварительный просмотр стикеров]</string>
-    <!-- Включить клавиатуру -->
-    <string name="enable_keyboard_heading">Включить клавиатуру</string>
-    <string name="enable_keyboard_button">Запустить настройки</string>
-    <!-- Обновить пакет стикеров -->
-    <string name="update_sticker_pack_heading">Обновить пакет стикеров</string>
-    <string name="update_sticker_pack_button">Выбрать каталог источника стикеров</string>
-    <string name="reload_sticker_pack_button">Перезагрузить стикеры</string>
-    <string name="update_sticker_pack_info">Информация о текущих загруженных пакетах стикеров:</string>
-    <string name="update_sticker_pack_info_path_lbl">- Путь: </string>
-    <string name="update_sticker_pack_info_path">Не установлен</string>
-    <string name="update_sticker_pack_info_date_lbl">- Дата: </string>
-    <string name="update_sticker_pack_info_date">Никогда</string>
-    <string name="update_sticker_pack_info_total_lbl">- Всего: </string>
-    <!-- Опции -->
-    <string name="options_heading">Опции</string>
-    <string name="options_show_back_button">Показать кнопку назад в навигационной панели</string>
-    <string name="options_vertical">Использовать вертикальное расположение</string>
-    <string name="options_restore_on_close">Восстановить предыдущую клавиатуру при закрытии</string>
-    <string name="options_scroll">Включить переключение между пакетами (перпендикулярно направлению прокрутки)</string>
-    <string name="options_icons_per_x_lbl">"Количество строк: "</string>
-    <string name="options_icon_size_status_lbl">"Размер значка: "</string>
-    <!-- Информация -->
-    <string name="info_heading">Информация</string>
-    <string name="info_text">EweSticker - это приложение клавиатуры стикеров для Android, специально разработанное для обмена разнообразными настраиваемыми стикерами в поддерживаемых приложениях для обмена сообщениями. Этот проект черпает вдохновение из проекта uSticker и является форком репозитория woosticker.</string>
-    <!-- Особенности -->
-    <string name="features_heading">Особенности</string>
-    <string name="features_text">Приложение Android EweSticker предоставляет следующие ключевые особенности для улучшения вашего опыта обмена сообщениями:
+	<string name="pack_icon">Иконка пакета</string>
+	<string name="sticker_icon">Иконка стикера</string>
+	<string name="close_sticker_preview">[коснитесь, чтобы закрыть предварительный просмотр стикеров]</string>
+	<!-- Включить клавиатуру -->
+	<string name="enable_keyboard_heading">Включить клавиатуру</string>
+	<string name="enable_keyboard_button">Запустить настройки</string>
+	<!-- Обновить пакет стикеров -->
+	<string name="update_sticker_pack_heading">Обновить пакет стикеров</string>
+	<string name="update_sticker_pack_button">Выбрать каталог источника стикеров</string>
+	<string name="reload_sticker_pack_button">Перезагрузить стикеры</string>
+	<string name="update_sticker_pack_info">Информация о текущих загруженных пакетах стикеров:</string>
+	<string name="update_sticker_pack_info_path_lbl">- Путь: </string>
+	<string name="update_sticker_pack_info_path">Не установлен</string>
+	<string name="update_sticker_pack_info_date_lbl">- Дата: </string>
+	<string name="update_sticker_pack_info_date">Никогда</string>
+	<string name="update_sticker_pack_info_total_lbl">- Всего: </string>
+	<!-- Опции -->
+	<string name="options_heading">Опции</string>
+	<string name="options_show_back_button">Показать кнопку назад в навигационной панели</string>
+	<string name="options_vertical">Использовать вертикальное расположение</string>
+	<string name="options_restore_on_close">Восстановить предыдущую клавиатуру при закрытии</string>
+	<string name="options_scroll">Включить переключение между пакетами (перпендикулярно направлению прокрутки)</string>
+	<string name="options_icons_per_x_lbl">"Количество строк: "</string>
+	<string name="options_icon_size_status_lbl">"Размер значка: "</string>
+	<!-- Информация -->
+	<string name="info_heading">Информация</string>
+	<string name="info_text">EweSticker - это приложение клавиатуры стикеров для Android, специально разработанное для обмена разнообразными настраиваемыми стикерами в поддерживаемых приложениях для обмена сообщениями. Этот проект черпает вдохновение из проекта uSticker и является форком репозитория woosticker.</string>
+	<!-- Особенности -->
+	<string name="features_heading">Особенности</string>
+	<string name="features_text">Приложение Android EweSticker предоставляет следующие ключевые особенности для улучшения вашего опыта обмена сообщениями:
 \n
 \n- **Поддержка разнообразных настраиваемых стикеров**: EweSticker поддерживает разнообразные форматы стикеров, обеспечивая возможность пользователям делиться своей креативностью разными способами. Поддерживаемые форматы включают image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska и video/webm.
 \n
@@ -44,16 +44,16 @@
 \n- **Предварительный просмотр стикеров при удержании**: для удобства выбора стикера пользователи могут долго нажимать на стикер, чтобы открыть предварительный просмотр. Эта функция помогает пользователям быстро выбрать стикер для отправки, не открывая отдельно коллекцию стикеров.
 \n
 \nEweSticker предоставляет множество настроек, поддержку разных форматов и интеграцию с приложениями для обмена сообщениями. Независимо от того, отправляют ли пользователи статические image, анимированные GIF или короткие video, приложение ставит своей задачей обеспечить увлекательное и выразительное общение с использованием настраиваемых стикеров.</string>
-    <!-- Как использовать -->
-    <string name="how_to_use_heading">Как использовать</string>
-    <string name="how_to_use_text">Выберите каталог, содержащий стикеры, и отправляйте их в своих любимых приложениях!</string>
-    <!-- Лицензия -->
-    <string name="license_heading">Лицензия MIT</string>
-    <string name="license_text">Авторские права © FredHappyface
+	<!-- Как использовать -->
+	<string name="how_to_use_heading">Как использовать</string>
+	<string name="how_to_use_text">Выберите каталог, содержащий стикеры, и отправляйте их в своих любимых приложениях!</string>
+	<!-- Лицензия -->
+	<string name="license_heading">Лицензия MIT</string>
+	<string name="license_text">Авторские права © FredHappyface
 \nАвторские права © Randy Zhou</string>
-    <!-- Ссылки -->
-    <string name="links_heading">Ссылки</string>
-    <string name="links_text">- Исходный код EweSticker доступен по адресу https://github.com/FredHappyface/Android.EweSticker
+	<!-- Ссылки -->
+	<string name="links_heading">Ссылки</string>
+	<string name="links_text">- Исходный код EweSticker доступен по адресу https://github.com/FredHappyface/Android.EweSticker
 \n
 \n- Учебники предоставляют пошаговые инструкции по началу работы с программным обеспечением. Начните с этого, если вы новичок: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
 \n
@@ -61,15 +61,15 @@
 \n
 \n- Лицензия MIT
 \n(См. лицензию для получения дополнительной информации по адресу https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-    <!-- Интерактивные сообщения -->
-    <string name="pref_000">Изменены настройки. Перезагрузите клавиатуру, чтобы настройки вступили в силу</string>
-    <string name="imported_010">Начало импорта. Это может занять некоторое время!</string>
-    <string name="imported_020">Импортировано %1$d стикеров. Перезагрузите клавиатуру, чтобы отобразить новые стикеры</string>
-    <string name="imported_031">E031: Не удалось импортировать некоторые стикеры (%1$d импортировано). Достигнут максимальный предел стикеров</string>
-    <string name="imported_032">E032: Не удалось импортировать некоторые стикеры (%1$d импортировано). Достигнут максимальный размер пакета</string>
-    <string name="imported_033">E033: Не удалось импортировать некоторые стикеры (%1$d импортировано). Обнаружены не поддерживаемые форматы</string>
-    <string name="imported_034">E034: Перезагрузка стикеров не удалась, попробуйте выбрать каталог источника стикеров</string>
-    <string name="fallback_041">E041: Неожиданная ошибка ввода-вывода при преобразовании стикера</string>
-    <!-- Keyboard -->
-    <string name="sticker_pack_info">%1$s (Пакет: %2$s)</string>
+	<!-- Интерактивные сообщения -->
+	<string name="pref_000">Изменены настройки. Перезагрузите клавиатуру, чтобы настройки вступили в силу</string>
+	<string name="imported_010">Начало импорта. Это может занять некоторое время!</string>
+	<string name="imported_020">Импортировано %1$d стикеров. Перезагрузите клавиатуру, чтобы отобразить новые стикеры</string>
+	<string name="imported_031">E031: Не удалось импортировать некоторые стикеры (%1$d импортировано). Достигнут максимальный предел стикеров</string>
+	<string name="imported_032">E032: Не удалось импортировать некоторые стикеры (%1$d импортировано). Достигнут максимальный размер пакета</string>
+	<string name="imported_033">E033: Не удалось импортировать некоторые стикеры (%1$d импортировано). Обнаружены не поддерживаемые форматы</string>
+	<string name="imported_034">E034: Перезагрузка стикеров не удалась, попробуйте выбрать каталог источника стикеров</string>
+	<string name="fallback_041">E041: Неожиданная ошибка ввода-вывода при преобразовании стикера</string>
+	<!-- Keyboard -->
+	<string name="sticker_pack_info">%1$s (Пакет: %2$s)</string>
 </resources>

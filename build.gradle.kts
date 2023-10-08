@@ -3,22 +3,12 @@ plugins {
 	id("com.android.application") version "8.1.1" apply false
 	id("org.jetbrains.kotlin.android") version "1.9.0" apply false
 	id("org.jetbrains.dokka") version "1.8.20"
-	id("org.jlleitschuh.gradle.ktlint") version "10.2.1"
+	id("org.jlleitschuh.gradle.ktlint") version "11.6.0"
 }
 
 tasks.register("clean") { delete(layout.buildDirectory) }
 
-ktlint {
+configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+	version.set("0.50.0")
 	coloredOutput.set(false)
-	enableExperimentalRules.set(true)
-	disabledRules.set(
-		setOf(
-			"indent",
-			"parameter-list-wrapping",
-			"experimental:argument-list-wrapping"
-		)
-	)
-	reporters {
-		reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
-	}
 }
