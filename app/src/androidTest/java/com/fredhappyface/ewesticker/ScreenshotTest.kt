@@ -80,7 +80,7 @@ class ScreenshotTest {
 		config.setLocale(locale)
 		InstrumentationRegistry.getInstrumentation().targetContext.resources.updateConfiguration(
 			config,
-			null
+			null,
 		)
 	}
 
@@ -94,7 +94,7 @@ class ScreenshotTest {
 		values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg")
 		values.put(
 			MediaStore.MediaColumns.RELATIVE_PATH,
-			"${Environment.DIRECTORY_DCIM}/$subdirectory"
+			"${Environment.DIRECTORY_DCIM}/$subdirectory",
 		)
 		values.put(MediaStore.Images.Media.IS_PENDING, 1) // Mark the image as pending
 

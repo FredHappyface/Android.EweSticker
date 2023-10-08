@@ -86,18 +86,8 @@ dependencies {
 	androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
 
-ktlint {
+configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
+	version.set("0.50.0")
 	android.set(true)
 	coloredOutput.set(false)
-	enableExperimentalRules.set(true)
-	disabledRules.set(
-		setOf(
-			"indent",
-			"parameter-list-wrapping",
-			"experimental:argument-list-wrapping"
-		)
-	)
-	reporters {
-		reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN)
-	}
 }

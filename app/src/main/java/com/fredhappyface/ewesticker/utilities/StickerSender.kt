@@ -79,7 +79,7 @@ class StickerSender(
 						bitmap.compress(
 							Bitmap.CompressFormat.PNG,
 							90,
-							FileOutputStream(compatSticker)
+							FileOutputStream(compatSticker),
 						)
 					}
 					.build()
@@ -112,7 +112,7 @@ class StickerSender(
 		val uri = FileProvider.getUriForFile(
 			context,
 			"com.fredhappyface.ewesticker.inputcontent",
-			file
+			file,
 		)
 
 		val shareIntent = Intent().apply {
@@ -150,10 +150,10 @@ class StickerSender(
 			FileProvider.getUriForFile(
 				context,
 				"com.fredhappyface.ewesticker.inputcontent",
-				file
+				file,
 			),
 			ClipDescription(file.name, arrayOf(mimeType)),
-			null
+			null,
 		)
 
 		if (currentInputConnection != null && currentInputEditorInfo != null) {
@@ -162,7 +162,7 @@ class StickerSender(
 				currentInputEditorInfo,
 				inputContentInfoCompat,
 				InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION,
-				null
+				null,
 			)
 		}
 	}
@@ -176,7 +176,7 @@ class StickerSender(
 	 */
 	private fun isCommitContentSupported(editorInfo: EditorInfo?, mimeType: String?): Boolean {
 		return editorInfo?.packageName != null && mimeType != null && currentInputConnection != null &&
-				EditorInfoCompat.getContentMimeTypes(editorInfo)
-					.any { ClipDescription.compareMimeTypes(mimeType, it) }
+			EditorInfoCompat.getContentMimeTypes(editorInfo)
+				.any { ClipDescription.compareMimeTypes(mimeType, it) }
 	}
 }

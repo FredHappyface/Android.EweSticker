@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 				val contentResolver = applicationContext.contentResolver
 
 				val takeFlags: Int = Intent.FLAG_GRANT_READ_URI_PERMISSION or
-						Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+					Intent.FLAG_GRANT_WRITE_URI_PERMISSION
 				if (uri != null) {
 					contentResolver.takePersistableUriPermission(uri, takeFlags)
 				}
@@ -122,13 +122,14 @@ class MainActivity : AppCompatActivity() {
 	 */
 	fun reloadStickers(ignoredView: View) {
 		val stickerDirPath = this.sharedPreferences.getString(
-			"stickerDirPath", null
+			"stickerDirPath",
+			null,
 		)
 		if (stickerDirPath != null) {
 			importStickers(stickerDirPath)
 		} else {
 			this.toaster.toast(
-				getString(R.string.imported_034)
+				getString(R.string.imported_034),
 			)
 		}
 	}
@@ -153,7 +154,7 @@ class MainActivity : AppCompatActivity() {
 						getString(R.string.imported_031, totalStickers),
 						getString(R.string.imported_032, totalStickers),
 						getString(R.string.imported_033, totalStickers),
-					)
+					),
 				)
 				val editor = sharedPreferences.edit()
 				editor.putInt("numStickersImported", totalStickers)
@@ -178,7 +179,7 @@ class MainActivity : AppCompatActivity() {
 		compoundButton: CompoundButton,
 		sharedPrefKey: String,
 		sharedPrefDefault: Boolean = false,
-		callback: (Boolean) -> Unit
+		callback: (Boolean) -> Unit,
 	) {
 		compoundButton.isChecked =
 			this.sharedPreferences.getBoolean(sharedPrefKey, sharedPrefDefault)
@@ -207,7 +208,7 @@ class MainActivity : AppCompatActivity() {
 		seekBarLabel: TextView,
 		sharedPrefKey: String,
 		sharedPrefDefault: Int,
-		multiplier: Int = 1
+		multiplier: Int = 1,
 	) {
 		seekBarLabel.text =
 			this.sharedPreferences.getInt(sharedPrefKey, sharedPrefDefault).toString()
@@ -228,18 +229,19 @@ class MainActivity : AppCompatActivity() {
 					editor.apply()
 					showChangedPrefText()
 				}
-			})
+			},
+		)
 	}
 
 	/** Reads saved sticker dir path from preferences */
 	private fun refreshStickerDirPath() {
 		findViewById<TextView>(R.id.stickerPackInfoPath).text =
 			this.sharedPreferences.getString(
-				"stickerDirPath", resources.getString(R.string.update_sticker_pack_info_path)
+				"stickerDirPath", resources.getString(R.string.update_sticker_pack_info_path),
 			)
 		findViewById<TextView>(R.id.stickerPackInfoDate).text =
 			this.sharedPreferences.getString(
-				"lastUpdateDate", resources.getString(R.string.update_sticker_pack_info_date)
+				"lastUpdateDate", resources.getString(R.string.update_sticker_pack_info_date),
 			)
 		findViewById<TextView>(R.id.stickerPackInfoTotal).text =
 			this.sharedPreferences.getInt("numStickersImported", 0).toString()
@@ -248,7 +250,7 @@ class MainActivity : AppCompatActivity() {
 	/** Reusable function to warn about changing preferences */
 	private fun showChangedPrefText() {
 		this.toaster.toast(
-			getString(R.string.pref_000)
+			getString(R.string.pref_000),
 		)
 	}
 }

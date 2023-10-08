@@ -18,7 +18,7 @@ import java.io.IOException
 
 private const val MAX_FILES = 4096
 private const val MAX_PACK_SIZE = 128
-private const val BUFFER_SIZE = 64 * 1024  // 64 KB
+private const val BUFFER_SIZE = 64 * 1024 // 64 KB
 
 /**
  * The StickerImporter class includes a helper function to import stickers from a user-selected

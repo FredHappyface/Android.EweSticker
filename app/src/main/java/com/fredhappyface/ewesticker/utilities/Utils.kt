@@ -30,7 +30,7 @@ object Utils {
 			"video/3gpp",
 			"video/mp4",
 			"video/x-matroska",
-			"video/webm"
+			"video/webm",
 		)
 	}
 }

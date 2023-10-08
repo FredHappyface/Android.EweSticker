@@ -6,8 +6,6 @@ indent_size = 4
 
 [*.{kt,kts}]
 max_line_length = 100
+ktlint_standard_indent = disabled
+ktlint_wrapping = disabled
 
-
-[kotlin]
-kotlin_comments.indent_size = tab
-kotlin_comments.wrap_text = true

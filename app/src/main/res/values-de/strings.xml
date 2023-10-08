@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- App-Informationen -->
-    <string name="pack_icon">Pack-Symbol</string>
-    <string name="sticker_icon">Sticker-Symbol</string>
-    <string name="close_sticker_preview">[Antippen, um Sticker-Vorschau zu schließen]</string>
-    <!-- Tastatur aktivieren -->
-    <string name="enable_keyboard_heading">Tastatur aktivieren</string>
-    <string name="enable_keyboard_button">Einstellungen öffnen</string>
-    <!-- Sticker-Pack aktualisieren -->
-    <string name="update_sticker_pack_heading">Sticker-Pack aktualisieren</string>
-    <string name="update_sticker_pack_button">Sticker-Quellverzeichnis auswählen</string>
-    <string name="reload_sticker_pack_button">Sticker neu laden</string>
-    <string name="update_sticker_pack_info">Aktuelle Informationen zu geladenen Sticker-Packs:</string>
-    <string name="update_sticker_pack_info_path_lbl">- Pfad:</string>
-    <string name="update_sticker_pack_info_path">Nicht festgelegt</string>
-    <string name="update_sticker_pack_info_date_lbl">- Datum:</string>
-    <string name="update_sticker_pack_info_date">Nie</string>
-    <string name="update_sticker_pack_info_total_lbl">- Gesamt:</string>
-    <!-- Optionen -->
-    <string name="options_heading">Optionen</string>
-    <string name="options_show_back_button">Zurück-Button in der Navigationsleiste anzeigen</string>
-    <string name="options_vertical">Vertikales Layout verwenden</string>
-    <string name="options_restore_on_close">Vorherige Tastatur wiederherstellen, wenn Tastatur geschlossen wird</string>
-    <string name="options_scroll">Wischen zwischen Packs aktivieren (senkrecht zur Scrollrichtung)</string>
-    <string name="options_icons_per_x_lbl">"Anzahl der Reihen: "</string>
-    <string name="options_icon_size_status_lbl">"Symbolgröße: "</string>
-    <!-- Informationen -->
-    <string name="info_heading">Informationen</string>
-    <string name="info_text">EweSticker ist eine Android-Sticker-Tastaturanwendung, die speziell entwickelt wurde, um eine vielfältige Auswahl an individuellen Stickern in unterstützten Messaging-Apps zu teilen. Dieses Projekt wurde von dem uSticker-Projekt inspiriert und ist ein Fork des woosticker-Repositorys.</string>
-    <!-- Eigenschaften -->
-    <string name="features_heading">Eigenschaften</string>
-    <string name="features_text">Die EweSticker Android-App bietet folgende Hauptfunktionen, um deine Messaging-Erfahrung zu verbessern:
+	<!-- App-Informationen -->
+	<string name="pack_icon">Pack-Symbol</string>
+	<string name="sticker_icon">Sticker-Symbol</string>
+	<string name="close_sticker_preview">[Antippen, um Sticker-Vorschau zu schließen]</string>
+	<!-- Tastatur aktivieren -->
+	<string name="enable_keyboard_heading">Tastatur aktivieren</string>
+	<string name="enable_keyboard_button">Einstellungen öffnen</string>
+	<!-- Sticker-Pack aktualisieren -->
+	<string name="update_sticker_pack_heading">Sticker-Pack aktualisieren</string>
+	<string name="update_sticker_pack_button">Sticker-Quellverzeichnis auswählen</string>
+	<string name="reload_sticker_pack_button">Sticker neu laden</string>
+	<string name="update_sticker_pack_info">Aktuelle Informationen zu geladenen Sticker-Packs:</string>
+	<string name="update_sticker_pack_info_path_lbl">- Pfad:</string>
+	<string name="update_sticker_pack_info_path">Nicht festgelegt</string>
+	<string name="update_sticker_pack_info_date_lbl">- Datum:</string>
+	<string name="update_sticker_pack_info_date">Nie</string>
+	<string name="update_sticker_pack_info_total_lbl">- Gesamt:</string>
+	<!-- Optionen -->
+	<string name="options_heading">Optionen</string>
+	<string name="options_show_back_button">Zurück-Button in der Navigationsleiste anzeigen</string>
+	<string name="options_vertical">Vertikales Layout verwenden</string>
+	<string name="options_restore_on_close">Vorherige Tastatur wiederherstellen, wenn Tastatur geschlossen wird</string>
+	<string name="options_scroll">Wischen zwischen Packs aktivieren (senkrecht zur Scrollrichtung)</string>
+	<string name="options_icons_per_x_lbl">"Anzahl der Reihen: "</string>
+	<string name="options_icon_size_status_lbl">"Symbolgröße: "</string>
+	<!-- Informationen -->
+	<string name="info_heading">Informationen</string>
+	<string name="info_text">EweSticker ist eine Android-Sticker-Tastaturanwendung, die speziell entwickelt wurde, um eine vielfältige Auswahl an individuellen Stickern in unterstützten Messaging-Apps zu teilen. Dieses Projekt wurde von dem uSticker-Projekt inspiriert und ist ein Fork des woosticker-Repositorys.</string>
+	<!-- Eigenschaften -->
+	<string name="features_heading">Eigenschaften</string>
+	<string name="features_text">Die EweSticker Android-App bietet folgende Hauptfunktionen, um deine Messaging-Erfahrung zu verbessern:
 \n
 \n- **Breite Palette von unterstützten individuellen Stickern**: EweSticker unterstützt eine vielfältige Auswahl von Sticker-Formaten, sodass Nutzer ihre Kreativität auf verschiedene Arten teilen können. Unterstützte Formate umfassen Bild/GIF, Bild/PNG, Bild/WEBP, Bild/JPEG, Bild/HEIF, Video/3GPP, Video/MP4, Video/X-Matroska und Video/WEBM.
 \n
@@ -45,16 +45,16 @@
 \n- **Sticker-Vorschau bei langer Berührung**: Um die Sticker-Auswahl zu erleichtern, können Nutzer auf einen Sticker lange drücken, um eine Vorschau anzuzeigen. Diese Funktion hilft Nutzern schnell zu entscheiden, welchen Sticker sie teilen möchten, ohne die Stickersammlung separat öffnen zu müssen.
 \n
 \nEweSticker bietet eine breite Palette an Anpassungsoptionen, vielfältige Formatunterstützung und Integration mit Messaging-Apps. Ob Nutzer statische Bilder, animierte GIFs oder sogar kurze Videos teilen, die App zielt darauf ab, eine ansprechende und ausdrucksstarke Art der Kommunikation mit individuellen Stickern zu bieten.</string>
-    <!-- Anwendungshinweise -->
-    <string name="how_to_use_heading">Anwendungshinweise</string>
-    <string name="how_to_use_text">Wähle ein Verzeichnis mit Stickern aus und sende sie in deinen Lieblings-Apps!</string>
-    <!-- Lizenz -->
-    <string name="license_heading">MIT Lizenz</string>
-    <string name="license_text">Copyright © FredHappyface
+	<!-- Anwendungshinweise -->
+	<string name="how_to_use_heading">Anwendungshinweise</string>
+	<string name="how_to_use_text">Wähle ein Verzeichnis mit Stickern aus und sende sie in deinen Lieblings-Apps!</string>
+	<!-- Lizenz -->
+	<string name="license_heading">MIT Lizenz</string>
+	<string name="license_text">Copyright © FredHappyface
 \nCopyright © Randy Zhou</string>
-    <!-- Links -->
-    <string name="links_heading">Links</string>
-    <string name="links_text">"- Der Quellcode für EweSticker ist verfügbar unter https://github.com/FredHappyface/Android.EweSticker
+	<!-- Links -->
+	<string name="links_heading">Links</string>
+	<string name="links_text">"- Der Quellcode für EweSticker ist verfügbar unter https://github.com/FredHappyface/Android.EweSticker
 
 - Die Tutorials führen dich schrittweise durch eine Reihe von Schritten, um die Software zu verwenden. Starte hier, wenn du neu bist: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
 
@@ -62,15 +62,15 @@
 
 - MIT Lizenz
 (Siehe die Lizenz für weitere Informationen https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-    <!-- Interaktive Nachrichten -->
-    <string name="pref_000">Einstellungen geändert. Lade die Tastatur neu, damit die Einstellungen wirksam werden</string>
-    <string name="imported_010">Import wird gestartet. Dies könnte einige Zeit dauern!</string>
-    <string name="imported_020">%1$d Sticker importiert. Lade die Tastatur neu, um neue Sticker anzuzeigen</string>
-    <string name="imported_031">E031: Einige Sticker konnten nicht importiert werden (%1$d importiert). Max. Sticker erreicht</string>
-    <string name="imported_032">E032: Einige Sticker konnten nicht importiert werden (%1$d importiert). Max. Packungsgröße erreicht</string>
-    <string name="imported_033">E033: Einige Sticker konnten nicht importiert werden (%1$d importiert). Nicht unterstützte Formate gefunden</string>
-    <string name="imported_034">E034: Neuladen der Sticker fehlgeschlagen, versuche ein Sticker-Quellverzeichnis auszuwählen</string>
-    <string name="fallback_041">E041: Unerwarteter IOException beim Konvertieren des Stickers</string>
-    <!-- Keyboard -->
-    <string name="sticker_pack_info">%1$s (Paket: %2$s)</string>
+	<!-- Interaktive Nachrichten -->
+	<string name="pref_000">Einstellungen geändert. Lade die Tastatur neu, damit die Einstellungen wirksam werden</string>
+	<string name="imported_010">Import wird gestartet. Dies könnte einige Zeit dauern!</string>
+	<string name="imported_020">%1$d Sticker importiert. Lade die Tastatur neu, um neue Sticker anzuzeigen</string>
+	<string name="imported_031">E031: Einige Sticker konnten nicht importiert werden (%1$d importiert). Max. Sticker erreicht</string>
+	<string name="imported_032">E032: Einige Sticker konnten nicht importiert werden (%1$d importiert). Max. Packungsgröße erreicht</string>
+	<string name="imported_033">E033: Einige Sticker konnten nicht importiert werden (%1$d importiert). Nicht unterstützte Formate gefunden</string>
+	<string name="imported_034">E034: Neuladen der Sticker fehlgeschlagen, versuche ein Sticker-Quellverzeichnis auszuwählen</string>
+	<string name="fallback_041">E041: Unerwarteter IOException beim Konvertieren des Stickers</string>
+	<!-- Keyboard -->
+	<string name="sticker_pack_info">%1$s (Paket: %2$s)</string>
 </resources>

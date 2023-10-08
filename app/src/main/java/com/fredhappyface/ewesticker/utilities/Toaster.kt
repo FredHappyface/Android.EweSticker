@@ -21,11 +21,13 @@ class Toaster(private val context: Context) {
 	 */
 	fun toast(string: String) {
 		Toast.makeText(
-			this.context, string, if (string.length > 60) {
+			this.context,
+			string,
+			if (string.length > 60) {
 				Toast.LENGTH_LONG
 			} else {
 				Toast.LENGTH_SHORT
-			}
+			},
 		)
 			.show()
 	}

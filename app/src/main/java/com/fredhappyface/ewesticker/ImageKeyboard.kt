@@ -109,12 +109,13 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		//  Constants
 		this.internalDir = File(filesDir, "stickers")
 		this.iconSize =
-			(if (this.vertical) {
+			(
+				if (this.vertical) {
 				(resources.displayMetrics.widthPixels - this.totalIconPadding) / this.iconsPerX.toFloat()
 			} else {
 				(this.sharedPreferences.getInt("iconSize", 80) * scale)
-			})
-				.toInt()
+			}
+			).toInt()
 		this.toaster = Toaster(baseContext)
 		//  Load Packs
 		this.loadedPacks = HashMap()
@@ -163,11 +164,13 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			}
 		this.packContent.layoutParams?.height = this.keyboardHeight
 		this.fullIconSize =
-			(min(
+			(
+				min(
 				resources.displayMetrics.widthPixels,
 				this.keyboardHeight -
-						resources.getDimensionPixelOffset(R.dimen.text_size_body) * 2
-			) * 0.95)
+						resources.getDimensionPixelOffset(R.dimen.text_size_body) * 2,
+			) * 0.95
+			)
 				.toInt()
 		createPackIcons()
 		return keyboardLayout
@@ -196,7 +199,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			this.currentInputConnection,
 			this.currentInputEditorInfo,
 			this.compatCache,
-			this.imageLoader
+			this.imageLoader,
 		)
 	}
 
@@ -220,7 +223,6 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	 * @param packName String
 	 */
 	private fun switchPackLayout(packName: String) {
-
 		this.activePack = packName
 		for (packCard in this.packsList) {
 			val packButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
@@ -243,13 +245,12 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			this,
 			iconsPerX,
 			if (vertical) RecyclerView.VERTICAL else RecyclerView.HORIZONTAL,
-			false
+			false,
 		)
 		recyclerView.layoutManager = layoutManager
 		recyclerView.adapter = adapter
 		packContent.removeAllViewsInLayout()
 		packContent.addView(recyclerView)
-
 	}
 
 	private fun addPackButton(tag: Any): ImageButton {
@@ -296,9 +297,10 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		if (SDK_INT >= 28) {
 			this.switchToPreviousInputMethod()
 		} else {
-			(baseContext.getSystemService(INPUT_METHOD_SERVICE) as
-					InputMethodManager)
-				.showInputMethodPicker()
+			(
+				baseContext.getSystemService(INPUT_METHOD_SERVICE) as
+				InputMethodManager
+			).showInputMethodPicker()
 		}
 	}
 
@@ -324,13 +326,14 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	override fun onStickerLongClicked(sticker: File) {
 		val fullStickerLayout =
 			layoutInflater.inflate(R.layout.sticker_preview, this.keyboardRoot, false) as
-					RelativeLayout
+				RelativeLayout
 		// Set dimens + load image
 		fullStickerLayout.layoutParams.height =
 			this.keyboardHeight +
-					(resources.getDimension(R.dimen.pack_dimens) +
-							resources.getDimension(R.dimen.sticker_padding) * 4)
-						.toInt()
+				(
+					resources.getDimension(R.dimen.pack_dimens) +
+					resources.getDimension(R.dimen.sticker_padding) * 4
+				).toInt()
 		val fSticker = fullStickerLayout.findViewById<ImageButton>(R.id.stickerButton)
 		fSticker.layoutParams.height = this.fullIconSize
 		fSticker.layoutParams.width = this.fullIconSize
@@ -389,7 +392,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			e1: MotionEvent,
 			e2: MotionEvent,
 			velocityX: Float,
-			velocityY: Float
+			velocityY: Float,
 		): Boolean {
 			val diffX = e2.x - e1.x
 			val diffY = e2.y - e1.y
