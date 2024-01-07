@@ -1,0 +1,22 @@
+<h2 id="section">20231008</h2>
+<ul>
+<li>Update Fastlane Metadata</li>
+<li>Update to use API level 34
+</li>
+<li>Minor tweaks to readme</li>
+<li>Add translations from Weblate (thank you to the following!)
+<ul>
+<li>German
+<ul>
+<li>Ettore Atalan</li>
+</ul></li>
+<li>French
+<ul>
+<li>J. Lavoie</li>
+</ul></li>
+</ul></li>
+<li>Add Android 13 Icon</li>
+<li>Code clean up and <code>ktlint</code> check and formatting</li>
+<li>Fix Bug: Keyboard has a transparent background</li>
+<li>Fix Bug where the keyboard forgets last ‘Recent’ last selected</li>
+</ul>

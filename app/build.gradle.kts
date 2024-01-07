@@ -32,7 +32,7 @@ tasks.register("genDocs") {
 }
 
 android {
-	compileSdk = 33
+	compileSdk = 34
 	buildToolsVersion = "34.0.0"
 	namespace = "com.fredhappyface.ewesticker"
 
@@ -47,9 +47,9 @@ android {
 	defaultConfig {
 		applicationId = "com.fredhappyface.ewesticker"
 		minSdk = 26
-		targetSdk = 33
-		versionCode = 20230828
-		versionName = "20230828"
+		targetSdk = 34
+		versionCode = 20231008
+		versionName = "20231008"
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 		setProperty("archivesBaseName", "$applicationId-$versionName")
 	}
@@ -70,10 +70,10 @@ android {
 
 dependencies {
 	dokkaPlugin("org.jetbrains.dokka:android-documentation-plugin:1.8.20")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
-	implementation("androidx.core:core-ktx:1.10.1")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.10")
+	implementation("androidx.core:core-ktx:1.12.0")
 	implementation("androidx.appcompat:appcompat:1.6.1")
-	implementation("com.google.android.material:material:1.9.0")
+	implementation("com.google.android.material:material:1.10.0")
 	implementation("androidx.preference:preference-ktx:1.2.1")
 	implementation("io.coil-kt:coil:2.4.0")
 	implementation("io.coil-kt:coil-gif:2.4.0")
