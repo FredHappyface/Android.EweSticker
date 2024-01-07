@@ -100,7 +100,7 @@ Follow the steps in the [Building from Source](#building-from-source) section.
 
 This app has been written in Kotlin 1.9.0 with the Android Studio IDE.
 
-- The target SDK version is 33 (Android 13)
+- The target SDK version is 34 (Android 14)
 - The minimum SDK version is 26 (Android 8 Oreo)
 
 ## Building From Source

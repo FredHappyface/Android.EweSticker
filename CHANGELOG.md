@@ -7,6 +7,21 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver
 -->
 
+## 20231008
+
+- Update Fastlane Metadata
+- Update to use API level 34
+- Minor tweaks to readme
+- Add translations from Weblate (thank you to the following!)
+	- German
+		- Ettore Atalan
+	- French
+		- J. Lavoie
+- Add Android 13 Icon
+- Code clean up and `ktlint` check and formatting
+- Fix Bug: Keyboard has a transparent background
+- Fix Bug where the keyboard forgets last 'Recent' last selected
+
 ## 20230828
 
 - Update app description

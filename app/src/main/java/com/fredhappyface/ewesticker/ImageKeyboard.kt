@@ -274,19 +274,20 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			}
 		}
 		// Recent
-		val recentButton = addPackButton("__recentSticker__")
+		val recentPackName = "__recentSticker__"
+		val recentButton = addPackButton(recentPackName)
 		recentButton.load(getDrawable(R.drawable.time))
-		recentButton.setOnClickListener { switchPackLayout(it?.tag as String) }
+		recentButton.setOnClickListener { switchPackLayout(recentPackName) }
 		// Packs
 		val sortedPackNames = this.loadedPacks.keys.sorted().toTypedArray()
 		for (sortedPackName in sortedPackNames) {
 			val packButton = addPackButton(sortedPackName)
 			packButton.load(this.loadedPacks[sortedPackName]?.thumbSticker)
-			packButton.setOnClickListener { switchPackLayout(it?.tag as String) }
+			packButton.setOnClickListener { switchPackLayout(sortedPackName) }
 		}
 
 		val targetPack =
-			if (activePack in sortedPackNames) activePack else sortedPackNames.firstOrNull()
+			if (activePack in sortedPackNames + recentPackName) activePack else sortedPackNames.firstOrNull()
 
 		if (sortedPackNames.isNotEmpty()) {
 			targetPack?.let { switchPackLayout(it) }
@@ -340,7 +341,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		fSticker.load(sticker)
 		val fText = fullStickerLayout.findViewById<TextView>(R.id.stickerInfo)
 		val stickerName = trimString(sticker.name)
-		val packName = trimString(sticker.parent.split('/').last())
+		val packName = trimString(sticker.parent?.split('/')?.last())
 		fText.text = getString(R.string.sticker_pack_info, stickerName, packName)
 
 		// Tap to exit popup
@@ -352,34 +353,19 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	internal fun switchToPreviousPack() {
 		// Get a list of sorted pack names
 		val sortedPackNames = loadedPacks.keys.sorted()
-
 		// Find the index of the current active pack
 		val currentIndex = sortedPackNames.indexOf(activePack)
-
 		// Calculate the index of the previous pack, considering wrap-around
 		val previousIndex = if (currentIndex > 0) currentIndex - 1 else sortedPackNames.size - 1
-
-		// Get the name of the previous pack
 		val previousPack = sortedPackNames[previousIndex]
-
-		// Switch to the previous pack layout
 		switchPackLayout(previousPack)
 	}
 
 	internal fun switchToNextPack() {
-		// Get a list of sorted pack names
 		val sortedPackNames = loadedPacks.keys.sorted()
-
-		// Find the index of the current active pack
 		val currentIndex = sortedPackNames.indexOf(activePack)
-
-		// Calculate the index of the next pack, considering wrap-around
 		val nextIndex = (currentIndex + 1) % sortedPackNames.size
-
-		// Get the name of the next pack
 		val nextPack = sortedPackNames[nextIndex]
-
-		// Switch to the next pack layout
 		switchPackLayout(nextPack)
 	}
 
@@ -389,13 +375,13 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		}
 
 		override fun onScroll(
-			e1: MotionEvent,
+			e1: MotionEvent?,
 			e2: MotionEvent,
 			velocityX: Float,
 			velocityY: Float,
 		): Boolean {
-			val diffX = e2.x - e1.x
-			val diffY = e2.y - e1.y
+			val diffX = e2.x - (e1?.x ?: 0f)
+			val diffY = e2.y - (e1?.y ?: 0f)
 
 			if (
 				scroll &&
@@ -425,7 +411,10 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
  *  @param str: String
  *  @return String
  */
-fun trimString(str: String): String {
+fun trimString(str: String?): String {
+	if (str == null){
+		return "null"
+	}
 	if (str.length > 32) {
 		return str.substring(0, 32) + "..."
 	}
