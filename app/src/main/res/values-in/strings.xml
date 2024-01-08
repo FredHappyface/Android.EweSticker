@@ -1,76 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- Informasi Aplikasi -->
-	<string name="pack_icon">Ikon Paket</string>
-	<string name="sticker_icon">Ikon Stiker</string>
-	<string name="close_sticker_preview">[tekan untuk menutup pratinjau stiker]</string>
-	<!-- Aktifkan Keyboard -->
-	<string name="enable_keyboard_heading">Aktifkan Keyboard</string>
-	<string name="enable_keyboard_button">Buka Pengaturan</string>
-	<!-- Perbarui Paket Stiker -->
-	<string name="update_sticker_pack_heading">Perbarui Paket Stiker</string>
-	<string name="update_sticker_pack_button">Pilih direktori sumber stiker</string>
-	<string name="reload_sticker_pack_button">Muat ulang stiker</string>
-	<string name="update_sticker_pack_info">Informasi paket stiker saat ini yang dimuat:</string>
-	<string name="update_sticker_pack_info_path_lbl">- jalur:</string>
-	<string name="update_sticker_pack_info_path">Belum Diatur</string>
-	<string name="update_sticker_pack_info_date_lbl">- Tanggal:</string>
-	<string name="update_sticker_pack_info_date">Tidak Pernah</string>
-	<string name="update_sticker_pack_info_total_lbl">- Total:</string>
-	<!-- Opsi -->
-	<string name="options_heading">Opsi</string>
-	<string name="options_show_back_button">Tampilkan tombol kembali di navbar</string>
-	<string name="options_vertical">Gunakan tata letak vertikal</string>
-	<string name="options_restore_on_close">Pulihkan keyboard sebelumnya saat menutup keyboard</string>
-	<string name="options_scroll">Aktifkan swipe antara paket stiker (tegak lurus terhadap arah gulir)</string>
-	<string name="options_icons_per_x_lbl">"Jumlah Baris: "</string>
-	<string name="options_icon_size_status_lbl">"Ukuran Ikon: "</string>
-	<!-- Informasi -->
-	<string name="info_heading">Informasi</string>
-	<string name="info_text">EweSticker adalah aplikasi keyboard stiker Android yang dirancang khusus untuk berbagi berbagai macam stiker kustom dalam aplikasi pesan yang didukung. Proyek ini mengambil inspirasi dari proyek uSticker dan merupakan fork dari repositori woosticker.</string>
-	<!-- Fitur-fitur -->
-	<string name="features_heading">Fitur-fitur</string>
-	<string name="features_text">Aplikasi Android EweSticker menawarkan fitur-fitur kunci berikut untuk meningkatkan pengalaman pesan Anda:
+    <!-- Informasi Aplikasi -->
+    <string name="pack_icon">Ikon paket</string>
+    <string name="sticker_icon">Ikon stiker</string>
+    <string name="close_sticker_preview">[ketuk untuk menutup pratinjau stiker]</string>
+    <!-- Aktifkan Keyboard -->
+    <string name="enable_keyboard_heading">Aktifkan Keyboard</string>
+    <string name="enable_keyboard_button">Buka Pengaturan</string>
+    <!-- Perbarui Paket Stiker -->
+    <string name="update_sticker_pack_heading">Perbarui Paket Stiker</string>
+    <string name="update_sticker_pack_button">Pilih direktori sumber stiker</string>
+    <string name="reload_sticker_pack_button">Muat ulang stiker</string>
+    <string name="update_sticker_pack_info">Informasi paket stiker saat ini yang dimuat:</string>
+    <string name="update_sticker_pack_info_path_lbl">- jalur:</string>
+    <string name="update_sticker_pack_info_path">Belum Diatur</string>
+    <string name="update_sticker_pack_info_date_lbl">- Tanggal:</string>
+    <string name="update_sticker_pack_info_date">Tidak Pernah</string>
+    <string name="update_sticker_pack_info_total_lbl">- Total:</string>
+    <!-- Opsi -->
+    <string name="options_heading">Opsi</string>
+    <string name="options_show_back_button">Tampilkan tombol kembali di navbar</string>
+    <string name="options_vertical">Gunakan tata letak vertikal</string>
+    <string name="options_restore_on_close">Pulihkan keyboard sebelumnya saat menutup keyboard</string>
+    <string name="options_scroll">Aktifkan swipe antara paket stiker (tegak lurus terhadap arah gulir)</string>
+    <string name="options_icons_per_x_lbl">"Jumlah Baris: "</string>
+    <string name="options_icon_size_status_lbl">"Ukuran Ikon: "</string>
+    <!-- Informasi -->
+    <string name="info_heading">Informasi</string>
+    <string name="info_text">EweSticker adalah aplikasi papan ketik stiker Android, yang dirancang khusus untuk berbagi berbagai macam stiker khusus dalam aplikasi pesan yang didukung. Proyek ini mendapatkan inspirasi dari proyek uSticker dan merupakan cabang dari repositori woosticker.</string>
+    <!-- Fitur-fitur -->
+    <string name="features_heading">Fitur</string>
+    <string name="features_text">Aplikasi Android EweSticker menawarkan fitur-fitur utama berikut ini untuk meningkatkan pengalaman berkirim pesan Anda:
 \n
-\n- **Dukungan Stiker Kustom yang Luas**: EweSticker mendukung berbagai format stiker yang beragam, memastikan pengguna dapat berbagi kreativitas mereka dengan berbagai cara. Format yang didukung termasuk image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska, dan video/webm.
+\n- **Berbagai Jenis Stiker Khusus yang Didukung**: EweSticker mendukung beragam format stiker, memastikan bahwa pengguna dapat berbagi kreativitas dengan berbagai cara. Format yang didukung termasuk image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska, dan video/webm.
 \n
-\n- **Berbagi Stiker yang Lancar**: Pengguna dapat dengan mudah mengirim stiker dalam aplikasi pesan yang mendukung berbagi media kustom dengan menggunakan image/png sebagai cadangan.
+\n- Berbagi Stiker yang lancar**: Pengguna dapat dengan mudah mengirim stiker dalam aplikasi perpesanan yang mendukung berbagi media khusus menggunakan gambar/png sebagai pengganti.
 \n
-\n- **Pengguliran yang Dapat Disesuaikan**: Aplikasi ini menawarkan opsi pengguliran baik secara vertikal maupun horizontal, memungkinkan pengguna untuk menjelajahi koleksi stiker mereka sesuai dengan orientasi yang mereka inginkan.
+\n- **Pengguliran yang Dapat Disesuaikan**: Aplikasi ini menawarkan opsi pengguliran vertikal dan horizontal, memungkinkan pengguna untuk menavigasi koleksi stiker mereka sesuai dengan orientasi yang mereka inginkan.
 \n
-\n- **Kustomisasi Pratinjau Stiker**: Pengguna memiliki kebebasan untuk mengatur jumlah baris dan ukuran pratinjau stiker, menyesuaikan pengalaman tampilan sesuai dengan selera mereka dan dimensi layar perangkat.
+\n- **Kustomisasi Pratinjau Stiker**: Pengguna memiliki kebebasan untuk menyesuaikan jumlah baris dan ukuran pratinjau stiker, menyesuaikan pengalaman menonton sesuai dengan keinginan dan dimensi layar perangkat.
 \n
-\n- **Integrasi dengan Tema Sistem**: EweSticker dengan lancar mengintegrasikan diri dengan tema sistem, memastikan penampilan aplikasi sejajar dengan pilihan desain perangkat pengguna secara keseluruhan.
+\n- **Integrasi dengan Tema Sistem**: EweSticker terintegrasi secara mulus dengan tema sistem, memastikan bahwa tampilan aplikasi selaras dengan pilihan desain di seluruh perangkat pengguna.
 \n
-\n- **Pratinjau Stiker saat Menekan Lama**: Untuk memfasilitasi pemilihan stiker, pengguna dapat menekan lama pada stiker untuk menampilkan pratinjau. Fitur ini membantu pengguna dengan cepat memutuskan stiker mana yang ingin mereka bagikan tanpa perlu membuka koleksi stiker secara terpisah.
+\n- Pratinjau Stiker dengan Menekan Lama**: Untuk memudahkan pemilihan stiker, pengguna dapat menekan lama stiker untuk menampilkan pratinjau. Fitur ini membantu pengguna dengan cepat memutuskan stiker mana yang ingin dibagikan tanpa perlu membuka koleksi stiker secara terpisah.
 \n
-\nEweSticker memberikan berbagai pilihan kustomisasi, dukungan format yang beragam, dan integrasi dengan aplikasi pesan. Baik pengguna berbagi image statis, GIF animasi, atau bahkan video pendek, aplikasi ini bertujuan memberikan cara yang menarik dan ekspresif untuk berkomunikasi menggunakan stiker kustom.</string>
-	<!-- Cara Menggunakan -->
-	<string name="how_to_use_heading">Cara Menggunakan</string>
-	<string name="how_to_use_text">Pilih direktori yang berisi stiker dan kirimkan mereka ke aplikasi favorit Anda!</string>
-	<!-- Lisensi -->
-	<string name="license_heading">Lisensi MIT</string>
-	<string name="license_text">Hak Cipta © FredHappyface
+\nEweSticker menghadirkan berbagai pilihan kustomisasi, dukungan format yang beragam, dan integrasi dengan aplikasi perpesanan. Baik pengguna berbagi gambar statis, GIF animasi, atau bahkan video pendek, aplikasi ini bertujuan untuk memberikan cara yang menarik dan ekspresif untuk berkomunikasi menggunakan stiker khusus.</string>
+    <!-- Cara Menggunakan -->
+    <string name="how_to_use_heading">Cara penggunaan</string>
+    <string name="how_to_use_text">Pilih direktori yang berisi stiker dan kirim ke aplikasi favorit Anda!</string>
+    <!-- Lisensi -->
+    <string name="license_heading">Lisensi MIT</string>
+    <string name="license_text">Hak Cipta © FredHappyface
 \nHak Cipta © Randy Zhou</string>
-	<!-- Tautan -->
-	<string name="links_heading">Tautan</string>
-	<string name="links_text">- Kode sumber EweSticker tersedia di https://github.com/FredHappyface/Android.EweSticker
+    <!-- Tautan -->
+    <string name="links_heading">Tautan</string>
+    <string name="links_text">- Kode sumber untuk EweSticker tersedia di https://github.com/FredHappyface/Android.EweSticker
 \n
-\n- Panduan tutorial akan membantu Anda melalui serangkaian langkah-langkah untuk memulai menggunakan perangkat lunak ini. Mulai di sini jika Anda baru: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+\n- Tutorial ini memandu Anda melalui serangkaian langkah untuk mulai menggunakan perangkat lunak ini. Mulailah dari sini jika Anda masih baru: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
 \n
-\n- Panduan bantuan memberikan titik awal dan menguraikan masalah umum yang mungkin Anda alami: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+\n- Panduan bantuan menyediakan titik awal dan menguraikan masalah umum yang mungkin Anda alami: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
 \n
 \n- Lisensi MIT
-\n(Lihat lisensi untuk informasi lebih lanjut di https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-	<!-- Pesan Interaktif -->
-	<string name="pref_000">Preferensi telah diubah. Muat ulang keyboard agar pengaturan berlaku</string>
-	<string name="imported_010">Memulai impor. Ini mungkin memerlukan beberapa waktu!</string>
-	<string name="imported_020">Mengimpor %1$d stiker. Muat ulang keyboard agar stiker baru ditampilkan</string>
-	<string name="imported_031">E031: Beberapa stiker gagal diimpor (%1$d diimpor). Maksimal stiker tercapai</string>
-	<string name="imported_032">E032: Beberapa stiker gagal diimpor (%1$d diimpor). Ukuran paket maksimal tercapai</string>
-	<string name="imported_033">E033: Beberapa stiker gagal diimpor (%1$d diimpor). Format yang tidak didukung ditemukan</string>
-	<string name="imported_034">E034: Gagal memuat ulang stiker, coba pilih direktori sumber stiker</string>
-	<string name="fallback_041">E041: IOException yang tidak diharapkan saat mengonversi stiker</string>
-	<!-- Keyboard -->
-	<string name="sticker_pack_info">%1$s (Paket: %2$s)</string>
+\n (Lihat lisensi untuk informasi lebih lanjut https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
+    <!-- Pesan Interaktif -->
+    <string name="pref_000">Preferensi berubah. Muat ulang keyboard agar pengaturan dapat diterapkan</string>
+    <string name="imported_010">Mulai impor. Ini mungkin membutuhkan waktu!</string>
+    <string name="imported_020">Mengimpor stiker %1$d. Muat ulang keyboard agar stiker baru dapat ditampilkan</string>
+    <string name="imported_031">E031: Beberapa stiker gagal diimpor (%1$d diimpor). Maksimal stiker tercapai</string>
+    <string name="imported_032">E032: Beberapa stiker gagal diimpor (%1$d diimpor). Ukuran paket maksimal tercapai</string>
+    <string name="imported_033">E033: Beberapa stiker gagal diimpor (%1$d diimpor). Format tidak didukung</string>
+    <string name="imported_034">E034: Gagal memuat ulang stiker, coba pilih direktori sumber stiker</string>
+    <string name="fallback_041">E041: IOException yang tidak diharapkan saat mengonversi stiker</string>
+    <!-- Keyboard -->
+    <string name="sticker_pack_info">%1$s (Paket: %2$s)</string>
 </resources>
