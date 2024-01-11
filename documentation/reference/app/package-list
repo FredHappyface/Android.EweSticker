@@ -1,0 +1,65 @@
+$dokka.format:gfm-v1
+$dokka.linkExtension:md
+$dokka.location:com.fredhappyface.ewesticker.adapter////PointingToDeclaration/app/com.fredhappyface.ewesticker.adapter/index.md
+$dokka.location:com.fredhappyface.ewesticker.adapter/StickerPackAdapter///PointingToDeclaration/app/com.fredhappyface.ewesticker.adapter/-sticker-pack-adapter/index.md
+$dokka.location:com.fredhappyface.ewesticker.adapter/StickerPackAdapter/StickerPackAdapter/#kotlin.Int#kotlin.Array[java.io.File]#com.fredhappyface.ewesticker.utilities.StickerClickListener#android.view.GestureDetector/PointingToDeclaration/app/com.fredhappyface.ewesticker.adapter/-sticker-pack-adapter/-sticker-pack-adapter.md
+$dokka.location:com.fredhappyface.ewesticker.adapter/StickerPackAdapter/getItemCount/#/PointingToDeclaration/app/com.fredhappyface.ewesticker.adapter/-sticker-pack-adapter/get-item-count.md
+$dokka.location:com.fredhappyface.ewesticker.adapter/StickerPackAdapter/onBindViewHolder/#com.fredhappyface.ewesticker.view.StickerPackViewHolder#kotlin.Int/PointingToDeclaration/app/com.fredhappyface.ewesticker.adapter/-sticker-pack-adapter/on-bind-view-holder.md
+$dokka.location:com.fredhappyface.ewesticker.adapter/StickerPackAdapter/onCreateViewHolder/#android.view.ViewGroup#kotlin.Int/PointingToDeclaration/app/com.fredhappyface.ewesticker.adapter/-sticker-pack-adapter/on-create-view-holder.md
+$dokka.location:com.fredhappyface.ewesticker.model////PointingToDeclaration/app/com.fredhappyface.ewesticker.model/index.md
+$dokka.location:com.fredhappyface.ewesticker.model/StickerPack///PointingToDeclaration/app/com.fredhappyface.ewesticker.model/-sticker-pack/index.md
+$dokka.location:com.fredhappyface.ewesticker.model/StickerPack/StickerPack/#java.io.File/PointingToDeclaration/app/com.fredhappyface.ewesticker.model/-sticker-pack/-sticker-pack.md
+$dokka.location:com.fredhappyface.ewesticker.model/StickerPack/stickerList/#/PointingToDeclaration/app/com.fredhappyface.ewesticker.model/-sticker-pack/sticker-list.md
+$dokka.location:com.fredhappyface.ewesticker.model/StickerPack/thumbSticker/#/PointingToDeclaration/app/com.fredhappyface.ewesticker.model/-sticker-pack/thumb-sticker.md
+$dokka.location:com.fredhappyface.ewesticker.utilities////PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/index.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Cache///PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-cache/index.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Cache/Cache/#kotlin.Int/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-cache/-cache.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Cache/add/#kotlin.String/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-cache/add.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Cache/fromSharedPref/#kotlin.String/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-cache/from-shared-pref.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Cache/toFiles/#/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-cache/to-files.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Cache/toSharedPref/#/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-cache/to-shared-pref.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/SharedPrefHelper///PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-shared-pref-helper/index.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/SharedPrefHelper/getStickerPacksFromPref/#android.content.Context/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-shared-pref-helper/get-sticker-packs-from-pref.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/StickerClickListener///PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-sticker-click-listener/index.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/StickerClickListener/onStickerClicked/#java.io.File/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-sticker-click-listener/on-sticker-clicked.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/StickerClickListener/onStickerLongClicked/#java.io.File/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-sticker-click-listener/on-sticker-long-clicked.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/StickerSender///PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-sticker-sender/index.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/StickerSender/StickerSender/#android.content.Context#com.fredhappyface.ewesticker.utilities.Toaster#java.io.File#android.view.inputmethod.InputConnection?#android.view.inputmethod.EditorInfo?#com.fredhappyface.ewesticker.utilities.Cache#coil.ImageLoader/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-sticker-sender/-sticker-sender.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/StickerSender/sendSticker/#java.io.File/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-sticker-sender/send-sticker.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Toaster///PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-toaster/index.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Toaster/Toaster/#android.content.Context/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-toaster/-toaster.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Toaster/setState/#kotlin.Int/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-toaster/set-state.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Toaster/toast/#kotlin.String/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-toaster/toast.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Toaster/toastOnState/#kotlin.Array[kotlin.String]/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-toaster/toast-on-state.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Utils///PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-utils/index.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Utils/getMimeType/#java.io.File/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-utils/get-mime-type.md
+$dokka.location:com.fredhappyface.ewesticker.utilities/Utils/getSupportedMimes/#/PointingToDeclaration/app/com.fredhappyface.ewesticker.utilities/-utils/get-supported-mimes.md
+$dokka.location:com.fredhappyface.ewesticker.view////PointingToDeclaration/app/com.fredhappyface.ewesticker.view/index.md
+$dokka.location:com.fredhappyface.ewesticker.view/StickerPackViewHolder///PointingToDeclaration/app/com.fredhappyface.ewesticker.view/-sticker-pack-view-holder/index.md
+$dokka.location:com.fredhappyface.ewesticker.view/StickerPackViewHolder/StickerPackViewHolder/#android.view.View/PointingToDeclaration/app/com.fredhappyface.ewesticker.view/-sticker-pack-view-holder/-sticker-pack-view-holder.md
+$dokka.location:com.fredhappyface.ewesticker.view/StickerPackViewHolder/stickerThumbnail/#/PointingToDeclaration/app/com.fredhappyface.ewesticker.view/-sticker-pack-view-holder/sticker-thumbnail.md
+$dokka.location:com.fredhappyface.ewesticker////PointingToDeclaration/app/com.fredhappyface.ewesticker/index.md
+$dokka.location:com.fredhappyface.ewesticker//trimString/#kotlin.String/PointingToDeclaration/app/com.fredhappyface.ewesticker/trim-string.md
+$dokka.location:com.fredhappyface.ewesticker/ImageKeyboard///PointingToDeclaration/app/com.fredhappyface.ewesticker/-image-keyboard/index.md
+$dokka.location:com.fredhappyface.ewesticker/ImageKeyboard/ImageKeyboard/#/PointingToDeclaration/app/com.fredhappyface.ewesticker/-image-keyboard/-image-keyboard.md
+$dokka.location:com.fredhappyface.ewesticker/ImageKeyboard/onCreate/#/PointingToDeclaration/app/com.fredhappyface.ewesticker/-image-keyboard/on-create.md
+$dokka.location:com.fredhappyface.ewesticker/ImageKeyboard/onCreateInputView/#/PointingToDeclaration/app/com.fredhappyface.ewesticker/-image-keyboard/on-create-input-view.md
+$dokka.location:com.fredhappyface.ewesticker/ImageKeyboard/onEvaluateFullscreenMode/#/PointingToDeclaration/app/com.fredhappyface.ewesticker/-image-keyboard/on-evaluate-fullscreen-mode.md
+$dokka.location:com.fredhappyface.ewesticker/ImageKeyboard/onFinishInput/#/PointingToDeclaration/app/com.fredhappyface.ewesticker/-image-keyboard/on-finish-input.md
+$dokka.location:com.fredhappyface.ewesticker/ImageKeyboard/onStartInput/#android.view.inputmethod.EditorInfo?#kotlin.Boolean/PointingToDeclaration/app/com.fredhappyface.ewesticker/-image-keyboard/on-start-input.md
+$dokka.location:com.fredhappyface.ewesticker/ImageKeyboard/onStickerClicked/#java.io.File/PointingToDeclaration/app/com.fredhappyface.ewesticker/-image-keyboard/on-sticker-clicked.md
+$dokka.location:com.fredhappyface.ewesticker/ImageKeyboard/onStickerLongClicked/#java.io.File/PointingToDeclaration/app/com.fredhappyface.ewesticker/-image-keyboard/on-sticker-long-clicked.md
+$dokka.location:com.fredhappyface.ewesticker/MainActivity///PointingToDeclaration/app/com.fredhappyface.ewesticker/-main-activity/index.md
+$dokka.location:com.fredhappyface.ewesticker/MainActivity/MainActivity/#/PointingToDeclaration/app/com.fredhappyface.ewesticker/-main-activity/-main-activity.md
+$dokka.location:com.fredhappyface.ewesticker/MainActivity/chooseDir/#android.view.View/PointingToDeclaration/app/com.fredhappyface.ewesticker/-main-activity/choose-dir.md
+$dokka.location:com.fredhappyface.ewesticker/MainActivity/enableKeyboard/#android.view.View/PointingToDeclaration/app/com.fredhappyface.ewesticker/-main-activity/enable-keyboard.md
+$dokka.location:com.fredhappyface.ewesticker/MainActivity/reloadStickers/#android.view.View/PointingToDeclaration/app/com.fredhappyface.ewesticker/-main-activity/reload-stickers.md
+$dokka.location:com.fredhappyface.ewesticker/StickerImporter///PointingToDeclaration/app/com.fredhappyface.ewesticker/-sticker-importer/index.md
+$dokka.location:com.fredhappyface.ewesticker/StickerImporter/StickerImporter/#android.content.Context#com.fredhappyface.ewesticker.utilities.Toaster#com.google.android.material.progressindicator.LinearProgressIndicator/PointingToDeclaration/app/com.fredhappyface.ewesticker/-sticker-importer/-sticker-importer.md
+$dokka.location:com.fredhappyface.ewesticker/StickerImporter/importStickers/#kotlin.String/PointingToDeclaration/app/com.fredhappyface.ewesticker/-sticker-importer/import-stickers.md
+com.fredhappyface.ewesticker
+com.fredhappyface.ewesticker.adapter
+com.fredhappyface.ewesticker.model
+com.fredhappyface.ewesticker.utilities
+com.fredhappyface.ewesticker.view
+
