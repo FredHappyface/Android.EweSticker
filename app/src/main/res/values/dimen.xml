@@ -5,6 +5,10 @@
 	<dimen name="text_size_title">36sp</dimen>
 	<dimen name="text_size_heading">24sp</dimen>
 	<dimen name="text_size_body">16sp</dimen>
+	<dimen name="text_size_tiny">10sp</dimen>
+	<dimen name="qwerty_row_height">40sp</dimen>
+
+
 	<dimen name="content_margin">10dp</dimen>
 	<dimen name="card_margin">16dp</dimen>
 	<dimen name="content_margin_top">8dp</dimen>

@@ -23,6 +23,13 @@
 		<item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
 	</style>
 
+	<style name="qwerty" parent="Widget.AppCompat.Button">
+		<item name="android:textColor">@color/fg</item>
+		<item name="android:padding">@dimen/sticker_padding</item>
+		<item name="android:background">@drawable/qwerty_key</item>
+	</style>
+
+
 	<style name="ToolbarTitleTextAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
 		<item name="android:textSize">@dimen/text_size_title</item>
 	</style>

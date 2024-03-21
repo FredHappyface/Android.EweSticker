@@ -7,6 +7,13 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver
 -->
 
+## 202403xx
+
+- Add sticker search
+- Update translations from Weblate (thank you to the following!)
+	- Indonesian
+		- Reza Almanda <rezaalmanda27@gmail.com>
+
 ## 20231008
 
 - Update Fastlane Metadata
