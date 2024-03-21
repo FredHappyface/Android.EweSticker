@@ -2,15 +2,15 @@ package com.fredhappyface.ewesticker
 
 import android.content.SharedPreferences
 import android.inputmethodservice.InputMethodService
+import android.os.Build
 import android.os.Build.VERSION.SDK_INT
 import android.view.GestureDetector
-import android.view.LayoutInflater
+import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
@@ -117,11 +117,11 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		this.iconSize =
 			(
 				if (this.vertical) {
-				(resources.displayMetrics.widthPixels - this.totalIconPadding) / this.iconsPerX.toFloat()
-			} else {
-				(this.sharedPreferences.getInt("iconSize", 80) * scale)
-			}
-			).toInt()
+					(resources.displayMetrics.widthPixels - this.totalIconPadding) / this.iconsPerX.toFloat()
+				} else {
+					(this.sharedPreferences.getInt("iconSize", 80) * scale)
+				}
+				).toInt()
 		this.toaster = Toaster(baseContext)
 		//  Load Packs
 		this.loadedPacks = HashMap()
@@ -173,11 +173,11 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		this.fullIconSize =
 			(
 				min(
-				resources.displayMetrics.widthPixels,
-				this.keyboardHeight -
+					resources.displayMetrics.widthPixels,
+					this.keyboardHeight -
 						resources.getDimensionPixelOffset(R.dimen.text_size_body) * 2,
-			) * 0.95
-			)
+				) * 0.95
+				)
 				.toInt()
 		createPackIcons()
 		return keyboardLayout
@@ -260,8 +260,10 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		packContent.addView(recyclerView)
 	}
 
+	/**
+	 * Set the current tab to the search page/ view
+	 */
 	private fun searchView() {
-
 		for (packCard in this.packsList) {
 			val packButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 			if (packButton.tag == "__search__") {
@@ -273,66 +275,69 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 
 		qwertyWidth = (resources.displayMetrics.widthPixels / 10.4).toInt()
 
-
 		val qwertyLayout = layoutInflater.inflate(R.layout.qwerty_layout, packContent, false)
 		val searchText = qwertyLayout.findViewById<TextView>(R.id.search_text)
-		val search_results = qwertyLayout.findViewById<LinearLayout>(R.id.search_results)
+		val searchResults = qwertyLayout.findViewById<LinearLayout>(R.id.search_results)
 
 		val searchResultsHeight =
 			packContent.layoutParams.height -
 				(
 					resources.getDimension(R.dimen.qwerty_row_height) +
-						resources.getDimension(R.dimen.qwerty_row_height) * 4
+					resources.getDimension(R.dimen.qwerty_row_height) * 4
 					)
 
-		search_results.layoutParams.height = searchResultsHeight.toInt()
+		searchResults.layoutParams.height = searchResultsHeight.toInt()
 
 		fun searchStickers(query: String): List<File> {
 			return this.allStickers.filter { it.name.contains(query, ignoreCase = true) }
 		}
 
-		// Function to update the search results view with a list of stickers
 		fun updateSearchResults(stickers: List<File>) {
-			val recyclerView = RecyclerView(this)
-			val adapter = StickerPackAdapter((searchResultsHeight*.95).toInt(), stickers.toTypedArray(), this, gestureDetector)
-			val layoutManager = GridLayoutManager(
+			val recyclerView = RecyclerView(baseContext)
+			val adapter = StickerPackAdapter(
+				(searchResultsHeight * 0.9).toInt(),
+				stickers.take(128).toTypedArray(),
 				this,
+				gestureDetector,
+			)
+			val layoutManager = GridLayoutManager(
+				baseContext,
 				1,
 				RecyclerView.HORIZONTAL,
 				false,
 			)
 			recyclerView.layoutManager = layoutManager
 			recyclerView.adapter = adapter
-			search_results.removeAllViewsInLayout()
-			search_results.addView(recyclerView)
+			searchResults.removeAllViewsInLayout()
+			searchResults.addView(recyclerView)
 		}
 
-
-		fun searchAppend(char:String){
+		fun searchAppend(char: String) {
 			searchText.append(char)
 			val query = searchText.text.toString()
-			val searchResults = searchStickers(query)
-			updateSearchResults(searchResults)
+			updateSearchResults(searchStickers(query))
 		}
 
-		fun searchBack(char:String){
+		fun searchBack(char: String) {
 			if (searchText.text.isNotEmpty()) {
 				val newText = searchText.text.substring(0, searchText.text.length - 1)
 				searchText.text = newText
 			}
 			val query = searchText.text.toString()
-			val searchResults = searchStickers(query)
-			updateSearchResults(searchResults)
+			updateSearchResults(searchStickers(query))
 		}
 
-		fun searchClear(char:String){
-				searchText.text = ""
-			search_results.removeAllViews()
-			}
+		fun searchClear(char: String) {
+			searchText.text = ""
+			searchResults.removeAllViews()
+		}
 
-
-
-		fun _addKey(char: String, secondaryChar: String,tap: (String) -> Unit = ::searchAppend,longTap: (String) -> Unit = ::searchAppend) : RelativeLayout {
+		fun addKey(
+			char: String,
+			secondaryChar: String,
+			tap: (String) -> Unit = ::searchAppend,
+			longTap: (String) -> Unit = ::searchAppend,
+		): RelativeLayout {
 			val buttonView = layoutInflater.inflate(R.layout.qwerty_key, null, false)
 			val button = buttonView.findViewById<RelativeLayout>(R.id.btn)
 			val layoutParams =
@@ -346,6 +351,9 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			val sText = buttonView.findViewById<TextView>(R.id.secondaryText)
 			sText.text = secondaryChar
 			button.setOnClickListener {
+				if (SDK_INT >= Build.VERSION_CODES.O_MR1) {
+					it.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_PRESS)
+				}
 				tap((it.tag as Array<String>)[0])
 			}
 			button.setOnLongClickListener {
@@ -355,38 +363,40 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			return button
 		}
 
-		fun _addRow(row: LinearLayout, chars: List<String>, secondaryChars: List<String>, ){
+		fun addRow(row: LinearLayout, chars: List<String>, secondaryChars: List<String>) {
 			for ((index, key) in chars.withIndex()) {
-				val button = _addKey(key, secondaryChars[index])
+				val button = addKey(key, secondaryChars[index])
 				row.addView(button)
 			}
 		}
 
 		val row1 = qwertyLayout.findViewById<LinearLayout>(R.id.qwerty_row_1)
-		_addRow(row1, "QWERTYUIOP".map { it.toString() }, "1234567890".map { it.toString() })
+		addRow(row1, "QWERTYUIOP".map { it.toString() }, "1234567890".map { it.toString() })
 		val row2 = qwertyLayout.findViewById<LinearLayout>(R.id.qwerty_row_2)
-		_addRow(row2, "ASDFGHJKL".map { it.toString() }, "@#£_&-+()".map { it.toString() })
+		addRow(row2, "ASDFGHJKL".map { it.toString() }, "@#£_&-+()".map { it.toString() })
 		val row3 = qwertyLayout.findViewById<LinearLayout>(R.id.qwerty_row_3)
-		_addRow(row3, "ZXCVBNM".map { it.toString() }, "*\"':;!?".map { it.toString() })
+		addRow(row3, "ZXCVBNM".map { it.toString() }, "*\"':;!?".map { it.toString() })
 		val row4 = qwertyLayout.findViewById<LinearLayout>(R.id.qwerty_row_4)
 
+		val backspace = addKey("←", "", ::searchBack, ::searchClear)
+		backspace.layoutParams.width = qwertyWidth * 2
+		row3.addView(backspace)
 
-
-		row3.addView(_addKey("←", "", ::searchBack, ::searchClear))
-
-		val spacebar = _addKey(" ", " ", )
+		val spacebar = addKey(" ", " ")
 		spacebar.layoutParams.width = qwertyWidth * 7
 		row4.addView(spacebar)
 
-
-
-
-		// Add the inflated layout to packContent
 		packContent.removeAllViewsInLayout()
 		packContent.addView(qwertyLayout)
 	}
 
-	private fun addPackButton(tag: Any): ImageButton {
+	/**
+	 * Adds a pack button to the packsList/ tab bar.
+	 *
+	 * @param tag The pack name associated with the pack button.
+	 * @return The ImageButton representing the added pack button.
+	 */
+	private fun addPackButton(tag: String): ImageButton {
 		val packCard = layoutInflater.inflate(R.layout.sticker_card, this.packsList, false)
 		val packButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 		packButton.tag = tag
@@ -438,8 +448,8 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		} else {
 			(
 				baseContext.getSystemService(INPUT_METHOD_SERVICE) as
-				InputMethodManager
-			).showInputMethodPicker()
+					InputMethodManager
+				).showInputMethodPicker()
 		}
 	}
 
@@ -471,8 +481,8 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			this.keyboardHeight +
 				(
 					resources.getDimension(R.dimen.pack_dimens) +
-					resources.getDimension(R.dimen.sticker_padding) * 4
-				).toInt()
+						resources.getDimension(R.dimen.sticker_padding) * 4
+					).toInt()
 		val fSticker = fullStickerLayout.findViewById<ImageButton>(R.id.stickerButton)
 		fSticker.layoutParams.height = this.fullIconSize
 		fSticker.layoutParams.width = this.fullIconSize
@@ -550,7 +560,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
  *  @return String
  */
 fun trimString(str: String?): String {
-	if (str == null){
+	if (str == null) {
 		return "null"
 	}
 	if (str.length > 32) {
