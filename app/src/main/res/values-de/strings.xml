@@ -32,21 +32,23 @@
 	<string name="info_text">EweSticker ist eine Android-Sticker-Tastaturanwendung, die speziell entwickelt wurde, um eine vielfältige Auswahl an individuellen Stickern in unterstützten Messaging-Apps zu teilen. Dieses Projekt wurde von dem uSticker-Projekt inspiriert und ist ein Fork des woosticker-Repositorys.</string>
 	<!-- Eigenschaften -->
 	<string name="features_heading">Eigenschaften</string>
-	<string name="features_text">Die EweSticker Android-App bietet folgende Hauptfunktionen, um deine Messaging-Erfahrung zu verbessern:
-\n
-\n- **Breite Palette von unterstützten individuellen Stickern**: EweSticker unterstützt eine vielfältige Auswahl von Sticker-Formaten, sodass Nutzer ihre Kreativität auf verschiedene Arten teilen können. Unterstützte Formate umfassen Bild/GIF, Bild/PNG, Bild/WEBP, Bild/JPEG, Bild/HEIF, Video/3GPP, Video/MP4, Video/X-Matroska und Video/WEBM.
-\n
-\n- **Nahtloses Teilen von Stickern**: Nutzer können Sticker problemlos in Messaging-Apps senden, die individuelle Mediennutzung unterstützen, indem Bild/PNG als Fallback verwendet wird.
-\n
-\n- **Anpassbares Scrollen**: Die App bietet sowohl vertikale als auch horizontale Scroll-Optionen, sodass Nutzer durch ihre Stickersammlung gemäß ihrer bevorzugten Ausrichtung navigieren können.
-\n
-\n- **Anpassbare Sticker-Vorschau**: Nutzer können die Anzahl der Reihen und die Größe der Sticker-Vorschau anpassen, um das Anzeigeerlebnis nach ihren Vorlieben und den Abmessungen ihres Gerätebildschirms anzupassen.
-\n
-\n- **Integration mit System-Thema**: EweSticker integriert sich nahtlos in das System-Thema, um sicherzustellen, dass das Erscheinungsbild der App mit den designweiten Entscheidungen des Benutzers übereinstimmt.
-\n
-\n- **Sticker-Vorschau bei langer Berührung**: Um die Sticker-Auswahl zu erleichtern, können Nutzer auf einen Sticker lange drücken, um eine Vorschau anzuzeigen. Diese Funktion hilft Nutzern schnell zu entscheiden, welchen Sticker sie teilen möchten, ohne die Stickersammlung separat öffnen zu müssen.
-\n
-\nEweSticker bietet eine breite Palette an Anpassungsoptionen, vielfältige Formatunterstützung und Integration mit Messaging-Apps. Ob Nutzer statische Bilder, animierte GIFs oder sogar kurze Videos teilen, die App zielt darauf ab, eine ansprechende und ausdrucksstarke Art der Kommunikation mit individuellen Stickern zu bieten.</string>
+	<string name="features_text">"Die EweSticker Android-App bietet folgende Hauptfunktionen, um deine Messaging-Erfahrung zu verbessern:
+
+- **Breite Palette von unterstützten individuellen Stickern**: EweSticker unterstützt eine vielfältige Auswahl von Sticker-Formaten, sodass Nutzer ihre Kreativität auf verschiedene Arten teilen können. Unterstützte Formate umfassen Bild/GIF, Bild/PNG, Bild/WEBP, Bild/JPEG, Bild/HEIF, Video/3GPP, Video/MP4, Video/X-Matroska und Video/WEBM.
+
+- **Nahtloses Teilen von Stickern**: Senden Sie ganz einfach Sticker innerhalb von Messaging-Apps, die benutzerdefiniertes Mediasharing unterstützen, wobei Bild/png als Alternative verwendet wird.
+
+- **Anpassbares Scrollen**: Verwenden Sie entweder vertikales oder horizontales Scrollen, um durch Ihre Stickersammlung zu navigieren.
+
+- **Anzeigeoptionen**: Passen Sie die Anzahl der Zeilen und die Größe der Sticker-Vorschau an, um das Anzeigeerlebnis Ihren Vorlieben und den Bildschirmabmessungen Ihres Geräts anzupassen.
+
+- **Durchsuchen Ihrer Stickersammlung**: Verwenden Sie eine QWERTZ-Tastatur, um Sticker nach Dateinamen zu durchsuchen und die Entdeckung zu erleichtern.
+
+- **Integration mit dem Systemdesign**: EweSticker integriert sich nahtlos in das Designs des Systems, sodass das Erscheinungsbild der App Ihren systemweiten Designentscheidungen entspricht.
+
+- **Sticker-Vorschau bei langem Drücken**: Um die Sticker-Auswahl zu erleichtern, können Sie lange auf einen Sticker drücken, um eine Vorschau anzuzeigen, die Ihnen hilft, schnell zu entscheiden, welchen Sticker Sie teilen möchten, ohne die Stickersammlung separat öffnen zu müssen.
+
+EweSticker bietet eine breite Palette an Anpassungsoptionen, vielfältige Formatunterstützung und Integration mit Messaging-Apps. Ob Nutzer statische Bilder, animierte GIFs oder sogar kurze Videos teilen, die App zielt darauf ab, eine ansprechende und ausdrucksstarke Art der Kommunikation mit individuellen Stickern zu bieten."</string>
 	<!-- Anwendungshinweise -->
 	<string name="how_to_use_heading">Anwendungshinweise</string>
 	<string name="how_to_use_text">Wähle ein Verzeichnis mit Stickern aus und sende sie in deinen Lieblings-Apps!</string>

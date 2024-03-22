@@ -32,21 +32,23 @@
 	<string name="info_text">EweSticker 是一款專為在支援的消息應用程序中分享各種自定義貼圖而設計的 Android 貼圖鍵盤應用程序。該項目從 uSticker 項目中汲取靈感，是 woosticker 存儲庫的分支。</string>
 	<!-- 特性 -->
 	<string name="features_heading">特性</string>
-	<string name="features_text">EweSticker Android 應用程序提供以下關鍵特性，以增強您的消息體驗:
-\n
-\n- **支援廣泛的自定義貼圖**: EweSticker 支援多種貼圖格式，確保用戶可以以各種方式分享他們的創意。支援的格式包括image/gif、image/png、image/webp、image/jpeg、image/heif、video/3gpp、video/mp4、video/x-matroska video/webm。
-\n
-\n- **無縫貼圖分享**: 用戶可以在支援自定義媒體共享的消息應用程序中輕松發送貼圖，以image/png 作為備用。
-\n
-\n- **可定制的滾動**: 該應用程序提供垂直和水平滾動選項，使用戶可以根據其首選方向瀏覽貼圖收藏。
-\n
-\n- **貼圖預覽定制**: 用戶可以自由調整行數和貼圖預覽大小，以適應其喜好和設備螢幕尺寸，從而定制查看體驗。
-\n
-\n- **與系統主題集成**: EweSticker 與系統主題無縫集成，確保應用程序的外觀與用戶設備的設計選擇相一致。
-\n
-\n- **長按顯示貼圖預覽**: 為了便于選擇貼圖，用戶可以長按貼圖以顯示預覽。這個功能幫助用戶在不需要單獨打開貼圖收藏的情況下快速決定要分享哪個貼圖。
-\n
-\nEweSticker 提供了廣泛的定制選項、多種格式支援以及與消息應用程序的集成。無論用戶是分享靜態圖像、動畫 GIF 還是短視頻，該應用程序旨在提供一種 engaging 和豐富表現力的方式來使用自定義貼圖進行通信。</string>
+<string name="features_text">"EweSticker Android 應用程序提供以下關鍵特性，以增強您的消息體驗:
+
+- **支援廣泛的自定義貼圖**: EweSticker 支援多種貼圖格式，確保用戶可以以各種方式分享他們的創意。支援的格式包括image/gif、image/png、image/webp、image/jpeg、image/heif、video/3gpp、video/mp4、video/x-matroska video/webm。
+
+- **无缝贴纸分享**: 在支持自定义媒体分享的消息应用程序中轻松发送贴纸，使用 image/png 作为备用选项。
+
+- **可定制的滚动**: 使用垂直或水平滚动浏览您的贴纸收藏。
+
+- **显示选项**: 调整行数和贴纸预览大小，根据您的喜好和设备屏幕尺寸定制查看体验。
+
+- **搜索您的贴纸库**: 使用 QWERTY 键盘按文件名搜索贴纸，以便轻松发现。
+
+- **与系统主题集成**: EweSticker 与系统主题无缝集成，确保应用程序的外观与您的设备范围设计选择一致。
+
+- **长按预览贴纸**: 为了方便选择贴纸，您可以长按贴纸以显示预览，帮助您快速决定要分享哪个贴纸，无需单独打开贴纸收藏。
+
+EweSticker 提供了廣泛的定制選項、多種格式支援以及與消息應用程序的集成。無論用戶是分享靜態圖像、動畫 GIF 還是短視頻，該應用程序旨在提供一種 engaging 和豐富表現力的方式來使用自定義貼圖進行通信。</string>
 	<!-- 如何使用 -->
 	<string name="how_to_use_heading">如何使用</string>
 	<string name="how_to_use_text">選擇包含貼圖的目錄，然後將它們發送到您喜愛的應用程序中！</string>
@@ -74,5 +76,5 @@
 	<string name="imported_034">E034: 重新載入貼圖失敗，請嘗試選擇貼圖來源目錄</string>
 	<string name="fallback_041">E041: 在轉換貼圖時發生意外的 IOException</string>
 	<!-- Keyboard -->
-	<string name="sticker_pack_info">%1$s（包： %2$s）</string>
+	<string name="sticker_pack_info">%1$s（包:  %2$s）</string>
 </resources>

@@ -8,4 +8,3 @@ indent_size = 4
 max_line_length = 100
 ktlint_standard_indent = disabled
 ktlint_wrapping = disabled
-

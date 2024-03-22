@@ -32,21 +32,23 @@
 	<string name="info_text">EweSticker 是一款专为在支持的消息应用程序中分享各种自定义贴纸而设计的 Android 贴纸键盘应用程序。该项目从 uSticker 项目中汲取灵感，是 woosticker 存储库的分支。</string>
 	<!-- 特性 -->
 	<string name="features_heading">特性</string>
-	<string name="features_text">EweSticker Android 应用程序提供以下关键特性，以增强您的消息体验:
-\n
-\n- **支持广泛的自定义贴纸**: EweSticker 支持多种贴纸格式，确保用户可以以各种方式分享他们的创意。支持的格式包括image/gif、image/png、image/webp、image/jpeg、image/heif、video/3gpp、video/mp4、video/x-matroska video/webm。
-\n
-\n- **无缝贴纸分享**: 用户可以在支持自定义媒体共享的消息应用程序中轻松发送贴纸，以image/png作为后备。
-\n
-\n- **可定制的滚动**: 该应用程序提供垂直和水平滚动选项，使用户可以根据其首选方向浏览贴纸收藏。
-\n
-\n- **贴纸预览定制**: 用户可以自由调整行数和贴纸预览大小，以适应其喜好和设备屏幕尺寸，从而定制查看体验。
-\n
-\n- **与系统主题集成**: EweSticker 与系统主题无缝集成，确保应用程序的外观与用户设备的设计选择相一致。
-\n
-\n- **长按显示贴纸预览**: 为了便于选择贴纸，用户可以长按贴纸以显示预览。这个功能帮助用户在不需要单独打开贴纸收藏的情况下快速决定要分享哪个贴纸。
-\n
-\nEweSticker 提供了广泛的定制选项、多种格式支持以及与消息应用程序的集成。无论用户是分享静态图像、动画 GIF 还是短视频，该应用程序旨在提供一种 engaging 和富有表现力的方式来使用自定义贴纸进行通信。</string>
+<string name="features_text">"EweSticker Android 应用程序提供以下关键特性，以增强您的消息体验:
+
+- **支持广泛的自定义贴纸**: EweSticker 支持多种贴纸格式，确保用户可以以各种方式分享他们的创意。支持的格式包括image/gif、image/png、image/webp、image/jpeg、image/heif、video/3gpp、video/mp4、video/x-matroska video/webm。
+
+- **无缝贴纸分享**: 在支持自定义媒体分享的消息应用程序中轻松发送贴纸，使用 image/png 作为备用选项。
+
+- **可定制的滚动**: 使用垂直或水平滚动浏览您的贴纸收藏。
+
+- **显示选项**: 调整行数和贴纸预览大小，根据您的喜好和设备屏幕尺寸定制查看体验。
+
+- **搜索您的贴纸库**: 使用 QWERTY 键盘按文件名搜索贴纸，以便轻松发现。
+
+- **与系统主题集成**: EweSticker 与系统主题无缝集成，确保应用程序的外观与您的设备范围设计选择一致。
+
+- **长按预览贴纸**: 为了方便选择贴纸，您可以长按贴纸以显示预览，帮助您快速决定要分享哪个贴纸，无需单独打开贴纸收藏。
+
+EweSticker 提供了广泛的定制选项、多种格式支持以及与消息应用程序的集成。无论用户是分享静态图像、动画 GIF 还是短视频，该应用程序旨在提供一种 engaging 和富有表现力的方式来使用自定义贴纸进行通信。"</string>
 	<!-- 如何使用 -->
 	<string name="how_to_use_heading">如何使用</string>
 	<string name="how_to_use_text">选择包含贴纸的目录，然后将它们发送到您喜爱的应用程序中！</string>
@@ -74,5 +76,5 @@
 	<string name="imported_034">E034: 重新加载贴纸失败，请尝试选择贴纸源目录</string>
 	<string name="fallback_041">E041: 在转换贴纸时发生意外的 IOException</string>
 	<!-- Keyboard -->
-	<string name="sticker_pack_info">%1$s（包： %2$s）</string>
+	<string name="sticker_pack_info">%1$s（包:  %2$s）</string>
 </resources>

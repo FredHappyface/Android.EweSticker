@@ -15,7 +15,8 @@
 EweSticker is an Android sticker keyboard application, specifically designed for sharing a wide variety of custom stickers in supported messaging apps. This project draws inspiration from the uSticker project and is a fork of the woosticker repository.
 
 - [Features](#features)
-- [Screenshots](#screenshots)
+- [Dark Theme](#dark-theme)
+- [Light Theme](#light-theme)
 - [Documentation](#documentation)
 - [Installation](#installation)
 - [Gradle tasks](#gradle-tasks)
@@ -41,27 +42,37 @@ The EweSticker Android app offers the following key features to enhance your mes
 
 - **Wide Range of Custom Stickers Supported**: EweSticker supports a diverse set of sticker formats, ensuring that users can share their creativity in various ways. Supported formats include image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska, and video/webm.
 
-- **Seamless Sticker Sharing**: Users can easily send stickers within messaging apps that support custom media sharing using image/png as a fallback.
+- **Seamless Sticker Sharing**: Easily send stickers within messaging apps that support custom media sharing using image/png as a fallback.
 
-- **Customizable Scrolling**: The app offers both vertical and horizontal scrolling options, enabling users to navigate through their sticker collection according to their preferred orientation.
+- **Customizable Scrolling**: Use either vertical or horizontal scrolling to navigate through your sticker collection.
 
-- **Sticker Preview Customization**: Users have the freedom to adjust the number of rows and the sticker preview size, tailoring the viewing experience to their liking and device screen dimensions.
+- **Display Options**: adjust the number of rows and the sticker preview size, tailoring the viewing experience to your liking and device screen dimensions.
 
-- **Integration with System Theme**: EweSticker seamlessly integrates with the system's theme, ensuring that the app's appearance aligns with the user's device-wide design choices.
+- **Search your Sticker library**: Use a qwerty keyboard to search stickers by file name to ease discovery
 
-- **Sticker Preview on Long Press**: To facilitate sticker selection, users can long-press on a sticker to reveal a preview. This feature helps users quickly decide which sticker they want to share without the need to open the sticker collection separately.
+- **Integration with System Theme**: EweSticker seamlessly integrates with the system's theme, ensuring that the app's appearance aligns with your device-wide design choices.
+
+- **Sticker Preview on Long Press**: To facilitate sticker selection, you can long-press on a sticker to reveal a preview to help you quickly decide which sticker to share without the need to open the sticker collection separately.
 
 EweSticker brings a wide range of customization options, diverse format support, and integration with messaging apps. Whether users are sharing static images, animated GIFs, or even short videos, the app aims to provide an engaging and expressive way to communicate using custom stickers.
 
-## Screenshots
+## Dark Theme
 
 <p>
-<img src="metadata/en-US/images/phoneScreenshots/screenshot-1.png" alt="Screenshot 1" width="300">
-<img src="metadata/en-US/images/phoneScreenshots/screenshot-2.png" alt="Screenshot 2" width="300">
-<img src="metadata/en-US/images/phoneScreenshots/screenshot-3.png" alt="Screenshot 3" width="300">
-<img src="metadata/en-US/images/phoneScreenshots/screenshot-4.png" alt="Screenshot 4" width="300">
-<img src="metadata/en-US/images/phoneScreenshots/screenshot-5.png" alt="Screenshot 5" width="300">
-<img src="metadata/en-US/images/phoneScreenshots/screenshot-6.png" alt="Screenshot 6" width="300">
+<img src="metadata/en-US/images/phoneScreenshots/dark-1.png" alt="Dark 1" width="200">
+<img src="metadata/en-US/images/phoneScreenshots/dark-2.png" alt="Dark 2" width="200">
+<img src="metadata/en-US/images/phoneScreenshots/dark-3.png" alt="Dark 3" width="200">
+<img src="metadata/en-US/images/phoneScreenshots/dark-4.png" alt="Dark 4" width="200">
+<img src="metadata/en-US/images/phoneScreenshots/dark-5.png" alt="Dark 5" width="200">
+<img src="metadata/en-US/images/phoneScreenshots/dark-6.png" alt="Dark 6" width="200">
+</p>
+
+## Light Theme
+
+<p>
+<img src="metadata/en-US/images/phoneScreenshots/light-1.png" alt="Light 1" width="200">
+<img src="metadata/en-US/images/phoneScreenshots/light-2.png" alt="Light 2" width="200">
+<img src="metadata/en-US/images/phoneScreenshots/light-3.png" alt="Light 3" width="200">
 </p>
 
 ## Documentation

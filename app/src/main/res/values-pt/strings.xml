@@ -31,21 +31,23 @@
 	<string name="info_text">O EweSticker é um aplicativo de teclado de adesivos para Android, projetado especificamente para compartilhar uma grande variedade de adesivos personalizados em aplicativos de mensagens suportados. Este projeto se inspira no projeto uSticker e é um fork do repositório woosticker.</string>
 	<!-- Recursos -->
 	<string name="features_heading">Recursos</string>
-	<string name="features_text">O aplicativo Android EweSticker oferece os seguintes recursos principais para aprimorar sua experiência de mensagens:
-\n
-\n- **Suporte a uma ampla variedade de adesivos personalizados**: o EweSticker oferece suporte a diversos formatos de adesivos, garantindo que os usuários possam compartilhar sua criatividade de várias maneiras. Os formatos suportados incluem imagem/gif, imagem/png, imagem/webp, imagem/jpeg, imagem/heif, vídeo/3gpp, vídeo/mp4, vídeo/x-matroska e vídeo/webm.
-\n
-\n- **Compartilhamento de adesivos sem costura**: os usuários podem enviar adesivos facilmente em aplicativos de mensagens que suportam o compartilhamento de mídia personalizada usando imagem/png como alternativa.
-\n
-\n- **Rolagem personalizável**: o aplicativo oferece opções de rolagem vertical e horizontal, permitindo que os usuários naveguem por sua coleção de adesivos de acordo com sua orientação preferida.
-\n
-\n- **Personalização da pré-visualização de adesivos**: os usuários têm a liberdade de ajustar o número de linhas e o tamanho da pré-visualização de adesivos, personalizando a experiência de visualização de acordo com suas preferências e dimensões da tela do dispositivo.
-\n
-\n- **Integração com o Tema do Sistema**: o EweSticker integra-se perfeitamente com o tema do sistema, garantindo que a aparência do aplicativo esteja alinhada com as escolhas de design em todo o dispositivo do usuário.
-\n
-\n- **Pré-visualização de adesivos ao pressionar e segurar**: para facilitar a seleção de adesivos, os usuários podem pressionar e segurar um adesivo para revelar uma pré-visualização. Esse recurso ajuda os usuários a decidir rapidamente qual adesivo desejam compartilhar, sem a necessidade de abrir a coleção de adesivos separadamente.
-\n
-\nO EweSticker oferece uma ampla variedade de opções de personalização, suporte a formatos diversos e integração com aplicativos de mensagens. Se os usuários estão compartilhando imagens estáticas, GIFs animados ou até mesmo vídeos curtos, o aplicativo tem como objetivo fornecer uma maneira envolvente e expressiva de se comunicar usando adesivos personalizados.</string>
+<string name="features_text">"O aplicativo Android EweSticker oferece os seguintes recursos principais para aprimorar sua experiência de mensagens:
+
+- **Ampla Gama de Adesivos Personalizados Suportados**: O EweSticker suporta uma variedade de formatos de adesivos, garantindo que os usuários possam compartilhar sua criatividade de várias maneiras. Os formatos suportados incluem image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska e video/webm.
+
+- **Compartilhamento de Adesivos Sem Costura**: Envie facilmente adesivos dentro de aplicativos de mensagens que suportam compartilhamento de mídia personalizada usando image/png como alternativa.
+
+- **Rolagem Personalizável**: Use a rolagem vertical ou horizontal para navegar pela sua coleção de adesivos.
+
+- **Opções de Exibição**: ajuste o número de linhas e o tamanho da visualização do adesivo, adaptando a experiência de visualização às suas preferências e dimensões da tela do dispositivo.
+
+- **Pesquise sua Biblioteca de Adesivos**: Use um teclado qwerty para pesquisar adesivos pelo nome do arquivo para facilitar a descoberta.
+
+- **Integração com o Tema do Sistema**: O EweSticker se integra perfeitamente ao tema do sistema, garantindo que a aparência do aplicativo esteja alinhada com as escolhas de design em todo o dispositivo.
+
+- **Pré-visualização de Adesivo com Toque Longo**: Para facilitar a seleção de adesivos, você pode tocar e segurar em um adesivo para revelar uma pré-visualização e ajudá-lo a decidir rapidamente qual adesivo compartilhar, sem a necessidade de abrir a coleção de adesivos separadamente.
+
+O EweSticker oferece uma ampla variedade de opções de personalização, suporte a formatos diversos e integração com aplicativos de mensagens. Se os usuários estão compartilhando imagens estáticas, GIFs animados ou até mesmo vídeos curtos, o aplicativo tem como objetivo fornecer uma maneira envolvente e expressiva de se comunicar usando adesivos personalizados."</string>
 	<!-- Como Usar -->
 	<string name="how_to_use_heading">Como Usar</string>
 	<string name="how_to_use_text">Selecione um diretório contendo adesivos e envie-os em seus aplicativos favoritos!</string>

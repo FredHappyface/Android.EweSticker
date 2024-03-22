@@ -32,21 +32,24 @@
     <string name="info_text">EweSticker adalah aplikasi papan ketik stiker Android, yang dirancang khusus untuk berbagi berbagai macam stiker khusus dalam aplikasi pesan yang didukung. Proyek ini mendapatkan inspirasi dari proyek uSticker dan merupakan cabang dari repositori woosticker.</string>
     <!-- Fitur-fitur -->
     <string name="features_heading">Fitur</string>
-    <string name="features_text">Aplikasi Android EweSticker menawarkan fitur-fitur utama berikut ini untuk meningkatkan pengalaman berkirim pesan Anda:
-\n
-\n- **Berbagai Jenis Stiker Khusus yang Didukung**: EweSticker mendukung beragam format stiker, memastikan bahwa pengguna dapat berbagi kreativitas dengan berbagai cara. Format yang didukung termasuk image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska, dan video/webm.
-\n
-\n- Berbagi Stiker yang lancar**: Pengguna dapat dengan mudah mengirim stiker dalam aplikasi perpesanan yang mendukung berbagi media khusus menggunakan gambar/png sebagai pengganti.
-\n
-\n- **Pengguliran yang Dapat Disesuaikan**: Aplikasi ini menawarkan opsi pengguliran vertikal dan horizontal, memungkinkan pengguna untuk menavigasi koleksi stiker mereka sesuai dengan orientasi yang mereka inginkan.
-\n
-\n- **Kustomisasi Pratinjau Stiker**: Pengguna memiliki kebebasan untuk menyesuaikan jumlah baris dan ukuran pratinjau stiker, menyesuaikan pengalaman menonton sesuai dengan keinginan dan dimensi layar perangkat.
-\n
-\n- **Integrasi dengan Tema Sistem**: EweSticker terintegrasi secara mulus dengan tema sistem, memastikan bahwa tampilan aplikasi selaras dengan pilihan desain di seluruh perangkat pengguna.
-\n
-\n- Pratinjau Stiker dengan Menekan Lama**: Untuk memudahkan pemilihan stiker, pengguna dapat menekan lama stiker untuk menampilkan pratinjau. Fitur ini membantu pengguna dengan cepat memutuskan stiker mana yang ingin dibagikan tanpa perlu membuka koleksi stiker secara terpisah.
-\n
-\nEweSticker menghadirkan berbagai pilihan kustomisasi, dukungan format yang beragam, dan integrasi dengan aplikasi perpesanan. Baik pengguna berbagi gambar statis, GIF animasi, atau bahkan video pendek, aplikasi ini bertujuan untuk memberikan cara yang menarik dan ekspresif untuk berkomunikasi menggunakan stiker khusus.</string>
+<string name="features_text">"Aplikasi Android EweSticker menawarkan fitur-fitur utama berikut ini untuk meningkatkan pengalaman berkirim pesan Anda:
+
+- **Berbagai Jenis Stiker Khusus yang Didukung**: EweSticker mendukung beragam format stiker, memastikan bahwa pengguna dapat berbagi kreativitas dengan berbagai cara. Format yang didukung termasuk image/gif, image/png, image/webp, image/jpeg, image/heif, video/3gpp, video/mp4, video/x-matroska, dan video/webm.
+
+- **Berbagi Stiker dengan Lancar**: Mudah kirim stiker dalam aplikasi pesan yang mendukung berbagi media kustom menggunakan gambar/png sebagai cadangan.
+
+- **Guliran yang Dapat Disesuaikan**: Gunakan guliran vertikal atau horizontal untuk menavigasi koleksi stiker Anda.
+
+- **Opsi Tampilan**: Sesuaikan jumlah baris dan ukuran pratinjau stiker, menyesuaikan pengalaman penampilan sesuai keinginan dan dimensi layar perangkat Anda.
+
+- **Telusuri Pustaka Stiker Anda**: Gunakan papan ketik QWERTY untuk mencari stiker berdasarkan nama file untuk memudahkan penemuan.
+
+- **Integrasi dengan Tema Sistem**: EweSticker terintegrasi secara mulus dengan tema sistem, memastikan penampilan aplikasi sesuai dengan pilihan desain di seluruh perangkat Anda.
+
+- **Pratinjau Stiker dengan Tekan Lama**: Untuk memfasilitasi pemilihan stiker, Anda dapat menekan lama pada stiker untuk menampilkan pratinjau yang membantu Anda memutuskan stiker mana yang akan dibagikan dengan cepat tanpa perlu membuka koleksi stiker secara terpisah.
+
+EweSticker menghadirkan berbagai pilihan kustomisasi, dukungan format yang beragam, dan integrasi dengan aplikasi perpesanan. Baik pengguna berbagi gambar statis, GIF animasi, atau bahkan video pendek, aplikasi ini bertujuan untuk memberikan cara yang menarik dan ekspresif untuk berkomunikasi menggunakan stiker khusus."</string>
+
     <!-- Cara Menggunakan -->
     <string name="how_to_use_heading">Cara penggunaan</string>
     <string name="how_to_use_text">Pilih direktori yang berisi stiker dan kirim ke aplikasi favorit Anda!</string>

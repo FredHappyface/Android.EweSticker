@@ -1,6 +1,27 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.5.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-symlinks
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-yaml
+      - id: detect-private-key
+      - id: mixed-line-ending
+
+  - repo: https://github.com/boidolr/pre-commit-images
+    rev: v1.5.2
+    hooks:
+      - id: optimize-jpg
+      - id: optimize-png
+      - id: optimize-svg
+      - id: optimize-webp
+
+exclude: "documentation/reference|example-files"
