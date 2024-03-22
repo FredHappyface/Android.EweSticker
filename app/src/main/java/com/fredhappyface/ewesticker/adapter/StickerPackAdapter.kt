@@ -1,6 +1,8 @@
 package com.fredhappyface.ewesticker.adapter
 
+import android.os.Build
 import android.view.GestureDetector
+import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +17,7 @@ class StickerPackAdapter(
 	private val stickers: Array<File>,
 	private val listener: StickerClickListener,
 	private val gestureDetector: GestureDetector,
+	private val vibrate: Boolean,
 ) :
 
 	RecyclerView.Adapter<StickerPackViewHolder>() {
@@ -33,6 +36,9 @@ class StickerPackAdapter(
 		holder.stickerThumbnail.tag = stickerFile
 		holder.stickerThumbnail.setOnClickListener {
 			val file = it.tag as File
+			if (vibrate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+				it.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_PRESS)
+			}
 			listener.onStickerClicked(file)
 		}
 		holder.stickerThumbnail.setOnLongClickListener {

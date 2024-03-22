@@ -20,6 +20,8 @@
 	<!-- বিকল্পসমূহ -->
 	<string name="options_heading">বিকল্পসমূহ</string>
 	<string name="options_show_back_button">ন্যাভবারে ব্যাক বাটন দেখান</string>
+	<string name="options_show_search_button">অনুসন্ধান সক্ষম করুন</string>
+	<string name="options_vibrate">কী-প্রেসে হ্যাপটিক প্রতিক্রিয়া</string>
 	<string name="options_vertical">ভার্টিক্যাল লেআউট ব্যবহার করুন</string>
 	<string name="options_restore_on_close">কীবোর্ড বন্ধ হলে পূর্বের কীবোর্ড পুনরুদ্ধার করুন</string>
 	<string name="options_scroll">প্যাক মধ্যে স্বাইপ সক্রিয় করুন (স্ক্রল দিকে লম্ব)</string>

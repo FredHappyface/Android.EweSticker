@@ -50,6 +50,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	private var restoreOnClose = false
 	private var vertical = false
 	private var scroll = false
+	private var vibrate = false
 	private var iconsPerX = 0
 	private var iconSize = 0
 
@@ -108,6 +109,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		this.restoreOnClose = this.sharedPreferences.getBoolean("restoreOnClose", false)
 		this.vertical = this.sharedPreferences.getBoolean("vertical", false)
 		this.scroll = this.sharedPreferences.getBoolean("scroll", false)
+		this.vibrate = this.sharedPreferences.getBoolean("vibrate", true)
 
 		this.iconsPerX = this.sharedPreferences.getInt("iconsPerX", 3)
 		this.totalIconPadding =
@@ -247,7 +249,12 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			stickers = loadedPacks[packName]?.stickerList ?: return
 		}
 		val recyclerView = RecyclerView(this)
-		val adapter = StickerPackAdapter(iconSize, stickers, this, gestureDetector)
+		val adapter = StickerPackAdapter(
+			iconSize,
+			stickers,
+			this,
+			gestureDetector,
+			this.vibrate)
 		val layoutManager = GridLayoutManager(
 			this,
 			iconsPerX,
@@ -299,6 +306,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 				stickers.take(128).toTypedArray(),
 				this,
 				gestureDetector,
+				this.vibrate,
 			)
 			val layoutManager = GridLayoutManager(
 				baseContext,
@@ -351,7 +359,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			val sText = buttonView.findViewById<TextView>(R.id.secondaryText)
 			sText.text = secondaryChar
 			button.setOnClickListener {
-				if (SDK_INT >= Build.VERSION_CODES.O_MR1) {
+				if (this.vibrate && SDK_INT >= Build.VERSION_CODES.O_MR1) {
 					it.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_PRESS)
 				}
 				tap((it.tag as Array<String>)[0])
@@ -416,10 +424,14 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 				closeKeyboard()
 			}
 		}
-		val searchButton = addPackButton("__search__")
-		searchButton.load(getDrawable(R.drawable.search_circle))
-		searchButton.setOnClickListener {
-			searchView()
+
+		// Search
+		if (this.sharedPreferences.getBoolean("showSearchButton", true)) {
+			val searchButton = addPackButton("__search__")
+			searchButton.load(getDrawable(R.drawable.search_circle))
+			searchButton.setOnClickListener {
+				searchView()
+			}
 		}
 		// Recent
 		val recentPackName = "__recentSticker__"

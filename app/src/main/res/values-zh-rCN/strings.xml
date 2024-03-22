@@ -20,6 +20,8 @@
 	<!-- 选项 -->
 	<string name="options_heading">选项</string>
 	<string name="options_show_back_button">在导航栏中显示返回按钮</string>
+	<string name="options_show_search_button">启用搜索</string>
+	<string name="options_vibrate">按键时触觉反馈</string>
 	<string name="options_vertical">使用垂直布局</string>
 	<string name="options_restore_on_close">在键盘关闭时还原上一个键盘</string>
 	<string name="options_scroll">启用在贴纸包之间滑动（垂直于滚动方向）</string>

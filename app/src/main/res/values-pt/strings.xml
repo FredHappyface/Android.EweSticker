@@ -19,6 +19,8 @@
 	<!-- Opções -->
 	<string name="options_heading">Opções</string>
 	<string name="options_show_back_button">Mostrar botão de voltar na barra de navegação</string>
+	<string name="options_show_search_button">Ativar busca</string>
+	<string name="options_vibrate">Feedback háptico ao pressionar teclas</string>
 	<string name="options_vertical">Usar layout vertical</string>
 	<string name="options_restore_on_close">Restaurar teclado anterior ao fechar o teclado</string>
 	<string name="options_scroll">Habilitar deslize entre pacotes (perpendicular à direção de rolagem)</string>

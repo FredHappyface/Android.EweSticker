@@ -20,7 +20,9 @@
     <!-- Opsi -->
     <string name="options_heading">Opsi</string>
     <string name="options_show_back_button">Tampilkan tombol kembali di navbar</string>
-    <string name="options_vertical">Gunakan tata letak vertikal</string>
+	<string name="options_show_search_button">Aktifkan pencarian</string>
+	<string name="options_vibrate">Umpan balik haptik saat menekan tombol</string>
+	<string name="options_vertical">Gunakan tata letak vertikal</string>
     <string name="options_restore_on_close">Pulihkan keyboard sebelumnya saat menutup keyboard</string>
     <string name="options_scroll">Aktifkan swipe antara paket stiker (tegak lurus terhadap arah gulir)</string>
     <string name="options_icons_per_x_lbl">"Jumlah Baris: "</string>

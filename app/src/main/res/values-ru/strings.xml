@@ -19,6 +19,8 @@
 	<!-- Опции -->
 	<string name="options_heading">Опции</string>
 	<string name="options_show_back_button">Показать кнопку назад в навигационной панели</string>
+	<string name="options_show_search_button">Ativar busca</string>
+	<string name="options_vibrate">Feedback háptico ao pressionar teclas</string>
 	<string name="options_vertical">Использовать вертикальное расположение</string>
 	<string name="options_restore_on_close">Восстановить предыдущую клавиатуру при закрытии</string>
 	<string name="options_scroll">Включить переключение между пакетами (перпендикулярно направлению прокрутки)</string>

@@ -19,6 +19,8 @@
 	<!-- Options -->
 	<string name="options_heading">विकल्प</string>
 	<string name="options_show_back_button">नैविगेशन बार में बैक बटन दिखाएं</string>
+	<string name="options_show_search_button">खोज सक्षम करें</string>
+	<string name="options_vibrate">कुंजी-दबाने पर हैप्टिक प्रतिक्रिया</string>
 	<string name="options_vertical">उद्देश्य खगोल उपयोग करें</string>
 	<string name="options_restore_on_close">कीबोर्ड बंद होने पर पिछली स्थिति को पुनर्स्थापित करें</string>
 	<string name="options_scroll">पैक के बीच स्वाइप को सक्षम करें (स्क्रॉल दिशा के पर्पेंडिक्युलर)</string>

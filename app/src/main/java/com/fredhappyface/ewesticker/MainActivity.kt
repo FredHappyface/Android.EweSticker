@@ -56,6 +56,8 @@ class MainActivity : AppCompatActivity() {
 		seekBar(findViewById(R.id.iconsPerXSb), findViewById(R.id.iconsPerXLbl), "iconsPerX", 3)
 		seekBar(findViewById(R.id.iconSizeSb), findViewById(R.id.iconSizeLbl), "iconSize", 80, 20)
 		toggle(findViewById(R.id.showBackButton), "showBackButton", true) {}
+		toggle(findViewById(R.id.showSearchButton), "showSearchButton", true) {}
+		toggle(findViewById(R.id.vibrate), "vibrate", true) {}
 		toggle(findViewById(R.id.vertical), "vertical") { isChecked: Boolean ->
 			findViewById<SeekBar>(R.id.iconSizeSb).isEnabled = !isChecked
 		}

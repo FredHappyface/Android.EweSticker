@@ -180,6 +180,34 @@
 						android:orientation="horizontal">
 
 						<CheckBox
+							android:id="@+id/showSearchButton"
+							style="@style/checkbox" />
+
+						<TextView
+							style="@style/body_text"
+							android:paddingBottom="@dimen/content_margin"
+							android:text="@string/options_show_search_button" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<CheckBox
+							android:id="@+id/vibrate"
+							style="@style/checkbox" />
+
+						<TextView
+							style="@style/body_text"
+							android:paddingBottom="@dimen/content_margin"
+							android:text="@string/options_vibrate" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<CheckBox
 							android:id="@+id/vertical"
 							style="@style/checkbox" />
 

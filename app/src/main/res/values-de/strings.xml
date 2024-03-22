@@ -20,6 +20,8 @@
 	<!-- Optionen -->
 	<string name="options_heading">Optionen</string>
 	<string name="options_show_back_button">Zurück-Button in der Navigationsleiste anzeigen</string>
+	<string name="options_show_search_button">Suche aktivieren</string>
+	<string name="options_vibrate">Haptisches Feedback bei Tastendruck</string>
 	<string name="options_vertical">Vertikales Layout verwenden</string>
 	<string name="options_restore_on_close">Vorherige Tastatur wiederherstellen, wenn Tastatur geschlossen wird</string>
 	<string name="options_scroll">Wischen zwischen Packs aktivieren (senkrecht zur Scrollrichtung)</string>

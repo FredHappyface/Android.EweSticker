@@ -19,6 +19,8 @@
 	<!-- オプション -->
 	<string name="options_heading">オプション</string>
 	<string name="options_show_back_button">ナビゲーションバーに戻るボタンを表示</string>
+	<string name="options_show_search_button">検索を有効にする</string>
+	<string name="options_vibrate">キー操作時の触覚フィードバック</string>
 	<string name="options_vertical">垂直レイアウトを使用</string>
 	<string name="options_restore_on_close">キーボードを閉じた際に前回のキーボードを復元</string>
 	<string name="options_scroll">パック間をスワイプで切り替えるを有効にする（スクロール方向に対して垂直）</string>

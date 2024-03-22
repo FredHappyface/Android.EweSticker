@@ -20,6 +20,8 @@
 	<!-- اختیارات -->
 	<string name="options_heading">اختیارات</string>
 	<string name="options_show_back_button">نیویگیشن بار میں پیچھے جائیں کا بٹن دکھائیں</string>
+	<string name="options_show_search_button">تلاش کو فعال کریں</string>
+	<string name="options_vibrate">کی پریس پر ہیپٹک فیڈ بیک</string>
 	<string name="options_vertical">عمودی لے آؤٹ استعمال کریں</string>
 	<string name="options_restore_on_close">کی بورڈ بند ہونے پر پچھلا کی بورڈ بحال کریں</string>
 	<string name="options_scroll">پیک کے درمیان میں چھلانے کی اجازت دیں (سکرول کی سمت کے عمودی)</string>

@@ -20,6 +20,8 @@
 	<!-- 選項 -->
 	<string name="options_heading">選項</string>
 	<string name="options_show_back_button">在導航欄中顯示返回按鈕</string>
+	<string name="options_show_search_button">啟用搜尋</string>
+	<string name="options_vibrate">按鍵時觸覺回饋</string>
 	<string name="options_vertical">使用垂直佈局</string>
 	<string name="options_restore_on_close">在鍵盤關閉時還原先前的鍵盤</string>
 	<string name="options_scroll">啟用在貼圖包之間滑動（垂直於滾動方向）</string>

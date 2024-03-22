@@ -14,4 +14,4 @@
 
 | Name | Summary |
 |---|---|
-| [trimString](trim-string.md) | [androidJvm]<br>fun [trimString](trim-string.md)(str: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
+| [trimString](trim-string.md) | [androidJvm]<br>fun [trimString](trim-string.md)(str: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)?): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>trimString |

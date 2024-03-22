@@ -24,12 +24,13 @@ tasks.register("genDocs") {
 	dependsOn("dokkaGfm")
 	doLast {
 		copy {
-			from("$ref/index.md")
-			into(ref)
+			from("${ref.get()}/index.md")
+			into(ref.get())
 			rename { "README.md" }
 		}
 	}
 }
+
 
 android {
 	compileSdk = 34
