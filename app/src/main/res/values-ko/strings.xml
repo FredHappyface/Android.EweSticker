@@ -20,6 +20,8 @@
 	<!-- Options -->
 	<string name="options_heading">옵션</string>
 	<string name="options_show_back_button">네비게이션 바에 뒤로 가기 버튼 표시</string>
+	<string name="options_show_search_button">검색 활성화</string>
+	<string name="options_vibrate">키를 누를 때 햅틱 피드백</string>
 	<string name="options_vertical">수직 레이아웃 사용</string>
 	<string name="options_restore_on_close">키보드 닫을 때 이전 키보드 복원</string>
 	<string name="options_scroll">팩 간 스와이프 활성화 (스크롤 방향과 수직)</string>
