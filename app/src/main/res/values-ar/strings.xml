@@ -20,6 +20,8 @@
 	<!-- Options -->
 	<string name="options_heading">الخيارات</string>
 	<string name="options_show_back_button">إظهار زر الرجوع في شريط التنقل</string>
+	<string name="options_show_search_button">تمكين البحث</string>
+	<string name="options_vibrate">تغذية هزازة عند الضغط على المفتاح</string>
 	<string name="options_vertical">استخدام تخطيط عمودي</string>
 	<string name="options_restore_on_close">استعادة لوحة المفاتيح السابقة عند إغلاق لوحة المفاتيح</string>
 	<string name="options_scroll">تمكين التمرير بين الحزم (عرضيًا لاتجاه التمرير)</string>
