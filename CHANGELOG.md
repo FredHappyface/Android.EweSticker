@@ -7,12 +7,15 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver
 -->
 
-## 202403xx
+## 20240322
 
 - Add sticker search
+- Add haptic feedback option
 - Update translations from Weblate (thank you to the following!)
 	- Indonesian
 		- Reza Almanda <rezaalmanda27@gmail.com>
+- Update screenshots and docs
+- Update deps
 
 ## 20231008
 

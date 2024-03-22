@@ -1,0 +1,15 @@
+<h2 id="section">20240322</h2>
+<ul>
+<li>Add sticker search</li>
+<li>Add haptic feedback option</li>
+<li>Update translations from Weblate (thank you to the following!)
+<ul>
+<li>Indonesian
+<ul>
+<li>Reza Almanda <a href="mailto:rezaalmanda27@gmail.com"
+class="email">rezaalmanda27@gmail.com</a></li>
+</ul></li>
+</ul></li>
+<li>Update screenshots and docs</li>
+<li>Update deps</li>
+</ul>
