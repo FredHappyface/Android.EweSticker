@@ -1,80 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- 應用資訊 -->
-	<string name="pack_icon">套圖示</string>
-	<string name="sticker_icon">貼圖示</string>
-	<string name="close_sticker_preview">[點擊關閉貼圖預覽]</string>
-	<!-- 啟用鍵盤 -->
+    <!-- 應用資訊 -->
+	<string name="pack_icon">貼圖包圖示</string>
+    <string name="sticker_icon">貼圖圖示</string>
+    <string name="close_sticker_preview">[點擊以關閉貼圖預覽]</string>
+    <!-- 啟用鍵盤 -->
 	<string name="enable_keyboard_heading">啟用鍵盤</string>
-	<string name="enable_keyboard_button">啟動設置</string>
-	<!-- 更新貼圖包 -->
+    <string name="enable_keyboard_button">啟動設定</string>
+    <!-- 更新貼圖包 -->
 	<string name="update_sticker_pack_heading">更新貼圖包</string>
-	<string name="update_sticker_pack_button">選擇貼圖來源目錄</string>
-	<string name="reload_sticker_pack_button">重新載入貼圖</string>
-	<string name="update_sticker_pack_info">目前載入的貼圖包資訊:</string>
-	<string name="update_sticker_pack_info_path_lbl">- 路徑:</string>
-	<string name="update_sticker_pack_info_path">未設定</string>
-	<string name="update_sticker_pack_info_date_lbl">- 日期:</string>
-	<string name="update_sticker_pack_info_date">從不</string>
-	<string name="update_sticker_pack_info_total_lbl">- 總數:</string>
-	<!-- 選項 -->
+    <string name="update_sticker_pack_button">選擇貼圖來源目錄</string>
+    <string name="reload_sticker_pack_button">重新載入貼圖</string>
+    <string name="update_sticker_pack_info">目前已載入的貼圖包資訊：</string>
+    <string name="update_sticker_pack_info_path_lbl">- 路徑：</string>
+    <string name="update_sticker_pack_info_path">未設定</string>
+    <string name="update_sticker_pack_info_date_lbl">- 日期：</string>
+    <string name="update_sticker_pack_info_date">永不</string>
+    <string name="update_sticker_pack_info_total_lbl">- 總數：</string>
+    <!-- 選項 -->
 	<string name="options_heading">選項</string>
-	<string name="options_show_back_button">在導航欄中顯示返回按鈕</string>
-	<string name="options_show_search_button">啟用搜尋</string>
-	<string name="options_vibrate">按鍵時觸覺回饋</string>
-	<string name="options_vertical">使用垂直佈局</string>
-	<string name="options_restore_on_close">在鍵盤關閉時還原先前的鍵盤</string>
-	<string name="options_scroll">啟用在貼圖包之間滑動（垂直於滾動方向）</string>
-	<string name="options_icons_per_x_lbl">"行數: "</string>
-	<string name="options_icon_size_status_lbl">"圖示大小: "</string>
-	<!-- 資訊 -->
+    <string name="options_show_back_button">在導航欄中顯示返回按鈕</string>
+    <string name="options_show_search_button">啟用搜尋</string>
+    <string name="options_vibrate">按鍵時觸覺回饋</string>
+    <string name="options_vertical">使用垂直佈局</string>
+    <string name="options_restore_on_close">在鍵盤關閉時還原先前的鍵盤</string>
+    <string name="options_scroll">啟用在貼圖包之間滑動（垂直於捲動方向）</string>
+    <string name="options_icons_per_x_lbl">"行數： "</string>
+    <string name="options_icon_size_status_lbl">"圖示大小： "</string>
+    <!-- 資訊 -->
 	<string name="info_heading">資訊</string>
-	<string name="info_text">EweSticker 是一款專為在支援的消息應用程序中分享各種自定義貼圖而設計的 Android 貼圖鍵盤應用程序。該項目從 uSticker 項目中汲取靈感，是 woosticker 存儲庫的分支。</string>
-	<!-- 特性 -->
-	<string name="features_heading">特性</string>
-<string name="features_text">"EweSticker Android 應用程序提供以下關鍵特性，以增強您的消息體驗:
-
-- **支援廣泛的自定義貼圖**: EweSticker 支援多種貼圖格式，確保用戶可以以各種方式分享他們的創意。支援的格式包括image/gif、image/png、image/webp、image/jpeg、image/heif、video/3gpp、video/mp4、video/x-matroska video/webm。
-
-- **无缝贴纸分享**: 在支持自定义媒体分享的消息应用程序中轻松发送贴纸，使用 image/png 作为备用选项。
-
-- **可定制的滚动**: 使用垂直或水平滚动浏览您的贴纸收藏。
-
-- **显示选项**: 调整行数和贴纸预览大小，根据您的喜好和设备屏幕尺寸定制查看体验。
-
-- **搜索您的贴纸库**: 使用 QWERTY 键盘按文件名搜索贴纸，以便轻松发现。
-
-- **与系统主题集成**: EweSticker 与系统主题无缝集成，确保应用程序的外观与您的设备范围设计选择一致。
-
-- **长按预览贴纸**: 为了方便选择贴纸，您可以长按贴纸以显示预览，帮助您快速决定要分享哪个贴纸，无需单独打开贴纸收藏。
-
-EweSticker 提供了廣泛的定制選項、多種格式支援以及與消息應用程序的集成。無論用戶是分享靜態圖像、動畫 GIF 還是短視頻，該應用程序旨在提供一種 engaging 和豐富表現力的方式來使用自定義貼圖進行通信。</string>
-	<!-- 如何使用 -->
+    <string name="info_text">EweSticker 是一個 Android 貼圖鍵盤應用程式，專為在支援的訊息應用程式中共享各種自訂貼圖而設計。這個專案從 uSticker 專案中汲取靈感，是 woosticker 儲存庫的一個分支。</string>
+    <!-- 特性 -->
+	<string name="features_heading">特點</string>
+    <string name="features_text">EweSticker Android 應用程式提供以下主要功能以增強你的訊息傳遞體驗：
+\n
+\n- **支援多種自訂貼圖**：EweSticker 支援多種貼圖格式，確保使用者可以透過各種方式分享他們的創造力。支援的格式包括 image/gif、image/png、image/webp、image/jpeg、image/heif、video/3gpp、video/mp4、video/x-matroska 和 video/webm。
+\n
+\n- **無縫的貼圖共享**：在支援自訂媒體分享的訊息應用程式中輕鬆發送貼圖，使用 image/png 作為後備格式。
+\n
+\n- **可自訂的捲動**：使用垂直或水平捲動瀏覽你的貼圖集合。
+\n
+\n- **顯示選項**：調整行數和貼圖預覽大小，根據你的喜好和裝置螢幕尺寸客製化檢視體驗。
+\n
+\n- **搜尋你的貼圖庫**：使用 qwerty 鍵盤以檔案名稱搜尋貼圖以輕鬆發現
+\n
+\n- **與系統主題整合**：EweSticker 與系統主題無縫整合，確保應用程式的外觀與你的裝置設計選擇保持一致。
+\n
+\n- **長按貼圖預覽**：為了方便選擇貼圖，你可以長按貼圖以顯示預覽，以幫助你快速決定要分享的貼圖而無需單獨打開貼圖集合。
+\n
+\nEweSticker 帶來了廣泛的客製化選項，多種格式支援以及與訊息應用程式的整合。無論使用者是分享靜態圖片、動畫 GIF，甚至是短影片，應用程式都旨在使用自訂貼圖提供一種引人入勝且富有表現力的交流方式。</string>
+    <!-- 如何使用 -->
 	<string name="how_to_use_heading">如何使用</string>
-	<string name="how_to_use_text">選擇包含貼圖的目錄，然後將它們發送到您喜愛的應用程序中！</string>
-	<!-- 許可證 -->
+    <string name="how_to_use_text">選擇包含貼圖的目錄，然後將它們傳送至你喜愛的應用程式中！</string>
+    <!-- 許可證 -->
 	<string name="license_heading">MIT 許可證</string>
-	<string name="license_text">版權 © FredHappyface
-\n版權 © Randy Zhou</string>
-	<!-- 鏈接 -->
-	<string name="links_heading">鏈接</string>
-	<string name="links_text">- EweSticker 的源代碼可在 https://github.com/FredHappyface/Android.EweSticker 上獲得
+    <string name="license_text">版權所有 © FredHappyface
+\n版權所有 © Randy Zhou</string>
+    <!-- 鏈接 -->
+	<string name="links_heading">連結</string>
+    <string name="links_text">- EweSticker 的原始碼可以在 https://github.com/FredHappyface/Android.EweSticker 上獲得
 \n
-\n- 教程將逐步引導您開始使用該軟件。如果您是新手，請從這裡開始: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
+\n- 教程將逐步引導你完成一系列步驟以開始使用軟體。如果你是新手，請從這裏開始：https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials
 \n
-\n- 幫助指南提供了一個起點，並概述了您可能遇到的常見問題: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
+\n- 幫助指南提供了一個起點，並概述了您可能遇到的常見問題：https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help
 \n
 \n- MIT 許可證
-\n（有關更多信息，請參閱許可證 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md）</string>
-	<!-- 交互消息 -->
-	<string name="pref_000">首選項已更改。重新載入鍵盤以應用設置</string>
-	<string name="imported_010">開始導入。這可能需要一些時間！</string>
-	<string name="imported_020">已導入 %1$d 個貼圖。重新載入鍵盤以顯示新貼圖</string>
-	<string name="imported_031">E031: 一些貼圖未能導入（已導入 %1$d 個）。已達到最大貼圖數</string>
-	<string name="imported_032">E032: 一些貼圖未能導入（已導入 %1$d 個）。已達到最大包大小</string>
-	<string name="imported_033">E033: 一些貼圖未能導入（已導入 %1$d 個）。發現不受支援的格式</string>
-	<string name="imported_034">E034: 重新載入貼圖失敗，請嘗試選擇貼圖來源目錄</string>
-	<string name="fallback_041">E041: 在轉換貼圖時發生意外的 IOException</string>
-	<!-- Keyboard -->
-	<string name="sticker_pack_info">%1$s（包:  %2$s）</string>
+\n（有關更多資訊，請參閱許可證 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md）</string>
+    <!-- 交互消息 -->
+	<string name="pref_000">偏好設定已變更。重新載入鍵盤以套用設定</string>
+    <string name="imported_010">正在開始匯入。這可能需要一些時間！</string>
+    <string name="imported_020">已匯入 %1$d 個貼圖。重新載入鍵盤以顯示新貼圖</string>
+    <string name="imported_031">E031：部分貼圖匯入失敗（已匯入 %1$d 個）。已達到最大貼圖數</string>
+    <string name="imported_032">E032：部分貼圖匯入失敗（已匯入 %1$d 個）。已達到最大貼圖包大小</string>
+    <string name="imported_033">E033：部分貼圖匯入失敗（已匯入 %1$d 個）。發現不支援的格式</string>
+    <string name="imported_034">E034：重新載入貼圖失敗，請嘗試選擇貼圖來源目錄</string>
+    <string name="fallback_041">E041：在轉換貼圖時發生意外的 IOException</string>
+    <!-- Keyboard -->
+	<string name="sticker_pack_info">%1$s（包：%2$s）</string>
 </resources>
