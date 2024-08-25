@@ -1,0 +1,5 @@
+<h2 id="section">20240825</h2>
+<ul>
+<li>Add case insensitive sort</li>
+<li>Add app version in-app</li>
+</ul>

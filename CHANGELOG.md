@@ -7,6 +7,11 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver
 -->
 
+## 20240825
+
+- Add case insensitive sort
+- Add app version in-app
+
 ## 20240322
 
 - Add sticker search
