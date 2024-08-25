@@ -67,7 +67,8 @@ EweSticker صارفین کو کئی مختلف ترتیبات کی وسیع تع
 \n- MIT لائسنس
 \n(مزید معلومات کے لئے لائسنس دیکھیں https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<!-- انٹرایکٹو پیغامات -->
-	<string name="pref_000">ترتیبات تبدیل ہوگئی ہیں. ترتیبات کو اطلاق کرنے کے لئے کی بورڈ دوبارہ لوڈ کریں</string>
+    <string name="version_heading">ورژن کی معلومات</string>
+    <string name="pref_000">ترتیبات تبدیل ہوگئی ہیں. ترتیبات کو اطلاق کرنے کے لئے کی بورڈ دوبارہ لوڈ کریں</string>
 	<string name="imported_010">شروع کریں منتقلی. اس میں کچھ وقت لگ سکتا ہے!</string>
 	<string name="imported_020">%1$d اسٹکر منتقل کر لئے گئے ہیں. نئے اسٹکرز دکھانے کے لئے کی بورڈ دوبارہ لوڈ کریں</string>
 	<string name="imported_031">E031: کچھ اسٹکر منتقل کرنے میں ناکامی (%1$d منتقل کیے گئے). زیادہ سے زیادہ اسٹکرز پہنچ گئے</string>
@@ -77,4 +78,5 @@ EweSticker صارفین کو کئی مختلف ترتیبات کی وسیع تع
 	<string name="fallback_041">E041: اسٹکر کو تبدیل کرنے کے دوران غیر متوقع IOException کا اعلان</string>
 	<!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s (پیک: %2$s)</string>
+	<string name="options_insensitive_sort">کیس-ان حساس پیک ترتیب کو فعال کریں</string>
 </resources>

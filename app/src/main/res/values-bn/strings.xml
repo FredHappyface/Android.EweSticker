@@ -67,7 +67,8 @@ EweSticker কাস্টমাইজেশন বিকল্প, বিভি
 \n- মিট লাইসেন্স
 \n(আরও তথ্যের জন্য লাইসেন্সটি দেখুন https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<!-- ইন্টারাক্টিভ মেসেজ -->
-	<string name="pref_000">পছন্দস্থান পরিবর্তন হয়েছে। সেটিংস প্রয়োগ করার জন্য কীবোর্ড পুনরায় লোড করুন</string>
+    <string name="version_heading">সংস্করণের তথ্য</string>
+    <string name="pref_000">পছন্দস্থান পরিবর্তন হয়েছে। সেটিংস প্রয়োগ করার জন্য কীবোর্ড পুনরায় লোড করুন</string>
 	<string name="imported_010">আমদানি শুরু হয়েছে। এটি কিছু সময় নিতে পারে!</string>
 	<string name="imported_020">%1$d টি স্টিকার আমদানি করা হয়েছে। নতুন স্টিকার দেখানোর জন্য কীবোর্ড পুনরায় লোড করুন</string>
 	<string name="imported_031">E031: কিছু স্টিকার আমদানি করা হয়নি (%1$d টি আমদানি করা হয়েছে)। সর্বাধিক স্টিকার পৌঁছানো হয়েছে</string>
@@ -77,4 +78,5 @@ EweSticker কাস্টমাইজেশন বিকল্প, বিভি
 	<string name="fallback_041">E041: অপ্রত্যাশিত IOException যখন স্টিকার রুপান্তর করা হয়</string>
 	<!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s (প্যাক: %2$s)</string>
+	<string name="options_insensitive_sort">কেস-অনুভূতিপূর্ণ প্যাক সাজানো সক্রিয় করুন</string>
 </resources>

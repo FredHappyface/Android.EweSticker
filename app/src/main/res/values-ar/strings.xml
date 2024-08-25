@@ -67,7 +67,8 @@
 \n- رخصة MIT
 \n(انظر الرخصة لمزيد من المعلومات https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<!-- الرسائل التفاعلية -->
-	<string name="pref_000">تم تغيير التفضيلات. أعد تحميل لوحة المفاتيح لتطبيق الإعدادات</string>
+    <string name="version_heading">معلومات الإصدار</string>
+    <string name="pref_000">تم تغيير التفضيلات. أعد تحميل لوحة المفاتيح لتطبيق الإعدادات</string>
 	<string name="imported_010">بدء عملية الاستيراد. قد يستغرق ذلك بعض الوقت!</string>
 	<string name="imported_020">تم استيراد %1$d ملصق. أعد تحميل لوحة المفاتيح لعرض الملصقات الجديدة</string>
 	<string name="imported_031">E031: فشل بعض الملصقات في الاستيراد (%1$d تم استيرادها). تم الوصول إلى الحد الأقصى للملصقات</string>
@@ -77,4 +78,5 @@
 	<string name="fallback_041">E041: حدث استثناء غير متوقع أثناء تحويل الملصق</string>
 	<!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s (حزمة: %2$s)</string>
+	<string name="options_insensitive_sort">تمكين فرز الحزم غير الحسّاس لحالة الأحرف</string>
 </resources>

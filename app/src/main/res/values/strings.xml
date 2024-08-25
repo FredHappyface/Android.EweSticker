@@ -25,7 +25,7 @@
 	<string name="options_vertical">Use vertical layout</string>
 	<string name="options_restore_on_close">Restore previous keyboard on keyboard close</string>
 	<string name="options_scroll">Enable swipe between packs (perpendicular to scroll direction)</string>
-	<string name="options_insensitive_sort">Enable case-insensitive search</string>
+	<string name="options_insensitive_sort">Enable case-insensitive pack sorting</string>
 	<string name="options_icons_per_x_lbl">"Number of Rows: "</string>
 	<string name="options_icon_size_status_lbl">"Icon size: "</string>
 	<!-- Info -->
@@ -69,7 +69,7 @@ Copyright © Randy Zhou</string>
 - MIT License
 (See the license for more information https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<string name="version_heading">Version Info</string>
-	<string name="version_text">[debug]</string>
+	<string name="version_text" translatable="false">[debug]</string>
 
 	<!-- Interactive Messages -->
 	<string name="pref_000">Preferences changed. Reload the keyboard for settings to apply</string>

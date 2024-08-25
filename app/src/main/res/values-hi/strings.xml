@@ -66,7 +66,8 @@ EweSticker विभिन्न संविदान विकल्पों,
 \n- MIT लाइसेंस
 \n(अधिक जानकारी के लिए लाइसेंस देखें https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<!-- Interactive Messages -->
-	<string name="pref_000">प्राथमिकताएँ बदल गईं। सेटिंग्स को लागू करने के लिए कीबोर्ड को पुनः लोड करें</string>
+    <string name="version_heading">संस्करण जानकारी</string>
+    <string name="pref_000">प्राथमिकताएँ बदल गईं। सेटिंग्स को लागू करने के लिए कीबोर्ड को पुनः लोड करें</string>
 	<string name="imported_010">आयात शुरू हुआ। इसमें कुछ समय लग सकता है!</string>
 	<string name="imported_020">%1$d स्टिकर्स का आयात हुआ। नए स्टिकर्स दिखाने के लिए कीबोर्ड को पुनः लोड करें</string>
 	<string name="imported_031">E031: कुछ स्टिकर्स का आयात असफल रहा (%1$d आयात किए गए)। मैक्सिमम स्टिकर्स तक पहुँच गई है</string>
@@ -76,4 +77,5 @@ EweSticker विभिन्न संविदान विकल्पों,
 	<string name="fallback_041">E041: स्टिकर कन्वर्ट करते समय अप्रत्याशित IOException</string>
 	<!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s (पैक: %2$s)</string>
+	<string name="options_insensitive_sort">केस-इनसेंसिटिव पैक सॉर्टिंग सक्षम करें</string>
 </resources>

@@ -66,7 +66,8 @@ Direitos autorais © Randy Zhou</string>
 \n- Licença MIT
 \n(Consulte a licença para obter mais informações em https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<!-- Mensagens Interativas -->
-	<string name="pref_000">Preferências alteradas. Recarregue o teclado para que as configurações se apliquem</string>
+    <string name="version_heading">Informações da versão</string>
+    <string name="pref_000">Preferências alteradas. Recarregue o teclado para que as configurações se apliquem</string>
 	<string name="imported_010">Iniciando a importação. Isso pode levar algum tempo!</string>
 	<string name="imported_020">Importados %1$d adesivos. Recarregue o teclado para mostrar os novos adesivos</string>
 	<string name="imported_031">E031: Alguns adesivos não puderam ser importados (%1$d importados). Limite máximo de adesivos atingido</string>
@@ -76,4 +77,5 @@ Direitos autorais © Randy Zhou</string>
 	<string name="fallback_041">E041: IOException inesperada ao converter adesivo</string>
 	<!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s (Pacote: %2$s)</string>
+	<string name="options_insensitive_sort">Ativar a ordenação de pacotes sem diferenciar maiúsculas de minúsculas</string>
 </resources>

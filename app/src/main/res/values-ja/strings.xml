@@ -67,7 +67,8 @@ EweStickerは幅広いカスタマイズオプション、多様なフォーマ�
 \n- MITライセンス
 \n(詳細についてはライセンスを参照 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<!-- インタラクティブメッセージ -->
-	<string name="pref_000">設定が変更されました。設定が適用されるようにキーボードを再読み込みしてください</string>
+    <string name="version_heading">バージョン情報</string>
+    <string name="pref_000">設定が変更されました。設定が適用されるようにキーボードを再読み込みしてください</string>
 	<string name="imported_010">インポートを開始しました。しばらく時間がかかることがあります！</string>
 	<string name="imported_020">%1$d ステッカーをインポートしました。新しいステッカーを表示するにはキーボードを再読み込みしてください</string>
 	<string name="imported_031">E031: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。最大ステッカー数に達しました</string>
@@ -77,4 +78,5 @@ EweStickerは幅広いカスタマイズオプション、多様なフォーマ�
 	<string name="fallback_041">E041: ステッカーを変換する際に予期しないIOExceptionが発生しました</string>
 	<!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s（パック: %2$s）</string>
+	<string name="options_insensitive_sort">大文字と小文字を区別しないパックのソートを有効にする</string>
 </resources>

@@ -67,7 +67,8 @@
 \n- MIT 許可證
 \n（有關更多資訊，請參閱許可證 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md）</string>
     <!-- 交互消息 -->
-	<string name="pref_000">偏好設定已變更。重新載入鍵盤以套用設定</string>
+    <string name="version_heading">版本資訊</string>
+    <string name="pref_000">偏好設定已變更。重新載入鍵盤以套用設定</string>
     <string name="imported_010">正在開始匯入。這可能需要一些時間！</string>
     <string name="imported_020">已匯入 %1$d 個貼圖。重新載入鍵盤以顯示新貼圖</string>
     <string name="imported_031">E031：部分貼圖匯入失敗（已匯入 %1$d 個）。已達到最大貼圖數</string>
@@ -77,4 +78,5 @@
     <string name="fallback_041">E041：在轉換貼圖時發生意外的 IOException</string>
     <!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s（包：%2$s）</string>
+	<string name="options_insensitive_sort">啟用不區分大小寫的套件排序</string>
 </resources>

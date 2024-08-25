@@ -61,11 +61,13 @@ EweSticker offre une large gamme d'options de personnalisation, prend en charge 
 \n
 \n- Licence MIT
 \n(Voir la licence pour plus d\'informations https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-	<string name="pref_000">Les préférences ont changé. Recharger le clavier pour les appliquer</string>
+    <string name="version_heading">Informations sur la version</string>
+    <string name="pref_000">Les préférences ont changé. Recharger le clavier pour les appliquer</string>
 	<string name="imported_010">Démarrage de l’importation. Ceci va prendre du temps!</string>
 	<string name="imported_020">Autocollants importés %1$d. Recharger le clavier pour afficher les nouveaux autocollants</string>
 	<string name="imported_031">E031: Certains autocollants n’ont pas été importés (%1$d importés). Nombre maximal atteint</string>
 	<string name="imported_032">E032: Certains autocollants n’ont pas été importés (%1$d importés). Taille maximale du paquet atteint</string>
 	<!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s (Pack : %2$s)</string>
+	<string name="options_insensitive_sort">Activer le tri des paquets sans tenir compte de la casse</string>
 </resources>

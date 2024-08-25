@@ -67,7 +67,8 @@ EweSticker bietet eine breite Palette an Anpassungsoptionen, vielfältige Format
 - MIT Lizenz
 (Siehe die Lizenz für weitere Informationen https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<!-- Interaktive Nachrichten -->
-	<string name="pref_000">Einstellungen geändert. Lade die Tastatur neu, damit die Einstellungen wirksam werden</string>
+    <string name="version_heading">Versionsinfo</string>
+    <string name="pref_000">Einstellungen geändert. Lade die Tastatur neu, damit die Einstellungen wirksam werden</string>
 	<string name="imported_010">Import wird gestartet. Dies könnte einige Zeit dauern!</string>
 	<string name="imported_020">%1$d Sticker importiert. Lade die Tastatur neu, um neue Sticker anzuzeigen</string>
 	<string name="imported_031">E031: Einige Sticker konnten nicht importiert werden (%1$d importiert). Max. Sticker erreicht</string>
@@ -77,4 +78,5 @@ EweSticker bietet eine breite Palette an Anpassungsoptionen, vielfältige Format
 	<string name="fallback_041">E041: Unerwarteter IOException beim Konvertieren des Stickers</string>
 	<!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s (Paket: %2$s)</string>
+	<string name="options_insensitive_sort">Groß-/Kleinschreibung bei der Packsortierung ignorieren</string>
 </resources>

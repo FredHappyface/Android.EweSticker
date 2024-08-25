@@ -67,7 +67,8 @@ EweSticker ofrece una amplia variedad de opciones de personalización, soporte p
 \n- Licencia MIT
 \n(Vea la licencia para más información https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <!-- Interactive Messages -->
-	<string name="pref_000">Preferencias modificadas. Vuelva a cargar el teclado para que se apliquen los ajustes</string>
+    <string name="version_heading">Información de la versión</string>
+    <string name="pref_000">Preferencias modificadas. Vuelva a cargar el teclado para que se apliquen los ajustes</string>
     <string name="imported_010">Comenzando la importación. ¡Esto puede llevar algún tiempo!</string>
     <string name="imported_020">Importado %1$d stickers. Recargar el teclado para que se muestren los nuevos stickers</string>
     <string name="imported_031">E031: Algunos stickers han fallado al importar (%1$d importado). Máx. stickers importados</string>
@@ -77,4 +78,5 @@ EweSticker ofrece una amplia variedad de opciones de personalización, soporte p
     <string name="fallback_041">E041: IOException inesperado al convertir el sticker</string>
     <!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s (Paquete: %2$s)</string>
+	<string name="options_insensitive_sort">Habilitar el ordenamiento de paquetes sin distinguir mayúsculas de minúsculas</string>
 </resources>

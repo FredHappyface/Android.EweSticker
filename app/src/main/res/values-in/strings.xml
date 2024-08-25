@@ -68,6 +68,7 @@ EweSticker menghadirkan berbagai pilihan kustomisasi, dukungan format yang berag
 \n- Lisensi MIT
 \n (Lihat lisensi untuk informasi lebih lanjut https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <!-- Pesan Interaktif -->
+    <string name="version_heading">Informasi versi</string>
     <string name="pref_000">Preferensi berubah. Muat ulang keyboard agar pengaturan dapat diterapkan</string>
     <string name="imported_010">Mulai impor. Ini mungkin membutuhkan waktu!</string>
     <string name="imported_020">Mengimpor stiker %1$d. Muat ulang keyboard agar stiker baru dapat ditampilkan</string>
@@ -78,4 +79,5 @@ EweSticker menghadirkan berbagai pilihan kustomisasi, dukungan format yang berag
     <string name="fallback_041">E041: IOException yang tidak diharapkan saat mengonversi stiker</string>
     <!-- Keyboard -->
     <string name="sticker_pack_info">%1$s (Paket: %2$s)</string>
+	<string name="options_insensitive_sort">Aktifkan penyortiran paket tanpa membedakan huruf besar dan kecil</string>
 </resources>
