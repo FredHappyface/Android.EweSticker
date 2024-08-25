@@ -53,6 +53,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	private var vibrate = false
 	private var iconsPerX = 0
 	private var iconSize = 0
+	private var insensitiveSort = false
 
 	//  Constants
 	private lateinit var internalDir: File
@@ -110,6 +111,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		this.vertical = this.sharedPreferences.getBoolean("vertical", false)
 		this.scroll = this.sharedPreferences.getBoolean("scroll", false)
 		this.vibrate = this.sharedPreferences.getBoolean("vibrate", true)
+		this.insensitiveSort = this.sharedPreferences.getBoolean("insensitiveSort", false)
 
 		this.iconsPerX = this.sharedPreferences.getInt("iconsPerX", 3)
 		this.totalIconPadding =
@@ -439,7 +441,15 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		recentButton.load(getDrawable(R.drawable.time))
 		recentButton.setOnClickListener { switchPackLayout(recentPackName) }
 		// Packs
-		val sortedPackNames = this.loadedPacks.keys.sorted().toTypedArray()
+		val sortedPackNames = if (this.insensitiveSort) {
+			this.loadedPacks.keys.sortedWith(String.CASE_INSENSITIVE_ORDER)
+		} else {
+			this.loadedPacks.keys.sorted()
+		}.toTypedArray()
+
+
+
+
 		for (sortedPackName in sortedPackNames) {
 			val packButton = addPackButton(sortedPackName)
 			packButton.load(this.loadedPacks[sortedPackName]?.thumbSticker)

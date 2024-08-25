@@ -249,6 +249,20 @@
 						style="@style/widthMatchHeightWrap"
 						android:orientation="horizontal">
 
+						<CheckBox
+							android:id="@+id/insensitive_sort"
+							style="@style/checkbox" />
+
+						<TextView
+							style="@style/body_text"
+							android:paddingBottom="@dimen/content_margin"
+							android:text="@string/options_insensitive_sort" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
 						<TextView
 							style="@style/body_text"
 							android:text="@string/options_icons_per_x_lbl" />
@@ -372,6 +386,26 @@
 						android:text="@string/links_text" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
+			<!-- Version -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
+
+				<LinearLayout
+					style="@style/cardchild"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/heading"
+						android:text="@string/version_heading" />
+
+					<TextView
+						style="@style/body_text"
+						android:autoLink="web"
+						android:linksClickable="true"
+						android:id="@+id/versionText"
+						android:text="@string/version_text" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
 		</LinearLayout>
+
 	</androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

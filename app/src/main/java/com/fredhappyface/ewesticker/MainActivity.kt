@@ -3,6 +3,7 @@ package com.fredhappyface.ewesticker
 import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
@@ -63,6 +64,15 @@ class MainActivity : AppCompatActivity() {
 		}
 		toggle(findViewById(R.id.restoreOnClose), "restoreOnClose", false) {}
 		toggle(findViewById(R.id.scroll), "scroll", false) {}
+		toggle(findViewById(R.id.insensitive_sort), "insensitiveSort", false) {}
+
+		val versionText: TextView = findViewById(R.id.versionText)
+		try {
+			val packageInfo = packageManager.getPackageInfo(packageName, 0)
+			versionText.text = packageInfo.versionName
+		} catch (e: PackageManager.NameNotFoundException) {
+			versionText.text = getString(R.string.version_text)
+		}
 	}
 
 	/**

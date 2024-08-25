@@ -56,7 +56,9 @@ android {
 	}
 
 	buildTypes {
-		getByName("debug") { versionNameSuffix = "-debug" }
+		getByName("debug") {
+			versionNameSuffix = "-debug"
+		}
 		getByName("release") {
 			proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
 			isMinifyEnabled = false
