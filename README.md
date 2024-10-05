@@ -19,6 +19,9 @@ EweSticker is an Android sticker keyboard application, specifically designed for
 - [Light Theme](#light-theme)
 - [Documentation](#documentation)
 - [Installation](#installation)
+- [Application compatibility](#application-compatibility)
+	- [Working](#working)
+	- [Known Issues/ Workarounds](#known-issues-workarounds)
 - [Gradle tasks](#gradle-tasks)
 - [Kotlin and Android Version](#kotlin-and-android-version)
 - [Building From Source](#building-from-source)
@@ -97,6 +100,36 @@ preferred store by clicking on one of the badges below, then download/install:
 [<img src="readme-assets/badges/badge_fdroid.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/en/packages/com.fredhappyface.ewesticker/)
 [<img src="readme-assets/badges/badge_gplay.png" alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/details?id=com.fredhappyface.ewesticker)
 [<img src="readme-assets/badges/badge_github.png" alt="Get it on GitHub" height="80">](../../releases)
+
+## Application compatibility
+
+### Working
+
+I've tested EweSticker with the various apps I have installed. Please note that it will likely be
+compatible with other applications as well.
+
+| app              | id                                | webp | animated |
+| ---------------- | --------------------------------- | ---- | -------- |
+| Android Messages | com.google.android.apps.messaging | ✔    | ✔        |
+| WhatsApp         | com.whatsapp                      | ✔    | ✖        |
+| Telegram         | org.telegram.messenger            | ✔    | ✖        |
+| Signal           | org.thoughtcrime.securesms        | ✔    | ✖        |
+| Discord          | com.discord                       | ✔    | ✔        |
+| Fair Email       | eu.faircode.email                 | ✔    | ✔        |
+| Element          | im.vector.app                     | ✔    | ✔        |
+| Moshidon         | org.joinmastodon.android.moshinda | ✔    | ✔        |
+| Google Keep      | com.google.android.keep           | ✔    | ✖        |
+| Twitter          | com.twitter.android               | ✔    | ✖        |
+
+### Known Issues/ Workarounds
+
+| app         | id                                        | Workaround                                         |
+| ----------- | ----------------------------------------- | -------------------------------------------------- |
+| WeChat      | com.tencent.mm                            | \[Unknown]                                         |
+| Notion      | notion.id                                 | Displays the share sheet, can upload to a new note |
+| Gmail       | com.google.android.gm                     | Displays the share sheet, added to a new email     |
+| Reddit      | com.reddit.frontpage                      | Displays the share sheet, added to a new post      |
+| Google Docs | com.google.android.apps.docs.editors.docs | \[Unknown] Nothing happens                         |
 
 <!-- omit in toc -->
 ### Build from Source
