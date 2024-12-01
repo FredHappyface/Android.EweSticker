@@ -1,0 +1,19 @@
+# Sync repo to the Codeberg mirror
+name: Repo sync GitHub -> Codeberg
+on:
+  push:
+    branches:
+    - '**'
+
+jobs:
+  codeberg:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: spyoungtech/mirror-action@v0.7.0
+        with:
+          REMOTE: "https://codeberg.org/FredHappyface/Android.EweSticker.git"
+          GIT_USERNAME: FredHappyface
+          GIT_PASSWORD: ${{ secrets.CODEBERG_PASSWORD }}
