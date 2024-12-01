@@ -1,3 +1,4 @@
+
 # Sync repo to the Codeberg mirror
 name: Repo sync GitHub -> Codeberg
 on:
