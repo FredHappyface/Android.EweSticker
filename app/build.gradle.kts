@@ -33,8 +33,8 @@ tasks.register("genDocs") {
 
 
 android {
-	compileSdk = 34
-	buildToolsVersion = "34.0.0"
+	compileSdk = 35
+	buildToolsVersion = "35.0.0"
 	namespace = "com.fredhappyface.ewesticker"
 
 	kotlinOptions {
@@ -72,21 +72,21 @@ android {
 }
 
 dependencies {
-	dokkaPlugin("org.jetbrains.dokka:android-documentation-plugin:1.9.20")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.23")
-	implementation("androidx.core:core-ktx:1.12.0")
-	implementation("androidx.appcompat:appcompat:1.6.1")
-	implementation("com.google.android.material:material:1.11.0")
+	dokkaPlugin("org.jetbrains.dokka:android-documentation-plugin:2.0.0")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib:2.1.10")
+	implementation("androidx.core:core-ktx:1.15.0")
+	implementation("androidx.appcompat:appcompat:1.7.0")
+	implementation("com.google.android.material:material:1.12.0")
 	implementation("androidx.preference:preference-ktx:1.2.1")
-	implementation("io.coil-kt:coil:2.6.0")
-	implementation("io.coil-kt:coil-gif:2.6.0")
-	implementation("io.coil-kt:coil-video:2.6.0")
+	implementation("io.coil-kt:coil:2.7.0")
+	implementation("io.coil-kt:coil-gif:2.7.0")
+	implementation("io.coil-kt:coil-video:2.7.0")
 	implementation("androidx.gridlayout:gridlayout:1.0.0")
 	implementation("io.noties.markwon:core:4.6.2")
 	androidTestImplementation("junit:junit:4.13.2")
-	androidTestImplementation("androidx.test:core:1.5.0")
-	androidTestImplementation("androidx.test.ext:junit:1.1.5")
-	androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+	androidTestImplementation("androidx.test:core:1.6.1")
+	androidTestImplementation("androidx.test.ext:junit:1.2.1")
+	androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 }
 
 configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {

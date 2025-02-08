@@ -106,8 +106,10 @@ class ScreenshotTest {
 				// Open an OutputStream to the newly created image
 				val os: OutputStream? = context.contentResolver.openOutputStream(uri)
 
-				// Compress and save the bitmap to the OutputStream
-				bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os)
+				// Compress and save the bitmap to the OutputStream\
+				if (os != null) {
+					bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os)
+				}
 				os?.close()
 
 				// Mark the image as non-pending
