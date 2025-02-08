@@ -123,13 +123,13 @@ compatible with other applications as well.
 
 ### Known Issues/ Workarounds
 
-| app         | id                                        | Workaround                                         |
-| ----------- | ----------------------------------------- | -------------------------------------------------- |
-| WeChat      | com.tencent.mm                            | \[Unknown]                                         |
-| Notion      | notion.id                                 | Displays the share sheet, can upload to a new note |
-| Gmail       | com.google.android.gm                     | Displays the share sheet, added to a new email     |
-| Reddit      | com.reddit.frontpage                      | Displays the share sheet, added to a new post      |
-| Google Docs | com.google.android.apps.docs.editors.docs | \[Unknown] Nothing happens                         |
+| app         | id                                        | Workaround                                             |
+| ----------- | ----------------------------------------- | ------------------------------------------------------ |
+| WeChat      | com.tencent.mm                            | \[Unknown]                                             |
+| Notion      | notion.id                                 | Displays the share sheet, can upload to a new note     |
+| Gmail       | com.google.android.gm                     | Displays the share sheet, added to a new email         |
+| Reddit      | com.reddit.frontpage                      | Displays the share sheet, added to a new post          |
+| Google Docs | com.google.android.apps.docs.editors.docs | Displays the share sheet, cannot add to google docs :( |
 
 <!-- omit in toc -->
 ### Build from Source
