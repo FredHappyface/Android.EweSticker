@@ -1,5 +1,6 @@
 package com.fredhappyface.ewesticker
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.inputmethodservice.InputMethodService
 import android.os.Build
@@ -47,6 +48,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	// onCreate
 	//  Shared Preferences
 	private lateinit var sharedPreferences: SharedPreferences
+	private lateinit var backupSharedPreferences: SharedPreferences
 	private var restoreOnClose = false
 	private var vertical = false
 	private var scroll = false
@@ -107,13 +109,14 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		Coil.setImageLoader(imageLoader)
 		//  Shared Preferences
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
-		this.restoreOnClose = this.sharedPreferences.getBoolean("restoreOnClose", false)
-		this.vertical = this.sharedPreferences.getBoolean("vertical", false)
-		this.scroll = this.sharedPreferences.getBoolean("scroll", false)
-		this.vibrate = this.sharedPreferences.getBoolean("vibrate", true)
-		this.insensitiveSort = this.sharedPreferences.getBoolean("insensitiveSort", false)
+		this.backupSharedPreferences = this.getSharedPreferences("backup_prefs", Context.MODE_PRIVATE)
+		this.restoreOnClose = this.backupSharedPreferences.getBoolean("restoreOnClose", false)
+		this.vertical = this.backupSharedPreferences.getBoolean("vertical", false)
+		this.scroll = this.backupSharedPreferences.getBoolean("scroll", false)
+		this.vibrate = this.backupSharedPreferences.getBoolean("vibrate", true)
+		this.insensitiveSort = this.backupSharedPreferences.getBoolean("insensitiveSort", false)
 
-		this.iconsPerX = this.sharedPreferences.getInt("iconsPerX", 3)
+		this.iconsPerX = this.backupSharedPreferences.getInt("iconsPerX", 3)
 		this.totalIconPadding =
 			(resources.getDimension(R.dimen.sticker_padding) * 2 * (this.iconsPerX + 1)).toInt()
 		//  Constants
@@ -123,7 +126,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 				if (this.vertical) {
 					(resources.displayMetrics.widthPixels - this.totalIconPadding) / this.iconsPerX.toFloat()
 				} else {
-					(this.sharedPreferences.getInt("iconSize", 80) * scale)
+					(this.backupSharedPreferences.getInt("iconSize", 80) * scale)
 				}
 				).toInt()
 		this.toaster = Toaster(baseContext)
@@ -419,7 +422,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	private fun createPackIcons() {
 		this.packsList.removeAllViewsInLayout()
 		// Back button
-		if (this.sharedPreferences.getBoolean("showBackButton", true)) {
+		if (this.backupSharedPreferences.getBoolean("showBackButton", true)) {
 			val backButton = addPackButton("__back__")
 			backButton.load(getDrawable(R.drawable.arrow_back_circle))
 			backButton.setOnClickListener {
@@ -428,7 +431,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		}
 
 		// Search
-		if (this.sharedPreferences.getBoolean("showSearchButton", true)) {
+		if (this.backupSharedPreferences.getBoolean("showSearchButton", true)) {
 			val searchButton = addPackButton("__search__")
 			searchButton.load(getDrawable(R.drawable.search_circle))
 			searchButton.setOnClickListener {

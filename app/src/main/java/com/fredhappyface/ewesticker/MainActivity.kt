@@ -1,6 +1,7 @@
 package com.fredhappyface.ewesticker
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
@@ -28,6 +29,7 @@ import java.util.Calendar
 class MainActivity : AppCompatActivity() {
 	// onCreate
 	private lateinit var sharedPreferences: SharedPreferences
+	private lateinit var backupSharedPreferences: SharedPreferences
 	private lateinit var contextView: View
 	private lateinit var toaster: Toaster
 
@@ -50,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
 		// Set late-init attrs
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
+		this.backupSharedPreferences = this.getSharedPreferences("backup_prefs", Context.MODE_PRIVATE)
 		this.contextView = findViewById(R.id.activityMainRoot)
 		this.toaster = Toaster(baseContext)
 		refreshStickerDirPath()
@@ -194,12 +197,12 @@ class MainActivity : AppCompatActivity() {
 		callback: (Boolean) -> Unit,
 	) {
 		compoundButton.isChecked =
-			this.sharedPreferences.getBoolean(sharedPrefKey, sharedPrefDefault)
+			this.backupSharedPreferences.getBoolean(sharedPrefKey, sharedPrefDefault)
 		callback(compoundButton.isChecked)
 		compoundButton.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
 			showChangedPrefText()
 			callback(compoundButton.isChecked)
-			val editor = this.sharedPreferences.edit()
+			val editor = this.backupSharedPreferences.edit()
 			editor.putBoolean(sharedPrefKey, isChecked)
 			editor.apply()
 		}
@@ -223,9 +226,9 @@ class MainActivity : AppCompatActivity() {
 		multiplier: Int = 1,
 	) {
 		seekBarLabel.text =
-			this.sharedPreferences.getInt(sharedPrefKey, sharedPrefDefault).toString()
+			this.backupSharedPreferences.getInt(sharedPrefKey, sharedPrefDefault).toString()
 		seekBar.progress =
-			this.sharedPreferences.getInt(sharedPrefKey, sharedPrefDefault) / multiplier
+			this.backupSharedPreferences.getInt(sharedPrefKey, sharedPrefDefault) / multiplier
 		seekBar.setOnSeekBarChangeListener(
 			object : OnSeekBarChangeListener {
 				var progressMultiplier = sharedPrefDefault
@@ -236,7 +239,7 @@ class MainActivity : AppCompatActivity() {
 
 				override fun onStartTrackingTouch(seekBar: SeekBar) {}
 				override fun onStopTrackingTouch(seekBar: SeekBar) {
-					val editor = sharedPreferences.edit()
+					val editor = backupSharedPreferences.edit()
 					editor.putInt(sharedPrefKey, progressMultiplier)
 					editor.apply()
 					showChangedPrefText()

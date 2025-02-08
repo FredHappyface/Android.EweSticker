@@ -1,2 +1,6 @@
-<!--suppress CheckTagEmptyBody -->
-<full-backup-content></full-backup-content>
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+	<!-- Include specific files or directories -->
+	<include domain="sharedpref" path="backup_prefs.xml"/>
+
+</full-backup-content>

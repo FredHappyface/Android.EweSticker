@@ -3,9 +3,18 @@
    See https://developer.android.com/about/versions/12/backup-restore#xml-changes
    for details.
 -->
-<data-extraction-rules>
+<data-extraction-rules>\
 	<cloud-backup>
-		<!--
+		<!-- Include the backup SharedPreferences file -->
+		<include domain="sharedpref" path="backup_prefs.xml"/>
+	</cloud-backup>
+	<device-transfer>
+		<!-- Include the backup SharedPreferences file for device transfer -->
+		<include domain="sharedpref" path="backup_prefs.xml"/>
+	</device-transfer>
+	<!--
+	<cloud-backup>
+
 		The domain can be file, database, sharedpref, external or root.
 		Examples:
 
@@ -23,8 +32,8 @@
 		<exclude domain="external" path="file_to_exclude"/>
 		<include domain="root" path="file_to_include"/>
 		<exclude domain="root" path="file_to_exclude"/>
-		-->
 	</cloud-backup>
+	-->
 	<!--
 	<device-transfer>
 		<include .../>
