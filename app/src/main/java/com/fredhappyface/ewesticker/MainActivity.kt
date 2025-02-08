@@ -52,7 +52,8 @@ class MainActivity : AppCompatActivity() {
 
 		// Set late-init attrs
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
-		this.backupSharedPreferences = this.getSharedPreferences("backup_prefs", Context.MODE_PRIVATE)
+		this.backupSharedPreferences =
+			this.getSharedPreferences("backup_prefs", Context.MODE_PRIVATE)
 		this.contextView = findViewById(R.id.activityMainRoot)
 		this.toaster = Toaster(baseContext)
 		refreshStickerDirPath()

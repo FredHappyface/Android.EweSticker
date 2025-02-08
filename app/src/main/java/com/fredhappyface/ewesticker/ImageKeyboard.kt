@@ -111,7 +111,8 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		Coil.setImageLoader(imageLoader)
 		//  Shared Preferences
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
-		this.backupSharedPreferences = this.getSharedPreferences("backup_prefs", Context.MODE_PRIVATE)
+		this.backupSharedPreferences =
+			this.getSharedPreferences("backup_prefs", Context.MODE_PRIVATE)
 		this.restoreOnClose = this.backupSharedPreferences.getBoolean("restoreOnClose", false)
 		this.vertical = this.backupSharedPreferences.getBoolean("vertical", false)
 		this.scroll = this.backupSharedPreferences.getBoolean("scroll", false)
@@ -261,7 +262,8 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			stickers,
 			this,
 			gestureDetector,
-			this.vibrate)
+			this.vibrate
+		)
 		val layoutManager = GridLayoutManager(
 			this,
 			iconsPerX,
@@ -297,7 +299,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			packContent.layoutParams.height -
 				(
 					resources.getDimension(R.dimen.qwerty_row_height) +
-					resources.getDimension(R.dimen.qwerty_row_height) * 4
+						resources.getDimension(R.dimen.qwerty_row_height) * 4
 					)
 
 		searchResults.layoutParams.height = searchResultsHeight.toInt()

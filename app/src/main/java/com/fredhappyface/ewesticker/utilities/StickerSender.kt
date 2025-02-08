@@ -4,11 +4,11 @@ import android.content.ClipDescription
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
 import androidx.core.content.FileProvider
 import androidx.core.graphics.drawable.toBitmap
-import androidx.core.view.inputmethod.EditorInfoCompat
 import androidx.core.view.inputmethod.InputConnectionCompat
 import androidx.core.view.inputmethod.InputContentInfoCompat
 import coil.ImageLoader
@@ -96,40 +96,22 @@ class StickerSender(
 	}
 
 	fun sendSticker(file: File) {
-		var stickerType = Utils.getMimeType(file) ?: "__unknown__"
+		val stickerType = Utils.getMimeType(file) ?: "__unknown__"
 
-
-
-
-
-		// Here we 'mock' the mime for misbehaving applications such as whatsapp
-//		if (this.packageName == "com.whatsapp"){
-//			stickerType = when (stickerType) {
-//				null -> null
-//				"image/webp" -> "image/webp.wasticker"
-//				"video/mp4" -> "video/x.looping_mp4"
-//				else -> stickerType
-//			}
-//		}
-
+		// Try and only send as is if the app explicitly supports it
+		// Note: Many apps do not support svg, so send as png regardless!
 		if ((stickerType in supportedMimes
 				|| "image/*" in supportedMimes && stickerType.startsWith("image/")
 				|| "video/*" in supportedMimes && stickerType.startsWith("video/"))
+			&& stickerType != "image/svg+xml"
 		) {
-			// Deal with any exceptions here such as telegram messenger
-			if (this.packageName == "org.telegram.messenger" && stickerType == "image/svg+xml"
-				|| this.packageName == "com.discord" && stickerType == "image/svg+xml"
-				|| this.packageName == "im.vector.app" && stickerType == "image/svg+xml"
-				|| this.packageName == "com.google.android.keep" && stickerType == "image/svg+xml") {
+
+			if (!doCommitContent(stickerType, file)) {
 				CoroutineScope(Dispatchers.Main).launch {
 					doFallbackCommitContent(file)
 				}
-			} else {
-				// Commit content normally
-				doCommitContent(stickerType, file)
 			}
 		} else {
-			// Use fallback for unsupported types
 			CoroutineScope(Dispatchers.Main).launch {
 				doFallbackCommitContent(file)
 			}
@@ -162,13 +144,13 @@ class StickerSender(
 		if ("image/png" in supportedMimes || "image/*" in supportedMimes) {
 			val compatSticker = createCompatSticker(file)
 			if (compatSticker != null) {
-				doCommitContent("image/png", compatSticker)
+				if (!doCommitContent("image/png", compatSticker)) {
+					openShareSheet(file)
+				}
 				return
 			}
 		}
 		openShareSheet(file)
-
-
 
 	}
 
@@ -178,7 +160,8 @@ class StickerSender(
 	 * @param mimeType String
 	 * @param file File
 	 */
-	private fun doCommitContent(mimeType: String, file: File) {
+	private fun doCommitContent(mimeType: String, file: File): Boolean {
+//		Log.d("QWERTY", "Sending ${file.name} ($mimeType) to ${this.packageName}")
 		val inputContentInfoCompat = InputContentInfoCompat(
 			FileProvider.getUriForFile(
 				context,
@@ -191,7 +174,7 @@ class StickerSender(
 
 		if (currentInputConnection != null && currentInputEditorInfo != null) {
 
-			InputConnectionCompat.commitContent(
+			return InputConnectionCompat.commitContent(
 				currentInputConnection,
 				currentInputEditorInfo,
 				inputContentInfoCompat,
@@ -199,6 +182,7 @@ class StickerSender(
 				null,
 			)
 		}
+		return false
 	}
 
 }
