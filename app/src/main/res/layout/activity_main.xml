@@ -405,6 +405,25 @@
 						android:text="@string/version_text" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
+			<!-- Logs -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
+
+				<LinearLayout
+					style="@style/cardchild"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/heading"
+						android:text="@string/logs_heading" />
+
+					<Button
+						style="@style/button"
+						android:onClick="saveLogs"
+						android:text="@string/logs_button"
+						app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+
 		</LinearLayout>
 
 	</androidx.core.widget.NestedScrollView>

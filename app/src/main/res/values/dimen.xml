@@ -8,7 +8,6 @@
 	<dimen name="text_size_tiny">10sp</dimen>
 	<dimen name="qwerty_row_height">40sp</dimen>
 
-
 	<dimen name="content_margin">10dp</dimen>
 	<dimen name="card_margin">16dp</dimen>
 	<dimen name="content_margin_top">8dp</dimen>

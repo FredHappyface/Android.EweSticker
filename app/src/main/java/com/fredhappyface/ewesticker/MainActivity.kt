@@ -17,12 +17,20 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceManager
+import com.elvishew.xlog.LogConfiguration
+import com.elvishew.xlog.LogLevel
+import com.elvishew.xlog.XLog
+import com.elvishew.xlog.printer.AndroidPrinter
+import com.elvishew.xlog.printer.file.FilePrinter
+import com.elvishew.xlog.printer.file.clean.FileLastModifiedCleanStrategy
+import com.fredhappyface.ewesticker.utilities.StickerImporter
 import com.fredhappyface.ewesticker.utilities.Toaster
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import io.noties.markwon.Markwon
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 import java.util.Calendar
 
 /** MainActivity class inherits from the AppCompatActivity class - provides the settings view */
@@ -43,6 +51,17 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 
+		val logConfig = LogConfiguration.Builder().logLevel(LogLevel.ALL).tag("EweSticker").build()
+		val androidPrinter =
+			AndroidPrinter(true)         // Printer that print the log using android.util.Log
+		val filePrinter = FilePrinter.Builder(
+			File(filesDir, "logs").path
+		).cleanStrategy(FileLastModifiedCleanStrategy(86_400_000)).build() // 1day
+		XLog.init(logConfig, androidPrinter, filePrinter)
+
+		XLog.i("=".repeat(80))
+		XLog.i("Loaded $packageName:$localClassName")
+
 		val markwon: Markwon = Markwon.create(this)
 		val featuresText = findViewById<TextView>(R.id.features_text)
 		markwon.setMarkdown(featuresText, getString(R.string.features_text))
@@ -54,6 +73,9 @@ class MainActivity : AppCompatActivity() {
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
 		this.backupSharedPreferences =
 			this.getSharedPreferences("backup_prefs", Context.MODE_PRIVATE)
+
+		XLog.i("Loading private shared preferences: ${this.sharedPreferences.all}")
+		XLog.i("Loading backup shared preferences: ${this.backupSharedPreferences.all}")
 		this.contextView = findViewById(R.id.activityMainRoot)
 		this.toaster = Toaster(baseContext)
 		refreshStickerDirPath()
@@ -71,12 +93,16 @@ class MainActivity : AppCompatActivity() {
 		toggle(findViewById(R.id.insensitive_sort), "insensitiveSort", false) {}
 
 		val versionText: TextView = findViewById(R.id.versionText)
+		var version = getString(R.string.version_text)
 		try {
 			val packageInfo = packageManager.getPackageInfo(packageName, 0)
-			versionText.text = packageInfo.versionName
-		} catch (e: PackageManager.NameNotFoundException) {
-			versionText.text = getString(R.string.version_text)
+			version = packageInfo.versionName ?: version
+		} catch (_: PackageManager.NameNotFoundException) {
 		}
+
+		versionText.text = version
+		XLog.i("Version: $version")
+
 	}
 
 	/**
@@ -107,6 +133,22 @@ class MainActivity : AppCompatActivity() {
 			}
 		}
 
+	private val saveFileLauncher =
+		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+		if (result.resultCode == RESULT_OK) {
+			result.data?.data?.also { uri ->
+				val file = File(filesDir, "logs/log")
+				if (file.exists()) {
+					contentResolver.openOutputStream(uri)?.use { outputStream ->
+						file.inputStream().use { inputStream ->
+							inputStream.copyTo(outputStream)
+						}
+					}
+				}
+			}
+		}
+	}
+
 	/**
 	 * Called on button press to launch settings
 	 *
@@ -127,6 +169,20 @@ class MainActivity : AppCompatActivity() {
 		intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 		intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
 		chooseDirResultLauncher.launch(intent)
+	}
+
+	/**
+	 * Called on button press to save logs
+	 *
+	 * @param ignoredView: View
+	 */
+	fun saveLogs(ignoredView: View) {
+		val saveIntent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+			addCategory(Intent.CATEGORY_OPENABLE)
+			type = "text/plain"
+			putExtra(Intent.EXTRA_TITLE, "ewesticker.log")
+		}
+		saveFileLauncher.launch(saveIntent)
 	}
 
 	/**

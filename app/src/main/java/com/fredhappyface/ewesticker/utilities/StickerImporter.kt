@@ -1,4 +1,4 @@
-package com.fredhappyface.ewesticker
+package com.fredhappyface.ewesticker.utilities
 
 import android.content.Context
 import android.net.Uri
@@ -6,8 +6,8 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.documentfile.provider.DocumentFile
-import com.fredhappyface.ewesticker.utilities.Toaster
-import com.fredhappyface.ewesticker.utilities.Utils
+import com.elvishew.xlog.XLog
+
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -28,6 +28,7 @@ private const val BUFFER_SIZE = 64 * 1024 // 64 KB
  * @property context: application baseContext
  * @property toaster: an instance of Toaster (used to store an error state for later reporting to the
  * user)
+ * @property progressBar: LinearProgressIndicator that we update as we import stickers
  */
 class StickerImporter(
 	private val context: Context,
@@ -36,6 +37,7 @@ class StickerImporter(
 ) {
 	private val supportedMimes = Utils.getSupportedMimes()
 	private val packSizes: MutableMap<String, Int> = mutableMapOf()
+	private var detectedStickers = 0
 	private var totalStickers = 0
 
 	private val mainHandler = Handler(Looper.getMainLooper())
@@ -53,14 +55,17 @@ class StickerImporter(
 	 * @param stickerDirPath a URI to the stickers directory to import into EweSticker
 	 */
 	suspend fun importStickers(stickerDirPath: String): Int {
+		XLog.i("Removing old stickers...")
 		File(context.filesDir, "stickers").deleteRecursively()
 		withContext(Dispatchers.Main) {
 			progressBar.visibility = View.VISIBLE
 			progressBar.isIndeterminate = true
 		}
 
+		XLog.i("Walking $stickerDirPath...")
 		val leafNodes = fileWalk(DocumentFile.fromTreeUri(context, Uri.parse(stickerDirPath)))
 		if (leafNodes.size > MAX_FILES) {
+			XLog.w("Found more than $MAX_FILES stickers, notify user")
 			toaster.setState(1)
 		}
 
@@ -69,6 +74,7 @@ class StickerImporter(
 		}
 
 		// Perform concurrent file copy operations
+		XLog.i("Perform concurrent file copy operations...")
 		withContext(Dispatchers.IO) {
 			leafNodes.take(MAX_FILES).mapIndexed { index, file ->
 				async {
@@ -84,7 +90,9 @@ class StickerImporter(
 			progressBar.visibility = View.GONE
 		}
 
-		return leafNodes.size
+		XLog.i("Copied $totalStickers / $detectedStickers")
+
+		return totalStickers
 	}
 
 	/**
@@ -98,10 +106,12 @@ class StickerImporter(
 		val parentDir = sticker.parentFile?.name ?: "__default__"
 		val packSize = packSizes[parentDir] ?: 0
 		if (packSize > MAX_PACK_SIZE) {
+			XLog.w("Found more than $MAX_PACK_SIZE stickers in '$parentDir', notify user")
 			toaster.setState(2)
 			return
 		}
 		if (sticker.type !in supportedMimes) {
+			XLog.w("'$parentDir/${sticker.name}' is not a supported mimetype (${sticker.type}), notify user")
 			toaster.setState(3)
 			return
 		}
@@ -126,7 +136,9 @@ class StickerImporter(
 				}
 				totalStickers++
 			}
-		} catch (_: IOException) {
+		} catch (e: IOException) {
+			XLog.e("There was an IOException when copying '${parentDir}/${sticker.name}'!")
+			XLog.e(e)
 		}
 	}
 
@@ -148,9 +160,10 @@ class StickerImporter(
 			currentFile?.listFiles()?.forEach { file ->
 				if (file.isFile) {
 					leafNodes.add(file)
-					totalStickers++
+					detectedStickers++
 
-					if (leafNodes.size >= MAX_FILES) {
+					if (leafNodes.size > MAX_FILES + 1) {
+						XLog.w("Found more than ${MAX_FILES + 1} stickers, so returning early")
 						return leafNodes
 					}
 				} else if (file.isDirectory) {

@@ -70,7 +70,9 @@ Copyright © Randy Zhou</string>
 (See the license for more information https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
 	<string name="version_heading">Version Info</string>
 	<string name="version_text" translatable="false">[debug]</string>
-
+	<!-- Logs -->
+	<string name="logs_heading">Logs</string>
+	<string name="logs_button">Get log file</string>
 	<!-- Interactive Messages -->
 	<string name="pref_000">Preferences changed. Reload the keyboard for settings to apply</string>
 	<string name="imported_010">Starting import. This might take some time!</string>

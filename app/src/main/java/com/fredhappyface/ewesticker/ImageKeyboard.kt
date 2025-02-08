@@ -28,6 +28,7 @@ import coil.decode.SvgDecoder
 import coil.decode.VideoFrameDecoder
 import coil.imageLoader
 import coil.load
+import com.elvishew.xlog.XLog
 import com.fredhappyface.ewesticker.adapter.StickerPackAdapter
 import com.fredhappyface.ewesticker.model.StickerPack
 import com.fredhappyface.ewesticker.utilities.Cache
@@ -94,6 +95,10 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	override fun onCreate() {
 		// Misc
 		super.onCreate()
+
+		XLog.i("=".repeat(80))
+		XLog.i("Loaded $packageName:${javaClass.name}")
+
 		val scale = baseContext.resources.displayMetrics.density
 		// Setup coil
 		val imageLoader =
@@ -113,6 +118,10 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(baseContext)
 		this.backupSharedPreferences =
 			this.getSharedPreferences("backup_prefs", Context.MODE_PRIVATE)
+
+		XLog.i("Loading private shared preferences: ${this.sharedPreferences.all}")
+		XLog.i("Loading backup shared preferences: ${this.backupSharedPreferences.all}")
+
 		this.restoreOnClose = this.backupSharedPreferences.getBoolean("restoreOnClose", false)
 		this.vertical = this.backupSharedPreferences.getBoolean("vertical", false)
 		this.scroll = this.backupSharedPreferences.getBoolean("scroll", false)
@@ -147,6 +156,8 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			}
 			this.allStickers += pack.stickerList
 		}
+
+		XLog.i("Loaded all packs: [${this.loadedPacks.keys.joinToString(", ")}]")
 		this.activePack = this.sharedPreferences.getString("activePack", "").toString()
 		//  Caches
 		this.sharedPreferences.getString("recentCache", "")?.let {
@@ -222,6 +233,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 
 	/** When leaving some input field update the caches */
 	override fun onFinishInput() {
+		XLog.i("Updating sharedPreferences based on use, and closing...")
 		val editor = this.sharedPreferences.edit()
 		editor.putString("recentCache", this.recentCache.toSharedPref())
 		editor.putString("compatCache", this.compatCache.toSharedPref())
@@ -240,6 +252,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	 * @param packName String
 	 */
 	private fun switchPackLayout(packName: String) {
+		XLog.i("Switching pack to '$packName'")
 		this.activePack = packName
 		for (packCard in this.packsList) {
 			val packButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
@@ -280,6 +293,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	 * Set the current tab to the search page/ view
 	 */
 	private fun searchView() {
+		XLog.i("Switching to search")
 		for (packCard in this.packsList) {
 			val packButton = packCard.findViewById<ImageButton>(R.id.stickerButton)
 			if (packButton.tag == "__search__") {
@@ -453,9 +467,6 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		} else {
 			this.loadedPacks.keys.sorted()
 		}.toTypedArray()
-
-
-
 
 		for (sortedPackName in sortedPackNames) {
 			val packButton = addPackButton(sortedPackName)
