@@ -22,6 +22,7 @@ object Utils {
 	 */
 	fun getSupportedMimes(): MutableList<String> {
 		return mutableListOf(
+			"image/svg+xml",
 			"image/gif",
 			"image/png",
 			"image/webp",

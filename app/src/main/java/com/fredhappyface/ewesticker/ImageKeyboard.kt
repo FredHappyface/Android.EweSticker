@@ -24,6 +24,7 @@ import coil.Coil
 import coil.ImageLoader
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
+import coil.decode.SvgDecoder
 import coil.decode.VideoFrameDecoder
 import coil.imageLoader
 import coil.load
@@ -104,6 +105,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 						add(GifDecoder.Factory())
 					}
 					add(VideoFrameDecoder.Factory())
+					add(SvgDecoder.Factory())
 				}
 				.build()
 		Coil.setImageLoader(imageLoader)
