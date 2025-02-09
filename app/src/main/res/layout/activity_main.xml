@@ -5,14 +5,20 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
+
+
 	<com.google.android.material.appbar.AppBarLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:background="@color/accent">
+		android:background="@color/accent"
+		android:fitsSystemWindows=""
+		android:paddingTop="?attr/cut"
+		>
+
 
 		<com.google.android.material.appbar.CollapsingToolbarLayout
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
+			android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
 			app:layout_scrollFlags="scroll|exitUntilCollapsed"
 			android:background="@color/accent"
 			app:collapsedTitleTextAppearance="@style/ToolbarTitleTextAppearance"
@@ -21,16 +27,10 @@
 			app:expandedTitleTextColor="@color/onAccent"
 			app:title="  EweSticker">
 
-			<View
-				android:layout_width="match_parent"
-				android:layout_height="@dimen/appbar_padding"
-				android:background="@color/accent" />
 
-			<androidx.appcompat.widget.Toolbar
+			<com.google.android.material.appbar.MaterialToolbar
 				android:layout_width="match_parent"
 				android:layout_height="?attr/actionBarSize"
-				app:layout_collapseMode="none"
-				app:layout_collapseParallaxMultiplier="0.7"
 				android:background="@color/accent" />
 
 		</com.google.android.material.appbar.CollapsingToolbarLayout>

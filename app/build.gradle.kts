@@ -47,7 +47,7 @@ android {
 	defaultConfig {
 		applicationId = "com.fredhappyface.ewesticker"
 		minSdk = 26
-		targetSdk = 34
+		targetSdk = 35
 		versionCode = 20250209
 		versionName = "20250209"
 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<dimen name="r_btn">32sp</dimen>
-	<dimen name="appbar_padding">160dp</dimen>
+	<dimen name="status_bar_padding">32dp</dimen>
 	<dimen name="text_size_title">36sp</dimen>
 	<dimen name="text_size_heading">24sp</dimen>
 	<dimen name="text_size_body">16sp</dimen>
