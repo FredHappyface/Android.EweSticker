@@ -91,6 +91,7 @@ class MainActivity : AppCompatActivity() {
 		toggle(findViewById(R.id.restoreOnClose), "restoreOnClose", false) {}
 		toggle(findViewById(R.id.scroll), "scroll", false) {}
 		toggle(findViewById(R.id.insensitive_sort), "insensitiveSort", false) {}
+		toggle(findViewById(R.id.pngFallback), "isPngFallback", true) {}
 
 		val versionText: TextView = findViewById(R.id.versionText)
 		var version = getString(R.string.version_text)

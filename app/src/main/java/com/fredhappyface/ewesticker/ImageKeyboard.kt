@@ -58,6 +58,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	private var iconsPerX = 0
 	private var iconSize = 0
 	private var insensitiveSort = false
+	private var isPngFallback = true
 
 	//  Constants
 	private lateinit var internalDir: File
@@ -127,6 +128,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 		this.scroll = this.backupSharedPreferences.getBoolean("scroll", false)
 		this.vibrate = this.backupSharedPreferences.getBoolean("vibrate", true)
 		this.insensitiveSort = this.backupSharedPreferences.getBoolean("insensitiveSort", false)
+		this.isPngFallback = this.backupSharedPreferences.getBoolean("isPngFallback", true)
 
 		this.iconsPerX = this.backupSharedPreferences.getInt("iconsPerX", 3)
 		this.totalIconPadding =
@@ -228,6 +230,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 			this.currentInputEditorInfo,
 			this.compatCache,
 			this.imageLoader,
+			this.isPngFallback,
 		)
 	}
 

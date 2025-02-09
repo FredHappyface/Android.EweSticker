@@ -263,6 +263,20 @@
 						style="@style/widthMatchHeightWrap"
 						android:orientation="horizontal">
 
+						<CheckBox
+							android:id="@+id/pngFallback"
+							style="@style/checkbox" />
+
+						<TextView
+							style="@style/body_text"
+							android:paddingBottom="@dimen/content_margin"
+							android:text="@string/options_png_fallback" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
 						<TextView
 							style="@style/body_text"
 							android:text="@string/options_icons_per_x_lbl" />

@@ -36,6 +36,7 @@ import java.io.IOException
  * @property compatCache: used to track previous x converted compat stickers
  * @property imageLoader: coil imageLoader object used to convert a sticker file to a drawable ready
  * for writing to a compat sticker
+ * @property isPngFallback: is a png fallback enabled
  */
 class StickerSender(
 	private val context: Context,
@@ -45,6 +46,7 @@ class StickerSender(
 	private val currentInputEditorInfo: EditorInfo?,
 	private val compatCache: Cache,
 	private val imageLoader: ImageLoader,
+	private val isPngFallback: Boolean,
 ) {
 
 	private val supportedMimes = this.currentInputEditorInfo?.contentMimeTypes ?: emptyArray()
@@ -175,7 +177,7 @@ class StickerSender(
 	 */
 	private suspend fun doFallbackCommitContent(mimeType: String, file: File) {
 
-		if ("image/png" in supportedMimes || "image/*" in supportedMimes) {
+		if (isPngFallback && ("image/png" in supportedMimes || "image/*" in supportedMimes)) {
 			val compatSticker = createCompatSticker(file)
 			if (compatSticker != null) {
 				if (!doCommitContent("image/png", compatSticker)) {
@@ -209,6 +211,7 @@ class StickerSender(
 		}
 
 		shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+		shareIntent.setPackage(packageName)
 
 		val chooserIntent = Intent.createChooser(shareIntent, "Share Sticker")
 		chooserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

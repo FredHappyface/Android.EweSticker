@@ -26,6 +26,7 @@
 	<string name="options_restore_on_close">Restore previous keyboard on keyboard close</string>
 	<string name="options_scroll">Enable swipe between packs (perpendicular to scroll direction)</string>
 	<string name="options_insensitive_sort">Enable case-insensitive pack sorting</string>
+	<string name="options_png_fallback">Enable PNG sticker fallback if sticker format isn\'t supported</string>
 	<string name="options_icons_per_x_lbl">"Number of Rows: "</string>
 	<string name="options_icon_size_status_lbl">"Icon size: "</string>
 	<!-- Info -->
