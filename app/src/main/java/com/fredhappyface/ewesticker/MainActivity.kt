@@ -32,9 +32,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.text.SimpleDateFormat
-import java.util.Locale
 import java.util.Calendar
 import java.util.Date
+import java.util.Locale
 
 /** MainActivity class inherits from the AppCompatActivity class - provides the settings view */
 class MainActivity : AppCompatActivity() {
@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
 		val filePrinter = FilePrinter.Builder(
 			File(filesDir, "logs").path
 		).fileNameGenerator(DateFileNameGenerator()).build()
-
 
 		XLog.init(logConfig, androidPrinter, filePrinter)
 
@@ -111,7 +110,6 @@ class MainActivity : AppCompatActivity() {
 
 	}
 
-
 	/**
 	 * Handles ACTION_OPEN_DOCUMENT_TREE result and adds stickerDirPath, lastUpdateDate to
 	 * this.sharedPreferences and resets recentCache, compatCache
@@ -142,22 +140,22 @@ class MainActivity : AppCompatActivity() {
 
 	private val saveFileLauncher =
 		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-		if (result.resultCode == RESULT_OK) {
-			result.data?.data?.also { uri ->
-				val dateFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-				val currentDate = Date()
-				val logFileName = dateFormatter.format(currentDate)
-				val file = File(filesDir, "logs/$logFileName")
-				if (file.exists()) {
-					contentResolver.openOutputStream(uri)?.use { outputStream ->
-						file.inputStream().use { inputStream ->
-							inputStream.copyTo(outputStream)
+			if (result.resultCode == RESULT_OK) {
+				result.data?.data?.also { uri ->
+					val dateFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+					val currentDate = Date()
+					val logFileName = dateFormatter.format(currentDate)
+					val file = File(filesDir, "logs/$logFileName")
+					if (file.exists()) {
+						contentResolver.openOutputStream(uri)?.use { outputStream ->
+							file.inputStream().use { inputStream ->
+								inputStream.copyTo(outputStream)
+							}
 						}
 					}
 				}
 			}
 		}
-	}
 
 	/**
 	 * Called on button press to launch settings
@@ -230,14 +228,12 @@ class MainActivity : AppCompatActivity() {
 				StickerImporter(baseContext, toaster, progressBar).importStickers(stickerDirPath)
 
 			withContext(Dispatchers.Main) {
-				toaster.toastOnState(
-					arrayOf(
-						getString(R.string.imported_020, totalStickers),
-						getString(R.string.imported_031, totalStickers),
-						getString(R.string.imported_032, totalStickers),
-						getString(R.string.imported_033, totalStickers),
-					),
-				)
+				if (toaster.messages.size > 0) {
+					toaster.toastOnMessages()
+				} else {
+					toaster.toast(getString(R.string.imported_020, totalStickers))
+				}
+
 				val editor = sharedPreferences.edit()
 				editor.putInt("numStickersImported", totalStickers)
 				editor.apply()

@@ -71,9 +71,6 @@ EweSticker는 다양한 사용자 정의 옵션, 다양한 형식 지원 및 메
     <string name="pref_000">설정이 변경되었습니다. 설정을 적용하려면 키보드를 다시 불러오세요</string>
 	<string name="imported_010">가져오기 시작. 시간이 걸릴 수 있습니다!</string>
 	<string name="imported_020">%1$d개의 스티커를 가져왔습니다. 새 스티커를 표시하려면 키보드를 다시 불러오세요</string>
-	<string name="imported_031">E031: 일부 스티커 가져오기 실패 (%1$d개 가져옴). 최대 스티커 개수에 도달함</string>
-	<string name="imported_032">E032: 일부 스티커 가져오기 실패 (%1$d개 가져옴). 최대 팩 크기에 도달함</string>
-	<string name="imported_033">E033: 일부 스티커 가져오기 실패 (%1$d개 가져옴). 지원하지 않는 형식을 발견함</string>
 	<string name="imported_034">E034: 스티커 다시 불러오기 실패. 스티커 소스 디렉터리를 선택해보세요</string>
 	<string name="fallback_041">E041: 스티커 변환 중 예기치 않은 IOException 발생</string>
 	<!-- Keyboard -->

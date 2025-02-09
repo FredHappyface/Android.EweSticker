@@ -7,6 +7,16 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver
 -->
 
+## 20250209
+
+- Update dependency versions
+- Add a shortcut to google keyboard (fixes #76)
+- Add SVG image support
+- Code quality improvements
+- Use xLog (https://github.com/elvishew/xLog) to capture today's logs (to assist with debugging)
+- Make PNG sticker fallback configurable and improve share sheet (fixes #80)
+- Improve toast logging experience
+
 ## 20240825
 
 - Add case insensitive sort

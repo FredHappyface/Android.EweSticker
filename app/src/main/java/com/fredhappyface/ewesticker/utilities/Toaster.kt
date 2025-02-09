@@ -2,6 +2,7 @@ package com.fredhappyface.ewesticker.utilities
 
 import android.content.Context
 import android.widget.Toast
+import com.elvishew.xlog.XLog
 
 /**
  * The Toaster class provides a simplified interface to android.widget.Toast. Pass in the
@@ -11,7 +12,7 @@ import android.widget.Toast
  * @property context: android.content.Context. e.g. baseContext
  */
 class Toaster(private val context: Context) {
-	private var state = 0
+	var messages: MutableList<String> = mutableListOf()
 
 	/**
 	 * Call toaster.toast with some string to always create a toast notification. Context is set when
@@ -33,31 +34,21 @@ class Toaster(private val context: Context) {
 	}
 
 	/**
-	 * Call toaster.toastOnState with an array of messages to create a toast notification.
-	 * Context is set when Toaster is instantiated. Duration is determined based on
-	 * text length. The message is selected based on the state (which can be set in a callback
-	 * function or elsewhere
 	 *
-	 * @param strings: Array<String>. Array of potential messages to output.
-	 */
-	fun toastOnState(strings: Array<String>) {
-		if (this.state < strings.size) {
-			this.toast(strings[this.state])
-		} else {
-			this.toast("toaster.state=${this.state} out of range strings.size=${strings.size}")
+	 **/
+	fun toastOnMessages() {
+		XLog.i("Messages: [${this.messages.joinToString(", ")}]")
+		for (idx in this.messages.take(3).indices) {
+			this.toast(messages[idx])
 		}
+		this.messages = mutableListOf()
 	}
 
 	/**
-	 * Set the state to some integer value
-	 *
-	 * @param state: Int
-	 */
-	fun setState(state: Int) {
-		if (state < 0) {
-			this.state = 0
-		} else {
-			this.state = state
-		}
+	 * Set a message
+	 **/
+	fun setMessage(message: String) {
+		XLog.i("Adding message: '$message' to toaster")
+		this.messages.add(message)
 	}
 }

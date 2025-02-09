@@ -78,9 +78,9 @@ Copyright © Randy Zhou</string>
 	<string name="pref_000">Preferences changed. Reload the keyboard for settings to apply</string>
 	<string name="imported_010">Starting import. This might take some time!</string>
 	<string name="imported_020">Imported %1$d stickers. Reload the keyboard for new stickers to show</string>
-	<string name="imported_031">E031: Some stickers failed to import (%1$d imported). Max stickers reached</string>
-	<string name="imported_032">E032: Some stickers failed to import (%1$d imported). Max pack size reached</string>
-	<string name="imported_033">E033: Some stickers failed to import (%1$d imported). Unsupported formats found</string>
+	<string name="imported_031">E031: Found more than %1$d stickers in total</string>
+	<string name="imported_032">E032: Found more than %1$d stickers in pack (%2$s)</string>
+	<string name="imported_033">E033: Unsupported format found (%1$s, file: %2$s/%3$s)</string>
 	<string name="imported_034">E034: Reloading stickers failed, try choosing a sticker source directory</string>
 	<string name="fallback_041">E041: Unexpected IOException when converting sticker</string>
 	<!-- Keyboard -->

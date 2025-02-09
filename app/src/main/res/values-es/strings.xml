@@ -71,9 +71,6 @@ EweSticker ofrece una amplia variedad de opciones de personalización, soporte p
     <string name="pref_000">Preferencias modificadas. Vuelva a cargar el teclado para que se apliquen los ajustes</string>
     <string name="imported_010">Comenzando la importación. ¡Esto puede llevar algún tiempo!</string>
     <string name="imported_020">Importado %1$d stickers. Recargar el teclado para que se muestren los nuevos stickers</string>
-    <string name="imported_031">E031: Algunos stickers han fallado al importar (%1$d importado). Máx. stickers importados</string>
-    <string name="imported_032">E032: No se han podido importar algunos stickers (%1$d importadas). Se ha alcanzado el tamaño máximo del paquete</string>
-    <string name="imported_033">E033: Ha fallado la importación de algunos stickers (%1$d importadas). Se han encontrado formatos no compatibles</string>
     <string name="imported_034">E034: Falló la recarga de stickers, intente elegir un directorio de origen de los stickers</string>
     <string name="fallback_041">E041: IOException inesperado al convertir el sticker</string>
     <!-- Keyboard -->

@@ -72,9 +72,6 @@ EweSticker menghadirkan berbagai pilihan kustomisasi, dukungan format yang berag
     <string name="pref_000">Preferensi berubah. Muat ulang keyboard agar pengaturan dapat diterapkan</string>
     <string name="imported_010">Mulai impor. Ini mungkin membutuhkan waktu!</string>
     <string name="imported_020">Mengimpor stiker %1$d. Muat ulang keyboard agar stiker baru dapat ditampilkan</string>
-    <string name="imported_031">E031: Beberapa stiker gagal diimpor (%1$d diimpor). Maksimal stiker tercapai</string>
-    <string name="imported_032">E032: Beberapa stiker gagal diimpor (%1$d diimpor). Ukuran paket maksimal tercapai</string>
-    <string name="imported_033">E033: Beberapa stiker gagal diimpor (%1$d diimpor). Format tidak didukung</string>
     <string name="imported_034">E034: Gagal memuat ulang stiker, coba pilih direktori sumber stiker</string>
     <string name="fallback_041">E041: IOException yang tidak diharapkan saat mengonversi stiker</string>
     <!-- Keyboard -->

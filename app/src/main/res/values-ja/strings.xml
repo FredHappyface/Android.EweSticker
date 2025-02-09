@@ -71,9 +71,6 @@ EweStickerは幅広いカスタマイズオプション、多様なフォーマ�
     <string name="pref_000">設定が変更されました。設定が適用されるようにキーボードを再読み込みしてください</string>
 	<string name="imported_010">インポートを開始しました。しばらく時間がかかることがあります！</string>
 	<string name="imported_020">%1$d ステッカーをインポートしました。新しいステッカーを表示するにはキーボードを再読み込みしてください</string>
-	<string name="imported_031">E031: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。最大ステッカー数に達しました</string>
-	<string name="imported_032">E032: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。最大パックサイズに達しました</string>
-	<string name="imported_033">E033: 一部のステッカーのインポートに失敗しました（%1$d 個インポート済み）。サポートされていないフォーマットが見つかりました</string>
 	<string name="imported_034">E034: ステッカーの再読み込みに失敗しました。ステッカーソースディレクトリを選択してみてください</string>
 	<string name="fallback_041">E041: ステッカーを変換する際に予期しないIOExceptionが発生しました</string>
 	<!-- Keyboard -->

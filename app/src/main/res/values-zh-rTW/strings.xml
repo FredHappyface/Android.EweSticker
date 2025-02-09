@@ -71,9 +71,6 @@
     <string name="pref_000">偏好設定已變更。重新載入鍵盤以套用設定</string>
     <string name="imported_010">正在開始匯入。這可能需要一些時間！</string>
     <string name="imported_020">已匯入 %1$d 個貼圖。重新載入鍵盤以顯示新貼圖</string>
-    <string name="imported_031">E031：部分貼圖匯入失敗（已匯入 %1$d 個）。已達到最大貼圖數</string>
-    <string name="imported_032">E032：部分貼圖匯入失敗（已匯入 %1$d 個）。已達到最大貼圖包大小</string>
-    <string name="imported_033">E033：部分貼圖匯入失敗（已匯入 %1$d 個）。發現不支援的格式</string>
     <string name="imported_034">E034：重新載入貼圖失敗，請嘗試選擇貼圖來源目錄</string>
     <string name="fallback_041">E041：在轉換貼圖時發生意外的 IOException</string>
     <!-- Keyboard -->

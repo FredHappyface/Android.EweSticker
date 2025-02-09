@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.View
 import androidx.documentfile.provider.DocumentFile
 import com.elvishew.xlog.XLog
+import com.fredhappyface.ewesticker.R
 
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import kotlinx.coroutines.Dispatchers
@@ -66,7 +67,7 @@ class StickerImporter(
 		val leafNodes = fileWalk(DocumentFile.fromTreeUri(context, Uri.parse(stickerDirPath)))
 		if (leafNodes.size > MAX_FILES) {
 			XLog.w("Found more than $MAX_FILES stickers, notify user")
-			toaster.setState(1)
+			toaster.setMessage(context.getString(R.string.imported_031, MAX_FILES))
 		}
 
 		withContext(Dispatchers.Main) {
@@ -107,12 +108,19 @@ class StickerImporter(
 		val packSize = packSizes[parentDir] ?: 0
 		if (packSize > MAX_PACK_SIZE) {
 			XLog.w("Found more than $MAX_PACK_SIZE stickers in '$parentDir', notify user")
-			toaster.setState(2)
+			toaster.setMessage(context.getString(R.string.imported_032, MAX_PACK_SIZE, parentDir))
 			return
 		}
 		if (sticker.type !in supportedMimes) {
 			XLog.w("'$parentDir/${sticker.name}' is not a supported mimetype (${sticker.type}), notify user")
-			toaster.setState(3)
+			toaster.setMessage(
+				context.getString(
+					R.string.imported_033,
+					sticker.type,
+					parentDir,
+					sticker.name
+				)
+			)
 			return
 		}
 		packSizes[parentDir] = packSize + 1
