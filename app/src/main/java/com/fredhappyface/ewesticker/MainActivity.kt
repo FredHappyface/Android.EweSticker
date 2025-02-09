@@ -22,7 +22,7 @@ import com.elvishew.xlog.LogLevel
 import com.elvishew.xlog.XLog
 import com.elvishew.xlog.printer.AndroidPrinter
 import com.elvishew.xlog.printer.file.FilePrinter
-import com.elvishew.xlog.printer.file.clean.FileLastModifiedCleanStrategy
+import com.elvishew.xlog.printer.file.naming.DateFileNameGenerator
 import com.fredhappyface.ewesticker.utilities.StickerImporter
 import com.fredhappyface.ewesticker.utilities.Toaster
 import com.google.android.material.progressindicator.LinearProgressIndicator
@@ -31,7 +31,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Locale
 import java.util.Calendar
+import java.util.Date
 
 /** MainActivity class inherits from the AppCompatActivity class - provides the settings view */
 class MainActivity : AppCompatActivity() {
@@ -56,7 +59,9 @@ class MainActivity : AppCompatActivity() {
 			AndroidPrinter(true)         // Printer that print the log using android.util.Log
 		val filePrinter = FilePrinter.Builder(
 			File(filesDir, "logs").path
-		).cleanStrategy(FileLastModifiedCleanStrategy(86_400_000)).build() // 1day
+		).fileNameGenerator(DateFileNameGenerator()).build()
+
+
 		XLog.init(logConfig, androidPrinter, filePrinter)
 
 		XLog.i("=".repeat(80))
@@ -106,6 +111,7 @@ class MainActivity : AppCompatActivity() {
 
 	}
 
+
 	/**
 	 * Handles ACTION_OPEN_DOCUMENT_TREE result and adds stickerDirPath, lastUpdateDate to
 	 * this.sharedPreferences and resets recentCache, compatCache
@@ -138,7 +144,10 @@ class MainActivity : AppCompatActivity() {
 		registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
 		if (result.resultCode == RESULT_OK) {
 			result.data?.data?.also { uri ->
-				val file = File(filesDir, "logs/log")
+				val dateFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+				val currentDate = Date()
+				val logFileName = dateFormatter.format(currentDate)
+				val file = File(filesDir, "logs/$logFileName")
 				if (file.exists()) {
 					contentResolver.openOutputStream(uri)?.use { outputStream ->
 						file.inputStream().use { inputStream ->
