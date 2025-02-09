@@ -1,0 +1,12 @@
+<h2 id="section">20250209</h2>
+<ul>
+<li>Update dependency versions</li>
+<li>Add a shortcut to google keyboard (fixes #76)</li>
+<li>Add SVG image support</li>
+<li>Code quality improvements</li>
+<li>Use xLog (https://github.com/elvishew/xLog) to capture today’s logs
+(to assist with debugging)</li>
+<li>Make PNG sticker fallback configurable and improve share sheet
+(fixes #80)</li>
+<li>Improve toast logging experience</li>
+</ul>
