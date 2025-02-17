@@ -7,6 +7,10 @@ patch-level version changes can be found in [commit messages](../../commits/mast
 ## Next_Ver
 -->
 
+## 20250217
+
+- Fix critical bug with the logger crashing the app
+
 ## 20250209
 
 - Update dependency versions

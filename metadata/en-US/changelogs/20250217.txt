@@ -1,0 +1,4 @@
+<h2 id="section">20250217</h2>
+<ul>
+<li>Fix critical bug with the logger crashing the app</li>
+</ul>

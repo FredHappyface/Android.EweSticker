@@ -17,14 +17,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceManager
-import com.elvishew.xlog.LogConfiguration
-import com.elvishew.xlog.LogLevel
 import com.elvishew.xlog.XLog
-import com.elvishew.xlog.printer.AndroidPrinter
-import com.elvishew.xlog.printer.file.FilePrinter
-import com.elvishew.xlog.printer.file.naming.DateFileNameGenerator
 import com.fredhappyface.ewesticker.utilities.StickerImporter
 import com.fredhappyface.ewesticker.utilities.Toaster
+import com.fredhappyface.ewesticker.utilities.startLogger
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import io.noties.markwon.Markwon
 import kotlinx.coroutines.Dispatchers
@@ -54,14 +50,7 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 
-		val logConfig = LogConfiguration.Builder().logLevel(LogLevel.ALL).tag("EweSticker").build()
-		val androidPrinter =
-			AndroidPrinter(true)         // Printer that print the log using android.util.Log
-		val filePrinter = FilePrinter.Builder(
-			File(filesDir, "logs").path
-		).fileNameGenerator(DateFileNameGenerator()).build()
-
-		XLog.init(logConfig, androidPrinter, filePrinter)
+		startLogger(filesDir)
 
 		XLog.i("=".repeat(80))
 		XLog.i("Loaded $packageName:$localClassName")

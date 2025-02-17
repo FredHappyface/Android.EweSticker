@@ -35,6 +35,7 @@ import com.fredhappyface.ewesticker.utilities.Cache
 import com.fredhappyface.ewesticker.utilities.StickerClickListener
 import com.fredhappyface.ewesticker.utilities.StickerSender
 import com.fredhappyface.ewesticker.utilities.Toaster
+import com.fredhappyface.ewesticker.utilities.startLogger
 import java.io.File
 import kotlin.math.abs
 import kotlin.math.min
@@ -96,6 +97,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	override fun onCreate() {
 		// Misc
 		super.onCreate()
+		startLogger(filesDir)
 
 		XLog.i("=".repeat(80))
 		XLog.i("Loaded $packageName:${javaClass.name}")
