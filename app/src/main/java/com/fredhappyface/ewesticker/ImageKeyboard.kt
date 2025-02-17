@@ -506,7 +506,7 @@ class ImageKeyboard : InputMethodService(), StickerClickListener {
 	 *  @param sticker: File
 	 */
 	override fun onStickerClicked(sticker: File) {
-		this.recentCache.add(sticker.absolutePath)
+		this.recentCache.add(sticker.path)
 		this.stickerSender.sendSticker(sticker)
 	}
 

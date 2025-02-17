@@ -5,7 +5,7 @@ import java.util.ArrayDeque
 import java.util.Deque
 
 /**
- * Basically this behaved like an ordered set with some maximum capacity. When this capacity is
+ * Basically this behaves like an ordered set with some maximum capacity. When this capacity is
  * exceeded an element is removed from the start
  */
 class Cache(private val capacity: Int = 30) {
@@ -49,6 +49,8 @@ class Cache(private val capacity: Int = 30) {
 	/** convert from a string (shared-pref) to this */
 	fun fromSharedPref(raw: String) {
 		data.clear()
-		data.addAll(raw.split("\n"))
+		if (raw.trim().isNotEmpty()) {
+			data.addAll(raw.split("\n"))
+		}
 	}
 }
