@@ -43,9 +43,7 @@
     <string name="links_text">- EweStickerのソースコードは https://github.com/FredHappyface/Android.EweSticker で利用可能です。\n\n- チュートリアルでは、ソフトウェアの使用を開始する一連の手順を紹介しています。新規の場合はこちらから始めてください: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials\n\n- ヘルプガイドはスタート地点を提供し、一般的な問題について概説しています: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help\n\n- MITライセンス\n(詳細についてはライセンスを参照 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <!-- インタラクティブメッセージ -->
     <string name="version_heading">バージョン情報</string>
-    <string name="pref_000">設定が変更されました。設定が適用されるようにキーボードを再読み込みしてください</string>
     <string name="imported_010">インポートを開始しました。しばらく時間がかかることがあります！</string>
-    <string name="imported_020">%1$d ステッカーをインポートしました。新しいステッカーを表示するにはキーボードを再読み込みしてください</string>
     <string name="imported_034">E034: ステッカーの再読み込みに失敗しました。ステッカーソースディレクトリを選択してみてください</string>
     <string name="fallback_041">E041: ステッカーを変換する際に予期しないIOExceptionが発生しました</string>
     <!-- Keyboard -->

@@ -44,9 +44,7 @@
     <string name="links_text">- EweSticker의 소스 코드는 https://github.com/FredHappyface/Android.EweSticker에서 제공됩니다.\n\n- 튜토리얼은 소프트웨어 사용을 시작하기 위한 일련의 단계를 안내합니다. 처음 사용자라면 여기에서 시작하십시오: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials\n\n- 도움말 가이드는 시작점을 제공하고 일반적인 문제를 개요로 설명합니다: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help\n\n- MIT 라이선스\n(자세한 정보는 라이선스에서 확인하십시오 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <!-- 대화식 메시지 -->
     <string name="version_heading">버전 정보</string>
-    <string name="pref_000">설정이 변경되었습니다. 설정을 적용하려면 키보드를 다시 불러오세요</string>
     <string name="imported_010">가져오기 시작. 시간이 걸릴 수 있습니다!</string>
-    <string name="imported_020">%1$d개의 스티커를 가져왔습니다. 새 스티커를 표시하려면 키보드를 다시 불러오세요</string>
     <string name="imported_034">E034: 스티커 다시 불러오기 실패. 스티커 소스 디렉터리를 선택해보세요</string>
     <string name="fallback_041">E041: 스티커 변환 중 예기치 않은 IOException 발생</string>
     <!-- Keyboard -->

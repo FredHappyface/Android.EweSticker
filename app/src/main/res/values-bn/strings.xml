@@ -42,9 +42,7 @@
     <!-- লিঙ্ক -->
 	<string name="links_heading">লিঙ্কস</string>
     <string name="links_text">- EweStickerের উৎসকোড উপলব্ধ https://github.com/FredHappyface/Android.EweSticker\n\n- টিউটোরিয়ালগুলি আপনাকে সফলভাবে সফটওয়্যার ব্যবহার করার জন্য এক ধরনের ধরাধারিত ধাক্কা মেয়ে নিয়ে যায়। নতুন হলে এখানে শুরু করুন: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials\n\n- সাহায্য গাইড একটি শুরুপ্রয়াস প্রদান করে এবং আপনি যে সাধারণ সমস্যা নিয়ে বাধা পান তা প্রতিপাদন করে: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help\n\n- মিট লাইসেন্স\n(আরও তথ্যের জন্য লাইসেন্সটি দেখুন https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
-    <string name="pref_000">পছন্দস্থান পরিবর্তন হয়েছে। সেটিংস প্রয়োগ করার জন্য কীবোর্ড পুনরায় লোড করুন</string>
     <string name="imported_010">আমদানি শুরু হয়েছে। এটি কিছু সময় নিতে পারে!</string>
-    <string name="imported_020">%1$d টি স্টিকার আমদানি করা হয়েছে। নতুন স্টিকার দেখানোর জন্য কীবোর্ড পুনরায় লোড করুন</string>
     <string name="imported_034">E034: স্টিকার পুনরায় লোড করা যায়নি, স্টিকার শোর্স ডিরেক্টরি চয়ন করার চেষ্টা করুন</string>
     <string name="fallback_041">E041: অপ্রত্যাশিত IOException যখন স্টিকার রুপান্তর করা হয়</string>
     <!-- Keyboard -->

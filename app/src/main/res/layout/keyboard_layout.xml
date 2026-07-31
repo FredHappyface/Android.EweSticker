@@ -8,12 +8,36 @@
 	android:fitsSystemWindows="true"
 	tools:context="com.fredhappyface.ewesticker.ImageKeyboard">
 
+	<!-- Drag to resize. It is its own view rather than a gesture on the pack bar because that bar
+	     scrolls horizontally and already carries long-press, so a drag there would be ambiguous. -->
+	<FrameLayout
+		android:id="@+id/resizeHandle"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/resize_handle_height"
+		android:layout_alignParentTop="true"
+		android:background="@color/surface_bar"
+		android:contentDescription="@string/resize_handle"
+		android:focusable="true">
+
+		<View
+			android:layout_width="@dimen/resize_grabber_width"
+			android:layout_height="@dimen/resize_grabber_height"
+			android:layout_gravity="center"
+			android:background="@drawable/resize_grabber" />
+	</FrameLayout>
+
+	<!-- The pack bar sits on its own surface so it reads as a toolbar rather than as the first row
+	     of stickers. -->
 	<HorizontalScrollView
 		android:id="@+id/topHScrollView"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_alignParentTop="true"
-		android:padding="@dimen/sticker_padding"
+		android:layout_below="@id/resizeHandle"
+		android:background="@color/surface_bar"
+		android:paddingStart="@dimen/bar_padding"
+		android:paddingTop="@dimen/bar_padding"
+		android:paddingEnd="@dimen/bar_padding"
+		android:paddingBottom="@dimen/bar_padding"
 		android:scrollbars="none">
 
 		<LinearLayout

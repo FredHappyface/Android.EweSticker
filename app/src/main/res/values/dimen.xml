@@ -16,4 +16,14 @@
 	<dimen name="corner">16dp</dimen>
 	<dimen name="pack_dimens">40dp</dimen>
 	<dimen name="sticker_padding">4dp</dimen>
+	<dimen name="sticker_corner">14dp</dimen>
+	<dimen name="pack_corner">18dp</dimen>
+	<dimen name="preview_corner">28dp</dimen>
+	<dimen name="bar_padding">6dp</dimen>
+	<dimen name="header_spacing">0.08</dimen>
+	<!-- Drag-to-resize handle. The strip is deliberately taller than the grabber it draws so the
+	     touch target clears the ~48dp guidance once the pack bar below it is counted. -->
+	<dimen name="resize_handle_height">20dp</dimen>
+	<dimen name="resize_grabber_width">40dp</dimen>
+	<dimen name="resize_grabber_height">4dp</dimen>
 </resources>

@@ -44,9 +44,7 @@
     <string name="links_text">- EweSticker 的源代码可在 https://github.com/FredHappyface/Android.EweSticker 上获得\n\n- 教程将逐步引导您开始使用该软件。如果您是新手，请从这里开始: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials\n\n- 帮助指南提供了一个起点，并概述了您可能遇到的常见问题: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help\n\n- MIT 许可证\n（有关更多信息，请参阅许可证 https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md）</string>
     <!-- 交互消息 -->
     <string name="version_heading">信息</string>
-    <string name="pref_000">首选项已更改。重新加载键盘以应用设置</string>
     <string name="imported_010">开始导入。这可能需要一些时间！</string>
-    <string name="imported_020">已导入 %1$d 个贴纸。重新加载键盘以显示新贴纸</string>
     <string name="imported_034">E034: 重新加载贴纸失败，请尝试选择贴纸源目录</string>
     <string name="fallback_041">E041: 在转换贴纸时发生意外的 IOException</string>
     <!-- Keyboard -->

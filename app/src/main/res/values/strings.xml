@@ -3,6 +3,13 @@
 	<string name="app_name" translatable="false">EweSticker</string>
 	<string name="pack_icon">Pack icon</string>
 	<string name="sticker_icon">Sticker icon</string>
+	<string name="delete_sticker">Delete this sticker</string>
+	<string name="delete_confirm">Tap again to delete this sticker</string>
+	<string name="delete_done">Deleted from your sticker folder</string>
+	<string name="delete_failed">Could not delete that sticker, see the logs</string>
+	<string name="favourite_toggle">Star or unstar this sticker</string>
+	<string name="favourite_added">Starred, find it in the star tab</string>
+	<string name="favourite_removed">Unstarred</string>
 	<string name="close_sticker_preview">[tap to close sticker preview]</string>
 	<!-- Enable Keyboard -->
 	<string name="enable_keyboard_heading">Enable Keyboard</string>
@@ -11,12 +18,35 @@
 	<string name="update_sticker_pack_heading">Update Sticker Pack</string>
 	<string name="update_sticker_pack_button">Choose sticker source directory</string>
 	<string name="reload_sticker_pack_button">Reload stickers</string>
+	<string name="full_reimport_button">Full re-import (rebuild everything)</string>
 	<string name="update_sticker_pack_info">Current loaded sticker packs information: </string>
 	<string name="update_sticker_pack_info_path_lbl">- Path: </string>
 	<string name="update_sticker_pack_info_path">Not Set</string>
 	<string name="update_sticker_pack_info_date_lbl">- Date: </string>
 	<string name="update_sticker_pack_info_date">Never</string>
 	<string name="update_sticker_pack_info_total_lbl">- Total: </string>
+	<!-- Library -->
+	<string name="library_heading">Library</string>
+	<string name="library_scanning">Reading library…</string>
+	<string name="library_empty">No stickers imported yet</string>
+	<string name="library_summary">%1$d stickers in %2$d packs (%3$s)</string>
+	<string name="library_animated">%1$d animated, %2$d with a GIF version (%3$s)</string>
+	<string name="library_all_covered">Every animated sticker has a GIF version</string>
+	<plurals name="library_missing">
+		<item quantity="one">%1$d animated sticker has no GIF version, so it arrives as a still image in apps that only accept GIF</item>
+		<item quantity="other">%1$d animated stickers have no GIF version, so they arrive as still images in apps that only accept GIF</item>
+	</plurals>
+	<string name="library_generate_button">Generate missing GIF versions</string>
+	<string name="library_delete_button">Delete GIF versions</string>
+	<string name="library_delete_title">Delete GIF versions?</string>
+	<string name="library_delete_message">This frees %1$s. Animated stickers will arrive as still images in apps that only accept GIF until you generate them again.</string>
+	<string name="library_delete_confirm">Delete</string>
+	<string name="library_deleted">Deleted GIF versions, freed %1$s</string>
+	<string name="library_generated">Generated %1$d GIF version(s)</string>
+	<string name="library_failed">Something went wrong reading or changing the library, see the logs</string>
+	<string name="library_generate_failed">Could not generate any GIF versions, see the logs</string>
+	<string name="library_generated_partial">Generated %1$d of %2$d GIF versions, the rest failed</string>
+	<string name="library_nothing_to_generate">Every animated sticker already has a GIF version</string>
 	<!-- Options -->
 	<string name="options_heading">Options</string>
 	<string name="options_show_back_button">Show back button in navbar</string>
@@ -27,6 +57,9 @@
 	<string name="options_scroll">Enable swipe between packs (perpendicular to scroll direction)</string>
 	<string name="options_insensitive_sort">Enable case-insensitive pack sorting</string>
 	<string name="options_png_fallback">Enable PNG sticker fallback if sticker format isn\'t supported</string>
+	<string name="options_continuous_scroll">Scroll through every pack in one list, with a heading per pack (vertical layout only)</string>
+	<string name="options_animate_grid">Play animated stickers in the grid. Turning this off shows a still frame instead, which scrolls faster and uses less battery</string>
+	<string name="options_generate_gifs">Make GIF versions of animated stickers, so they still animate in apps that only accept GIF (slows down importing)</string>
 	<string name="options_icons_per_x_lbl">"Number of Rows: "</string>
 	<string name="options_icon_size_status_lbl">"Icon size: "</string>
 	<!-- Info -->
@@ -75,14 +108,20 @@ Copyright © Randy Zhou</string>
 	<string name="logs_heading">Logs</string>
 	<string name="logs_button">Get log file</string>
 	<!-- Interactive Messages -->
-	<string name="pref_000">Preferences changed. Reload the keyboard for settings to apply</string>
+	<string name="pref_000">Preferences saved</string>
 	<string name="imported_010">Starting import. This might take some time!</string>
-	<string name="imported_020">Imported %1$d stickers. Reload the keyboard for new stickers to show</string>
+	<string name="imported_020">Imported %1$d stickers</string>
 	<string name="imported_031">E031: Found more than %1$d stickers in total</string>
 	<string name="imported_032">E032: Found more than %1$d stickers in pack (%2$s)</string>
 	<string name="imported_033">E033: Unsupported format found (%1$s, file: %2$s/%3$s)</string>
 	<string name="imported_034">E034: Reloading stickers failed, try choosing a sticker source directory</string>
+	<string name="imported_035">Making GIF versions of %1$d animated stickers, this takes a while</string>
+	<string name="imported_036">Could not read the sticker folder properly, so nothing was removed. Use Full re-import if the library looks wrong.</string>
 	<string name="fallback_041">E041: Unexpected IOException when converting sticker</string>
+	<string name="fallback_animation">Sent as an image, this app can\'t show animation</string>
+	<string name="fallback_converting">Making a GIF version of this sticker…</string>
+	<string name="fallback_no_gif">Sent as an image, no GIF version of this sticker yet</string>
 	<!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s (Pack: %2$s)</string>
+	<string name="resize_handle">Drag to change the keyboard height</string>
 </resources>

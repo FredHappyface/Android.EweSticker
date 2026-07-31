@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="surface_bar">#232827</color>
+	<color name="selection_container">#00504f</color>
+	<color name="on_selection_container">#9df0ee</color>
+	<color name="outline">#899391</color>
+	<color name="ripple">#440fa3a2</color>
+	<color name="scrim">#b3000000</color>
+</resources>

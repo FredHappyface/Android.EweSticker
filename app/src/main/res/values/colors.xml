@@ -4,4 +4,13 @@
 	<color name="accent_a">#880fa3a2</color>
 	<color name="transparent">#0000</color>
 	<color name="onAccent">#e6e6e6</color>
+
+	<!-- Keyboard surfaces. Overridden in values-v31 with the system palette, so on Android 12 and
+	     later the keyboard takes its colours from the user's wallpaper like the rest of the system. -->
+	<color name="surface_bar">#eef3f2</color>
+	<color name="selection_container">#b6e7e5</color>
+	<color name="on_selection_container">#00201f</color>
+	<color name="outline">#6f7978</color>
+	<color name="ripple">#330fa3a2</color>
+	<color name="scrim">#99000000</color>
 </resources>

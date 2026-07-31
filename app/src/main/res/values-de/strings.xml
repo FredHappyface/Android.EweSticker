@@ -44,9 +44,7 @@
     <string name="links_text">- Der Quellcode für EweSticker ist verfügbar unter https://github.com/FredHappyface/Android.EweSticker\n\n- Die Tutorials führen dich schrittweise durch eine Reihe von Schritten, um die Software zu verwenden. Starte hier, wenn du neu bist: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials\n\n- Der Hilfsleitfaden bietet einen Ausgangspunkt und erläutert häufig auftretende Probleme, die auftreten können: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help\n\n- MIT Lizenz\n(Siehe die Lizenz für weitere Informationen https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <!-- Interaktive Nachrichten -->
     <string name="version_heading">Details zum Artikel</string>
-    <string name="pref_000">Einstellungen geändert. Lade die Tastatur neu, damit die Einstellungen wirksam werden</string>
     <string name="imported_010">Import wird gestartet. Dies könnte einige Zeit dauern!</string>
-    <string name="imported_020">%1$d Sticker importiert. Lade die Tastatur neu, um neue Sticker anzuzeigen</string>
     <string name="imported_034">E034: Neuladen der Sticker fehlgeschlagen, versuche ein Sticker-Quellverzeichnis auszuwählen</string>
     <string name="fallback_041">E041: Unerwarteter IOException beim Konvertieren des Stickers</string>
     <!-- Keyboard -->

@@ -43,9 +43,7 @@
     <string name="links_text">- EweSticker का स्रोत कोड https://github.com/FredHappyface/Android.EweSticker पर उपलब्ध है\n\n- यदि आप नए हैं, तो यह सॉफ़्टवेयर उपयोग करना शुरू करने के लिए एक सीरीज के स्टेप्स के माध्यम से जाते हैं: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials\n\n- सहायता गाइड एक शुरुआती पॉइंट प्रदान करता है और आपके पास सामान्य समस्याएँ को आउटलाइन करता है जो आपके पास हो सकती हैं: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help\n\n- MIT लाइसेंस\n(अधिक जानकारी के लिए लाइसेंस देखें https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <!-- Interactive Messages -->
     <string name="version_heading">संस्करण की जानकारी</string>
-    <string name="pref_000">प्राथमिकताएँ बदल गईं। सेटिंग्स को लागू करने के लिए कीबोर्ड को पुनः लोड करें</string>
     <string name="imported_010">आयात शुरू हुआ। इसमें कुछ समय लग सकता है!</string>
-    <string name="imported_020">%1$d स्टिकर्स का आयात हुआ। नए स्टिकर्स दिखाने के लिए कीबोर्ड को पुनः लोड करें</string>
     <string name="imported_034">E034: स्टिकर्स को पुनः लोड करने में विफलता हुई, कृपया स्टिकर स्रोत निर्दिष्ट करने का प्रयास करें</string>
     <string name="fallback_041">E041: स्टिकर कन्वर्ट करते समय अप्रत्याशित IOException</string>
     <!-- Keyboard -->

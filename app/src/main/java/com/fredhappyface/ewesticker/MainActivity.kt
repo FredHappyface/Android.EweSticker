@@ -18,12 +18,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.preference.PreferenceManager
 import com.elvishew.xlog.XLog
+import com.fredhappyface.ewesticker.utilities.GifVariantGenerator
+import com.fredhappyface.ewesticker.utilities.LibraryScanner
 import com.fredhappyface.ewesticker.utilities.StickerImporter
 import com.fredhappyface.ewesticker.utilities.Toaster
 import com.fredhappyface.ewesticker.utilities.startLogger
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import io.noties.markwon.Markwon
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -82,9 +88,12 @@ class MainActivity : AppCompatActivity() {
 			findViewById<SeekBar>(R.id.iconSizeSb).isEnabled = !isChecked
 		}
 		toggle(findViewById(R.id.restoreOnClose), "restoreOnClose", false) {}
+		toggle(findViewById(R.id.continuousScroll), "continuousScroll", true) {}
 		toggle(findViewById(R.id.scroll), "scroll", false) {}
 		toggle(findViewById(R.id.insensitive_sort), "insensitiveSort", false) {}
 		toggle(findViewById(R.id.pngFallback), "isPngFallback", true) {}
+		toggle(findViewById(R.id.animateGrid), "animateGrid", false) {}
+		toggle(findViewById(R.id.generateGifs), "generateGifVariants", false) {}
 
 		val versionText: TextView = findViewById(R.id.versionText)
 		var version = getString(R.string.version_text)
@@ -189,6 +198,246 @@ class MainActivity : AppCompatActivity() {
 	 *
 	 * @param ignoredView: View
 	 */
+	/**
+	 * The library operation currently running, if any. Importing, generating and deleting all walk
+	 * the same two trees, so exactly one of them may run at a time: a delete landing in the middle of
+	 * a generation wipes files it is still writing, and a second generation started from a re-enabled
+	 * button converts everything twice into the same place.
+	 */
+	private var libraryJob: Job? = null
+
+	/** The newest stats scan, so a slow earlier one cannot paint over a newer result */
+	private var scanJob: Job? = null
+
+	private val libraryBusy: Boolean
+		get() = libraryJob?.isActive == true
+
+	/** Every control that mutates or reports on the library, so busy state is applied in one place */
+	private fun libraryButtons(): List<Button> = listOfNotNull(
+		findViewById(R.id.updateStickerPackInfoBtn),
+		findViewById(R.id.reloadStickerPackInfoBtn),
+		findViewById(R.id.fullReimportBtn),
+		findViewById(R.id.generateVariantsBtn),
+		findViewById(R.id.deleteVariantsBtn),
+	)
+
+	/**
+	 * Run a library operation, with every button disabled for its duration and restored afterwards
+	 * whatever happens. Refuses to start a second one.
+	 *
+	 * @param progressBar LinearProgressIndicator? shown while the work runs
+	 * @param work suspend () -> Unit the operation itself
+	 */
+	private fun runLibraryOperation(
+		progressBar: LinearProgressIndicator?,
+		work: suspend () -> Unit,
+	) {
+		if (libraryBusy) {
+			XLog.i("A library operation is already running, ignoring this one")
+			return
+		}
+		libraryButtons().forEach { it.isEnabled = false }
+		progressBar?.visibility = View.VISIBLE
+		libraryJob = lifecycleScope.launch(Dispatchers.IO) {
+			try {
+				work()
+			} catch (e: CancellationException) {
+				throw e
+			} catch (e: Throwable) {
+				// Without this the exception reaches the uncaught handler and takes the app with it,
+				// leaving the buttons disabled and the progress bar spinning on the way out.
+				XLog.e("A library operation failed")
+				XLog.e(e)
+				withContext(Dispatchers.Main) { toaster.toast(getString(R.string.library_failed)) }
+			} finally {
+				withContext(NonCancellable + Dispatchers.Main) {
+					// Cleared first: a job is still active inside its own finally, so leaving this set
+					// would make the refresh below treat the library as busy and keep every button off.
+					libraryJob = null
+					progressBar?.visibility = View.GONE
+					refreshLibraryStats()
+				}
+			}
+		}
+	}
+
+	override fun onResume() {
+		super.onResume()
+		refreshLibraryStats()
+	}
+
+	/** Re-measure the library and redraw the Library card */
+	private fun refreshLibraryStats() {
+		val summary = findViewById<TextView>(R.id.librarySummary)
+		val animatedLine = findViewById<TextView>(R.id.libraryAnimated)
+		val coverage = findViewById<TextView>(R.id.libraryCoverage)
+		val generate = findViewById<Button>(R.id.generateVariantsBtn)
+		val delete = findViewById<Button>(R.id.deleteVariantsBtn)
+
+		// Every button, not just the two below: runLibraryOperation disables all of them, so this is
+		// the single place that puts them back.
+		val busy = libraryBusy
+		findViewById<Button>(R.id.updateStickerPackInfoBtn).isEnabled = !busy
+		findViewById<Button>(R.id.reloadStickerPackInfoBtn).isEnabled = !busy
+		findViewById<Button>(R.id.fullReimportBtn).isEnabled = !busy
+
+		// Cancel any scan still running: on a slow library an older one can finish after a newer one
+		// and repaint the card with counts that are already out of date.
+		scanJob?.cancel()
+		scanJob = lifecycleScope.launch(Dispatchers.IO) {
+			// Stats every sticker and sniffs each one's header, so not on the main thread.
+			val stats = try {
+				LibraryScanner.scan(filesDir)
+			} catch (e: CancellationException) {
+				throw e
+			} catch (e: Throwable) {
+				XLog.e("Could not read the library")
+				XLog.e(e)
+				null
+			}
+			withContext(Dispatchers.Main) {
+				if (stats == null) {
+					summary.text = getString(R.string.library_failed)
+					return@withContext
+				}
+				if (stats.isEmpty) {
+					summary.text = getString(R.string.library_empty)
+					animatedLine.text = ""
+					coverage.text = ""
+					generate.isEnabled = false
+					delete.isEnabled = false
+					return@withContext
+				}
+				summary.text = getString(
+					R.string.library_summary,
+					stats.stickers,
+					stats.packs,
+					LibraryScanner.formatBytes(stats.stickerBytes),
+				)
+				animatedLine.text = getString(
+					R.string.library_animated,
+					stats.animated,
+					stats.withVariant,
+					LibraryScanner.formatBytes(stats.variantBytes),
+				)
+				coverage.text = if (stats.missingVariants > 0) {
+					resources.getQuantityString(
+						R.plurals.library_missing,
+						stats.missingVariants,
+						stats.missingVariants,
+					)
+				} else if (stats.animated > 0) {
+					getString(R.string.library_all_covered)
+				} else {
+					""
+				}
+				// Enablement has to account for work in flight, not just what is on disk: coming back
+				// to this screen mid-generation would otherwise offer both buttons again.
+				generate.isEnabled = stats.missingVariants > 0 && !libraryBusy
+				delete.isEnabled = stats.variantBytes > 0 && !libraryBusy
+			}
+		}
+	}
+
+	/**
+	 * Generate GIF versions for animated stickers that do not have one.
+	 *
+	 * Reachable on its own rather than only as a side effect of importing, which used to mean
+	 * re-copying the whole library just to fill in a few missing GIFs.
+	 *
+	 * @param ignoredView: View
+	 */
+	fun generateVariants(ignoredView: View) {
+		val progressBar = findViewById<LinearProgressIndicator>(R.id.libraryProgressIndicator)
+		runLibraryOperation(progressBar) {
+			val result = GifVariantGenerator(baseContext, toaster, progressBar).generate(
+				File(filesDir, "stickers"),
+				File(filesDir, "variants"),
+			)
+			withContext(Dispatchers.Main) {
+				// Three outcomes, not two: a run where every conversion failed used to report that
+				// everything already had a GIF version, directly contradicting the card above it.
+				toaster.toast(
+					when {
+						result.pending == 0 -> getString(R.string.library_nothing_to_generate)
+						result.written == 0 -> getString(R.string.library_generate_failed)
+						result.written < result.pending -> getString(
+							R.string.library_generated_partial,
+							result.written,
+							result.pending,
+						)
+						else -> getString(R.string.library_generated, result.written)
+					},
+				)
+				bumpLibraryVersion()
+			}
+		}
+	}
+
+	/**
+	 * Delete every generated GIF version, after saying what that costs.
+	 *
+	 * @param ignoredView: View
+	 */
+	fun deleteVariants(ignoredView: View) {
+		if (libraryBusy) {
+			return
+		}
+		// Disabled straight away: raising the dialog is asynchronous, so two quick taps used to stack
+		// two of them, the second quoting space the first had already freed.
+		findViewById<Button>(R.id.deleteVariantsBtn).isEnabled = false
+		lifecycleScope.launch(Dispatchers.IO) {
+			val stats = LibraryScanner.scan(filesDir)
+			withContext(Dispatchers.Main) {
+				if (isFinishing || isDestroyed) {
+					return@withContext
+				}
+				MaterialAlertDialogBuilder(this@MainActivity)
+					.setTitle(R.string.library_delete_title)
+					.setMessage(
+						getString(
+							R.string.library_delete_message,
+							LibraryScanner.formatBytes(stats.variantBytes),
+						),
+					)
+					.setNegativeButton(android.R.string.cancel) { _, _ -> refreshLibraryStats() }
+					.setOnCancelListener { refreshLibraryStats() }
+					.setPositiveButton(R.string.library_delete_confirm) { _, _ ->
+						runLibraryOperation(null) {
+							val bytes = LibraryScanner.deleteVariants(filesDir)
+							withContext(Dispatchers.Main) {
+								toaster.toast(
+									getString(
+										R.string.library_deleted,
+										LibraryScanner.formatBytes(bytes),
+									),
+								)
+								bumpLibraryVersion()
+							}
+						}
+					}
+					.show()
+			}
+		}
+	}
+
+	/**
+	 * Rebuild the library from scratch, discarding what was imported before.
+	 *
+	 * The normal import only touches what changed, which is what makes adding a pack quick. This is
+	 * the way back when the imported copy is suspected of being wrong rather than merely stale.
+	 *
+	 * @param ignoredView: View
+	 */
+	fun fullReimport(ignoredView: View) {
+		val stickerDirPath = this.sharedPreferences.getString("stickerDirPath", null)
+		if (stickerDirPath != null) {
+			importStickers(stickerDirPath, fullRebuild = true)
+		} else {
+			this.toaster.toast(getString(R.string.imported_034))
+		}
+	}
+
 	fun reloadStickers(ignoredView: View) {
 		val stickerDirPath = this.sharedPreferences.getString(
 			"stickerDirPath",
@@ -204,17 +453,17 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	/** Import files from storage to internal directory */
-	private fun importStickers(stickerDirPath: String) {
+	private fun importStickers(stickerDirPath: String, fullRebuild: Boolean = false) {
 		toaster.toast(getString(R.string.imported_010))
-		val button = findViewById<Button>(R.id.updateStickerPackInfoBtn)
-		val button2 = findViewById<Button>(R.id.reloadStickerPackInfoBtn)
 		val progressBar = findViewById<LinearProgressIndicator>(R.id.linearProgressIndicator)
-		button.isEnabled = false
-		button2.isEnabled = false
-
-		lifecycleScope.launch(Dispatchers.IO) {
+		runLibraryOperation(progressBar) {
 			val totalStickers =
-				StickerImporter(baseContext, toaster, progressBar).importStickers(stickerDirPath)
+				StickerImporter(
+					baseContext,
+					toaster,
+					progressBar,
+					backupSharedPreferences.getBoolean("generateGifVariants", false),
+				).importStickers(stickerDirPath, fullRebuild)
 
 			withContext(Dispatchers.Main) {
 				if (toaster.messages.size > 0) {
@@ -226,9 +475,8 @@ class MainActivity : AppCompatActivity() {
 				val editor = sharedPreferences.edit()
 				editor.putInt("numStickersImported", totalStickers)
 				editor.apply()
+				bumpLibraryVersion()
 				refreshStickerDirPath()
-				button.isEnabled = true
-				button2.isEnabled = true
 			}
 		}
 	}
@@ -283,7 +531,10 @@ class MainActivity : AppCompatActivity() {
 			this.backupSharedPreferences.getInt(sharedPrefKey, sharedPrefDefault) / multiplier
 		seekBar.setOnSeekBarChangeListener(
 			object : OnSeekBarChangeListener {
-				var progressMultiplier = sharedPrefDefault
+				// Seeded from what is stored, not the default: onProgressChanged only fires when the
+				// value actually moves, so a touch that does not move it used to save the default.
+				var progressMultiplier =
+					backupSharedPreferences.getInt(sharedPrefKey, sharedPrefDefault)
 				override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
 					progressMultiplier = progress * multiplier
 					seekBarLabel.text = progressMultiplier.toString()
@@ -316,8 +567,23 @@ class MainActivity : AppCompatActivity() {
 
 	/** Reusable function to warn about changing preferences */
 	private fun showChangedPrefText() {
+		bumpLibraryVersion()
 		this.toaster.toast(
 			getString(R.string.pref_000),
 		)
+	}
+
+	/**
+	 * Record that something the keyboard reads has changed. A running keyboard compares this against
+	 * the generation it applied and reloads on its next input field, so nothing here needs the user
+	 * to restart the keyboard by hand.
+	 */
+	private fun bumpLibraryVersion() {
+		val editor = this.backupSharedPreferences.edit()
+		editor.putInt(
+			"libraryVersion",
+			this.backupSharedPreferences.getInt("libraryVersion", 0) + 1,
+		)
+		editor.apply()
 	}
 }

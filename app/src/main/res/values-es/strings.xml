@@ -44,9 +44,7 @@
     <string name="links_text">- El código fuente de EweSticker está disponible en https://github.com/FredHappyface/Android.EweSticker\n\n- Los tutoriales te llevan de la mano a través de una serie de pasos para empezar a usar el software. Empiece aquí si es nuevo: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials\n\n- La guía de ayuda proporciona un punto de partida y esboza los problemas comunes que usted puede tener: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help\n\n- Licencia MIT\n(Vea la licencia para más información https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <!-- Interactive Messages -->
     <string name="version_heading">Versión</string>
-    <string name="pref_000">Preferencias modificadas. Vuelva a cargar el teclado para que se apliquen los ajustes</string>
     <string name="imported_010">Comenzando la importación. ¡Esto puede llevar algún tiempo!</string>
-    <string name="imported_020">Importado %1$d stickers. Recargar el teclado para que se muestren los nuevos stickers</string>
     <string name="imported_034">E034: Falló la recarga de stickers, intente elegir un directorio de origen de los stickers</string>
     <string name="fallback_041">E041: IOException inesperado al convertir el sticker</string>
     <!-- Keyboard -->

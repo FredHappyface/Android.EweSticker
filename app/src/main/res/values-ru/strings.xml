@@ -43,9 +43,7 @@
     <string name="links_text">- Исходный код EweSticker доступен по адресу https://github.com/FredHappyface/Android.EweSticker\n\n- Учебники предоставляют пошаговые инструкции по началу работы с программным обеспечением. Начните с этого, если вы новичок: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/tutorials\n\n- Руководство помощи предоставляет отправную точку и описывает общие проблемы, с которыми вы можете столкнуться: https://github.com/FredHappyface/Android.EweSticker/blob/main/documentation/help\n\n- Лицензия MIT\n(См. лицензию для получения дополнительной информации по адресу https://github.com/FredHappyface/Android.EweSticker/blob/main/LICENSE.md )</string>
     <!-- Интерактивные сообщения -->
     <string name="version_heading">Версия</string>
-    <string name="pref_000">Изменены настройки. Перезагрузите клавиатуру, чтобы настройки вступили в силу</string>
     <string name="imported_010">Начало импорта. Это может занять некоторое время!</string>
-    <string name="imported_020">Импортировано %1$d стикеров. Перезагрузите клавиатуру, чтобы отобразить новые стикеры</string>
     <string name="imported_034">E034: Перезагрузка стикеров не удалась, попробуйте выбрать каталог источника стикеров</string>
     <string name="fallback_041">E041: Неожиданная ошибка ввода-вывода при преобразовании стикера</string>
     <!-- Keyboard -->
