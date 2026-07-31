@@ -137,12 +137,67 @@
 						android:text="@string/reload_sticker_pack_button"
 						app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
 
+					<Button
+						android:id="@+id/fullReimportBtn"
+						style="@style/button"
+						android:onClick="fullReimport"
+						android:text="@string/full_reimport_button"
+						app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
+
 					<com.google.android.material.progressindicator.LinearProgressIndicator
 						android:id="@+id/linearProgressIndicator"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
 						android:visibility="gone" />
 
+				</LinearLayout>
+			</com.google.android.material.card.MaterialCardView>
+			<!-- Library -->
+			<com.google.android.material.card.MaterialCardView style="@style/card">
+
+				<LinearLayout
+					style="@style/cardchild"
+					android:orientation="vertical">
+
+					<TextView
+						style="@style/heading"
+						android:text="@string/library_heading" />
+
+					<TextView
+						android:id="@+id/librarySummary"
+						style="@style/body_text"
+						android:text="@string/library_scanning" />
+
+					<TextView
+						android:id="@+id/libraryAnimated"
+						style="@style/body_text"
+						android:text="" />
+
+					<TextView
+						android:id="@+id/libraryCoverage"
+						style="@style/body_text"
+						android:paddingBottom="@dimen/content_margin"
+						android:text="" />
+
+					<Button
+						android:id="@+id/generateVariantsBtn"
+						style="@style/button"
+						android:onClick="generateVariants"
+						android:text="@string/library_generate_button"
+						app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
+
+					<Button
+						android:id="@+id/deleteVariantsBtn"
+						style="@style/button"
+						android:onClick="deleteVariants"
+						android:text="@string/library_delete_button"
+						app:shapeAppearance="?attr/shapeAppearanceSmallComponent" />
+
+					<com.google.android.material.progressindicator.LinearProgressIndicator
+						android:id="@+id/libraryProgressIndicator"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:visibility="gone" />
 				</LinearLayout>
 			</com.google.android.material.card.MaterialCardView>
 			<!-- Options -->
@@ -231,6 +286,20 @@
 						android:orientation="horizontal">
 
 						<CheckBox
+							android:id="@+id/continuousScroll"
+							style="@style/checkbox" />
+
+						<TextView
+							style="@style/body_text"
+							android:paddingBottom="@dimen/content_margin"
+							android:text="@string/options_continuous_scroll" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<CheckBox
 							android:id="@+id/scroll"
 							style="@style/checkbox" />
 
@@ -266,6 +335,34 @@
 							style="@style/body_text"
 							android:paddingBottom="@dimen/content_margin"
 							android:text="@string/options_png_fallback" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<CheckBox
+							android:id="@+id/animateGrid"
+							style="@style/checkbox" />
+
+						<TextView
+							style="@style/body_text"
+							android:paddingBottom="@dimen/content_margin"
+							android:text="@string/options_animate_grid" />
+					</LinearLayout>
+
+					<LinearLayout
+						style="@style/widthMatchHeightWrap"
+						android:orientation="horizontal">
+
+						<CheckBox
+							android:id="@+id/generateGifs"
+							style="@style/checkbox" />
+
+						<TextView
+							style="@style/body_text"
+							android:paddingBottom="@dimen/content_margin"
+							android:text="@string/options_generate_gifs" />
 					</LinearLayout>
 
 					<LinearLayout

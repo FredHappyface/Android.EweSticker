@@ -1,12 +1,9 @@
 package com.fredhappyface.ewesticker.adapter
 
-import android.os.Build
 import android.view.GestureDetector
-import android.view.HapticFeedbackConstants
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.fredhappyface.ewesticker.R
 import com.fredhappyface.ewesticker.utilities.StickerClickListener
 import com.fredhappyface.ewesticker.view.StickerPackViewHolder
@@ -18,6 +15,7 @@ class StickerPackAdapter(
 	private val listener: StickerClickListener,
 	private val gestureDetector: GestureDetector,
 	private val vibrate: Boolean,
+	private val animate: Boolean,
 ) :
 
 	RecyclerView.Adapter<StickerPackViewHolder>() {
@@ -29,26 +27,7 @@ class StickerPackAdapter(
 	}
 
 	override fun onBindViewHolder(holder: StickerPackViewHolder, position: Int) {
-		val stickerFile = stickers[position]
-		holder.stickerThumbnail.load(stickerFile)
-		holder.stickerThumbnail.layoutParams.height = iconSize
-		holder.stickerThumbnail.layoutParams.width = iconSize
-		holder.stickerThumbnail.tag = stickerFile
-		holder.stickerThumbnail.setOnClickListener {
-			val file = it.tag as File
-			if (vibrate && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
-				it.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_PRESS)
-			}
-			listener.onStickerClicked(file)
-		}
-		holder.stickerThumbnail.setOnLongClickListener {
-			val file = it.tag as File
-			listener.onStickerLongClicked(file)
-			return@setOnLongClickListener true
-		}
-		holder.stickerThumbnail.setOnTouchListener { _, event ->
-			return@setOnTouchListener gestureDetector.onTouchEvent(event)
-		}
+		holder.bindSticker(stickers[position], iconSize, vibrate, listener, gestureDetector, animate)
 	}
 
 	override fun getItemCount(): Int = stickers.size

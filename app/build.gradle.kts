@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
 	id("com.android.application")
 	id("kotlin-android")
@@ -54,6 +56,33 @@ android {
 		setProperty("archivesBaseName", "$applicationId-$versionName")
 	}
 
+	signingConfigs {
+		// A release build has to be signed to be installable at all. Put your own key details in
+		// keystore.properties (storeFile, storePassword, keyAlias, keyPassword) to sign with those;
+		// without that file this falls back to the standard debug key, which is fine for a build only
+		// ever sideloaded onto your own phone and has the advantage of installing over an existing
+		// debug build rather than making you uninstall and lose your imported stickers.
+		// Do not hand a debug-signed APK to anyone else.
+		create("sideload") {
+			val properties = Properties()
+			val keystoreFile = rootProject.file("keystore.properties")
+			if (keystoreFile.exists()) {
+				keystoreFile.inputStream().use { properties.load(it) }
+			}
+			if (properties.isEmpty) {
+				storeFile = File(System.getProperty("user.home"), ".android/debug.keystore")
+				storePassword = "android"
+				keyAlias = "androiddebugkey"
+				keyPassword = "android"
+			} else {
+				storeFile = rootProject.file(properties.getProperty("storeFile"))
+				storePassword = properties.getProperty("storePassword")
+				keyAlias = properties.getProperty("keyAlias")
+				keyPassword = properties.getProperty("keyPassword")
+			}
+		}
+	}
+
 	buildTypes {
 		getByName("debug") {
 			versionNameSuffix = "-debug"
@@ -61,6 +90,7 @@ android {
 		getByName("release") {
 			proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
 			isMinifyEnabled = false
+			signingConfig = signingConfigs.getByName("sideload")
 		}
 	}
 
@@ -84,6 +114,7 @@ dependencies {
 	implementation("androidx.gridlayout:gridlayout:1.0.0")
 	implementation("io.noties.markwon:core:4.6.2")
 	implementation("com.elvishew:xlog:1.11.1")
+	testImplementation("junit:junit:4.13.2")
 	androidTestImplementation("junit:junit:4.13.2")
 	androidTestImplementation("androidx.test:core:1.6.1")
 	androidTestImplementation("androidx.test.ext:junit:1.2.1")

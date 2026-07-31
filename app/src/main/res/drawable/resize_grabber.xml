@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The grab indicator inside the resize handle. Uses the outline role so it reads as chrome
+     rather than as something tappable like a pack icon. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="rectangle">
+	<solid android:color="@color/outline" />
+	<corners android:radius="@dimen/resize_grabber_height" />
+</shape>

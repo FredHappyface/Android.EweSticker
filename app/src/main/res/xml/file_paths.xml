@@ -3,4 +3,8 @@
 	<files-path
 		name="added_stickers"
 		path="stickers/" />
+	<!-- Alternate encodings of the above, for apps that cannot render the original format -->
+	<files-path
+		name="sticker_variants"
+		path="variants/" />
 </paths>

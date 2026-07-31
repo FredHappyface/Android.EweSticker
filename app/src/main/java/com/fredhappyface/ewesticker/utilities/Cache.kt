@@ -19,13 +19,21 @@ class Cache(private val capacity: Int = 30) {
 	 * @return
 	 */
 	fun add(elem: String): String? {
+		var evicted: String? = null
 		if (data.contains(elem)) {
 			data.remove(elem)
 		} else if (data.size >= capacity) {
-			return data.pollFirst()
+			// Returning here used to skip the insert below, so a full cache dropped an old entry
+			// without keeping the new one and never got back to capacity.
+			evicted = data.pollFirst()
 		}
 		data.offerLast(elem)
-		return null
+		return evicted
+	}
+
+	/** Forget an element, used when the sticker it points at has been deleted */
+	fun remove(elem: String) {
+		data.remove(elem)
 	}
 
 	/**

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The selected pack reads as a filled container behind the icon. Tinting the sticker image itself
+     was the old behaviour, which recoloured the artwork rather than indicating selection. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="rectangle">
+	<corners android:radius="@dimen/pack_corner" />
+	<solid android:color="@color/selection_container" />
+</shape>
