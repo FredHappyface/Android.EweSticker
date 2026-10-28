@@ -55,7 +55,7 @@
     <string name="imported_031">E031: Найдено более %1$d наклеек в общей сложности</string>
     <string name="imported_033">E033: Неподдерживаемый формат найден (%1$s, файл: %2$s/%3$s)</string>
     <string name="version_text" translatable="false">[отладка]</string>
-    <string name="options_png_fallback">Включить падальщик PNG, если формат наклейки не поддерживается</string>
+    <string name="options_png_fallback">Включить падальщик PNG, если не поддерживается формат наклейки</string>
     <string name="logs_heading">Журналы</string>
     <string name="logs_button">Получить файл журнала</string>
 </resources>
