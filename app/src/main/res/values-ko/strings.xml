@@ -52,7 +52,7 @@
     <!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s (팩: %2$s)</string>
     <string name="options_insensitive_sort">Enable case-insensitive pack 정렬</string>
-    <string name="imported_032">E032: 이상 발견 %1$d 스티커 팩 (%2$s)</string>
+    <string name="imported_032">E032: 팩에 있는 %1$d 스티커 보다는 더 많은 것을 찾아내십시오 (%2$s)</string>
     <string name="imported_031">E031: 전체에서 %1$d 스티커 이상 발견</string>
     <string name="imported_033">E033: 지원되지 않은 형식 (%1$s, 파일: %2$s/%3$s)</string>
     <string name="version_text" translatable="false">[디버그]</string>
