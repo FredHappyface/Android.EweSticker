@@ -51,12 +51,12 @@
     <string name="fallback_041">E041: 在转换贴纸时发生意外的 IOException</string>
     <!-- Keyboard -->
 	<string name="sticker_pack_info">%1$s（包: %2$s）</string>
-    <string name="options_insensitive_sort">采用对个案敏感的包装</string>
-    <string name="imported_032">E032:在包装(%2$s)中封顶超过%1$d的 stick子</string>
+    <string name="options_insensitive_sort">采用对案件敏感的包装</string>
+    <string name="imported_032">"E032:在包装(%2$s)中封顶超过%1$d  stick"</string>
     <string name="imported_031">E031: 创始者超过%1$d个</string>
     <string name="imported_033">E033:未证明格式(%1$s,档案:%2$s/%3$s)</string>
     <string name="version_text" translatable="false">[建议]</string>
-    <string name="options_png_fallback">如果贴标签格式得不到支持,PNG的贴标签就会减少</string>
+    <string name="options_png_fallback">如果贴标签格式没有得到支持,那么PNG的贴标签就会减少</string>
     <string name="logs_heading">记录</string>
     <string name="logs_button">2. 结木</string>
 </resources>
