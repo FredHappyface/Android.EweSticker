@@ -56,7 +56,7 @@
     <string name="imported_031">E031: Didirikan lebih dari %1$d stiker secara total</string>
     <string name="imported_033">E033: Format yang tidak didukung ditemukan (%1$s, file: %2$s / %3$s)</string>
     <string name="version_text" translatable="false">[url]</string>
-    <string name="options_png_fallback">Aktifkan PNG stiker fallback jika format stiker tidak didukung</string>
+    <string name="options_png_fallback">Enable PNG stiker fallback jika format stiker tidak didukung</string>
     <string name="logs_heading">Login</string>
     <string name="logs_button">Login</string>
 </resources>
