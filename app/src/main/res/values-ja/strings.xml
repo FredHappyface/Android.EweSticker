@@ -55,7 +55,7 @@
     <string name="imported_031">E031: %1$d ステッカーを合計で表示</string>
     <string name="imported_033">E033: 未サポートのフォーマットが見つかりませんでした (%1$s), ファイル: %2$s/%3$s)</string>
     <string name="version_text" translatable="false">[デバッグ]</string>
-    <string name="options_png_fallback">ステッカーフォーマットがサポートされていない場合、PNG ステッカーのフォールバックを有効にします</string>
+    <string name="options_png_fallback">ステッカーのフォーマットがサポートされていない場合、PNG ステッカーのフォールバックを有効にする</string>
     <string name="logs_heading">ログイン</string>
     <string name="logs_button">ログファイルの取得</string>
 </resources>

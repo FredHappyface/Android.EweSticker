@@ -57,6 +57,6 @@
     <string name="imported_033">E033: Nicht unterstütztes Format gefunden (%1$s, Datei: %2$s/%3$s)</string>
     <string name="version_text" translatable="false">(debug)</string>
     <string name="logs_heading">Logs</string>
-    <string name="logs_button">Log-Datei herunterladen</string>
+    <string name="logs_button">Logfile herunterladen</string>
     <string name="options_png_fallback">Aktivieren Sie PNG Sticker Fallback, wenn Aufkleberformat nicht unterstützt wird</string>
 </resources>
